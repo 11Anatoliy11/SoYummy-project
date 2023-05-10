@@ -16,7 +16,7 @@ export const App = () => {
       // }}
     >
       <PageTitleSection
-      text= "Add recipe"
+      text= "Shopping list"
       paddingBottom= "50px"
       />
     </div>

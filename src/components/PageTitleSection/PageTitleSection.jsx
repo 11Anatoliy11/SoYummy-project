@@ -3,19 +3,18 @@ import { ReactComponent as Rectangle } from '../../images/svg/rectangle.svg';
 import { ReactComponent as Sphere } from '../../images/svg/round.svg';
 
 export default function PageTitleSection({
-  text,
-  paddingBottom,
+  text
 }) {
   return (
     <>
     <TitleContainer>
-      <Title
-        paddingBottom={paddingBottom}>
+      <Title>
         {text}
       </Title>
-      <Rectangle/>
-      <Rectangle/>
-      <Sphere/>
+      <Rectangle className='firstRectangleIcon'/>
+      <Rectangle className='secondRectangleIcon'/>
+      <Sphere className='sphereIcon'/>
+      <Rectangle className='thirdRectangleIcon'/>
       </TitleContainer>
     </>
   );
