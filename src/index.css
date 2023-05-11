@@ -1,6 +1,13 @@
 @import-normalize;
 /* bring in normalize.css styles */
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&family=Poppins:wght@400;500;600;700&display=swap');
+:root {
+  --grey-color: #D9D9D9;
+  --green-color: #8BAA36;
+  --background-color: #ECECEC;
+  --subcribe-black-color: #1E1F28;
+  --search-black-color: #22252A;
+}
 
 body {
   margin: 0;
