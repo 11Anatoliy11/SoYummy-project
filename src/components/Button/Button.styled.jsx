@@ -1,22 +1,22 @@
 import styled from '@emotion/styled';
 
 const setBackgroundColor = props => {
-  if (props.backgroundColor==="#8BAA36") {
-    return '#22252A';
-  }else if(props.border !== "2px solid #FAFAFA"){
-    return '#8BAA36';
+  if (props.backgroundColor==="var(--green-color)") {
+    return 'var(--search-black-color)';
+  }else if(props.border !== "2px solid var(--background-color)"){
+    return 'var(--green-color)';
   }
   return props.backgroundColor;
 };
 const setBorderColor = props => {
-  if (props.border === "2px solid #FAFAFA") {
-    return '2px solid #8BAA36';
+  if (props.border === "2px solid var(--background-color)") {
+    return '2px solid var(--green-color)';
   }
   return props.border;
 };
 const setTextColor = props => {
-  if (props.border === "2px solid #FAFAFA") {
-    return '#8BAA36';
+  if (props.border === "2px solid var(--background-color)") {
+    return 'var(--green-color)';
   }
   return props.textColor;
 };
