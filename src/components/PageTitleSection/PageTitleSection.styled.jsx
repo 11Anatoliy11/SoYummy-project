@@ -16,7 +16,7 @@ export const TitleContainer = styled.div`
     left: 120px;
     width: 8px;
     height: 8px;
-    fill: #8baa36;
+    fill: var(--green-color);
     @media (min-width: 768px) {
       top: 21px;
       left: 219px;
@@ -34,7 +34,7 @@ export const TitleContainer = styled.div`
     left: 349px;
     width: 8px;
     height: 8px;
-    fill: #8baa36;
+    fill: var(--green-color);
     @media (min-width: 768px) {
       top: 34px;
       left: 726px;
@@ -65,7 +65,7 @@ export const TitleContainer = styled.div`
       top: 91px;
       left: 437px;
       display: block;
-      fill: #22252a;
+      fill: var(--search-black-color);
       width: 12px;
       height: 12px;
     }
@@ -84,7 +84,7 @@ export const Title = styled.h1`
   font-size: 28px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #001833;
+  color: var(--page-title-color);
 
   @media (min-width: 768px) {
     padding-top: 72px;
