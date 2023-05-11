@@ -7,6 +7,7 @@ export const Head = styled.div`
   min-width: 343px;
   min-height: 42px;
   padding: 12px 14px;
+  margin-bottom: 24px;
 
   background: var(--green-color);
   border-radius: 8px;
@@ -27,6 +28,10 @@ export const Wrapper = styled.div`
   gap: 18px;
 `;
 
+export const List = styled.ul`
+  margin-bottom: 50px;
+`;
+
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
@@ -34,7 +39,7 @@ export const Item = styled.li`
 
   min-width: 343px;
   min-height: 86px;
-  padding: 14px;
+  padding: 14px 29px 14px 14px;
 
   background: #ebf3d4;
   border-radius: 8px;
@@ -55,10 +60,16 @@ export const IngredientTitle = styled.span`
   color: #3e4462;
 `;
 
+export const ItemWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const Number = styled.div`
-  width: 62px;
-  height: 23px;
+  min-width: 40px;
+  min-height: 23px;
   padding: 4px;
+  margin-right: 28px;
 
   background: var(--green-color);
   border-radius: 4px;

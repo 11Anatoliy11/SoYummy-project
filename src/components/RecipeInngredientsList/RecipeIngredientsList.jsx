@@ -7,6 +7,8 @@ import {
   Item,
   Wrapper,
   Number,
+  ItemWrapper,
+  List,
 } from './RecipeIngredientsList.module';
 
 export default function RecipeIngredientsList() {
@@ -20,18 +22,19 @@ export default function RecipeIngredientsList() {
         </Wrapper>
       </Head>
       {/* Здесь мапнуть список ингридиентов */}
-      <div>
+
+      <List>
         <Item>
           <Ingredient>
             <img src="#" alt="" width="65px" height="65px" />
             <IngredientTitle>Salmon</IngredientTitle>
           </Ingredient>
-          <Wrapper>
+          <ItemWrapper>
             <Number>2 chopped</Number>
             <Checkbox></Checkbox>
-          </Wrapper>
+          </ItemWrapper>
         </Item>
-      </div>
+      </List>
     </div>
   );
 }

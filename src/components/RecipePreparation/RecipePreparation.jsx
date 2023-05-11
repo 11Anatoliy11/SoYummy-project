@@ -1,4 +1,11 @@
-import { Item, List, Number, Text, Title } from './RecipePreparation.module';
+import {
+  Image,
+  Item,
+  List,
+  Number,
+  Text,
+  Title,
+} from './RecipePreparation.module';
 
 export default function RecipePreparation() {
   return (
@@ -10,7 +17,7 @@ export default function RecipePreparation() {
           <Text>Season the salmon, then rub with oil.</Text>
         </Item>
       </List>
-      <img src="" alt="" width="100%" height="250px" />
+      <Image src="" alt="" width="100%" height="250px" />
     </div>
   );
 }

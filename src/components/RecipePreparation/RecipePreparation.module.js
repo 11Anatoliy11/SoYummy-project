@@ -47,3 +47,7 @@ export const Text = styled.p`
   letter-spacing: -0.02em;
   color: rgba(0, 0, 0, 0.8);
 `;
+
+export const Image = styled.img`
+  margin-bottom: 100px;
+`;

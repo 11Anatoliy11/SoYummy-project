@@ -3,9 +3,17 @@ import { ReactComponent as Clock } from '../../images/svg/clock.svg';
 import { Descr, Time, TimeWrap, Wrapper } from './RecipePageHero.module';
 import Button from 'components/Button/Button';
 
+import background from '../../images/m-vegetables.png';
+
 export default function RecipePageHero() {
   return (
-    <Wrapper>
+    <Wrapper
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+      }}
+    >
       <MainPageTitle />
       <Descr>
         Is a healthy salad recipe that’s big on nutrients and flavor. A moist,
