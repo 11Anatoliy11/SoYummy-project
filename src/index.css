@@ -8,6 +8,7 @@
   --subscribe-black-color: #1e1f28;
   --search-black-color: #22252a;
   --page-title-color: #001833;
+  --background-color: #fafafa;
 }
 
 body {
@@ -15,7 +16,7 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: var(--background-color);
 }
 
 code {
