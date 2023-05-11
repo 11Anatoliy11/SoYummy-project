@@ -19,7 +19,6 @@ export default function RecipePageHero() {
         border="1px solid var(--green-color)"
         borderRadius="24px 44px"
         text="Add to favorite recipes"
-        style={{ fontSize: '10px', lineHeight: 1.5 }}
       />
       <TimeWrap>
         <Clock width="14px" height="14px" style={{ fill: 'transparent' }} />
