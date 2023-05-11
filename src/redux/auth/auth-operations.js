@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 // eslint-disable-next-line
-import { setAuthHeader, clearAuthHeader } from 'axios/axiosService';
+import { setAuthHeader, clearAuthHeader } from 'apiService/axiosService';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
