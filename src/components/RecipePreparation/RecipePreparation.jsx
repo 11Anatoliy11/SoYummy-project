@@ -1,3 +1,16 @@
+import { Item, List, Number, Text, Title } from './RecipePreparation.module';
+
 export default function RecipePreparation() {
-  return <div>RecipePreparation</div>;
+  return (
+    <div>
+      <Title>RecipePreparation</Title>
+      <List>
+        <Item>
+          <Number>1</Number>
+          <Text>Season the salmon, then rub with oil.</Text>
+        </Item>
+      </List>
+      <img src="" alt="" width="100%" height="250px" />
+    </div>
+  );
 }
