@@ -1,4 +1,4 @@
-import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
+import RecipeIngredientsList from 'components/RecipeInngredientsList/RecipeIngredientsList';
 import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
 import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
 

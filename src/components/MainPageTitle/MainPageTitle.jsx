@@ -1,9 +1,9 @@
-// import Button from 'components/Button/Button';
+import { Title } from './MainPageTitle.module';
 
 export default function MainPageTitle() {
   return (
     <div>
-      <span>Dish title</span>
+      <Title>Dish title</Title>
     </div>
   );
 }
