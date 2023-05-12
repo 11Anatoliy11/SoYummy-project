@@ -1,4 +1,4 @@
-import { Loader } from 'components/Loader/Loader';
+import { Loader } from 'components/common';
 import { RecipeItem } from '../RecipeItem/RecipeItem';
 import { RecipesListContainer } from './RecipesList.styled'
 

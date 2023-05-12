@@ -13,6 +13,7 @@ export default function Button({
   textColor,
   filter,
   id,
+  className
 }) {
   return (
     <>
@@ -28,6 +29,7 @@ export default function Button({
         textColor={textColor}
         filter={filter}
         id={id}
+        className={className}
       >
         {text}
       </StyledBtn>
