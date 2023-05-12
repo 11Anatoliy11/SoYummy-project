@@ -1,6 +1,7 @@
-@import-normalize;
+/* @import-normalize; */
 /* bring in normalize.css styles */
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&family=Poppins:wght@400;500;600;700&display=swap');
+
 :root {
   --grey-color: #d9d9d9;
   --green-color: #8baa36;
@@ -11,11 +12,11 @@
 }
 
 body {
-  margin: 0;
+  /* padding: 18px 100px 50px 100px; */
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: var(--background-color);
 }
 
 code {

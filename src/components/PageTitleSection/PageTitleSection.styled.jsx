@@ -79,7 +79,7 @@ export const TitleContainer = styled.div`
 
 export const Title = styled.h1`
   padding-top: 50px;
-  padding-left: 16px;
+  padding-bottom: 50px;
   font-weight: 600;
   font-size: 28px;
   line-height: 1;
@@ -88,12 +88,12 @@ export const Title = styled.h1`
 
   @media (min-width: 768px) {
     padding-top: 72px;
-    padding-left: 32px;
+    padding-bottom: 97px;
     font-size: 32px;
   }
   @media (min-width: 1280px) {
     padding-top: 100px;
-    padding-left: 100px;
+    padding-bottom: 92px;
     font-size: 44px;
   }
 `;
