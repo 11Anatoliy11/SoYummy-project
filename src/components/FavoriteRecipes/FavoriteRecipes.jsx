@@ -29,9 +29,8 @@ export const FavoriteRecipes = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(paginationPage)
     dispatch(getFavoriteRecipes({ page: paginationPage, pageSize: per_page }));
-  }, [dispatch, paginationPage]);
+  }, [dispatch, paginationPage, per_page]);
 
   const pageIncrement = () => {
     setPaginationPage(prev => prev + 1);
