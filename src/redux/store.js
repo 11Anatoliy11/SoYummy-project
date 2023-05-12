@@ -15,13 +15,12 @@ import favoriteRecipesReducer from './favoriteRecipes/favoriteRecipesSlice';
 import { authReducer } from './auth/auth-slice';
 import { recipeReducer } from './recipes/recipe-slice';
 
-const middleware = [
-  ...getDefaultMiddleware({
+const middleware = getDefaultMiddleware =>
+  getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-  }),
-];
+  });
 
 const authPersistConfig = {
   key: 'auth',
@@ -29,9 +28,9 @@ const authPersistConfig = {
   whitelist: [],
 };
 const recipePresistConfig = {
-  key:'recipes',
+  key: 'recipes',
   storage,
-  whitelist:[]
+  whitelist: []
 }
 
 export const store = configureStore({
