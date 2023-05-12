@@ -29,7 +29,7 @@ export const App = () => {
         <Route
           path="main"
           element={
-            <PrivateRoute component={<MainPage/>} redirectTo={'/welcome'} />
+            <PrivateRoute component={<MainPage />} redirectTo={'/welcome'} />
           }
         />
         <Route
@@ -38,7 +38,7 @@ export const App = () => {
             <>
               <Navigate to="/categories/beef" replace />
               <PrivateRoute
-                component={<CategoriesLayout/>}
+                component={<CategoriesLayout />}
                 redirectTo={'/welcome'}
               />
             </>
@@ -47,33 +47,33 @@ export const App = () => {
           <Route
             path=":categoryName"
             element={
-              <PrivateRoute component={<CategoryPage/>} redirectTo={'/welcome'} />
+              <PrivateRoute component={<CategoryPage />} redirectTo={'/welcome'} />
             }
           />
         </Route>
         <Route
           path="add"
           element={
-            <PrivateRoute component={<AddRecipesPage/>} redirectTo={'/welcome'} />
+            <PrivateRoute component={<AddRecipesPage />} redirectTo={'/welcome'} />
           }
         />
         <Route
           path="my"
           element={
-            <PrivateRoute component={<MyRecipesPage/>} redirectTo={'/welcome'} />
+            <PrivateRoute component={<MyRecipesPage />} redirectTo={'/welcome'} />
           }
         />
         <Route
           path="favorite"
           element={
-            <PrivateRoute component={<FavoritePage/>} redirectTo={'/welcome'} />
+            <RestrictedRoute component={FavoritePage} redirectTo={'/welcome'} />
           }
         />
         <Route
           path="shopping-list"
           element={
             <PrivateRoute
-              component={<ShoppingListPage/>}
+              component={<ShoppingListPage />}
               redirectTo={'/welcome'}
             />
           }
@@ -81,7 +81,7 @@ export const App = () => {
         <Route
           path="search"
           element={
-            <PrivateRoute component={<SearchPage/>} redirectTo={'/welcome'} />
+            <PrivateRoute component={<SearchPage />} redirectTo={'/welcome'} />
           }
         />
         <Route path="*" element={<NotFound />} />
@@ -89,19 +89,19 @@ export const App = () => {
       <Route
         path="/welcome"
         element={
-          <RestrictedRoute component={<WelcomePage/>} redirectTo={'/main'} />
+          <RestrictedRoute component={<WelcomePage />} redirectTo={'/main'} />
         }
       />
       <Route
         path="/signin"
         element={
-          <RestrictedRoute component={<SigninPage/>} redirectTo={'/main'} />
+          <RestrictedRoute component={<SigninPage />} redirectTo={'/main'} />
         }
       />
       <Route
         path="/register"
         element={
-          <RestrictedRoute component={<RegisterPage/>} redirectTo={'/main'} />
+          <RestrictedRoute component={<RegisterPage />} redirectTo={'/main'} />
         }
       />
     </Routes>
