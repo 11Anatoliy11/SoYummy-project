@@ -1,3 +1,7 @@
+import { useState } from 'react';
+
+import ingredientsData from '../../mocks/ingredients.json';
+
 import {
   Checkbox,
   Head,
@@ -6,14 +10,17 @@ import {
   IngredientTitle,
   Item,
   Wrapper,
-  Number,
+  Measure,
   ItemWrapper,
   List,
+  Container,
 } from './RecipeIngredientsList.module';
 
-export default function RecipeIngredientsList() {
+export default function RecipeIngredientsList({ requiredIngredients }) {
+  const [ingredient, setIngredient] = useState(ingredientsData);
+
   return (
-    <div>
+    <Container>
       <Head>
         <HeadText>Ingredients</HeadText>
         <Wrapper>
@@ -21,20 +28,25 @@ export default function RecipeIngredientsList() {
           <HeadText>Add to list</HeadText>
         </Wrapper>
       </Head>
-      {/* Здесь мапнуть список ингридиентов */}
-
       <List>
-        <Item>
-          <Ingredient>
-            <img src="#" alt="" width="65px" height="65px" />
-            <IngredientTitle>Salmon</IngredientTitle>
-          </Ingredient>
-          <ItemWrapper>
-            <Number>2 chopped</Number>
-            <Checkbox></Checkbox>
-          </ItemWrapper>
-        </Item>
+        {requiredIngredients.map(({ id, measure }) => {
+          const { ttl, thb, desc } = ingredient.find(
+            ({ _id }) => _id.$oid === id.$oid
+          );
+          return (
+            <Item key={id.$oid}>
+              <Ingredient>
+                <img src={thb} alt={desc} width="65px" height="65px" />
+                <IngredientTitle>{ttl}</IngredientTitle>
+              </Ingredient>
+              <ItemWrapper>
+                <Measure>{measure}</Measure>
+                <Checkbox></Checkbox>
+              </ItemWrapper>
+            </Item>
+          );
+        })}
       </List>
-    </div>
+    </Container>
   );
 }

@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
 
+export const Container = styled.div`
+  padding: 0 16px;
+`;
+
 export const Title = styled.h2`
   margin-bottom: 28px;
 
@@ -13,6 +17,7 @@ export const Title = styled.h2`
 
 export const List = styled.ul`
   display: flex;
+  flex-direction: column;
   gap: 14px;
 
   margin-bottom: 40px;
@@ -20,7 +25,7 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
 `;
 
@@ -29,7 +34,8 @@ export const Number = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 21px;
+  min-width: 21px;
+  max-width: 70px;
   height: 21px;
   background-color: var(--green-color);
   border-radius: 50%;
@@ -48,6 +54,11 @@ export const Text = styled.p`
   color: rgba(0, 0, 0, 0.8);
 `;
 
-export const Image = styled.img`
+export const Image = styled.div`
   margin-bottom: 100px;
+  border-radius: 8px;
+  background-image: url(${props => props.src});
+  background-size: cover;
+  width: 100%;
+  height: 250px;
 `;

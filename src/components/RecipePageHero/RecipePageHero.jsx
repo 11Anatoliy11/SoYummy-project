@@ -5,7 +5,7 @@ import Button from 'components/Button/Button';
 
 import background from '../../images/m-vegetables.png';
 
-export default function RecipePageHero() {
+export default function RecipePageHero({ description, title, time }) {
   return (
     <Wrapper
       style={{
@@ -14,12 +14,8 @@ export default function RecipePageHero() {
         backgroundPosition: 'center center',
       }}
     >
-      <MainPageTitle />
-      <Descr>
-        Is a healthy salad recipe that’s big on nutrients and flavor. A moist,
-        pan seared salmon is layered on top of spinach, avocado, tomatoes, and
-        red onions. Then drizzled with a homemade lemon vinaigrette.
-      </Descr>
+      <MainPageTitle title={title} />
+      <Descr>{description}</Descr>
       <Button
         type="button"
         width="150px"
@@ -30,7 +26,7 @@ export default function RecipePageHero() {
       />
       <TimeWrap>
         <Clock width="14px" height="14px" style={{ fill: 'transparent' }} />
-        <Time>20 min</Time>
+        <Time>{time} min</Time>
       </TimeWrap>
     </Wrapper>
   );

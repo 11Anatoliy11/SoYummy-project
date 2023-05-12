@@ -1,4 +1,5 @@
 import {
+  Container,
   Image,
   Item,
   List,
@@ -7,17 +8,30 @@ import {
   Title,
 } from './RecipePreparation.module';
 
-export default function RecipePreparation() {
+export default function RecipePreparation({ instructions, thumb, title }) {
+  const instructionsArray = instructions.split('\r\n');
+  console.log(instructionsArray);
+
+  let counter = 0;
+
   return (
-    <div>
-      <Title>RecipePreparation</Title>
+    <Container>
+      <Title>Recipe Preparation</Title>
       <List>
-        <Item>
-          <Number>1</Number>
-          <Text>Season the salmon, then rub with oil.</Text>
-        </Item>
+        {instructionsArray.map((el, index) => {
+          if (el.trim() === '') {
+            return null;
+          }
+          counter += 1;
+          return (
+            <Item key={index}>
+              <Number>{counter}</Number>
+              <Text>{el}</Text>
+            </Item>
+          );
+        })}
       </List>
-      <Image src="" alt="" width="100%" height="250px" />
-    </div>
+      <Image src={thumb} alt={title} />
+    </Container>
   );
 }

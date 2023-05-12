@@ -1,9 +1,9 @@
 import { Title } from './MainPageTitle.module';
 
-export default function MainPageTitle() {
+export default function MainPageTitle({ title }) {
   return (
     <div>
-      <Title>Salmon Avocado Salad</Title>
+      <Title>{title}</Title>
     </div>
   );
 }

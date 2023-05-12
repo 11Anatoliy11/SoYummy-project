@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
 
+export const Container = styled.div`
+  padding: 0 16px;
+`;
+
 export const Head = styled.div`
   display: flex;
   justify-content: space-between;
@@ -39,10 +43,14 @@ export const Item = styled.li`
 
   min-width: 343px;
   min-height: 86px;
-  padding: 14px 29px 14px 14px;
+  padding: 10px 29px 10px 10px;
 
   background: #ebf3d4;
   border-radius: 8px;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
 `;
 
 export const Ingredient = styled.div`
@@ -65,8 +73,8 @@ export const ItemWrapper = styled.div`
   align-items: center;
 `;
 
-export const Number = styled.div`
-  min-width: 40px;
+export const Measure = styled.div`
+  min-width: 10px;
   min-height: 23px;
   padding: 4px;
   margin-right: 28px;
