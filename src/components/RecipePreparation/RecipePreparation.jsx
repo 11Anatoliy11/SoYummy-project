@@ -10,7 +10,6 @@ import {
 
 export default function RecipePreparation({ instructions, thumb, title }) {
   const instructionsArray = instructions.split('\r\n');
-  console.log(instructionsArray);
 
   let counter = 0;
 

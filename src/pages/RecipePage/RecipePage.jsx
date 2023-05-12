@@ -7,8 +7,7 @@ import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
 import recipesData from '../../mocks/recipes.json';
 
 export default function RecipePage() {
-  const [recipe, setRecipe] = useState(recipesData[35]);
-  console.log(`🚀 ~ RecipePage ~ recipe:`, recipe);
+  const [recipe, setRecipe] = useState(recipesData[145]);
 
   const { title, description, time, thumb, ingredients, instructions } = recipe;
 
