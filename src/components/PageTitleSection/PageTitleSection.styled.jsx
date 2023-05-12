@@ -13,43 +13,43 @@ export const TitleContainer = styled.div`
   .firstRectangleIcon {
     position: absolute;
     top: 12px;
-    left: 120px;
+    left: 104px;
     width: 8px;
     height: 8px;
     fill: var(--green-color);
     @media (min-width: 768px) {
       top: 21px;
-      left: 219px;
+      left: 187px;
       width: 14px;
       height: 14px;
     }
     @media (min-width: 1280px) {
       top: 52px;
-      left: 327px;
+      left: 297px;
     }
   }
   .secondRectangleIcon {
     position: absolute;
     top: 45px;
-    left: 349px;
+    right: 0px;
     width: 8px;
     height: 8px;
     fill: var(--green-color);
     @media (min-width: 768px) {
       top: 34px;
-      left: 726px;
+      left: 694px;
       width: 14px;
       height: 14px;
     }
     @media (min-width: 1280px) {
       top: 65px;
-      left: 1250px;
+      left: 1220px;
     }
   }
   .sphereIcon {
     position: absolute;
     top: 78px;
-    left: 247px;
+    left: 231px;
     width: 6px;
     height: 6px;
 
@@ -63,7 +63,7 @@ export const TitleContainer = styled.div`
     @media (min-width: 768px) {
       position: absolute;
       top: 91px;
-      left: 437px;
+      left: 405px;
       display: block;
       fill: var(--search-black-color);
       width: 12px;
@@ -72,7 +72,7 @@ export const TitleContainer = styled.div`
     @media (min-width: 1280px) {
       display: block;
       top: 135px;
-      left: 807px;
+      left: 777px;
     }
   }
 `;
