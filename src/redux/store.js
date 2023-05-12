@@ -15,12 +15,13 @@ import favoriteRecipesReducer from './favoriteRecipes/favoriteRecipesSlice';
 import { authReducer } from './auth/auth-slice';
 import { recipeReducer } from './recipes/recipe-slice';
 
-const middleware = getDefaultMiddleware =>
-  getDefaultMiddleware({
+const middleware = [
+  ...getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-  });
+  }),
+];
 
 const authPersistConfig = {
   key: 'auth',

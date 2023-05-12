@@ -20,7 +20,7 @@ import { scrollToTop } from '../utils/scrollToTop';
 export const FavoriteRecipes = () => {
   //улюблені рецепти
   const [paginationPage, setPaginationPage] = useState(1);
-  const [per_page, setPerPage] = useState(10);
+  const [per_page] = useState(10);
 
   const data = useSelector(selectFavRecipes);
   const total = useSelector(selectFavRecipesCount);
