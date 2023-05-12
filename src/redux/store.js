@@ -10,6 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import favoriteRecipesReducer from './favoriteRecipes/favoriteRecipesSlice';
 
 import { authReducer } from './auth/auth-slice';
 import { recipeReducer } from './recipes/recipe-slice';
@@ -28,15 +29,16 @@ const authPersistConfig = {
   whitelist: [],
 };
 const recipePresistConfig = {
-  key:'recipes',
+  key: 'recipes',
   storage,
-  whitelist:[]
+  whitelist: []
 }
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    recipes: persistReducer(recipePresistConfig,recipeReducer),
+    recipes: persistReducer(recipePresistConfig, recipeReducer),
+    favoriteRecipes: favoriteRecipesReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
