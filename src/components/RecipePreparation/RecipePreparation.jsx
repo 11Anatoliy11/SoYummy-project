@@ -9,7 +9,20 @@ import {
 } from './RecipePreparation.module';
 
 export default function RecipePreparation({ instructions, thumb, title }) {
-  const instructionsArray = instructions.split('\r\n');
+  let instructionsArray = [];
+
+  // Разделение инструкций по числам и символам
+  const stepSeparatedInstructions = instructions.split(/^\d+[.)]\s*/gm);
+
+  stepSeparatedInstructions.forEach(step => {
+    if (step.trim() === '') {
+      return;
+    }
+
+    // Разделение каждого шага по новым строкам
+    const lineSeparatedSteps = step.split('\n').map(el => el.trim());
+    instructionsArray = instructionsArray.concat(lineSeparatedSteps);
+  });
 
   let counter = 0;
 

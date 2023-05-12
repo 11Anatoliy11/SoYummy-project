@@ -74,10 +74,12 @@ export const ItemWrapper = styled.div`
 `;
 
 export const Measure = styled.div`
-  min-width: 10px;
+  min-width: 47px;
+  max-width: 70px;
   min-height: 23px;
   padding: 4px;
   margin-right: 28px;
+  text-align: center;
 
   background: var(--green-color);
   border-radius: 4px;
