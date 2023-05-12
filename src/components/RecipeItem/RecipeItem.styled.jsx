@@ -139,7 +139,7 @@ color: #3E4462;
     font-weight: 400;
     font-size: 10px;
     line-height: 15px;
-    color: #FAFAFA;
+    color: var(--background-color);
     @media (min-width: 768px) {
     font-size: 14px;
     line-height: 21px;

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RecipesList } from 'components/RecipesList/RecipesList';
@@ -10,12 +10,13 @@ import {
   selectFavIsLoading,
   selectFavRecipesCount
 } from 'redux/favoriteRecipes/favoriteRecipesSelectors';
-import { RecipesListPaginator } from 'components/RecipesListPaginator/RecipesListPaginator';
-import { useState } from 'react';
 import { toast } from 'react-toastify';
 import placeholder from '../../images/placeholder.webp';
 import { scrollToTop } from '../utils/scrollToTop';
+import 'react-responsive-pagination/themes/minimal.css';
+import { FavoriteRecipesContainer } from './FavoriteRecipes.styled';
 
+import { Paginator } from 'components/common'
 
 export const FavoriteRecipes = () => {
   //улюблені рецепти
@@ -24,6 +25,7 @@ export const FavoriteRecipes = () => {
 
   const data = useSelector(selectFavRecipes);
   const total = useSelector(selectFavRecipesCount);
+  const pagesCount = Math.trunc(total / per_page);
   const error = useSelector(selectFavError);
   const isLoading = useSelector(selectFavIsLoading);
   const dispatch = useDispatch();
@@ -32,21 +34,13 @@ export const FavoriteRecipes = () => {
     dispatch(getFavoriteRecipes({ page: paginationPage, pageSize: per_page }));
   }, [dispatch, paginationPage, per_page]);
 
-  const pageIncrement = () => {
-    setPaginationPage(prev => prev + 1);
-  };
-  const pageDecrement = () => {
-    setPaginationPage(prev => prev - 1);
-  };
-
   const handlePaginationClick = event => {
-    const buttonValue = Number(event.target.textContent);
     scrollToTop();
-    setPaginationPage(buttonValue);
+    setPaginationPage(event);
   };
 
   return (
-    <>
+    <FavoriteRecipesContainer id="favoriteRecipesContainer">
       {error &&
         toast.error('Something went wrong, please try again later', {
           autoClose: 3000,
@@ -61,14 +55,12 @@ export const FavoriteRecipes = () => {
             isLoading={isLoading}
           />
           {total > 0 && (
-            <RecipesListPaginator
-              current_page={paginationPage}
-              total={total}
-              per_page={per_page}
-              handlePaginationClick={handlePaginationClick}
-              pageIncrement={pageIncrement}
-              pageDecrement={pageDecrement}
-            />
+            <Paginator
+              parendContainerId="favoriteRecipesContainer"
+              currentPage={paginationPage}
+              pagesCout={pagesCount}
+              onPaginate={handlePaginationClick}>
+            </Paginator>
           )}
         </>
       ) : (
@@ -89,6 +81,6 @@ export const FavoriteRecipes = () => {
           </p>
         </div>
       )}
-    </>
+    </FavoriteRecipesContainer>
   );
 };
