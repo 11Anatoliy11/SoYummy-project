@@ -38,8 +38,8 @@ export const TitleContainer = styled.div`
     @media (min-width: 768px) {
       top: 34px;
       left: 694px;
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
     }
     @media (min-width: 1280px) {
       top: 65px;
@@ -66,20 +66,20 @@ export const TitleContainer = styled.div`
       left: 405px;
       display: block;
       fill: var(--search-black-color);
-      width: 12px;
-      height: 12px;
+      width: 15px;
+      height: 15px;
     }
     @media (min-width: 1280px) {
       display: block;
       top: 135px;
-      left: 777px;
+      left: 708px;
     }
   }
 `;
 
 export const Title = styled.h1`
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 5px;
   font-weight: 600;
   font-size: 28px;
   line-height: 1;
@@ -88,12 +88,12 @@ export const Title = styled.h1`
 
   @media (min-width: 768px) {
     padding-top: 72px;
-    padding-bottom: 97px;
+    /* padding-bottom: 97px; */
     font-size: 32px;
   }
   @media (min-width: 1280px) {
     padding-top: 100px;
-    padding-bottom: 92px;
+    /* padding-bottom: 92px; */
     font-size: 44px;
   }
 `;

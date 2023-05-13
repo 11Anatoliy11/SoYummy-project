@@ -31,7 +31,6 @@ export const SearchForm = () => {
   }
 
   return (
-    // <SearchFormContainer>
     <Form
       onSubmit={handleSubmit}
     >
@@ -42,9 +41,8 @@ export const SearchForm = () => {
       />
       <Button
         type="submit"
-        text="Search"
-      />
+      >Search
+      </Button>
     </Form>
-    // </SearchFormContainer>
   );
 };

@@ -1,21 +1,5 @@
 import styled from '@emotion/styled';
 
-// export const SearchFormContainer = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   /* padding: 14px 9px; */
-//   /* max-width: 767.9px; */
-//   /* border-radius: 8px; */
-
-//   @media (min-width: 768px) {
-//     max-width: 1280px;
-//     padding: 28px 24px;
-//   }
-//   @media (min-width: 1280px) {
-//     max-width: 1980px;
-//     padding: 40px 40px;
-//   }
-// `;
 export const Form = styled.div`
     display: flex;
     justify-content: space-between;
@@ -82,5 +66,9 @@ export const Form = styled.div`
   @media (min-width: 1280px) {
     width:161px;
     height:70px;
-  }}
+  }
+  :hover{
+    background-color:var(--search-black-color);
+  }
+  }
 `;
