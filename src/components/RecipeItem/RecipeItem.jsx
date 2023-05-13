@@ -57,11 +57,6 @@ export const RecipeItem = ({
             </p>
             <Button
               text="See recipe"
-              width="87px"
-              height="27px"
-              borderRadius="24px 44px"
-              backgroundColor="var(--search-black-color)"
-              textColor="#FAFAFA"
               onClick={() => {
                 navigate(`/recipes/${id}`);
               }}

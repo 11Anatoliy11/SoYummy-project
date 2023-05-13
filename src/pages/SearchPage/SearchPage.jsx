@@ -1,4 +1,3 @@
-import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle';
 import { useEffect } from 'react';
 import {
   getRecipesByQuery,
@@ -11,6 +10,8 @@ import { Helmet } from 'react-helmet-async';
 import { scrollToTop } from 'components/utils/scrollToTop';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { SearchTypeSelector } from 'components/SearchTypeSelector/SearchTypeSelector';
+import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
+import { SearchPageContainer } from './SearchPage.style';
 
 const SearchPage = () => {
   const query = useSelector(selectQuery);
@@ -37,17 +38,20 @@ const SearchPage = () => {
   }, [dispatch, query, queryType]);
 
   return (
-    <main>
-      <div className="container">
-        <Helmet>
+    <>
+      {/* <Helmet>
           <title>Search</title>
-        </Helmet>
-        <MainPageTitle pageTitle="Search" className="main-title mb-[50px]" />
+        </Helmet> */}
+      < PageTitleSection
+        text={'Search'}
+      />
+      <SearchPageContainer>
         <SearchForm />
         <SearchTypeSelector />
         <SearchedRecipesList />
-      </div>
-    </main>
+      </SearchPageContainer>
+    </>
+
   );
 };
 

@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { changeQuery } from 'redux/search/searchSlice';
+import Button from '../Button/Button';
+import { Form } from './SearchForm.style'
 
 export const SearchForm = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -29,16 +31,20 @@ export const SearchForm = () => {
   }
 
   return (
-    <div>
-      <form
-        onSubmit={handleSubmit}
-      >
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleInputChange}
-        />
-      </form>
-    </div>
+    // <SearchFormContainer>
+    <Form
+      onSubmit={handleSubmit}
+    >
+      <input
+        type="text"
+        value={searchQuery}
+        onChange={handleInputChange}
+      />
+      <Button
+        type="submit"
+        text="Search"
+      />
+    </Form>
+    // </SearchFormContainer>
   );
 };
