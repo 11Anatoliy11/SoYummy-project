@@ -29,6 +29,7 @@ export const UserWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     margin-right: 50px;

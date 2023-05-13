@@ -12,6 +12,7 @@ export default function Button({
   textColor,
   filter,
   id,
+  children,
 }) {
   return (
     <>
@@ -27,7 +28,7 @@ export default function Button({
         filter={filter}
         id={id}
       >
-        {text}
+       {children}
       </StyledBtn>
     </>
   );

@@ -5,6 +5,7 @@ import { ReactComponent as UserIcon } from 'images/svg/user.svg';
 import { ReactComponent as BurgerMenu } from 'images/svg/burger.svg';
 import { ReactComponent as SearchIcon } from 'images/svg/search.svg';
 import { MobileMenu } from './MobileMenu';
+
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 import {
   HeaderContainer,
@@ -67,6 +68,7 @@ export const Header = () => {
           </UserIconWr>
           <UserNameTitle>Olena</UserNameTitle>
         </UserWrapper>
+
         {isSmallScreen && (
           <button
             type="button"
