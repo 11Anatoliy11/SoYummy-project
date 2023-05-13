@@ -3,7 +3,6 @@ import { StyledBtn } from './Button.styled';
 export default function Button({
   text,
   type,
-  disabled,
   onClick,
   width,
   height,
@@ -20,7 +19,6 @@ export default function Button({
         type={type}
         width={width}
         height={height}
-        disabled={disabled}
         onClick={onClick}
         backgroundColor={backgroundColor}
         border={border}
