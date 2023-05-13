@@ -134,6 +134,10 @@ color: #3E4462;
 }
 
   >button{
+    width:87px;
+    height:27px;
+    border-radius:24px 44px;
+    background-color:var(--search-black-color);
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
