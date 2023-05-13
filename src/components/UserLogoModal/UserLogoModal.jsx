@@ -1,15 +1,14 @@
 import { useEffect } from 'react';
 import {
   ButtonEdit,
-  EditBox,
+  EditWrapper,
   EditText,
   ModalWrapper,
 } from './UserLogoModal.styled';
 import { ReactComponent as Edit } from '../../images/svg/edit.svg';
-import { ReactComponent as ArrowRight } from '../../images/svg/arrow-right.svg';
+import { ReactComponent as ArrowNarrowRight } from '../../images/svg/arrow-narrow-right.svg';
 
 import Button from '../Button/Button';
-import Modal from '../Modal/Modal';
 
 export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
   useEffect(() => {
@@ -24,16 +23,14 @@ export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
   };
 
   return (
-
     <ModalWrapper>
-      <Modal onClose={handleKeyDown}>
-      <EditBox>
+      <EditWrapper>
         <EditText>Edit profile</EditText>
         <ButtonEdit>
           <Edit />
         </ButtonEdit>
-      </EditBox>
-      <Button
+      </EditWrapper>
+      <Button className="btn"
         type="button"
         width="125px"
         height="43px"
@@ -43,10 +40,9 @@ export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
         textColor="var(--background-color)"
         onClick={onLogout}
         >
-      Log Out <ArrowRight />
+      Log out <ArrowNarrowRight />
       </Button>
-      </Modal>
-    </ModalWrapper>
- 
+
+      </ModalWrapper>
   );
 };
