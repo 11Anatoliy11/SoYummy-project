@@ -20,7 +20,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
   color: var(--search-black-color);
+position: relative;
+}
 
+.mobile-menu-open {
+  overflow: hidden;
 }
 
 code {
