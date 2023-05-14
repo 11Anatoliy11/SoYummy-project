@@ -31,33 +31,31 @@ export const SearchedRecipesList = () => {
         </div>
       ) : (
         <div>
-          <ul>
-            {recipes.map(({ _id, title, description, thumb, time }) => {
-              return (
-                <motion.li
-                  initial={{
-                    y: -20,
-                    opacity: 0,
-                  }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1 }}
-                  whileInView={{
-                    y: 0,
-                    opacity: 1,
-                  }}
-                  key={_id.$oid}
-                >
-                  <RecipeCard
-                    id={_id.$oid}
-                    title={title}
-                    text={description}
-                    thumb={thumb}
-                    time={time}
-                  />
-                </motion.li>
-              );
-            })}
-          </ul>
+          {recipes.map(({ _id, title, description, thumb, time }) => {
+            return (
+              <motion.div
+                initial={{
+                  y: -20,
+                  opacity: 0,
+                }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
+                whileInView={{
+                  y: 0,
+                  opacity: 1,
+                }}
+                key={_id.$oid}
+              >
+                <RecipeCard
+                  id={_id.$oid}
+                  title={title}
+                  text={description}
+                  thumb={thumb}
+                  time={time}
+                />
+              </motion.div>
+            );
+          })}
         </div>
       )}
     </>
