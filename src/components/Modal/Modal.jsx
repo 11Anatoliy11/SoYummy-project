@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-
-import { Overlay, ModalWindow } from "./Modal.styled";
+import { ReactComponent as Cross } from '../../images/svg/cross.svg';
+import { Overlay, ModalWindow, CloseButton} from "./Modal.styled";
 
 const modalRoot = document.querySelector("#modal-root");
-export default function Modal({ children, onClose }) {
-  
+export default function Modal({ children, onClose, className }) {
+
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
 
@@ -28,7 +28,12 @@ export default function Modal({ children, onClose }) {
 
   return createPortal(
     <Overlay onClick={handleBackdropClick}>
-      <ModalWindow>{children}</ModalWindow>
+      <ModalWindow className={className}>
+        {children}
+        <CloseButton type="button" onClick={onClose}>
+        <Cross className="closeBtn"/>
+        </CloseButton>
+        </ModalWindow>
     </Overlay>,
     modalRoot
   );

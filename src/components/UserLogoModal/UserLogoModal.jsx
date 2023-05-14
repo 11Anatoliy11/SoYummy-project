@@ -6,7 +6,6 @@ import {
   ModalWrapper,
 } from './UserLogoModal.styled';
 import { ReactComponent as Edit } from '../../images/svg/edit.svg';
-// import { ReactComponent as ArrowNarrowRight } from '../../images/svg/arrow-right-button.svg';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Button from '../Button/Button';
 
@@ -22,7 +21,6 @@ export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
       onClose();
     }
   };
-
   return (
     <ModalWrapper>
       <EditWrapper>

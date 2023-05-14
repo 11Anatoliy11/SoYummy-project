@@ -27,7 +27,6 @@ export const StyledBtn = styled.button`
   letter-spacing: 0.02em;
   width: ${props => props.width};
   height:${props => props.height};
-  font-weight: 400;
   color: ${props => props.textColor};
   border-radius: ${props => props.borderRadius};
   border: ${props => props.border};

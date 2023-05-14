@@ -1,6 +1,6 @@
 import { AddRecipe } from 'components/AddRecipe/AddRecipe';
 // import { UserLogout } from '../../components/UserLogoutModal';
-import { UserLogoModal } from '../../components/UserLogoModal';
+import { UserLogoutModal } from '../../components/UserLogoutModal';
 
 const AddRecipesPage = ({onClose}) => {
   const handleKeyDown = e => {
@@ -12,7 +12,7 @@ const AddRecipesPage = ({onClose}) => {
   <>
   <AddRecipe />
   {/* <UserLogout /> */}
-  <UserLogoModal onClose={handleKeyDown}/>
+  <UserLogoutModal onClose={handleKeyDown}/>
   </>);
 };
 
