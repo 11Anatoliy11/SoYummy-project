@@ -1,33 +1,22 @@
-import { useEffect } from 'react';
 import {
-  ButtonEdit,
   EditWrapper,
   EditText,
   ModalWrapper,
 } from './UserLogoModal.styled';
-import { ReactComponent as Edit } from '../../images/svg/edit.svg';
+import { ReactComponent as Edit } from '../../../../images/svg/edit.svg';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import Button from '../Button/Button';
+import Button from '../../../Button/Button';
+import Modal from '../../../Modal/Modal';
 
 
 export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  });
 
-  const handleKeyDown = e => {
-    if (e.code === 'Escape') {
-      onClose();
-    }
-  };
   return (
-    <ModalWrapper>
+    <Modal className="userLogoModal" onClose={onClose}>
+    <ModalWrapper onClick={onEdit}>
       <EditWrapper>
         <EditText>Edit profile</EditText>
-        <ButtonEdit>
           <Edit />
-        </ButtonEdit>
       </EditWrapper>
       <Button className="btn"
         type="button"
@@ -41,8 +30,7 @@ export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
         >
       Log out <ArrowForwardIcon/>
       </Button>
-
-
       </ModalWrapper>
+      </Modal>
   );
 };

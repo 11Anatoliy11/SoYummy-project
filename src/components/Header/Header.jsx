@@ -1,17 +1,15 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ReactComponent as LogoIcon } from 'images/svg/logo.svg';
-import { ReactComponent as UserIcon } from 'images/svg/user.svg';
 import { ReactComponent as BurgerMenu } from 'images/svg/burger.svg';
 import { ReactComponent as SearchIcon } from 'images/svg/search.svg';
 import { MobileMenu } from './MobileMenu';
 
+import {User} from './User/User'
+
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 import {
   HeaderContainer,
-  UserWrapper,
-  UserIconWr,
-  UserNameTitle,
   DesktopNavigation,
   DesktopList,
 } from './Header.styled';
@@ -62,13 +60,7 @@ export const Header = () => {
             </DesktopList>
           </DesktopNavigation>
         )}
-        <UserWrapper>
-          <UserIconWr>
-            <UserIcon style={{ fill: 'none' }} />
-          </UserIconWr>
-          <UserNameTitle>Olena</UserNameTitle>
-        </UserWrapper>
-
+         <User/>
         {isSmallScreen && (
           <button
             type="button"

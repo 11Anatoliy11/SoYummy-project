@@ -14,8 +14,8 @@ import {
   // ModalWrapper,
 } from './UserInfoModal.styled';
 import { useState } from 'react';
-import Button from '../Button/Button';
-import Modal from '../Modal/Modal';
+import Button from '../../../Button/Button';
+import Modal from '../../../Modal/Modal';
 import {EditInfo} from './EditInfo/EditInfo'
 import { EditAvatar } from './EditAvatar/EditAvatar';
 

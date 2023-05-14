@@ -32,17 +32,15 @@ background-color: var(--background-color);
 }
 `;
 
-
-export const ButtonEdit = styled.div`
-
+export const EditWrapper = styled.button`
+display: flex;
+gap: 37px;
+align-items: center;
+cursor: pointer;
 >svg{
   width: 14px;
   height: 14px;
 }
-`;
-export const EditWrapper = styled.div`
-display: flex;
-justify-content: space-between;
 `;
 export const EditText = styled.p`
 font-weight: 500;

@@ -17,6 +17,21 @@ position: relative;
 box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
 border-radius: 30px;
 background-color: var(--background-color);
+
+&.userLogoModal{
+  bottom: 35%;
+  left: 17%;
+
+   @media (min-width: 768px) {
+
+  }
+  @media (min-width: 1280px) {
+
+  }
+  .closeBtn{
+    display: none;
+  }
+  }
   &.logoutModal {
    padding: 44px 24px;
    @media (min-width: 768px) {
