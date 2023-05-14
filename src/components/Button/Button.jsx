@@ -1,7 +1,6 @@
 import { StyledBtn } from './Button.styled';
 
 export default function Button({
-  text,
   type,
   onClick,
   width,
@@ -11,7 +10,7 @@ export default function Button({
   borderRadius,
   textColor,
   filter,
-  id,
+  className,
   children,
 }) {
   return (
@@ -26,9 +25,9 @@ export default function Button({
         borderRadius={borderRadius}
         textColor={textColor}
         filter={filter}
-        id={id}
+        className={className}
       >
-       {children}
+        {children}
       </StyledBtn>
     </>
   );

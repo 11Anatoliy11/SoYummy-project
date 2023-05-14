@@ -3,7 +3,7 @@ import React from 'react';
 //import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 //import { getFavoriteRecipes } from 'redux/favoriteRecipes/favoriteRecipesOperations';
-import { RecipeItemBtn, RecipeItemContainer, RecipeItemBox, RecipeItemTitle } from './RecipeItem.styled';
+import { RecipeItemBtn, RecipeItemContainer, RecipeItemBox, RecipeItemTitle, RecipeItemText } from './RecipeItem.styled';
 import { ReactComponent as Trash } from 'images/svg/trash.svg';
 
 export const RecipeItem = ({
@@ -30,44 +30,34 @@ export const RecipeItem = ({
           alt={img}
         />
         <RecipeItemBox>
-          <div>
+          <RecipeItemText>
             <RecipeItemTitle>
               <h2>
                 {title}
               </h2>
               <Button
-                width="24px"
-                height="24px"
-                borderRadius="4px"
                 backgroundColor="var(--green-color)"
                 onClick={() => {
                   navigate(`/recipes/${id}`);
                 }}
-                text={<><Trash /></>}>
-                {/* <img src={Trashs} /> */}
-                {/* <Trash /> */}
+              >
+                <Trash />
               </Button>
             </RecipeItemTitle>
             <p>
               {description}
             </p>
-          </div>
+          </RecipeItemText>
 
           <RecipeItemBtn>
             <p>
               {time} {time.includes('min') ? '' : 'min'}
             </p>
             <Button
-              text="See recipe"
-              width="87px"
-              height="27px"
-              borderRadius="24px 44px"
-              backgroundColor="var(--search-black-color)"
-              textColor="#FAFAFA"
               onClick={() => {
                 navigate(`/recipes/${id}`);
               }}
-            />
+            > See recipe </Button>
           </RecipeItemBtn>
         </RecipeItemBox>
       </RecipeItemContainer>

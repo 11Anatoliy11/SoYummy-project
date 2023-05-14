@@ -32,6 +32,9 @@ export const RecipeItemContainer = styled.div`
 `;
 
 export const RecipeItemBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     margin-left: 14px;
     @media (min-width: 768px) {
@@ -40,8 +43,9 @@ export const RecipeItemBox = styled.div`
     @media (min-width: 1280px) {
       margin-left: 54px;
     }
->p{
-    margin-bottom:19%;
+`;
+
+export const RecipeItemText = styled.div`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -50,20 +54,18 @@ export const RecipeItemBox = styled.div`
     letter-spacing: -0.02em;
     color: #23262A;
     @media (min-width: 768px) {
-        margin-bottom:16%;
         font-size: 14px;
         line-height: 18px;
         }
     @media (min-width: 1280px) {
-        margin-bottom:18%;
         font-size: 18px;
         line-height: 24px;
     }
-}
 `;
 
 export const RecipeItemTitle = styled.div`
     display: flex;
+    justify-content: space-between;
     margin-bottom:10px;
 
     @media (min-width: 768px) {
@@ -88,8 +90,12 @@ export const RecipeItemTitle = styled.div`
     }
     }
     >Button{
-        margin-left: auto;
-
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:24px;
+      height:24px;
+      border-radius:4px;
         @media (min-width: 768px) {
         width:38px;
         height:38px;
@@ -98,12 +104,33 @@ export const RecipeItemTitle = styled.div`
         width:44px;
         height:44px;
     }
+    >svg{
+      padding: 5px;
+      width:14px;
+      height:14px;
+      stroke: var(--search-black-color);
+      fill: transparent;
+      @media (min-width: 768px) {
+        padding: 8px;
+        width:22px;
+        height:22px;
+    }
+    @media (min-width: 1280px) {
+      padding: 11px;
+        width:24px;
+        height:24px;
+    }
+    :hover{
+      stroke: var(--background-color);
+    }
+    }
     }
 `;
 
 export const RecipeItemBtn = styled.div`
 display: flex;
 align-items: center;
+justify-content: space-between;
 >p{
     font-family: 'Poppins';
 font-style: normal;
@@ -119,12 +146,25 @@ color: #3E4462;
 }
 
   >button{
-    margin-left:auto;
+    width:87px;
+    height:27px;
+    border-radius:24px 44px;
+    background-color:var(--search-black-color);
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    color: var(--background-color);
     @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 21px;
     width:138px;
     height:45px;
   }
   @media (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 24px;
     width:172px;
     height:59px;
   }}

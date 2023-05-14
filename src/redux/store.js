@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import favoriteRecipesReducer from './favoriteRecipes/favoriteRecipesSlice';
 
+import { searchReducer } from './search/searchSlice';
 import { authReducer } from './auth/auth-slice';
 import { recipeReducer } from './recipes/recipe-slice';
 
@@ -39,6 +40,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     recipes: persistReducer(recipePresistConfig, recipeReducer),
     favoriteRecipes: favoriteRecipesReducer,
+    search: searchReducer
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
