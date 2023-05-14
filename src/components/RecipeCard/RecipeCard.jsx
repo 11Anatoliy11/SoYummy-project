@@ -7,7 +7,6 @@ export const RecipeCard = ({ id, title, text, thumb, time }) => {
     <Link to={`/recipes/${id}`}>
       <div >
         <img
-
           src={thumb}
           alt={title}
           height={323}
@@ -23,6 +22,9 @@ export const RecipeCard = ({ id, title, text, thumb, time }) => {
                   {!timeMeasures.some(value => time.includes(value)) && ' min'}
                 </>
               )}
+            </p>
+            <p>
+              {text}
             </p>
 
           </div>

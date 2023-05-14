@@ -14,36 +14,52 @@ export const TitleContainer = styled.div`
     position: absolute;
     top: 12px;
     left: 104px;
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
+    rect{
+      width: 8px;
+      height: 8px;
+    }
     fill: var(--green-color);
     @media (min-width: 768px) {
       top: 21px;
       left: 187px;
+      width: 22px;
+      height: 22px;
+      rect{
       width: 14px;
       height: 14px;
     }
+    }
     @media (min-width: 1280px) {
-      top: 52px;
-      left: 297px;
+      top: 56px;
+      left: 193px;
     }
   }
   .secondRectangleIcon {
     position: absolute;
     top: 45px;
     right: 0px;
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
+    rect{
+      width: 8px;
+      height: 8px;
+    }
     fill: var(--green-color);
     @media (min-width: 768px) {
       top: 34px;
       left: 694px;
-      width: 15px;
-      height: 15px;
+      width: 22px;
+      height: 22px;
+      rect{
+      width: 14px;
+      height: 14px;
+    }
     }
     @media (min-width: 1280px) {
-      top: 65px;
-      left: 1220px;
+      top: 69px;
+      left: 1150px;
     }
   }
   .sphereIcon {
@@ -63,16 +79,20 @@ export const TitleContainer = styled.div`
     @media (min-width: 768px) {
       position: absolute;
       top: 91px;
-      left: 405px;
+      left: 420px;
       display: block;
       fill: var(--search-black-color);
-      width: 15px;
-      height: 15px;
+      width: 22px;
+      height: 22px;
+      rect{
+      width: 14px;
+      height: 14px;
+    }
     }
     @media (min-width: 1280px) {
       display: block;
-      top: 135px;
-      left: 708px;
+      top: 144px;
+      left: 734px;
     }
   }
 `;
@@ -88,12 +108,12 @@ export const Title = styled.h1`
 
   @media (min-width: 768px) {
     padding-top: 72px;
-    /* padding-bottom: 97px; */
+    padding-bottom: 3px;
     font-size: 32px;
   }
   @media (min-width: 1280px) {
     padding-top: 100px;
-    /* padding-bottom: 92px; */
+    padding-bottom: 15px;
     font-size: 44px;
   }
 `;

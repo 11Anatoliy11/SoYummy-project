@@ -31,18 +31,19 @@ export const SearchForm = () => {
   }
 
   return (
-    <Form
-      onSubmit={handleSubmit}
-    >
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={handleInputChange}
-      />
-      <Button
-        type="submit"
-      >Search
-      </Button>
+    <Form>
+      <form className="search-form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleInputChange}
+        />
+        <Button
+          type="submit">
+          Search
+        </Button>
+      </form>
     </Form>
+
   );
 };

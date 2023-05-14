@@ -6,7 +6,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectQueryType, selectQuery } from 'redux/search/selectors';
 import { SearchedRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
-// import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import { scrollToTop } from 'components/utils/scrollToTop';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { SearchTypeSelector } from 'components/SearchTypeSelector/SearchTypeSelector';
@@ -39,9 +39,9 @@ const SearchPage = () => {
 
   return (
     <>
-      {/* <Helmet>
-          <title>Search</title>
-        </Helmet> */}
+      <Helmet>
+        <title>Search</title>
+      </Helmet>
       < PageTitleSection
         text={'Search'}
       />

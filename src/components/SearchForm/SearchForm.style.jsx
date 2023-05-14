@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.div`
+  .search-form{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,4 +72,6 @@ export const Form = styled.div`
     background-color:var(--search-black-color);
   }
   }
+  }
+
 `;
