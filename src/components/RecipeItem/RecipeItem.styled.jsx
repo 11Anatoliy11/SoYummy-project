@@ -90,6 +90,12 @@ export const RecipeItemTitle = styled.div`
     }
     }
     >Button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:24px;
+      height:24px;
+      border-radius:4px;
         @media (min-width: 768px) {
         width:38px;
         height:38px;
@@ -99,17 +105,23 @@ export const RecipeItemTitle = styled.div`
         height:44px;
     }
     >svg{
+      padding: 5px;
       width:14px;
       height:14px;
-      /* stroke: black; */
+      stroke: var(--search-black-color);
       fill: transparent;
       @media (min-width: 768px) {
+        padding: 8px;
         width:22px;
         height:22px;
     }
     @media (min-width: 1280px) {
+      padding: 11px;
         width:24px;
         height:24px;
+    }
+    :hover{
+      stroke: var(--background-color);
     }
     }
     }
@@ -134,6 +146,10 @@ color: #3E4462;
 }
 
   >button{
+    width:87px;
+    height:27px;
+    border-radius:24px 44px;
+    background-color:var(--search-black-color);
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;

@@ -6,17 +6,17 @@ export const SharedLayoutContainer = styled.div`
   padding-right: 16px;
 
   @media screen and (min-width: 375px) {
-    max-width: 375px;
+    max-width: 343px;
   }
 
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
-    max-width: 768px;
+    max-width: 704px;
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 1280px;
+    max-width: 1240px;
     padding-left: 20px;
     padding-right: 20px;
   }
