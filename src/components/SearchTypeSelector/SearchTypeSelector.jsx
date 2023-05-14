@@ -2,13 +2,15 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeQueryType } from 'redux/search/searchSlice';
 import { useLocation } from 'react-router-dom';
-const typesList = [{ searchType: 'title' }, { searchType: 'ingredients' }];
+import { SearchTypeSelectorContainer } from './SearchTypeSelector.styled'
+
+const typesList = [{ searchType: 'Title' }, { searchType: 'Ingredients' }];
 
 export const SearchTypeSelector = () => {
   const location = useLocation();
   console.log(location.state);
   const [currentValue, setCurrentValue] = useState(
-    location.state?.from || 'title'
+    location.state?.from || 'Title'
   );
   console.log(currentValue);
   const dispatch = useDispatch();
@@ -20,8 +22,13 @@ export const SearchTypeSelector = () => {
   };
 
   return (
-    <div >
-      <select
+    <SearchTypeSelectorContainer >
+      <label className='SearchTypeSelectorLabel'
+        htmlFor="select"
+      >
+        Search by:
+      </label>
+      <select className='SearchTypeSelectorSelect'
         name="select"
         value={currentValue}
         onChange={e => changeType(e)}
@@ -30,16 +37,13 @@ export const SearchTypeSelector = () => {
           <option
             key={searchType}
             value={searchType}
+            className='SearchTypeSelectorOption'
           >
             {searchType}
           </option>
         ))}
       </select>
-      <label
-        htmlFor="select"
-      >
-        Search by:
-      </label>
-    </div>
+
+    </SearchTypeSelectorContainer>
   );
 };

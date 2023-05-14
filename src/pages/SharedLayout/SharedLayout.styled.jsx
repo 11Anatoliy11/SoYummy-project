@@ -1,7 +1,7 @@
 const { default: styled } = require('@emotion/styled');
 
 export const SharedLayoutContainer = styled.div`
-  margin: 0 auto;
+  margin:  auto;
   padding-left: 16px;
   padding-right: 16px;
 
