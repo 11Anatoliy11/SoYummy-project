@@ -3,7 +3,7 @@
 
 import Modal from '../Modal/Modal';
 import Button from 'components/Button/Button';
-import { Wrapper, ButtonBox, Text } from './UserLogoutModal.styled';
+import { ButtonBox, Text } from './UserLogoutModal.styled';
 
 export const UserLogoutModal = ({ onClose }) => {
   // const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export const UserLogoutModal = ({ onClose }) => {
   //   dispatch(logOut());
   // };
   return (
-    <Wrapper>
+
       <Modal className="logoutModal">
       <Text>Are you sure you want to log out?</Text>
         <ButtonBox>
@@ -40,6 +40,6 @@ export const UserLogoutModal = ({ onClose }) => {
       </Button>
         </ButtonBox>
         </Modal>
-    </Wrapper>
+
   );
 };

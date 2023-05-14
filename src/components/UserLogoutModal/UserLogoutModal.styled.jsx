@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  padding: 44px 24px;
-`;
+// export const Wrapper = styled.div`
+//   padding: 44px 24px;
+// `;
 export const Text = styled.p`
   text-align: center;
   margin-bottom: 24px;
