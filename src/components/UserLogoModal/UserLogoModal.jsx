@@ -6,7 +6,7 @@ import {
   ModalWrapper,
 } from './UserLogoModal.styled';
 import { ReactComponent as Edit } from '../../images/svg/edit.svg';
-import { ReactComponent as ArrowNarrowRight } from '../../images/svg/arrow-narrow-right.svg';
+import { ReactComponent as ArrowNarrowRight } from '../../images/svg/arrow-right-button.svg';
 
 import Button from '../Button/Button';
 
