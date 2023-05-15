@@ -87,7 +87,7 @@ export const MenuContainer = styled.div`
   transition: transform 250ms ease-in-out;
   ${props =>
     props.isOpen
-      ? ` transform: translateY(0); `
+      ? ` transform: translateY(0); z-index: 5; `
       : `transform: translateY(-200%);
     `}
 `;
@@ -127,6 +127,7 @@ export const MenuHeader = styled.div`
 export const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
+  padding-bottom: 248px;
 `;
 
 export const NavigationList = styled.ul`

@@ -1,15 +1,7 @@
 const { default: styled } = require('@emotion/styled');
 
 export const NotFoundContainer = styled.div`
-  padding-bottom: 100px;
 
-  @media screen and (min-width: 768px) {
-    padding-bottom: 204px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding-bottom: 203px;
-  }
 `;
 
 export const NotFoundWrapper = styled.div`

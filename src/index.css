@@ -13,7 +13,6 @@
   --edit-modal-text-color: #23262A;
 }
 
-
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -21,7 +20,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
   color: var(--search-black-color);
+  position: relative;
+}
 
+.mobile-menu-open {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch; 
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 code {
