@@ -36,14 +36,11 @@ export const App = () => {
           path="categories"
           element={
             <>
-              <Navigate to="/categories/beef" replace />
-              <PrivateRoute
-                component={<CategoriesLayout/>}
-                redirectTo={'/welcome'}
-              />
+              <CategoriesLayout />
             </>
           }
         >
+          <Route path="" element={<Navigate to="/categories/beef" />} />
           <Route
             path=":categoryName"
             element={
