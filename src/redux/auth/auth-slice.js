@@ -9,7 +9,7 @@ import {
 } from './auth-operations';
 
 const initialState = {
-  user: { email: null, name: null, avatar: null ,token: null,},
+  user: { email: null, name: null, avatar: null ,token: null},
   isLoggedIn: false,
   isRefreshing: false,
   error: null,
@@ -46,8 +46,9 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, {payload}) => {
-        state.user = payload.user;
+        // state.user = payload.user;
         state.isRefreshing = false;
+        // state.isLoggedIn = true;
       })
       .addCase(refreshUser.rejected, state => {
         return initialState;

@@ -63,7 +63,6 @@ export const Signin = () => {
         validationSchema:schemaSignIn,
         validateOnChange:true,
         onSubmit:(values,actions) => {
-          console.log(values)
           dispatch(login({ ...values }));
           actions.resetForm();
           setSuccessEmail(null);

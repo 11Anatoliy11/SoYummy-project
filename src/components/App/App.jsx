@@ -5,9 +5,11 @@ import { PrivateRoute, RestrictedRoute } from '../utils';
 import { Suspense, lazy, useEffect } from 'react';
 import { NotFound } from '../NotFound/NotFound';
 import CategoriesLayout from 'pages/CategoriesLayout/CategoriesLayout';
-import { useDispatch, useSelector } from 'react-redux';
-import { authSelectors } from 'redux/auth/auth-selectors';
-import { refreshUser, uploadAvatar } from 'redux/auth/auth-operations';
+import { useDispatch} from 'react-redux';
+import { refreshUser} from 'redux/auth/auth-operations';
+import { ToastContainer } from 'react-toastify';
+import { Loader } from 'components/Common';
+import { useAuth } from 'hooks/useAuth';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const SigninPage = lazy(() => import('pages/SigninPage/SigninPage'));
@@ -26,101 +28,67 @@ const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const {isLoggedIn} = useSelector(authSelectors.getLoggedIn);
+  const {isLoggedIn} = useAuth();
 
   useEffect(() => {
     if (!isLoggedIn) return;
     console.log("refresh")
     dispatch(refreshUser());
-    dispatch(uploadAvatar("./sdfasdf/sdfasdf.jpg"))
-
     // eslint-disable-next-line
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Navigate to="/main" />} />
-        <Route
-          path="main"
-          element={
-            <PrivateRoute component={MainPage} redirectTo={'/welcome'} />
-          }
-        />
-        <Route
-          path="categories"
-          element={
-            <>
+   
+    <Suspense fallback={<Loader/>}>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Navigate to="/main" />} />
+          <Route
+            path="/main"
+            element={<PrivateRoute component={MainPage} redirectTo={'/welcome'} />} />
+          <Route
+            path="categories"
+            element={<>
               <Navigate to="/categories/beef" replace />
               <PrivateRoute
-                component={<CategoriesLayout/>}
-                redirectTo={'/welcome'}
-              />
-            </>
-          }
-        >
+                component={<CategoriesLayout />}
+                redirectTo={'/welcome'} />
+            </>}
+          >
+            <Route
+              path=":categoryName"
+              element={<PrivateRoute component={CategoryPage} redirectTo={'/welcome'} />} />
+          </Route>
           <Route
-            path=":categoryName"
-            element={
-              <PrivateRoute component={CategoryPage} redirectTo={'/welcome'} />
-            }
-          />
+            path="add"
+            element={<PrivateRoute component={AddRecipesPage} redirectTo={'/welcome'} />} />
+          <Route
+            path="my"
+            element={<PrivateRoute component={MyRecipesPage} redirectTo={'/welcome'} />} />
+          <Route
+            path="favorite"
+            element={<PrivateRoute component={FavoritePage} redirectTo={'/welcome'} />} />
+          <Route
+            path="shopping-list"
+            element={<PrivateRoute
+              component={ShoppingListPage}
+              redirectTo={'/welcome'} />} />
+          <Route
+            path="search"
+            element={<PrivateRoute component={SearchPage} redirectTo={'/welcome'} />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
         <Route
-          path="add"
-          element={
-            <PrivateRoute component={AddRecipesPage} redirectTo={'/welcome'} />
-          }
-        />
+          path="/welcome"
+          element={<RestrictedRoute component={WelcomePage} redirectTo={'/main'} />} />
         <Route
-          path="my"
-          element={
-            <PrivateRoute component={MyRecipesPage} redirectTo={'/welcome'} />
-          }
-        />
+          path="/signin"
+          element={<RestrictedRoute component={SigninPage} redirectTo={'/main'} />} />
         <Route
-          path="favorite"
-          element={
-            <PrivateRoute component={FavoritePage} redirectTo={'/welcome'} />
-          }
-        />
-        <Route
-          path="shopping-list"
-          element={
-            <PrivateRoute
-              component={ShoppingListPage}
-              redirectTo={'/welcome'}
-            />
-          }
-        />
-        <Route
-          path="search"
-          element={
-            <PrivateRoute component={SearchPage} redirectTo={'/welcome'} />
-          }
-        />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-      <Route
-        path="/welcome"
-        element={
-          <RestrictedRoute component={WelcomePage} redirectTo={'/main'} />
-        }
-      />
-      <Route
-        path="/signin"
-        element={
-          <RestrictedRoute component={SigninPage} redirectTo={'/main'} />
-        }
-      />
-      <Route
-        path="/register"
-        element={
-          <RestrictedRoute component={RegisterPage} redirectTo={'/main'} />
-        }
-      />
-    </Routes>
-    </Suspense>
+          path="/register"
+          element={<RestrictedRoute component={RegisterPage} redirectTo={'/main'} />} />
+      </Routes>
+      <ToastContainer position="top-center" reverseOrder={false} autoClose={2000} />
+  </Suspense>
   );
-};
+}; 
