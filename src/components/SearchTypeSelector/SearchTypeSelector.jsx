@@ -1,49 +1,67 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeQueryType } from 'redux/search/searchSlice';
 import { useLocation } from 'react-router-dom';
-import { SearchTypeSelectorContainer } from './SearchTypeSelector.styled'
+import { SearchTypeSelectorContainer } from './SearchTypeSelector.styled';
+import { ReactComponent as СhevronIcon } from 'images/svg/chevron.svg';
 
 const typesList = [{ searchType: 'Title' }, { searchType: 'Ingredients' }];
 
+const CustomSelect = ({ value, onChange, options }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSelect = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleOptionClick = (optionValue) => {
+    onChange(optionValue);
+    setIsOpen(false);
+  };
+
+  return (
+    <div className="CustomSelect">
+      <div className={`CustomSelectValue ${isOpen ? 'isOpen' : ''}`} onClick={toggleSelect}>
+        {value}
+        <СhevronIcon style={{ fill: 'none' }} className="CustomSelectArrow" />
+      </div>
+      {isOpen && (
+        <div className="CustomSelectOptions">
+          {options.map(({ searchType }) => (
+            <div
+              key={searchType}
+              className="CustomSelectOption"
+              onClick={() => handleOptionClick(searchType)}
+            >
+              {searchType}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const SearchTypeSelector = () => {
   const location = useLocation();
-  console.log(location.state);
-  const [currentValue, setCurrentValue] = useState(
-    location.state?.from || 'Title'
-  );
-  console.log(currentValue);
+  const [currentValue, setCurrentValue] = useState(location.state?.from || 'Title');
   const dispatch = useDispatch();
 
-  const changeType = e => {
-    const type = e.target.value;
+  const changeType = (type) => {
     setCurrentValue(type);
     dispatch(changeQueryType(type));
   };
 
   return (
-    <SearchTypeSelectorContainer >
-      <label className='SearchTypeSelectorLabel'
-        htmlFor="select"
-      >
+    <SearchTypeSelectorContainer>
+      <label className="SearchTypeSelectorLabel" htmlFor="select">
         Search by:
       </label>
-      <select className='SearchTypeSelectorSelect'
-        name="select"
+      <CustomSelect
         value={currentValue}
-        onChange={e => changeType(e)}
-      >
-        {typesList.map(({ searchType }) => (
-          <option
-            key={searchType}
-            value={searchType}
-            className='SearchTypeSelectorOption'
-          >
-            {searchType}
-          </option>
-        ))}
-      </select>
-
+        onChange={changeType}
+        options={typesList}
+      />
     </SearchTypeSelectorContainer>
   );
 };
