@@ -30,7 +30,7 @@ export default function Modal({ children, onClose, className }) {
     <Overlay onClick={handleCloseClick}>
       <ModalWindow className={className}>
         {children}
-        <CloseButton onClick={handleCloseClick}>
+        <CloseButton onClick={onClose}>
         <Cross className="closeBtn"/>
         </CloseButton>
         </ModalWindow>

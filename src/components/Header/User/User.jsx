@@ -26,6 +26,7 @@ export const User = () => {
 
     toggleLogoModal();
     setModalName('');
+    console.log("closeModal");
   };
   const openEditUser = () => {
 
