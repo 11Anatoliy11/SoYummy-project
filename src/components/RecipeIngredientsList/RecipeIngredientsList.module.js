@@ -106,7 +106,6 @@ export const Checkbox = styled.input`
   cursor: pointer;
 
   &:checked {
-    background: transparent;
     background-image: url(${Pick});
     background-repeat: no-repeat;
     background-position: center;

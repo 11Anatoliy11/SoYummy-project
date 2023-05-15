@@ -9,7 +9,6 @@ import recipesData from '../../mocks/recipes.json';
 export default function RecipePage() {
   // const [counter, setCounter] = useState(0);
   const [recipe, setRecipe] = useState(recipesData[9]);
-  console.log(`🚀 ~ RecipePage ~ recipe:`, recipe);
 
   // useEffect(() => {
   //   const interval = setInterval(() => {
