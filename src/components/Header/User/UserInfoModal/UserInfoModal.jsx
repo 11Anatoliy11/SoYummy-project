@@ -29,22 +29,24 @@ export const UserInfoModal = ({onClose}) => {
   };
   const changeName = e => {
     const updatedName = e.target.name.value;
-    // dispatch(updateInfo(updatedInfo));
+    // dispatch(updateName(updatedName));
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     if (newAvatar) changeAvatar();
     if (isNewName) changeName(e);
+    onClose();
   };
   return (
     <>
   <Modal className="userInfoModal" onClose={onClose}>
-      <Form onSubmit={handleSubmit}>
+      <Form>
         <EditAvatar/>
         <EditInfo/>
         <Button
         className="changeBtn"
+        onClick={handleSubmit}
         type="submit"
         width="282px"
         height="49px"

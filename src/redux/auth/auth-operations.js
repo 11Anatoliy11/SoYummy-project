@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 // eslint-disable-next-line
 import { setAuthHeader, clearAuthHeader } from 'apiService/axiosService';
 import axios from 'axios';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 
 
 export const register = createAsyncThunk(
@@ -31,9 +31,9 @@ export const login = createAsyncThunk(
       toast.success('You are logged in !');
       return res.data;
     } catch (error) {
-        toast.error(
-            'Something went wrong , verify you pass OR email!'
-          );
+      toast.error(
+        'Something went wrong , verify you pass OR email!'
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -56,20 +56,20 @@ export const refreshUser = createAsyncThunk(
     try {
       const res = await axios.get('auth/current');
       return res.data;
-    } catch (error){
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const uploadAvatar = createAsyncThunk(
-    'auth/avatars',
-    async(file,thunkAPI) => {
-        try{
-            const res = await axios.patch('auth/avatars',file);
-            return res.data.avatarURL;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
-        }
+  'auth/avatars',
+  async (file, thunkAPI) => {
+    try {
+      const res = await axios.patch('auth/avatars', file);
+      return res.data.avatarURL;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
+  }
 )
