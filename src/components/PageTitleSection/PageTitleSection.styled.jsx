@@ -13,43 +13,59 @@ export const TitleContainer = styled.div`
   .firstRectangleIcon {
     position: absolute;
     top: 12px;
-    left: 120px;
-    width: 8px;
-    height: 8px;
+    left: 104px;
+    width: 12px;
+    height: 12px;
+    rect{
+      width: 8px;
+      height: 8px;
+    }
     fill: var(--green-color);
     @media (min-width: 768px) {
       top: 21px;
-      left: 219px;
+      left: 187px;
+      width: 22px;
+      height: 22px;
+      rect{
       width: 14px;
       height: 14px;
     }
+    }
     @media (min-width: 1280px) {
-      top: 52px;
-      left: 327px;
+      top: 56px;
+      left: 193px;
     }
   }
   .secondRectangleIcon {
     position: absolute;
     top: 45px;
-    left: 349px;
-    width: 8px;
-    height: 8px;
+    right: 0px;
+    width: 12px;
+    height: 12px;
+    rect{
+      width: 8px;
+      height: 8px;
+    }
     fill: var(--green-color);
     @media (min-width: 768px) {
       top: 34px;
-      left: 726px;
+      left: 694px;
+      width: 22px;
+      height: 22px;
+      rect{
       width: 14px;
       height: 14px;
     }
+    }
     @media (min-width: 1280px) {
-      top: 65px;
-      left: 1250px;
+      top: 69px;
+      left: 1150px;
     }
   }
   .sphereIcon {
     position: absolute;
     top: 78px;
-    left: 247px;
+    left: 231px;
     width: 6px;
     height: 6px;
 
@@ -63,23 +79,27 @@ export const TitleContainer = styled.div`
     @media (min-width: 768px) {
       position: absolute;
       top: 91px;
-      left: 437px;
+      left: 420px;
       display: block;
       fill: var(--search-black-color);
-      width: 12px;
-      height: 12px;
+      width: 22px;
+      height: 22px;
+      rect{
+      width: 14px;
+      height: 14px;
+    }
     }
     @media (min-width: 1280px) {
       display: block;
-      top: 135px;
-      left: 807px;
+      top: 144px;
+      left: 734px;
     }
   }
 `;
 
 export const Title = styled.h1`
   padding-top: 50px;
-  padding-left: 16px;
+  padding-bottom: 5px;
   font-weight: 600;
   font-size: 28px;
   line-height: 1;
@@ -88,12 +108,12 @@ export const Title = styled.h1`
 
   @media (min-width: 768px) {
     padding-top: 72px;
-    padding-left: 32px;
+    padding-bottom: 3px;
     font-size: 32px;
   }
   @media (min-width: 1280px) {
     padding-top: 100px;
-    padding-left: 100px;
+    padding-bottom: 15px;
     font-size: 44px;
   }
 `;

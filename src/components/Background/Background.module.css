@@ -1,0 +1,39 @@
+.mainBgFooter {
+  background-image: url('../../images/m-spinach-middle.png'),
+    url('../../images/m-spinach-down.png');
+  background-repeat: no-repeat;
+  background-position: bottom 250px left, bottom -7px right -1px;
+  background-size: auto, auto 210px;
+}
+
+.mainBgMobileMenu {
+  background-image: url('../../images/m-spinach-menu.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: auto;
+  height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .mainBgFooter {
+    background-image: url('../../images/t-spinach-middle.png'),
+      url('../../images/t-spinach-down.png');
+    background-position: bottom 137px left, bottom -2px right -1px;
+    background-size: auto 812px, auto 300px;
+  }
+
+  .mainBgMobileMenu {
+    background-image: url('../../images/t-spinach-menu.png');
+    background-position: bottom -1px right -1px;
+    background-size: auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .mainBgFooter {
+    background-image: url('../../images/d-spinach-middle.png'),
+      url('../../images/d-spinach-down.png');
+    background-position: bottom 137px left, bottom -6px right -9px;
+    background-size: auto 911px, auto 371px;
+  }
+}
