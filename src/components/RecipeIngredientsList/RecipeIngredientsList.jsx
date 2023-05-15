@@ -19,10 +19,9 @@ import {
 export default function RecipeIngredientsList({ requiredIngredients }) {
   const [allIngredient, setAllIngredient] = useState(ingredientsData);
   const [shoppingList, setShoppingList] = useState([]);
-  console.log(`🚀 ~ RecipeIngredientsList ~ shoppingList:`, shoppingList);
+  // console.log(`🚀 ~ RecipeIngredientsList ~ shoppingList:`, shoppingList);
 
   const handleCheckboxChange = (id, measure) => {
-    console.log(`🚀 ~ handleCheckboxChange ~ id:`, id);
     const ingredient = allIngredient.find(({ _id }) => _id.$oid === id.$oid);
     const { ttl, thb, desc } = ingredient;
     const item = { id: id.$oid, measure, ttl, thb, desc };
