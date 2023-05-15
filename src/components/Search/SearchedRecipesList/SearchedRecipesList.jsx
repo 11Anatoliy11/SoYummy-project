@@ -1,8 +1,8 @@
-import { Loader } from 'components/common';
+import { Loader } from 'components/Common';
 import { useSelector } from 'react-redux';
 import { selectSearchedRecipes } from 'redux/search/selectors';
 import { selectIsLoading } from 'redux/search/selectors';
-import { RecipeCard } from 'components/RecipeCard/RecipeCard';
+import { RecipeCard } from 'components/Common';
 import { SearchedRecipesListError, SearchedRecipesListContainer } from './SearchedRecipesList.styled'
 
 import placeholder from 'images/placeholder.png';

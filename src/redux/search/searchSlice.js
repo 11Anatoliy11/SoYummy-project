@@ -1,6 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { getRecipesByQuery, getRecipesByIngredient } from './searchOperations';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 
 const initialState = {
   items: [],
