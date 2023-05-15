@@ -72,6 +72,9 @@ const SearchPage = () => {
       < PageTitleSection
         text={'Search'}
       />
+
+
+
       <SearchPageContainer id="SearchPageContainer">
         <SearchForm />
         <SearchTypeSelector />
