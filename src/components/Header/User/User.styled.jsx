@@ -20,6 +20,7 @@ position: relative;
 `;
 
 export const UserIconWr = styled.div`
+>img{
   width: 34px;
   height: 34px;
   display: flex;
@@ -32,6 +33,7 @@ export const UserIconWr = styled.div`
     width: 44px;
     height: 44px;
   }
+}
 `;
 
 export const UserNameTitle = styled.p`

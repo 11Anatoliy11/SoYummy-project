@@ -43,7 +43,6 @@ export const User = () => {
         <UserWrapper onClick={toggleLogoModal}>
           <UserIconWr>
           <img src={user?.avatar ?? userAvatar} alt="user avatar" />
-            {/* <UserIcon style={{ fill: 'none' }} /> */}
           </UserIconWr>
           <UserNameTitle>Olena</UserNameTitle>
         </UserWrapper>
