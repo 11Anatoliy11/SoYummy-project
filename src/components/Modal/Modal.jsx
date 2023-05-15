@@ -4,7 +4,7 @@ import { ReactComponent as Cross } from '../../images/svg/cross.svg';
 import { Overlay, ModalWindow, CloseButton} from "./Modal.styled";
 
 const modalRoot = document.querySelector("#modal-root");
-export default function Modal({ children, onClose, className }) {
+export default function Modal({ children, onClose, className, overlayClassName }) {
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -27,7 +27,7 @@ export default function Modal({ children, onClose, className }) {
   };
 
   return createPortal(
-    <Overlay onClick={handleCloseClick}>
+    <Overlay className={overlayClassName} onClick={handleCloseClick}>
       <ModalWindow className={className}>
         {children}
         <CloseButton onClick={onClose}>

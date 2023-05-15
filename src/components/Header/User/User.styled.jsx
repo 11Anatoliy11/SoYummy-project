@@ -1,6 +1,7 @@
 const { default: styled } = require('@emotion/styled');
 
 export const UserWrapper = styled.button`
+position: relative;
   margin-left: auto;
   margin-right: 24px;
   display: flex;

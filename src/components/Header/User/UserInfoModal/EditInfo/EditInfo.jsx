@@ -6,7 +6,7 @@ import { ReactComponent as Edit } from '../../../../../images/svg/edit.svg';
 
 export const EditInfo = () => {
 //   const {user: {name, email}} = useAuth();
-  const [newName, setNewName] = useState("Olena");
+  const [newName, setNewName] = useState("");
 
 
   const onChange = (e) => {

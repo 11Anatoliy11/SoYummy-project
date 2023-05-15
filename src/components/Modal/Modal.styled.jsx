@@ -11,7 +11,12 @@ align-items: center;
 width: 100vw;
 height: 100vh;
 background-color: rgba(0, 0, 0, 0.4);
+
+&.userLogoOverlayModal {
+  background-color: transparent;
+  }
 `;
+
 export const ModalWindow = styled.div`
 position: relative;
 box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
@@ -19,14 +24,19 @@ border-radius: 30px;
 background-color: var(--background-color);
 
 &.userLogoModal{
-  bottom: 35%;
-  left: 17%;
+  position: absolute;
+  /* bottom: 35%;
+  left: 17%; */
+ top: 72px;
+  right: 60px;
 
    @media (min-width: 768px) {
-
+    top: 78px;
+  right: 128px;
   }
   @media (min-width: 1280px) {
-
+    top: 96px;
+  right: 181px;
   }
   .closeBtn{
     display: none;

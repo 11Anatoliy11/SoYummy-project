@@ -23,18 +23,14 @@ export const User = () => {
   //   setIsModalOpen(current => !current);
   // };
   const handleCloseModal = () => {
-
-    toggleLogoModal();
     setModalName('');
     console.log("closeModal");
   };
   const openEditUser = () => {
-
     toggleLogoModal();
     setModalName('edit');
   };
   const openLogoutApproval = () => {
-
     toggleLogoModal();
     setModalName('logout');
   };

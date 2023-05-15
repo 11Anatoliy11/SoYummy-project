@@ -12,7 +12,7 @@ import Modal from '../../../Modal/Modal';
 export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
 
   return (
-    <Modal className="userLogoModal" onClose={onClose}>
+    <Modal className="userLogoModal" overlayClassName="userLogoOverlayModal" onClose={onClose}>
     <ModalWrapper>
       <EditWrapper onClick={onEdit}>
         <EditText>Edit profile</EditText>

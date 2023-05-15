@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const AvatarBox = styled.div`
   text-align: center;
   border-radius: 50%;
+
 `;
 export const Label = styled.label`
   position: relative;

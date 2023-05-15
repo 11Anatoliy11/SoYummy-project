@@ -11,6 +11,7 @@ export const EditAvatar = () => {
   const handleAvatarChange = event => {
     const avatar = event.target.files[0];
     setAvatarPreview(URL.createObjectURL(avatar));
+
   };
 
   return (
