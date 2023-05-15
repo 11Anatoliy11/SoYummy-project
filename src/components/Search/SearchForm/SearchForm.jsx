@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { changeQuery } from 'redux/search/searchSlice';
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 import { Form } from './SearchForm.style'
 
 export const SearchForm = () => {

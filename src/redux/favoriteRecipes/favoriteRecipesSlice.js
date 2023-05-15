@@ -4,7 +4,7 @@ import {
   getFavoriteRecipes,
   removeFromFavorite,
 } from './favoriteRecipesOperations';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 
 const initialState = {
   items: [],

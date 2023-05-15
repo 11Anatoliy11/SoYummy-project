@@ -11,6 +11,7 @@ export const SearchedRecipesListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding-top: 42px;
+  justify-content: center;
   gap: 28px;
   @media (min-width: 768px) {
     padding-top: 40px;

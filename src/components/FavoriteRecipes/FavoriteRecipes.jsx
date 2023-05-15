@@ -14,7 +14,7 @@ import { scrollToTop } from '../utils/scrollToTop';
 import 'react-responsive-pagination/themes/minimal.css';
 import { FavoriteRecipesContainer } from './FavoriteRecipes.styled';
 
-import { Paginator } from 'components/common'
+import { Paginator } from 'components/Common'
 
 export const FavoriteRecipes = () => {
   const [paginationPage, setPaginationPage] = useState(1);
@@ -22,7 +22,7 @@ export const FavoriteRecipes = () => {
 
   const data = useSelector(selectFavRecipes);
   const total = useSelector(selectFavRecipesCount);
-  const pagesCount = Math.ceil(total / per_page);
+  const pagesCount = Math.trunc(total / per_page);
   const isLoading = useSelector(selectFavIsLoading);
   const dispatch = useDispatch();
 

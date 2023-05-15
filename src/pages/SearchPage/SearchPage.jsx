@@ -5,14 +5,14 @@ import {
 } from 'redux/search/searchOperations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectQueryType, selectQuery } from 'redux/search/selectors';
-import { SearchedRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
+import { SearchedRecipesList } from 'components/Search/SearchedRecipesList/SearchedRecipesList';
 import { Helmet } from 'react-helmet-async';
 import { scrollToTop } from 'components/utils/scrollToTop';
-import { SearchForm } from 'components/SearchForm/SearchForm';
-import { SearchTypeSelector } from 'components/SearchTypeSelector/SearchTypeSelector';
+import { SearchForm } from 'components/Search/SearchForm/SearchForm';
+import { SearchTypeSelector } from 'components/Search/SearchTypeSelector/SearchTypeSelector';
 import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
 import { SearchPageContainer } from './SearchPage.style';
-import { Paginator } from 'components/common'
+import { Paginator } from 'components/Common'
 import { selectSearchedRecipesCount } from 'redux/search/selectors';
 
 const SearchPage = () => {
@@ -21,7 +21,7 @@ const SearchPage = () => {
   const [paginationPage, setPaginationPage] = useState(1);
   const [per_page] = useState(12);
   const total = useSelector(selectSearchedRecipesCount);
-  const pagesCount = Math.ceil(total / per_page);
+  const pagesCount = Math.trunc(total / per_page);
 
   const dispatch = useDispatch();
 

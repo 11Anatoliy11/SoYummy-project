@@ -1,5 +1,5 @@
-import { Loader } from 'components/common';
-import { RecipeItem } from '../RecipeItem/RecipeItem';
+import { Loader } from 'components/Common';
+import { RecipeItem } from '../Common';
 import { RecipesListContainer } from './RecipesList.styled'
 
 export const RecipesList = ({
