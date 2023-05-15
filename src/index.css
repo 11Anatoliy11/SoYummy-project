@@ -13,6 +13,7 @@
 }
 
 body {
+  margin:0;
   /* padding: 18px 100px 50px 100px; */
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;

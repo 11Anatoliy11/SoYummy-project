@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router';
 import { Navigate } from 'react-router';
 import SharedLayout from 'pages/SharedLayout/SharedLayout';
 import { PrivateRoute, RestrictedRoute } from '../utils';
-import { lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { NotFound } from '../NotFound/NotFound';
 import CategoriesLayout from 'pages/CategoriesLayout/CategoriesLayout';
 
@@ -23,6 +23,7 @@ const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 
 export const App = () => {
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Navigate to="/main" />} />
@@ -105,5 +106,6 @@ export const App = () => {
         }
       />
     </Routes>
+    </Suspense>
   );
 };
