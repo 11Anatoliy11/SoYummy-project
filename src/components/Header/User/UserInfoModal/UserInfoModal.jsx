@@ -1,5 +1,5 @@
-// import { useEffect, useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 // import { updateAvatar, updateInfo } from 'redux/auth/authOperations';
 
 // import { Box, Form } from './UserEdit.styled';
@@ -21,8 +21,8 @@ import { EditAvatar } from './EditAvatar/EditAvatar';
 
 export const UserInfoModal = ({onClose}) => {
   // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [newAvatar, setNewAvatar] = useState(null);
-  // const [isNewInfo, setIsNewInfo] = useState(false);
+  const [newAvatar, setNewAvatar] = useState(null);
+  const [isNewInfo, setIsNewInfo] = useState(false);
 
   // const toggleModal = () => {
   //   setIsModalOpen(current => !current);
@@ -32,31 +32,31 @@ export const UserInfoModal = ({onClose}) => {
   //   setIsNewInfo(false);
   // }, []);
 
-  // const dispatch = useDispatch();
-  // const { isLoading } = useAuth();
+  const dispatch = useDispatch();
+  const { isLoading } = useAuth();
 
   // const changeAvatar = () => {
   //   const formData = new FormData();
   //   formData.append('avatar', newAvatar);
   //   dispatch(updateAvatar(formData));
   // };
-  // const changeInfo = e => {
-  //   const updatedInfo = {
-  //     name: e.target.name.value,
-  //     email: e.target.email.value,
-  //   };
-  //   dispatch(updateInfo(updatedInfo));
-  // };
+  const changeName = e => {
+    const updatedInfo = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+    };
+    dispatch(updateInfo(updatedInfo));
+  };
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   if (newAvatar) changeAvatar();
-  //   if (isNewInfo) changeInfo(e);
-  // };
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (newAvatar) changeAvatar();
+    if (isNewInfo) changeName(e);
+  };
   return (
     <>
   <Modal className="userInfoModal" onClose={onClose}>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <EditAvatar/>
         <EditInfo/>
         <Button

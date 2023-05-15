@@ -44,7 +44,7 @@ export const User = () => {
           <UserIconWr>
           <img src={user?.avatar ?? userAvatar} alt="user avatar" />
           </UserIconWr>
-          <UserNameTitle>Olena</UserNameTitle>
+          <UserNameTitle>{user?.name ?? 'User'}</UserNameTitle>
         </UserWrapper>
         {modal && (
         <UserLogoModal
