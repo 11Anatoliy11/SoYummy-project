@@ -32,16 +32,6 @@ export const UserIconWr = styled.div`
     width: 44px;
     height: 44px;
   }
-
-  svg {
-    width: 16px;
-    height: 16px;
-
-    @media screen and (min-width: 768px) {
-      width: 18px;
-      height: 18px;
-    }
-  }
 `;
 
 export const UserNameTitle = styled.p`

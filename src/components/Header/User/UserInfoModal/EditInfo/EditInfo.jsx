@@ -1,11 +1,11 @@
 import {  useState } from 'react';
 // import { useAuth } from '../../../../../hooks/useAuth';
 import { Input, InputBox, Label } from './EditInfo.styled';
-import { ReactComponent as User } from '../../../../../images/svg/user-modal.svg';
-import { ReactComponent as Edit } from '../../../../../images/svg/edit.svg';
+import { ReactComponent as User } from 'images/svg/user-modal.svg';
+import { ReactComponent as Edit } from 'images/svg/edit.svg';
 
 export const EditInfo = () => {
-//   const {user: {name, email}} = useAuth();
+//   const { user.name} = useAuth();
   const [newName, setNewName] = useState("");
 
 

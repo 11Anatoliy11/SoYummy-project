@@ -1,6 +1,8 @@
 
 import { useState} from 'react';
-import { ReactComponent as UserIcon } from 'images/svg/user.svg';
+import { useAuth } from 'hooks/useAuth';
+// import { ReactComponent as UserIcon } from 'images/svg/user.svg';
+import userAvatar from 'images/avatar.png';
 
 import {
   UserWrapper,
@@ -15,6 +17,7 @@ export const User = () => {
   const [modal, setModal] = useState(false);
   // const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalName, setModalName] = useState('');
+  const { user } = useAuth();
 
   const toggleLogoModal = () => {
     setModal(prevState => !prevState);
@@ -39,7 +42,8 @@ export const User = () => {
     <>
         <UserWrapper onClick={toggleLogoModal}>
           <UserIconWr>
-            <UserIcon style={{ fill: 'none' }} />
+          <img src={user?.avatar ?? userAvatar} alt="user avatar" />
+            {/* <UserIcon style={{ fill: 'none' }} /> */}
           </UserIconWr>
           <UserNameTitle>Olena</UserNameTitle>
         </UserWrapper>

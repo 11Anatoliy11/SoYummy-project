@@ -2,8 +2,8 @@ import { useState } from 'react';
 // import { useAuth } from 'hooks/useAuth';
 import { AvatarBox, AvatarInput, Label } from './EditAvatar.styled';
 
-import userAvatar from '../../../../../images/avatar.png';
-import { ReactComponent as AddIcon } from '../../../../../images/svg/plus-in-circle.svg';
+import userAvatar from 'images/avatar.png';
+import { ReactComponent as AddIcon } from 'images/svg/plus-in-circle.svg';
 export const EditAvatar = () => {
   const [avatarPreview, setAvatarPreview] = useState(null);
   // const { user } = useAuth();
