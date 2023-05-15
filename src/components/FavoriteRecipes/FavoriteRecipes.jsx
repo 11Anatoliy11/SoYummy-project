@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RecipesList } from 'components/RecipesList/RecipesList';
@@ -6,25 +6,23 @@ import { getFavoriteRecipes } from 'redux/favoriteRecipes/favoriteRecipesOperati
 import { removeFromFavorite } from 'redux/favoriteRecipes/favoriteRecipesOperations';
 import {
   selectFavRecipes,
-  selectFavError,
   selectFavIsLoading,
   selectFavRecipesCount
 } from 'redux/favoriteRecipes/favoriteRecipesSelectors';
-import { RecipesListPaginator } from 'components/RecipesListPaginator/RecipesListPaginator';
-import { useState } from 'react';
-import { toast } from 'react-toastify';
-import placeholder from '../../images/placeholder.webp';
+import placeholder from '../../images/placeholder.png';
 import { scrollToTop } from '../utils/scrollToTop';
+import 'react-responsive-pagination/themes/minimal.css';
+import { FavoriteRecipesContainer } from './FavoriteRecipes.styled';
 
+import { Paginator } from 'components/common'
 
 export const FavoriteRecipes = () => {
-  //улюблені рецепти
   const [paginationPage, setPaginationPage] = useState(1);
   const [per_page] = useState(10);
 
   const data = useSelector(selectFavRecipes);
   const total = useSelector(selectFavRecipesCount);
-  const error = useSelector(selectFavError);
+  const pagesCount = Math.ceil(total / per_page);
   const isLoading = useSelector(selectFavIsLoading);
   const dispatch = useDispatch();
 
@@ -32,26 +30,13 @@ export const FavoriteRecipes = () => {
     dispatch(getFavoriteRecipes({ page: paginationPage, pageSize: per_page }));
   }, [dispatch, paginationPage, per_page]);
 
-  const pageIncrement = () => {
-    setPaginationPage(prev => prev + 1);
-  };
-  const pageDecrement = () => {
-    setPaginationPage(prev => prev - 1);
-  };
-
   const handlePaginationClick = event => {
-    const buttonValue = Number(event.target.textContent);
     scrollToTop();
-    setPaginationPage(buttonValue);
+    setPaginationPage(event);
   };
 
   return (
-    <>
-      {error &&
-        toast.error('Something went wrong, please try again later', {
-          autoClose: 3000,
-        })}
-
+    <FavoriteRecipesContainer id="favoriteRecipesContainer">
       {data?.length > 0 ? (
         <>
           <RecipesList
@@ -60,35 +45,28 @@ export const FavoriteRecipes = () => {
             data={data}
             isLoading={isLoading}
           />
-          {total > 0 && (
-            <RecipesListPaginator
-              current_page={paginationPage}
-              total={total}
-              per_page={per_page}
-              handlePaginationClick={handlePaginationClick}
-              pageIncrement={pageIncrement}
-              pageDecrement={pageDecrement}
-            />
-          )}
+          <Paginator
+            parendContainerId="favoriteRecipesContainer"
+            currentPage={paginationPage}
+            pagesCout={pagesCount}
+            onPaginate={handlePaginationClick}>
+          </Paginator>
         </>
       ) : (
-        <div
-          className="flex flex-col items-center
-         object-center text-center"
-        >
+        <div >
           <img
             src={placeholder}
             alt="error"
-            className="rounded mb-3.5 md:mb-8 pt-4 md:h-[327px] xl:h-[331px]"
+
           />
-          <p className="text-[18px] md:text-customBase font-semibold mb-2 md:mb-3.5 dark:text-whiteText">
+          <p>
             We are sorry,
           </p>
-          <p className="text-customXxs md:text-[18px] leading-[18px] mb-[100px] md:mb-[204px] w-48 md:w-full md:min-w-[430px] dark:text-[#FAFAFA80]">
+          <p >
             You don't have any added recipes ...
           </p>
         </div>
       )}
-    </>
+    </FavoriteRecipesContainer>
   );
 };

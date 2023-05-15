@@ -5,7 +5,7 @@
 :root {
   --grey-color: #d9d9d9;
   --green-color: #8baa36;
-  --background-color: #ececec;
+  --body-color: #ececec;
   --subscribe-black-color: #1e1f28;
   --search-black-color: #22252a;
   --page-title-color: #001833;
@@ -13,13 +13,20 @@
 }
 
 body {
-  margin:0;
-  /* padding: 18px 100px 50px 100px; */
+  margin: 0;
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
   color: var(--search-black-color);
+  position: relative;
+}
+
+.mobile-menu-open {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch; 
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 code {

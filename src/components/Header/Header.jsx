@@ -18,15 +18,18 @@ import {
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const isSmallScreen = useIsSmallScreen();
+  const body = document.querySelector('body');
 
   useEffect(() => {
     if (!isSmallScreen) {
       setMenuOpen(false);
+      body.classList.remove('mobile-menu-open');
     }
-  }, [isSmallScreen]);
+  }, [body, isSmallScreen]);
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
+    body.classList.toggle('mobile-menu-open');
   };
 
   return (

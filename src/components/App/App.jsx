@@ -2,9 +2,12 @@ import { Route, Routes } from 'react-router';
 import { Navigate } from 'react-router';
 import SharedLayout from 'pages/SharedLayout/SharedLayout';
 import { PrivateRoute, RestrictedRoute } from '../utils';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { NotFound } from '../NotFound/NotFound';
 import CategoriesLayout from 'pages/CategoriesLayout/CategoriesLayout';
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth/auth-selectors';
+import { refreshUser, uploadAvatar } from 'redux/auth/auth-operations';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const SigninPage = lazy(() => import('pages/SigninPage/SigninPage'));
@@ -22,6 +25,18 @@ const ShoppingListPage = lazy(() =>
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const {isLoggedIn} = useSelector(authSelectors.getLoggedIn);
+
+  useEffect(() => {
+    if (!isLoggedIn) return;
+    console.log("refresh")
+    dispatch(refreshUser());
+    dispatch(uploadAvatar("./sdfasdf/sdfasdf.jpg"))
+
+    // eslint-disable-next-line
+  }, [dispatch]);
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
     <Routes>

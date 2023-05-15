@@ -12,8 +12,10 @@ export const register = createAsyncThunk(
       const res = await axios.post('auth/register', credentials);
       setAuthHeader(res.data.accessToken);
       toast.success('Successfully registered !');
+      console.log(res.data);
       return res.data;
     } catch (error) {
+
       toast.error(
         'This email has already been registered !'
       );
@@ -72,4 +74,16 @@ export const uploadAvatar = createAsyncThunk(
             return thunkAPI.rejectWithValue(error.message);
         }
     }
+)
+
+export const uploadUserInfo = createAsyncThunk(
+  'auth/user-info',
+  async(file,thunkAPI) => {
+      try{
+          const res = await axios.patch('auth/user-info',file);
+          return res.data;
+      } catch (error) {
+          return thunkAPI.rejectWithValue(error.message);
+      }
+  }
 )
