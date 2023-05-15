@@ -13,8 +13,8 @@ export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
 
   return (
     <Modal className="userLogoModal" onClose={onClose}>
-    <ModalWrapper onClick={onEdit}>
-      <EditWrapper>
+    <ModalWrapper>
+      <EditWrapper onClick={onEdit}>
         <EditText>Edit profile</EditText>
           <Edit />
       </EditWrapper>

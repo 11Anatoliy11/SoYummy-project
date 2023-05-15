@@ -1,7 +1,7 @@
 // import { useDispatch } from 'react-redux';
 // import { logOut } from '../../../../redux/auth/authOperations';
 
-import Modal from '../Modal/Modal';
+import Modal from '../../../Modal/Modal';
 import Button from 'components/Button/Button';
 import { ButtonBox, Text } from './UserLogoutModal.styled';
 
@@ -12,8 +12,7 @@ export const UserLogoutModal = ({ onClose }) => {
   //   dispatch(logOut());
   // };
   return (
-
-      <Modal className="logoutModal">
+      <Modal className="logoutModal" onClose={onClose}>
       <Text>Are you sure you want to log out?</Text>
         <ButtonBox>
         <Button className="logoutBtn"
@@ -28,6 +27,7 @@ export const UserLogoutModal = ({ onClose }) => {
       Log out
       </Button>
       <Button className="cancelBtn"
+        onClick={onClose}
         type="button"
         width="137px"
         height="49px"

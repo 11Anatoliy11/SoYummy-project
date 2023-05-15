@@ -6,7 +6,6 @@ import { Overlay, ModalWindow, CloseButton} from "./Modal.styled";
 const modalRoot = document.querySelector("#modal-root");
 export default function Modal({ children, onClose, className }) {
 
-
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
 
@@ -31,7 +30,7 @@ export default function Modal({ children, onClose, className }) {
     <Overlay onClick={handleCloseClick}>
       <ModalWindow className={className}>
         {children}
-        <CloseButton type="button" onClick={handleCloseClick}>
+        <CloseButton onClick={handleCloseClick}>
         <Cross className="closeBtn"/>
         </CloseButton>
         </ModalWindow>

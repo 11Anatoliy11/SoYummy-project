@@ -13,20 +13,20 @@ import {
   // EditText,
   // ModalWrapper,
 } from './UserInfoModal.styled';
-import { useState } from 'react';
+// import { useState } from 'react';
 import Button from '../../../Button/Button';
 import Modal from '../../../Modal/Modal';
 import {EditInfo} from './EditInfo/EditInfo'
 import { EditAvatar } from './EditAvatar/EditAvatar';
 
-export const UserInfoModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export const UserInfoModal = ({onClose}) => {
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   // const [newAvatar, setNewAvatar] = useState(null);
   // const [isNewInfo, setIsNewInfo] = useState(false);
 
-  const toggleModal = () => {
-    setIsModalOpen(current => !current);
-  };
+  // const toggleModal = () => {
+  //   setIsModalOpen(current => !current);
+  // };
   // useEffect(() => {
   //   setNewAvatar(null);
   //   setIsNewInfo(false);
@@ -55,7 +55,7 @@ export const UserInfoModal = () => {
   // };
   return (
     <>
-    <Modal className="userInfoModal" onClose={toggleModal}>
+  <Modal className="userInfoModal" onClose={onClose}>
       <Form>
         <EditAvatar/>
         <EditInfo/>
