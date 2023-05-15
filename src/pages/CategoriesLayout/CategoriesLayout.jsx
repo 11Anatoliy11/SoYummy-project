@@ -1,4 +1,4 @@
-import { Loader } from 'components/common';
+import { Loader } from 'components/Common';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router';
 import { NavLink } from 'react-router-dom';

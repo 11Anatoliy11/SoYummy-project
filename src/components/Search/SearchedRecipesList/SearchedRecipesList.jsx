@@ -1,37 +1,31 @@
-import { Loader } from 'components/common';
+import { Loader } from 'components/Common';
 import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import { selectSearchedRecipes } from 'redux/search/selectors';
 import { selectIsLoading } from 'redux/search/selectors';
-import { selectError } from 'redux/search/selectors';
-import { RecipeCard } from 'components/RecipeCard/RecipeCard';
+import { RecipeCard } from 'components/Common';
+import { SearchedRecipesListError, SearchedRecipesListContainer } from './SearchedRecipesList.styled'
 
-import placeholder from 'images/placeholder.webp';
+import placeholder from 'images/placeholder.png';
 
 import { motion } from 'framer-motion';
 
 export const SearchedRecipesList = () => {
   const recipes = useSelector(selectSearchedRecipes);
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
   return (
     <>
-      {error &&
-        toast.error('Something went wrong, please try again later', {
-          autoClose: 3000,
-        })}
-      {isLoading && !error && <Loader />}
+      {isLoading && <Loader />}
       {recipes.length === 0 ? (
-        <div >
+        <SearchedRecipesListError >
           <img src={placeholder} loading="lazy" alt="vegetables assortment" />
           <p>
             Try looking for something else..
           </p>
-        </div>
+        </SearchedRecipesListError>
       ) : (
-        <div>
-          {recipes.map(({ _id, title, description, thumb, time }) => {
+        <SearchedRecipesListContainer>
+          {recipes.map(({ _id, title, thumb }) => {
             return (
               <motion.div
                 initial={{
@@ -49,14 +43,12 @@ export const SearchedRecipesList = () => {
                 <RecipeCard
                   id={_id.$oid}
                   title={title}
-                  text={description}
                   thumb={thumb}
-                  time={time}
                 />
               </motion.div>
             );
           })}
-        </div>
+        </SearchedRecipesListContainer>
       )}
     </>
   );

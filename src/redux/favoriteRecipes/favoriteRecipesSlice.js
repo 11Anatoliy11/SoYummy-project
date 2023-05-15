@@ -4,6 +4,7 @@ import {
   getFavoriteRecipes,
   removeFromFavorite,
 } from './favoriteRecipesOperations';
+import { toast } from 'react-toastify';
 
 const initialState = {
   items: [],
@@ -45,6 +46,9 @@ export const favoriteRecipesSlice = createSlice({
         (state, action) => {
           state.isLoading = false;
           state.error = action.payload;
+          toast.error('Something went wrong, please try again later', {
+            autoClose: 3000,
+          })
         }
       )
       .addMatcher(

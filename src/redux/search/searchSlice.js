@@ -1,8 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { getRecipesByQuery, getRecipesByIngredient } from './searchOperations';
+import { toast } from 'react-toastify';
 
 const initialState = {
   items: [],
+  totalCount: 0,
   query: '',
   queryType: 'title',
   isLoading: false,
@@ -17,12 +19,14 @@ const searchSlice = createSlice({
       .addCase(getRecipesByQuery.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = action.payload;
+        state.items = action.payload.items;
+        state.totalCount = action.payload.totalCount;
       })
       .addCase(getRecipesByIngredient.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = action.payload;
+        state.items = action.payload.items;
+        state.totalCount = action.payload.totalCount;
       })
       .addCase(getRecipesByQuery.pending, state => {
         state.isLoading = true;
@@ -30,12 +34,19 @@ const searchSlice = createSlice({
       .addCase(getRecipesByIngredient.pending, state => {
         state.isLoading = true;
       })
-      .addCase(getRecipesByQuery.rejected, (state, action) => {
-        state.error = action.payload;
-      })
-      .addCase(getRecipesByIngredient.rejected, (state, action) => {
-        state.error = action.payload;
-      });
+      .addMatcher(
+        isAnyOf(
+          getRecipesByQuery.rejected,
+          getRecipesByIngredient.rejected
+        ),
+        (state, action) => {
+          state.error = action.payload;
+          state.isLoading = false;
+          toast.error('Something went wrong, please try again later', {
+            autoClose: 3000,
+          })
+        }
+      );
   },
   reducers: {
     changeQueryType(state, action) {
