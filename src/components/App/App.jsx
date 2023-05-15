@@ -20,6 +20,7 @@ const ShoppingListPage = lazy(() =>
   import('pages/ShoppingListPage/ShoppingListPage')
 );
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
+const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
 
 export const App = () => {
   return (
@@ -61,6 +62,12 @@ export const App = () => {
           path="my"
           element={
             <PrivateRoute component={MyRecipesPage} redirectTo={'/welcome'} />
+          }
+        />
+        <Route
+          path="recipes/id/:id"
+          element={
+            <PrivateRoute component={RecipePage} redirectTo={'/welcome'} />
           }
         />
         <Route

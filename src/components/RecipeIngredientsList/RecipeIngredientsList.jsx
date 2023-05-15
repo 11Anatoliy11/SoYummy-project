@@ -17,7 +17,20 @@ import {
 } from './RecipeIngredientsList.module';
 
 export default function RecipeIngredientsList({ requiredIngredients }) {
-  const [ingredient, setIngredient] = useState(ingredientsData);
+  console.log(
+    `🚀 ~ RecipeIngredientsList ~ requiredIngredients:`,
+    requiredIngredients
+  );
+  const [allIngredient, setAllIngredient] = useState(ingredientsData);
+  const [shoppingList, setShoppingList] = useState([]);
+
+  const handleCheckboxChange = (id, measure) => {
+    console.log(`🚀 ~ handleCheckboxChange ~ id:`, id);
+    const ingredient = allIngredient.find(({ _id }) => _id.$oid === id.$oid);
+    const { ttl, thb, desc } = ingredient;
+    const item = { id: id.$oid, measure, ttl, thb, desc };
+    setShoppingList([...shoppingList, item]);
+  };
 
   return (
     <Container>
@@ -30,7 +43,7 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
       </Head>
       <List>
         {requiredIngredients.map(({ id, measure }) => {
-          const { ttl, thb, desc } = ingredient.find(
+          const { ttl, thb, desc } = allIngredient.find(
             ({ _id }) => _id.$oid === id.$oid
           );
           return (
@@ -41,7 +54,10 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
               </Ingredient>
               <ItemWrapper>
                 <Measure>{measure}</Measure>
-                <Checkbox></Checkbox>
+                <Checkbox
+                  type="checkbox"
+                  onChange={() => handleCheckboxChange(id, measure)}
+                />
               </ItemWrapper>
             </Item>
           );

@@ -23,7 +23,9 @@ export default function RecipePageHero({ description, title, time }) {
         border="1px solid var(--green-color)"
         borderRadius="24px 44px"
         text="Add to favorite recipes"
-      />
+      >
+        Add to favorite recipes
+      </Button>
       <TimeWrap>
         <Clock width="14px" height="14px" style={{ fill: 'transparent' }} />
         <Time>{time} min</Time>

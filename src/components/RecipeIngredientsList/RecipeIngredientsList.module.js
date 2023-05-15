@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Pick from '../../images/svg/pick.svg';
 
 export const Container = styled.div`
   padding: 0 16px;
@@ -91,10 +92,24 @@ export const Measure = styled.div`
   color: var(--background-color);
 `;
 
-// Временное, удалить
-export const Checkbox = styled.div`
-  width: 18px;
+export const Checkbox = styled.input`
+  margin: 0;
+
   height: 18px;
+  width: 18px;
+
+  background: transparent;
+  appearance: none;
   border: 1px solid rgba(126, 126, 126, 0.5);
   border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+
+  &:checked {
+    background: transparent;
+    background-image: url(${Pick});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 9px 9px;
+  }
 `;
