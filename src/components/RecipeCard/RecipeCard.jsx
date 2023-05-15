@@ -1,40 +1,24 @@
 import { Link } from 'react-router-dom';
-import { ReactComponent as ClockIcon } from 'images/svg/clock.svg';
+import { RecipeCardConteiner, RecipeCardTitle } from './RecipeCard.stiled'
 
-export const RecipeCard = ({ id, title, text, thumb, time }) => {
-  const timeMeasures = ['min', 'h'];
+export const RecipeCard = ({ id, title, thumb }) => {
   return (
     <Link to={`/recipes/${id}`}>
-      <div >
+      <RecipeCardConteiner >
         <img
           src={thumb}
           alt={title}
           height={323}
-          width={343}
+          width={300}
         />
-        <div >
-          <div >
-            <p >
-              {time && (
-                <>
-                  <ClockIcon />
-                  {time}
-                  {!timeMeasures.some(value => time.includes(value)) && ' min'}
-                </>
-              )}
-            </p>
-            <p>
-              {text}
-            </p>
-
-          </div>
-          <h3
+        <RecipeCardTitle >
+          <p
             title={title}
           >
             {title}
-          </h3>
-        </div>
-      </div>
+          </p>
+        </RecipeCardTitle>
+      </RecipeCardConteiner>
     </Link>
   );
 };

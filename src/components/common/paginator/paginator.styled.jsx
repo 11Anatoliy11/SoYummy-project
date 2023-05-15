@@ -9,6 +9,7 @@ export const PaginatorContainer = styled.div`
     justify-content: center;
     width: max-content;
     gap: 10px;
+    background-color: white;
 
   .paginator-item{
     width: 28px;

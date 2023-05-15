@@ -1,4 +1,3 @@
-
 import ResponsivePagination from 'react-responsive-pagination';
 import { useState, useEffect } from 'react';
 import { PaginatorContainer } from './paginator.styled';
@@ -12,11 +11,10 @@ export const Paginator = ({
   parendContainerId,
   onPaginate,
   decreasePixels = 100,
-  extraClassName = "paginator",
-  pageItemClassName = "paginator-item",
-  pageLinkClassName = "paginator-link"
+  extraClassName = 'paginator',
+  pageItemClassName = 'paginator-item',
+  pageLinkClassName = 'paginator-link',
 }) => {
-
   const [windowWidth, setWindowWidth] = useState(0);
 
   let resizeWindow = () => {
@@ -24,14 +22,14 @@ export const Paginator = ({
     if (!container) {
       return;
     }
-    const width = container?.offsetWidth
+    const width = container?.offsetWidth;
     setWindowWidth(width - decreasePixels);
   };
 
   useEffect(() => {
     resizeWindow();
-    window.addEventListener("resize", resizeWindow);
-    return () => window.removeEventListener("resize", resizeWindow);
+    window.addEventListener('resize', resizeWindow);
+    return () => window.removeEventListener('resize', resizeWindow);
   });
 
   return (
@@ -42,16 +40,16 @@ export const Paginator = ({
         extraClassName={extraClassName}
         previousLabel={
           <Button
-            text={<ArrowLeft />}
             aria-hidden="true"
             className="button">
+            <ArrowLeft />
           </Button>
         }
         nextLabel={
           <Button
-            text={<ArrowRight />}
             aria-hidden="true"
             className="button">
+            <ArrowRight />
           </Button>
         }
         pageItemClassName={pageItemClassName}
@@ -60,5 +58,5 @@ export const Paginator = ({
         maxWidth={windowWidth}
       />
     </PaginatorContainer>
-  )
-}
+  );
+};

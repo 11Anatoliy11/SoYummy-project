@@ -6,12 +6,10 @@ import { getFavoriteRecipes } from 'redux/favoriteRecipes/favoriteRecipesOperati
 import { removeFromFavorite } from 'redux/favoriteRecipes/favoriteRecipesOperations';
 import {
   selectFavRecipes,
-  selectFavError,
   selectFavIsLoading,
   selectFavRecipesCount
 } from 'redux/favoriteRecipes/favoriteRecipesSelectors';
-import { toast } from 'react-toastify';
-import placeholder from '../../images/placeholder.webp';
+import placeholder from '../../images/placeholder.png';
 import { scrollToTop } from '../utils/scrollToTop';
 import 'react-responsive-pagination/themes/minimal.css';
 import { FavoriteRecipesContainer } from './FavoriteRecipes.styled';
@@ -24,8 +22,7 @@ export const FavoriteRecipes = () => {
 
   const data = useSelector(selectFavRecipes);
   const total = useSelector(selectFavRecipesCount);
-  const pagesCount = Math.trunc(total / per_page);
-  const error = useSelector(selectFavError);
+  const pagesCount = Math.ceil(total / per_page);
   const isLoading = useSelector(selectFavIsLoading);
   const dispatch = useDispatch();
 
@@ -40,11 +37,6 @@ export const FavoriteRecipes = () => {
 
   return (
     <FavoriteRecipesContainer id="favoriteRecipesContainer">
-      {error &&
-        toast.error('Something went wrong, please try again later', {
-          autoClose: 3000,
-        })}
-
       {data?.length > 0 ? (
         <>
           <RecipesList
@@ -53,14 +45,12 @@ export const FavoriteRecipes = () => {
             data={data}
             isLoading={isLoading}
           />
-          {total > 0 && (
-            <Paginator
-              parendContainerId="favoriteRecipesContainer"
-              currentPage={paginationPage}
-              pagesCout={pagesCount}
-              onPaginate={handlePaginationClick}>
-            </Paginator>
-          )}
+          <Paginator
+            parendContainerId="favoriteRecipesContainer"
+            currentPage={paginationPage}
+            pagesCout={pagesCount}
+            onPaginate={handlePaginationClick}>
+          </Paginator>
         </>
       ) : (
         <div >
