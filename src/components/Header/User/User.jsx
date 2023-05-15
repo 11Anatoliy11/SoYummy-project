@@ -1,7 +1,6 @@
 
 import { useState} from 'react';
 import { useAuth } from 'hooks/useAuth';
-// import { ReactComponent as UserIcon } from 'images/svg/user.svg';
 import userAvatar from 'images/avatar.png';
 
 import {
@@ -27,7 +26,6 @@ export const User = () => {
   // };
   const handleCloseModal = () => {
     setModalName('');
-    console.log("closeModal");
   };
   const openEditUser = () => {
     toggleLogoModal();
@@ -37,7 +35,7 @@ export const User = () => {
     toggleLogoModal();
     setModalName('logout');
   };
-
+// console.log(user);
   return (
     <>
         <UserWrapper onClick={toggleLogoModal}>

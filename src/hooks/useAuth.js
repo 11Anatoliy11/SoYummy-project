@@ -8,8 +8,3 @@ export const useAuth = () => {
   const isRegistered = useSelector(authSelectors.getIsRegistered);
   return { isRefreshing, isLoggedIn, user, isRegistered };
 };
-
-// getLoggedIn,
-// getUser,
-// getIsRefreshing,
-// getIsRegistered,

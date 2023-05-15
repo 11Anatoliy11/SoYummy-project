@@ -1,57 +1,41 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { updateAvatar, updateInfo } from 'redux/auth/authOperations';
+import { useAuth } from 'hooks/useAuth';
+import { updateAvatar, updateName } from 'redux/auth/auth-operations';
 
-// import { Box, Form } from './UserEdit.styled';
-// import { Button } from '../UserLogout/UserLogout.styled';
-// import { AvatarEdit } from './AvatarEdit/AvatarEdit';
-// import { InfoEdit } from './InfoEdit/InfoEdit';
-// import { useAuth } from '../../../../hooks/useAuth';
-import {
-  Form,
-  // EditWrapper,
-  // EditText,
-  // ModalWrapper,
-} from './UserInfoModal.styled';
-// import { useState } from 'react';
-import Button from '../../../Button/Button';
-import Modal from '../../../Modal/Modal';
+import { Form } from './UserInfoModal.styled';
 import {EditInfo} from './EditInfo/EditInfo'
 import { EditAvatar } from './EditAvatar/EditAvatar';
+import Button from 'components/Button/Button';
+import Modal from 'components/Modal/Modal';
+
 
 export const UserInfoModal = ({onClose}) => {
-  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [newAvatar, setNewAvatar] = useState(null);
-  const [isNewInfo, setIsNewInfo] = useState(false);
+  const [isNewName, setIsNewName] = useState(false);
 
-  // const toggleModal = () => {
-  //   setIsModalOpen(current => !current);
-  // };
-  // useEffect(() => {
-  //   setNewAvatar(null);
-  //   setIsNewInfo(false);
-  // }, []);
+  useEffect(() => {
+    setNewAvatar(null);
+    setIsNewName(false);
+  }, []);
 
   const dispatch = useDispatch();
   const { isLoading } = useAuth();
 
-  // const changeAvatar = () => {
-  //   const formData = new FormData();
-  //   formData.append('avatar', newAvatar);
-  //   dispatch(updateAvatar(formData));
-  // };
+  const changeAvatar = () => {
+    const formData = new FormData();
+    formData.append('avatar', newAvatar);
+    // dispatch(updateAvatar(formData));
+  };
   const changeName = e => {
-    const updatedInfo = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-    };
-    dispatch(updateInfo(updatedInfo));
+    const updatedName = e.target.name.value;
+    // dispatch(updateInfo(updatedInfo));
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     if (newAvatar) changeAvatar();
-    if (isNewInfo) changeName(e);
+    if (isNewName) changeName(e);
   };
   return (
     <>
