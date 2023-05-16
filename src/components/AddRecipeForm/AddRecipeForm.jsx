@@ -81,6 +81,7 @@ export const AddRecipeForm = ({ addRecipe, redirectToMyRecipes }) => {
               type="file"
               id="photo"
               name="photo"
+              accept="image/*"
               onChange={event => handleFileChange(event, setFieldValue)}
               style={{display: "none"}}
             />
