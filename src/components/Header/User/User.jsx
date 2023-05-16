@@ -14,16 +14,14 @@ import { UserInfoModal } from './UserInfoModal';
 
 export const User = () => {
   const [modal, setModal] = useState(false);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [modalName, setModalName] = useState('');
   const { user } = useAuth();
 
   const toggleLogoModal = () => {
     setModal(prevState => !prevState);
   };
-  // const toggleModal = () => {
-  //   setIsModalOpen(current => !current);
-  // };
+
   const handleCloseModal = () => {
     setModalName('');
   };
@@ -35,7 +33,8 @@ export const User = () => {
     toggleLogoModal();
     setModalName('logout');
   };
-console.log(user);
+  console.log(user.avatar);
+  console.log(user.name);
   return (
     <>
         <UserWrapper onClick={toggleLogoModal}>

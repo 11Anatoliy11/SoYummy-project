@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useAuth } from 'hooks/useAuth';
-import { updateAvatar, updateName } from 'redux/auth/auth-operations';
+// import { useAuth } from 'hooks/useAuth';
+import { uploadAvatar, uploadUserInfo } from 'redux/auth/auth-operations';
 
 import { Form } from './UserInfoModal.styled';
 import {EditInfo} from './EditInfo/EditInfo'
@@ -20,16 +20,16 @@ export const UserInfoModal = ({onClose}) => {
   }, []);
 
   const dispatch = useDispatch();
-  const { isLoading } = useAuth();
+  // const { isLoading } = useAuth();
 
   const changeAvatar = () => {
     const formData = new FormData();
     formData.append('avatar', newAvatar);
-    // dispatch(updateAvatar(formData));
+    dispatch(uploadAvatar(formData));
   };
   const changeName = e => {
     const updatedName = e.target.name.value;
-    // dispatch(updateName(updatedName));
+    dispatch(uploadUserInfo(updatedName));
   };
 
   const handleSubmit = e => {
@@ -37,16 +37,19 @@ export const UserInfoModal = ({onClose}) => {
     if (newAvatar) changeAvatar();
     if (isNewName) changeName(e);
     onClose();
+    console.log(newAvatar);
+    console.log(isNewName);
   };
+
   return (
     <>
   <Modal className="userInfoModal" onClose={onClose}>
-      <Form>
-        <EditAvatar/>
-        <EditInfo/>
+      <Form  onSubmit={handleSubmit}>
+        <EditAvatar updateAvatar={avatar => setNewAvatar(avatar)}/>
+        <EditInfo updateName={() => setIsNewName(true)}/>
         <Button
         className="changeBtn"
-        onClick={handleSubmit}
+        onSubmit={handleSubmit}
         type="submit"
         width="282px"
         height="49px"
