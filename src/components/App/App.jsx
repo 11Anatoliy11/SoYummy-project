@@ -38,25 +38,28 @@ export const App = () => {
             path="categories"
             element={
               <>
-                <Navigate to="/categories/beef" replace />
-                <PrivateRoute
-                  component={<CategoriesLayout />}
-                  redirectTo={'/welcome'}
-                />
+                <CategoriesLayout />
               </>
             }
           >
+            <Route path="" element={<Navigate to="/categories/beef" />} />
             <Route
               path=":categoryName"
               element={
-                <PrivateRoute component={CategoryPage} redirectTo={'/welcome'} />
+                <PrivateRoute
+                  component={CategoryPage}
+                  redirectTo={'/welcome'}
+                />
               }
             />
           </Route>
           <Route
             path="add"
             element={
-              <PrivateRoute component={AddRecipesPage} redirectTo={'/welcome'} />
+              <PrivateRoute
+                component={AddRecipesPage}
+                redirectTo={'/welcome'}
+              />
             }
           />
           <Route
@@ -107,8 +110,11 @@ export const App = () => {
           }
         />
       </Routes>
-      <ToastContainer position="top-center" reverseOrder={false} autoClose={2000} />
+      <ToastContainer
+        position="top-center"
+        reverseOrder={false}
+        autoClose={2000}
+      />
     </>
-
   );
-}; 
+};
