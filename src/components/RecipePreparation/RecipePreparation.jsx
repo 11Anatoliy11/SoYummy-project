@@ -1,5 +1,4 @@
 import {
-  Container,
   Image,
   Item,
   List,
@@ -27,7 +26,7 @@ export default function RecipePreparation({ instructions, thumb, title }) {
   let counter = 0;
 
   return (
-    <Container>
+    <>
       <Title>Recipe Preparation</Title>
       <List>
         {instructionsArray.map((el, index) => {
@@ -44,6 +43,6 @@ export default function RecipePreparation({ instructions, thumb, title }) {
         })}
       </List>
       <Image src={thumb} alt={title} />
-    </Container>
+    </>
   );
 }

@@ -13,7 +13,6 @@ import {
   Measure,
   ItemWrapper,
   List,
-  Container,
 } from './RecipeIngredientsList.module';
 
 export default function RecipeIngredientsList({ requiredIngredients }) {
@@ -34,7 +33,7 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
   };
 
   return (
-    <Container>
+    <>
       <Head>
         <HeadText>Ingredients</HeadText>
         <Wrapper>
@@ -65,6 +64,6 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
           );
         })}
       </List>
-    </Container>
+    </>
   );
 }

@@ -25,6 +25,7 @@ export const favoriteRecipesSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(addFavoriteRecipes.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.isLoading = false;
         state.error = null;
         state.items.data.push(action.payload.data);
@@ -48,7 +49,7 @@ export const favoriteRecipesSlice = createSlice({
           state.error = action.payload;
           toast.error('Something went wrong, please try again later', {
             autoClose: 3000,
-          })
+          });
         }
       )
       .addMatcher(

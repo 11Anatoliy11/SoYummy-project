@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import background from '../../images/m-vegetables.png';
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,9 +11,9 @@ export const Wrapper = styled.div`
   padding: 80px 38px 90px;
   margin-bottom: 32px;
 
-  /* background-image: url('../../images/m-vegetables.png');
+  background-image: url(${background});
   background-size: cover;
-  background-position: center center; */
+  background-position: center center;
 
   > Button {
     margin-top: 24px;
