@@ -3,7 +3,7 @@ import { RecipeCardContainer, RecipeCardTitle } from './RecipeCard.styled'
 
 export const RecipeCard = ({ id, title, thumb }) => {
   return (
-    <Link to={`/recipes/${id}`}>
+    <Link to={`/recipe/${id}`}>
       <RecipeCardContainer >
         <img
           src={thumb}
