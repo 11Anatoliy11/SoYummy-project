@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = ''; // NEED TO ADD BASE_URL
+axios.defaults.baseURL = 'https://so-yammy-back.onrender.com/'; // NEED TO ADD BASE_URL
 
 export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
