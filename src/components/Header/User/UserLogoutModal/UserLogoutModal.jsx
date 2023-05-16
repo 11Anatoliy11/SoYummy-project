@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { logout } from '../../../../redux/auth/auth-operations';
+import { logout } from 'redux/auth/auth-operations';
 
 import Modal from '../../../Modal/Modal';
 import Button from 'components/Button/Button';
