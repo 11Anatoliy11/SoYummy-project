@@ -16,6 +16,10 @@ import {
 } from './RecipeIngredientsList.module';
 
 export default function RecipeIngredientsList({ requiredIngredients }) {
+  console.log(
+    `🚀 ~ RecipeIngredientsList ~ requiredIngredients:`,
+    requiredIngredients
+  );
   const [allIngredient, setAllIngredient] = useState(ingredientsData);
   const [shoppingList, setShoppingList] = useState([]);
   // console.log(`🚀 ~ RecipeIngredientsList ~ shoppingList:`, shoppingList);

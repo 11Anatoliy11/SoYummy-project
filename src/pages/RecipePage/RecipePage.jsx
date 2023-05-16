@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 
 import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
 import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
@@ -8,7 +9,11 @@ import recipesData from '../../mocks/recipes.json';
 
 export default function RecipePage() {
   // const [counter, setCounter] = useState(0);
-  const [recipe, setRecipe] = useState(recipesData[9]);
+
+  const { recipeId } = useParams();
+
+  const recipe = recipesData.filter(recipe => recipe._id.$oid === recipeId);
+
   console.log(`🚀 ~ RecipePage ~ recipe:`, recipe);
 
   // useEffect(() => {
@@ -24,7 +29,7 @@ export default function RecipePage() {
   // }, [counter]);
 
   const { title, description, time, thumb, ingredients, instructions, _id } =
-    recipe;
+    recipe[0];
 
   return (
     <div>

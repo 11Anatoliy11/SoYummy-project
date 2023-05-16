@@ -11,7 +11,7 @@ export default function RecipePreparation({ instructions, thumb, title }) {
   let instructionsArray = [];
 
   // Разделение инструкций по числам и символам
-  const stepSeparatedInstructions = instructions.split(/^\d+[.)]\s*/gm);
+  const stepSeparatedInstructions = instructions?.split(/^\d+[.)]\s*/gm);
 
   stepSeparatedInstructions.forEach(step => {
     if (step.trim() === '') {
