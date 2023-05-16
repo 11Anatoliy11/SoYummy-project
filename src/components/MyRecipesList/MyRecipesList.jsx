@@ -8,6 +8,7 @@ import recipesData from '../../mocks/recipes.json';
 import { MyRecipesContainer } from './MyRecipesList.module';
 
 export default function MyRecipesList() {
+  // eslint-disable-next-line no-unused-vars
   const [recipes, setRecipes] = useState(recipesData);
   //   console.log(`🚀 ~ MyRecipesPage ~ recipe:`, recipes);
   //   const myRecipes = useSelector(getAllOwnRecipes);

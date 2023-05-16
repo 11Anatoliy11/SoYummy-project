@@ -16,6 +16,7 @@ import {
 } from './RecipeIngredientsList.module';
 
 export default function RecipeIngredientsList({ requiredIngredients }) {
+  // eslint-disable-next-line no-unused-vars
   const [allIngredient, setAllIngredient] = useState(ingredientsData);
   const [shoppingList, setShoppingList] = useState([]);
   // console.log(`🚀 ~ RecipeIngredientsList ~ shoppingList:`, shoppingList);
