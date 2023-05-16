@@ -27,12 +27,12 @@ const middleware = [
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: [],
+  whitelist: ["user","isLoggedIn"],
 };
 const recipePresistConfig = {
   key: 'recipes',
   storage,
-  whitelist: []
+  // whitelist: []
 }
 
 export const store = configureStore({
