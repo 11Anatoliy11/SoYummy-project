@@ -10,10 +10,12 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('auth/register', credentials);
-      setAuthHeader(res.data.accessToken);
+      setAuthHeader(res.data.user.token);
       toast.success('Successfully registered !');
+      console.log(res.data);
       return res.data;
     } catch (error) {
+
       toast.error(
         'This email has already been registered !'
       );
@@ -27,7 +29,12 @@ export const login = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('auth/login', credentials);
-      setAuthHeader(res.data.accessToken);
+      const {token} = res.data.user;
+      // console.log(token)
+      // console.log('Before',axios.defaults.headers.common.Authorization)
+
+      setAuthHeader(token);
+      // console.log('After',axios.defaults.headers.common.Authorization)
       toast.success('You are logged in !');
       return res.data;
     } catch (error) {
@@ -54,6 +61,10 @@ export const refreshUser = createAsyncThunk(
   'auth/refreshUser',
   async (_, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const { token } = state.auth.user;
+      setAuthHeader(token)
+      // console.log('IN current',axios.defaults.headers.common.Authorization)
       const res = await axios.get('auth/current');
       return res.data;
     } catch (error) {
@@ -71,5 +82,17 @@ export const uploadAvatar = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  }
+)
+
+export const uploadUserInfo = createAsyncThunk(
+  'auth/user-info',
+  async(name,thunkAPI) => {
+      try{
+          const res = await axios.patch('auth/user-info',name);
+          return res.data;
+      } catch (error) {
+          return thunkAPI.rejectWithValue(error.message);
+      }
   }
 )
