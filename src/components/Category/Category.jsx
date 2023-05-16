@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import recipes from 'data/recipes.json';
-import { Link } from 'react-router-dom';
+import { RecipeCard } from 'components/Common';
+import { OneCategoryList } from './Category.styled';
+import { motion } from 'framer-motion';
 
 export const Category = () => {
   const { categoryName } = useParams();
@@ -11,20 +13,29 @@ export const Category = () => {
 
   console.log(categoryRecipes);
 
-  const categorySlice = categoryRecipes.slice(0, 8)
+  const categorySlice = categoryRecipes.slice(0, 8);
 
-  console.log(categorySlice)
+  console.log(categorySlice);
 
   return (
-    <ul>
-      {categorySlice.map(recipe => (
-        <li key={recipe._id.$oid}>
-          <Link to={`/recipe/${recipe._id.$oid}`}>
-            <img src={recipe.preview} alt={recipe.title}  style={{width: '100%'}}/>
-            <h3>{recipe.title}</h3>
-          </Link>
-        </li>
+    <OneCategoryList>
+      {categorySlice.map(({ _id, title, thumb }) => (
+        <motion.div
+        initial={{
+          y: -20,
+          opacity: 0,
+        }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        key={_id.$oid}
+      >
+        <RecipeCard id={_id.$oid} title={title} thumb={thumb} />
+        </motion.div>
       ))}
-    </ul>
+    </OneCategoryList>
   );
 };

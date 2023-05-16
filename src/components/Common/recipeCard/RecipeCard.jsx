@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { RecipeCardConteiner, RecipeCardTitle } from './RecipeCard.stiled'
+import { RecipeCardContainer, RecipeCardTitle } from './RecipeCard.styled'
 
 export const RecipeCard = ({ id, title, thumb }) => {
   return (
     <Link to={`/recipes/${id}`}>
-      <RecipeCardConteiner >
+      <RecipeCardContainer >
         <img
           src={thumb}
           alt={title}
@@ -18,7 +18,7 @@ export const RecipeCard = ({ id, title, thumb }) => {
             {title}
           </p>
         </RecipeCardTitle>
-      </RecipeCardConteiner>
+      </RecipeCardContainer>
     </Link>
   );
 };
