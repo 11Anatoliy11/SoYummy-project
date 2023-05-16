@@ -3,7 +3,13 @@ import React from 'react';
 //import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 //import { getFavoriteRecipes } from 'redux/favoriteRecipes/favoriteRecipesOperations';
-import { RecipeItemBtn, RecipeItemContainer, RecipeItemBox, RecipeItemTitle, RecipeItemText } from './RecipeItem.styled';
+import {
+  RecipeItemBtn,
+  RecipeItemContainer,
+  RecipeItemBox,
+  RecipeItemTitle,
+  RecipeItemText,
+} from './RecipeItem.styled';
 import { ReactComponent as Trash } from 'images/svg/trash.svg';
 
 export const RecipeItem = ({
@@ -24,17 +30,11 @@ export const RecipeItem = ({
   return (
     <>
       <RecipeItemContainer>
-        <img
-          src={img}
-          loading="lazy"
-          alt={img}
-        />
+        <img src={img} loading="lazy" alt={img} />
         <RecipeItemBox>
           <RecipeItemText>
             <RecipeItemTitle>
-              <h2>
-                {title}
-              </h2>
+              <h2>{title}</h2>
               <Button
                 backgroundColor="var(--green-color)"
                 onClick={() => {
@@ -44,9 +44,7 @@ export const RecipeItem = ({
                 <Trash />
               </Button>
             </RecipeItemTitle>
-            <p>
-              {description}
-            </p>
+            <p>{description}</p>
           </RecipeItemText>
 
           <RecipeItemBtn>
@@ -57,7 +55,10 @@ export const RecipeItem = ({
               onClick={() => {
                 navigate(`/recipe/${id}`);
               }}
-            > See recipe </Button>
+            >
+              {' '}
+              See recipe{' '}
+            </Button>
           </RecipeItemBtn>
         </RecipeItemBox>
       </RecipeItemContainer>
