@@ -3,7 +3,7 @@ const { default: styled } = require('@emotion/styled');
 export const LayoutContainer = styled.div`
   margin-bottom: 32px;
   margin-top: 50px;
-  border-bottom: 1px solid #E0E0E0;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 50px;
@@ -11,7 +11,7 @@ export const LayoutContainer = styled.div`
 
   @media screen and (min-width: 1280px) {
     margin-top: 100px;
-    border-bottom: 1px solid #E0E0E0;
+    border-bottom: 1px solid #e0e0e0;
   }
 `;
 
@@ -20,18 +20,31 @@ display: flex;
 gap: 22px;
 padding: 10px 29px 32px 29px;  
 overflow-x: scroll;
-scrollbar-height: 1px; 
+// border-bottom: 1px solid #E0E0E0;
+-ms-overflow-style: none;  
+scrollbar-width: none; 
 
 @media screen and (min-width: 768px) {
-    gap: 49px;
-    padding: 10px 30px 28px 30px;
+  gap: 49px;
+  padding: 10px 30px 29px 30px;
 }
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    background-color: #E0E0E0;
+    left: 0;
+    z-index: -1;
+  }
+
+
 
 // кастомний горизонтальний скрол
 &::-webkit-scrollbar {
-    height: 1px; /* Adjust as needed */
-    width: 1px;
-    background-color: transparent;
+  display: none;
   }
   
   &::-webkit-scrollbar-track {
@@ -67,7 +80,7 @@ export const CategoryItem = styled.li`
     }
 
     @media screen and (min-width: 768px) {
-      padding-bottom: 27px;
+      padding: 0 3px 27px 3px;
       font-size: 18px;
       line-height: 18px;
     }

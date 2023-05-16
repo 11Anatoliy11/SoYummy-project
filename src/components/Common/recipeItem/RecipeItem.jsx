@@ -38,7 +38,7 @@ export const RecipeItem = ({
               <Button
                 backgroundColor="var(--green-color)"
                 onClick={() => {
-                  navigate(`/recipes/${id}`);
+                  navigate(`/recipe/${id}`);
                 }}
               >
                 <Trash />
@@ -55,7 +55,7 @@ export const RecipeItem = ({
             </p>
             <Button
               onClick={() => {
-                navigate(`/recipes/${id}`);
+                navigate(`/recipe/${id}`);
               }}
             > See recipe </Button>
           </RecipeItemBtn>
