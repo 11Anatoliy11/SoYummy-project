@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 
 import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
