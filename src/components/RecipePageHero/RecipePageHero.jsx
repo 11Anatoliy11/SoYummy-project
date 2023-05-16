@@ -22,7 +22,6 @@ export default function RecipePageHero({
 }) {
   const [isFavorite, setIsFavorite] = useState(false);
   const favRecipes = useSelector(selectFavRecipes);
-  console.log(`🚀 ~ RecipePageHero ~ favRecipes:`, favRecipes);
 
   const dispatch = useDispatch();
 

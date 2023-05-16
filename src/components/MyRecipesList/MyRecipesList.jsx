@@ -1,8 +1,7 @@
 // import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
-import { RecipeItem } from '../RecipeItem/RecipeItem';
-// import { RecipesListContainer } from './RecipesList.styled';
+import { RecipeItem } from 'components/Common';
 
 // import { getAllOwnRecipes } from 'redux/recipes/recipe-operation';
 import recipesData from '../../mocks/recipes.json';

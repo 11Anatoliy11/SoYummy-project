@@ -14,8 +14,6 @@ export default function RecipePage() {
 
   const recipe = recipesData.filter(recipe => recipe._id.$oid === recipeId);
 
-  console.log(`🚀 ~ RecipePage ~ recipe:`, recipe);
-
   // useEffect(() => {
   //   const interval = setInterval(() => {
   //     setCounter(prevCounter => (prevCounter + 1) % recipesData.length);

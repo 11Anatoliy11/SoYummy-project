@@ -83,6 +83,12 @@ export const App = () => {
             }
           />
           <Route
+            path="recipe/:recipeId"
+            element={
+              <PrivateRoute component={RecipePage} redirectTo={'/welcome'} />
+            }
+          />
+          <Route
             path="shopping-list"
             element={
               <PrivateRoute
