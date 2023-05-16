@@ -19,14 +19,17 @@ export const SearchTypeSelectorContainer = styled.div`
     background: #d9d9d9;
     border-radius: 6px;
     padding: 8px 14px;
-    width: 118px;
+    width: 146px;
+    height: 34px;
     @media (min-width: 768px) {
       padding: 10px 14px;
-      width: 155px;
+      width: 175px;
+      height: 41px;
     }
     @media (min-width: 1280px) {
         padding: 14px;
-      width: 170px;
+      width: 198px;
+      height: 49px;
   }
   }
 

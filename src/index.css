@@ -1,6 +1,10 @@
-/* @import-normalize; */
-/* bring in normalize.css styles */
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&family=Poppins:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 :root {
   --grey-color: #d9d9d9;
@@ -24,7 +28,7 @@ body {
 
 .mobile-menu-open {
   overflow: hidden;
-  -webkit-overflow-scrolling: touch; 
+  -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
   overflow-y: hidden;
 }
