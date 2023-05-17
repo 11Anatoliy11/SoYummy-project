@@ -85,79 +85,43 @@ export const recipeByCategory = createAsyncThunk(
     }
   );
 
-// OWN RECIPEs
-  export const addOwnRecipes = createAsyncThunk(
-    'recipe/addOwnRecipes',
-    async (recipe, thunkAPI) => {
-      try {
-        const res = await axios.post(`ownRecipes`,recipe);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
-    }
-  );
-
-  export const deleteOwnRecipes = createAsyncThunk(
-    'recipe/deleteOwnRecipes',
-    async (id, thunkAPI) => {
-      try {
-        const res = await axios.delete(`ownRecipes/${id}`);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
-    }
-  );
-  
-  export const getAllOwnRecipes = createAsyncThunk(
-    'recipe/getAllOwnRecipes',
-    async (_, thunkAPI) => {
-      try {
-        const res = await axios.get(`ownRecipes`);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
-    }
-  );
 
 //FAVORITE
-  export const addToFavorite = createAsyncThunk(
-    'recipe/addFavorite',
-    async (id, thunkAPI) => {
-      try {
-        const res = await axios.post(`favorite`,id);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
-    }
-  );
+  // export const addToFavorite = createAsyncThunk(
+  //   'recipe/addFavorite',
+  //   async (id, thunkAPI) => {
+  //     try {
+  //       const res = await axios.post(`favorite`,id);
+  //       return res.data;
+  //     } catch (error) {
+  //       return thunkAPI.rejectWithValue(error.message);
+  //     }
+  //   }
+  // );
 
-  export const deleteFavorite = createAsyncThunk(
-    'recipe/deleteFavorite',
-    async (id, thunkAPI) => {
-      try {
-        const res = await axios.delete(`favorite/${id}`);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
-    }
-  );
+  // export const deleteFavorite = createAsyncThunk(
+  //   'recipe/deleteFavorite',
+  //   async (id, thunkAPI) => {
+  //     try {
+  //       const res = await axios.delete(`favorite/${id}`);
+  //       return res.data;
+  //     } catch (error) {
+  //       return thunkAPI.rejectWithValue(error.message);
+  //     }
+  //   }
+  // );
   
-  export const getAllFavorite = createAsyncThunk(
-    'recipe/getAllFavorite',
-    async (_, thunkAPI) => {
-      try {
-        const res = await axios.get(`favorite`);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
-    }
-  );
+  // export const getAllFavorite = createAsyncThunk(
+  //   'recipe/getAllFavorite',
+  //   async (_, thunkAPI) => {
+  //     try {
+  //       const res = await axios.get(`favorite`);
+  //       return res.data;
+  //     } catch (error) {
+  //       return thunkAPI.rejectWithValue(error.message);
+  //     }
+  //   }
+  // );
 
 //SUBSCRIBE
   export const subscribe = createAsyncThunk(
@@ -184,42 +148,6 @@ export const recipeByCategory = createAsyncThunk(
     }
   );
 
-// SHOPPING-LIST
-export const addToShopping = createAsyncThunk(
-    'recipe/addToShopping',
-    async (id, thunkAPI) => {
-      try {
-        const res = await axios.post(`shopping-list`,id);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
-    }
-  );
-
-  export const deleteFromShopping = createAsyncThunk(
-    'recipe/deleteFromShopping',
-    async (id, thunkAPI) => {
-      try {
-        const res = await axios.delete(`shopping-list/${id}`);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
-    }
-  );
-  
-  export const getAllShopping = createAsyncThunk(
-    'recipe/getAllShopping',
-    async (_, thunkAPI) => {
-      try {
-        const res = await axios.get(`shopping-list`);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
-    }
-  );
 
 
 

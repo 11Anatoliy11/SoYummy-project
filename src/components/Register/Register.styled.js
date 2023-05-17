@@ -4,9 +4,9 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  `
+  `;
     export const Input = styled.input`
-      width: 244px;
+      width: 100%;
       background-color: #2A2C36;
       border-radius: 6px;
       padding: 12px 4px 12px 40px;
@@ -41,16 +41,13 @@ export const Form = styled.form`
       }
 
       @media screen and (min-width: 767.98px) {
-        width: 424px;
         padding: 16px 8px 16px 50px;
     
       }
 `;
 
 export const FormContainer = styled.div`
-  /* z-index: 10000; */
   width: 290px;
-  height:350px;
   padding: 32px 28px;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;

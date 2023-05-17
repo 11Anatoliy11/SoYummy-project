@@ -8,7 +8,7 @@ import {
     recipeMainPage,
     recipeCategoryList,
     ingredientList,
-    getAllOwnRecipes,
+   
     getAllFavorite,
     popularRecipe,
     getAllShopping,
@@ -19,13 +19,9 @@ const initialState = {
     ingredientList:[],
     recipeByCategory:[],
     recipeMainPage:[],
-    recipeBySearch:[],
     recipeById: null,
     recipeByIngredient:[],
-    ownRecipes:[],
-    favoriteRecipes:[],
     popularRecipes:[],
-    shoppingList:[],
     isLoading: false,
   };
 
@@ -91,17 +87,17 @@ const recipeSlice = createSlice({
     .addCase(recipeByIngredient.rejected,(state,{payload})=>{
         state.isLoading = false;
     })
-   // RECIPE BY SEARCH
-   .addCase(recipeBySearch.pending,(state,{payload})=>{
-    state.isLoading = true;
-    })
-    .addCase(recipeBySearch.fulfilled,(state,{payload})=>{
-        state.recipeBySearch = payload;
-        state.isLoading = false;
-    })
-    .addCase(recipeBySearch.rejected,(state,{payload})=>{
-        state.isLoading = false;
-    })
+//    // RECIPE BY SEARCH
+//    .addCase(recipeBySearch.pending,(state,{payload})=>{
+//     state.isLoading = true;
+//     })
+//     .addCase(recipeBySearch.fulfilled,(state,{payload})=>{
+//         state.recipeBySearch = payload;
+//         state.isLoading = false;
+//     })
+//     .addCase(recipeBySearch.rejected,(state,{payload})=>{
+//         state.isLoading = false;
+//     })
     //RECIPE BY ID
     .addCase(recipeById.pending,(state,{payload})=>{
         state.isLoading = true;
@@ -113,28 +109,18 @@ const recipeSlice = createSlice({
     .addCase(recipeById.rejected,(state,{payload})=>{
         state.isLoading = false;
     })
-    // OWN RECIPE
-    .addCase(getAllOwnRecipes.pending,(state,{payload})=>{
-        state.isLoading = true;
-    })
-    .addCase(getAllOwnRecipes.fulfilled,(state,{payload})=>{
-        state.ownRecipes = payload;
-        state.isLoading = false;
-    })
-    .addCase(getAllOwnRecipes.rejected,(state,{payload})=>{
-        state.isLoading = false;
-    })
-    // FAVORITE RECIPE
-    .addCase(getAllFavorite.pending,(state,{payload})=>{
-        state.isLoading = true;
-    })
-    .addCase(getAllFavorite.fulfilled,(state,{payload})=>{
-        state.favoriteRecipes = payload;
-        state.isLoading = false;
-    })
-    .addCase(getAllFavorite.rejected,(state,{payload})=> {
-        state.isLoading = false;
-    })
+    
+    // // FAVORITE RECIPE
+    // .addCase(getAllFavorite.pending,(state,{payload})=>{
+    //     state.isLoading = true;
+    // })
+    // .addCase(getAllFavorite.fulfilled,(state,{payload})=>{
+    //     state.favoriteRecipes = payload;
+    //     state.isLoading = false;
+    // })
+    // .addCase(getAllFavorite.rejected,(state,{payload})=> {
+    //     state.isLoading = false;
+    // })
     //POPULAR RECIPE
     .addCase(popularRecipe.pending,(state,{payload})=> {
         state.isLoading = true;
@@ -146,17 +132,17 @@ const recipeSlice = createSlice({
     .addCase(popularRecipe.rejected,(state,{payload})=> {
         state.isLoading = false;
     })
-    // SHOPPING RECIPE
-    .addCase(getAllShopping.pending,(state,{payload})=> {
-        state.isLoading = true;
-    })
-    .addCase(getAllShopping.fulfilled,(state,{payload})=>{ 
-        state.shoppingList = payload;
-        state.isLoading = false;
-    })
-    .addCase(getAllShopping.rejected,(state,{payload})=> {
-        state.isLoading = false;
-    })
+    // // SHOPPING RECIPE
+    // .addCase(getAllShopping.pending,(state,{payload})=> {
+    //     state.isLoading = true;
+    // })
+    // .addCase(getAllShopping.fulfilled,(state,{payload})=>{ 
+    //     state.shoppingList = payload;
+    //     state.isLoading = false;
+    // })
+    // .addCase(getAllShopping.rejected,(state,{payload})=> {
+    //     state.isLoading = false;
+    // })
 })
 
 export const recipeReducer = recipeSlice.reducer;
