@@ -11,7 +11,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import favoriteRecipesReducer from './favoriteRecipes/favoriteRecipesSlice';
-
 import { searchReducer } from './search/searchSlice';
 import { authReducer } from './auth/auth-slice';
 import { recipeReducer } from './recipes/recipe-slice';
