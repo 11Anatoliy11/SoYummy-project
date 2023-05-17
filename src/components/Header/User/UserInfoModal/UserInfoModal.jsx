@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useAuth } from 'hooks/useAuth';
-import { uploadAvatar, uploadUserInfo } from 'redux/auth/auth-operations';
 
-import { Form } from './UserInfoModal.styled';
+import { uploadAvatar, uploadUserInfo } from 'redux/auth/auth-operations';
 import {EditInfo} from './EditInfo/EditInfo'
 import { EditAvatar } from './EditAvatar/EditAvatar';
 import Button from 'components/Button/Button';
 import Modal from 'components/Modal/Modal';
+import { Form } from './UserInfoModal.styled';
 
 
 export const UserInfoModal = ({onClose}) => {
@@ -20,7 +19,6 @@ export const UserInfoModal = ({onClose}) => {
   }, []);
 
   const dispatch = useDispatch();
-  // const { isLoading } = useAuth();
 
   const changeAvatar = () => {
     const formData = new FormData();

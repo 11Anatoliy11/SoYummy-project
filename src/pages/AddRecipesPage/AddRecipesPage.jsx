@@ -1,7 +1,11 @@
-import { AddRecipe } from 'components/AddRecipe/AddRecipe';
+import { AddRecipeForm } from 'components/AddRecipeForm/AddRecipeForm';
 
-const AddRecipesPage = () => {
-  return <AddRecipe />;
+const AddRecipesPage = ({onClose}) => {
+
+  return (
+  <>
+  <AddRecipeForm />
+  </>);
 };
 
 export default AddRecipesPage;
