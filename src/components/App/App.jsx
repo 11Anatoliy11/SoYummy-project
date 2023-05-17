@@ -10,7 +10,7 @@ import { refreshUser } from 'redux/auth/auth-operations';
 import { ToastContainer } from 'react-toastify';
 import { Loader } from 'components/Common';
 import { useAuth } from 'hooks/useAuth';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@mui/material/styles';
 import { getMode } from 'redux/theme/themeSelector';
 import { lightTheme, darkTheme } from '../utils/applicationThemes';
 
@@ -39,10 +39,9 @@ export const App = () => {
 
   useEffect(() => {
     if (!isLoggedIn) return;
-    console.log('refresh');
     dispatch(refreshUser());
     // eslint - disable - next - line
-  }, [dispatch]);
+  }, [dispatch, isLoggedIn]);
 
   return (
     <Suspense fallback={<Loader />}>

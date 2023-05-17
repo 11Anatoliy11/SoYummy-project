@@ -9,13 +9,13 @@ export const RecipeCardContainer = styled.div`
     object-fit: cover;
     width: 100%;
 
-    @media screen and (min-width: 375px) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.mobile}) {
       width: 343px;
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
       width: 336px;
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.desktop}) {
       width: 300px;
     }
   }
@@ -38,7 +38,7 @@ p {
   color: var(--fiord-color);
   box-shadow: 0px 8px 5px -2px rgba(162, 156, 156, 0.26);
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.desktop}) {
     width: calc(100% - 48px);
   }
 }
