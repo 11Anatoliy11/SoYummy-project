@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useAuth } from 'hooks/useAuth';
-import { AvatarBox, AvatarInput, Label } from './EditAvatar.styled';
 
 import userAvatar from 'images/avatar.png';
 import { ReactComponent as AddIcon } from 'images/svg/plus-in-circle.svg';
+import { AvatarBox, AvatarWrapper, AvatarInput, Label } from './EditAvatar.styled';
+
 export const EditAvatar = ({updateAvatar}) => {
   const [avatarPreview, setAvatarPreview] = useState(null);
   const { user } = useAuth();
@@ -17,11 +18,13 @@ export const EditAvatar = ({updateAvatar}) => {
   return (
     <AvatarBox>
       <Label htmlFor="avatar">
+      <AvatarWrapper>
       {avatarPreview ? (
           <img src={avatarPreview} alt="Avatar preview" />
         ) : (
           <img src={user?.avatar ?? userAvatar} alt="avatar" />
         )}
+     </AvatarWrapper>
         <AddIcon className='addIcon' />
       </Label>
       <AvatarInput
