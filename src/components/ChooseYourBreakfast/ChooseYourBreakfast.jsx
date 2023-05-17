@@ -1,6 +1,6 @@
-// import { TitleAccent } from 'components/Hero/Hero.styled';
-import { Wrapper, TextWrapper, GoToRecipe, TitleAccent } from './ChooseYourBreakfast.styled';
-// import { BsArrowRight } from 'react-icons/bs';
+
+import { Wrapper, TextWrapper, GoToRecipe, Accent } from './ChooseYourBreakfast.styled';
+
 import { ReactComponent as Arrow } from 'images/svg/arrow-narrow-right.svg';
 
 export const ChooseYourBreakfast = () => {

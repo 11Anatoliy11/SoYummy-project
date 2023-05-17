@@ -18,6 +18,7 @@
   --page-title-color: #001833;
   --background-color: #fafafa;
   --edit-modal-text-color: #23262A;
+  --choose-breakfast-color: #3E4462;
 }
 
 body {
@@ -32,7 +33,7 @@ body {
 
 .mobile-menu-open {
   overflow: hidden;
-  -webkit-overflow-scrolling: touch; 
+  -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
   overflow-y: hidden;
 }
