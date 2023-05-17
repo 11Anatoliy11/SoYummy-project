@@ -5,7 +5,7 @@ import { PrivateRoute, RestrictedRoute } from '../utils';
 import { Suspense, lazy, useEffect } from 'react';
 import { NotFound } from '../NotFound/NotFound';
 import CategoriesLayout from 'pages/CategoriesLayout/CategoriesLayout';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/auth-operations';
 import { ToastContainer } from 'react-toastify';
 import { Loader } from 'components/Common';
