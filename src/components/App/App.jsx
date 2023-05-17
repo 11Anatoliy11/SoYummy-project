@@ -10,7 +10,7 @@ import { refreshUser } from 'redux/auth/auth-operations';
 import { ToastContainer } from 'react-toastify';
 import { Loader } from 'components/Common';
 import { useAuth } from 'hooks/useAuth';
-import { ThemeProvider } from 'index';
+import { ThemeProvider } from 'styled-components';
 import { getMode } from 'redux/theme/themeSelector';
 import { theme as lightMode, darkTheme as darkMode } from '../utils/themeToggler';
 
