@@ -53,7 +53,7 @@ export const SubscribeForm = () => {
       )}
       <Form onSubmit={handleSubmit}>
         <TextField
-        className='email-input'
+          className='email-input'
           label=""
           variant="outlined"
           placeholder="Enter your email address"
@@ -64,7 +64,7 @@ export const SubscribeForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start" sx={{ mr: iconMarginRight }}>
-                <EmailIcon style={{fill: 'none'}} className='icon-email' />
+                <EmailIcon style={{ fill: 'none' }} className='icon-email' />
               </InputAdornment>
             ),
           }}
@@ -75,8 +75,8 @@ export const SubscribeForm = () => {
           height="38px"
           disabled={!isValid}
           borderRadius="6px"
-          textColor="#fafafa"
-          backgroundColor="#8BAA36"
+          textColor="var(--background-color)"
+          backgroundColor="var(--green-color)"
           className={buttonClassName + ' ' + disabledButton}
         >
           Subcribe

@@ -21,7 +21,7 @@ const Circle = styled.div`
   display: none;
   width: 21px;
   height: 21px;
-  background: linear-gradient(180deg, #ffffff 0%, #e8eaea 100%);
+  background: linear-gradient(180deg, var(--white-color) 0%, var(--black-haze-color) 100%);
   border-radius: 50%;
   margin-left: ${({ isActive }) => (isActive ? 'calc(100% - 20px)' : '2px')};
   transition: ${({ theme }) => theme.transitions.create(['all'])};
