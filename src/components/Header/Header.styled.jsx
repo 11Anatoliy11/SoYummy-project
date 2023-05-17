@@ -23,12 +23,13 @@ export const HeaderContainer = styled.header`
   }
 `;
 
-export const UserWrapper = styled.div`
+export const UserWrapper = styled.button`
   margin-left: auto;
   margin-right: 24px;
   display: flex;
   align-items: center;
   gap: 14px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     margin-right: 50px;
