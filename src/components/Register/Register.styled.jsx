@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   `
 export const Input = styled.input`
       width: 244px;
@@ -51,7 +50,7 @@ export const Input = styled.input`
 export const FormContainer = styled.div`
   /* z-index: 10000; */
   width: 290px;
-  height:315px;
+  height:350px;
   padding: 32px 28px;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
