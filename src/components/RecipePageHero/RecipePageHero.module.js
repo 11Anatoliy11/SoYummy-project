@@ -46,5 +46,5 @@ export const Time = styled.span`
   font-size: 10px;
   line-height: 1.4;
   letter-spacing: -0.24px;
-  color: #23262a;
+  color: var(--edit-modal-text-color);
 `;

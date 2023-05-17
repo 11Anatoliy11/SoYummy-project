@@ -11,7 +11,7 @@ export const LayoutContainer = styled.div`
 
   @media screen and (min-width: 1280px) {
     margin-top: 100px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--alto-color);
   }
 `;
 
@@ -20,7 +20,7 @@ display: flex;
 gap: 22px;
 padding: 10px 29px 32px 29px;  
 overflow-x: scroll;
-// border-bottom: 1px solid #E0E0E0;
+// border-bottom: 1px solid var(--alto-color);
 -ms-overflow-style: none;  
 scrollbar-width: none; 
 
@@ -35,7 +35,7 @@ scrollbar-width: none;
     height: 1px;
     width: 100%;
     bottom: 0;
-    background-color: #E0E0E0;
+    background-color: var(--alto-color);
     left: 0;
     z-index: -1;
   }
@@ -48,20 +48,21 @@ scrollbar-width: none;
   }
   
   &::-webkit-scrollbar-track {
-    background-color: #E0E0E0;
+    background-color: var(--alto-color);
     width: 1px;
   }
   
   &::-webkit-scrollbar-thumb {
-    background-color: #E0E0E0;
+    background-color: var(--alto-color);
     border-radius: 4px;
     height: 1px;
     width: 1px;
   }
   
   &::-webkit-scrollbar-thumb:hover {
-    background-color: #E0E0E0;
+    background-color: var(--alto-color);
     width: 1px;
+  }
 `;
 
 export const CategoryItem = styled.li`
@@ -71,12 +72,12 @@ export const CategoryItem = styled.li`
   a {
     padding: 0 3px 32px 3px;
     font-size: 14px;
-    line-height: 14px;
-    color: #e0e0e0;
+    line-height: 14px;  
+    color: var(--alto-color);
 
     &.active {
-      border-bottom: 2px solid #8baa36;
-      color: #8baa36;
+      border-bottom: 2px solid var(--green-color);
+      color: var(--green-color);
     }
 
     @media screen and (min-width: 768px) {

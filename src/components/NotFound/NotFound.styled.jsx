@@ -26,7 +26,7 @@ export const SorryTitle = styled.h3`
   line-height: calc(20 / 18);
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: #000000;
+  color: var(--black-color);
   padding-bottom: 8px;
 
   @media screen and (min-width: 768px) {
@@ -42,7 +42,7 @@ export const ExplanText = styled.p`
   line-height: calc(18 / 14);
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: #000000;
+  color: var(--black-color);
   opacity: 0.5;
   text-align: center;
 

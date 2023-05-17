@@ -5,7 +5,7 @@ import userAvatar from 'images/avatar.png';
 import { ReactComponent as AddIcon } from 'images/svg/plus-in-circle.svg';
 import { AvatarBox, AvatarWrapper, AvatarInput, Label } from './EditAvatar.styled';
 
-export const isUrl=(url)=> {
+export const isUrl = (url) => {
   try {
     new URL(url);
     return true;
@@ -14,7 +14,7 @@ export const isUrl=(url)=> {
   }
 }
 
-export const EditAvatar = ({updateAvatar}) => {
+export const EditAvatar = ({ updateAvatar }) => {
   const [avatarPreview, setAvatarPreview] = useState(null);
   const { user } = useAuth();
 
@@ -27,13 +27,13 @@ export const EditAvatar = ({updateAvatar}) => {
   return (
     <AvatarBox>
       <Label htmlFor="avatar">
-      <AvatarWrapper>
-      {avatarPreview ? (
-          <img src={avatarPreview} alt="Avatar preview" />
-        ) : (
-          <img src={isUrl(avatarPreview) ? user?.avatar : userAvatar} alt="avatar" />
-        )}
-     </AvatarWrapper>
+        <AvatarWrapper>
+          {avatarPreview ? (
+            <img src={avatarPreview} alt="Avatar preview" />
+          ) : (
+            <img src={isUrl(avatarPreview) ? user?.avatar : userAvatar} alt="avatar" />
+          )}
+        </AvatarWrapper>
         <AddIcon className='addIcon' />
       </Label>
       <AvatarInput
