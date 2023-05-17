@@ -40,8 +40,8 @@ export const App = () => {
   useEffect(() => {
     if (!isLoggedIn) return;
     dispatch(refreshUser());
-    // eslint - disable - next - line
-  }, [dispatch, isLoggedIn]);
+    // eslint-disable-next-line
+  }, [dispatch]);
 
   return (
     <Suspense fallback={<Loader />}>
