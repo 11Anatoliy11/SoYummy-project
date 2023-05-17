@@ -1,10 +1,16 @@
 import styled from '@emotion/styled';
 
 export const SearchedRecipesListError = styled.div`
-  padding-top: 50px;
+    padding-top: 50px;
+    width:208px;
   @media (min-width: 768px) {
+    width:350px;
   }
-  @media (min-width: 1280px) {
+  >img{
+    width:208px;
+  @media (min-width: 768px) {
+    width:350px;
+  }
   }
 `;
 export const SearchedRecipesListContainer = styled.div`
