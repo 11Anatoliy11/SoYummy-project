@@ -1,5 +1,12 @@
 /* @import-normalize; */
 /* bring in normalize.css styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
@@ -10,6 +17,7 @@
   --search-black-color: #22252a;
   --page-title-color: #001833;
   --background-color: #fafafa;
+  --edit-modal-text-color: #23262A;
 }
 
 body {
