@@ -1,5 +1,9 @@
-export const theme = {
-  breakpoints: ['375px', '768px', '1440px'],
+export const lightTheme = {
+  breakpoints: {
+    mobile: '375px',
+    tablet: '768px',
+    desktop: '1280px'
+  },
   colors: {
     mainDark: '#23262A',
     secondaryDark: '#3E4462',
@@ -53,7 +57,6 @@ export const theme = {
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
   },
-
   fonts: {
     main: 'Poppins, sans-serif',
   },
@@ -98,7 +101,11 @@ export const theme = {
 };
 
 export const darkTheme = {
-  breakpoints: ['375px', '768px', '1440px'],
+  breakpoints: {
+    mobile: '375px',
+    tablet: '768px',
+    desktop: '1280px'
+  },
   colors: {
     mainDark: '#FAFAFA',
     secondaryDark: '#FAFAFA',

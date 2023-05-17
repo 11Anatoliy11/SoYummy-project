@@ -52,7 +52,7 @@ export const RecipeItemText = styled.div`
     font-size: 8px;
     line-height: 10px;
     letter-spacing: -0.02em;
-    color: var(--edit-modal-text-color);
+    color: ${props => props.theme.colors.mainDark};
     @media (min-width: 768px) {
         font-size: 14px;
         line-height: 18px;

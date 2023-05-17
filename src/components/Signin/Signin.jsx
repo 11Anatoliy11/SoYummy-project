@@ -16,7 +16,7 @@ import {
   Icon,
   Input,
   IconAft,
-} from './Signin.styled.js';
+} from './Signin.styled';
 
 
 const initState = {
