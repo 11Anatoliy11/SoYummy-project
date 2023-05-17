@@ -12,7 +12,7 @@ margin-bottom: 24px;
 `;
 export const Input = styled.input`
   padding-left: 40px;
-  width: 238px;
+  width: 100%;
   height: 48px;
   border: 1px solid var(--grey-color);
   border-radius: 6px;
@@ -24,7 +24,6 @@ export const Input = styled.input`
 
   @media screen and (min-width: 768px) {
     padding-left: 51px;
-    width: 345px;
     height: 58px;
     font-size: 18px;
 
