@@ -6,6 +6,12 @@ const AddRecipesPage = ({ onClose }) => {
     <>
       <AddRecipeForm />
     </>);
-};
+  const AddRecipesPage = ({ onClose }) => {
 
-export default AddRecipesPage;
+    return (
+      <>
+        <AddRecipeForm />
+      </>);
+  };
+
+  export default AddRecipesPage;
