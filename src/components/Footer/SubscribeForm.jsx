@@ -34,7 +34,6 @@ export const SubscribeForm = () => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    console.log('Email submitted:', email);
     setEmail('');
   };
 

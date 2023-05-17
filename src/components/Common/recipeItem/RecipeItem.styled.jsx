@@ -7,11 +7,11 @@ export const RecipeItemContainer = styled.div`
   max-width: 767.9px;
   border-radius: 8px;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     max-width: 1280px;
     padding: 28px 24px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     max-width: 1980px;
     padding: 40px 40px;
   }
@@ -20,11 +20,11 @@ export const RecipeItemContainer = styled.div`
         height: 124px;
         border-radius: 8px;
 
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: 228px;
     height: 232px;
     }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     width: 318px;
     height: 324px;
     }
@@ -37,10 +37,10 @@ export const RecipeItemBox = styled.div`
     justify-content: space-between;
     width: 100%;
     margin-left: 14px;
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       margin-left: 24px;
     }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
       margin-left: 54px;
     }
 `;
@@ -52,12 +52,12 @@ export const RecipeItemText = styled.div`
     font-size: 8px;
     line-height: 10px;
     letter-spacing: -0.02em;
-    color: ${props => props.theme.colors.mainDark};
-    @media (min-width: 768px) {
+    color: var(--edit-modal-text-color);
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
         line-height: 18px;
         }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
         font-size: 18px;
         line-height: 24px;
     }
@@ -68,10 +68,10 @@ export const RecipeItemTitle = styled.div`
     justify-content: space-between;
     margin-bottom:10px;
 
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         margin-bottom:18px;
     }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
         margin-bottom:30px;
     }
     >h2{
@@ -83,7 +83,7 @@ export const RecipeItemTitle = styled.div`
     letter-spacing: -0.24px;
     color: var(--edit-modal-text-color);
 
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-weight: 500;
         font-size: 24px;
         line-height: 24px;
@@ -96,29 +96,29 @@ export const RecipeItemTitle = styled.div`
       width:24px;
       height:24px;
       border-radius:4px;
-        @media (min-width: 768px) {
+        @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         width:38px;
         height:38px;
     }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
         width:44px;
         height:44px;
     }
     >svg{
       padding: 5px;
-      width:14px;
-      height:14px;
+      width:24px;
+      height:24px;
       stroke: var(--search-black-color);
       fill: transparent;
-      @media (min-width: 768px) {
+      @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         padding: 8px;
-        width:22px;
-        height:22px;
+        width:38px;
+        height:38px;
     }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
       padding: 11px;
-        width:24px;
-        height:24px;
+        width:44px;
+        height:44px;
     }
     :hover{
       stroke: var(--background-color);
@@ -139,7 +139,7 @@ font-size: 10px;
 line-height: 14px;
 letter-spacing: -0.24px;
 color: var(--edit-modal-text-color);
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
         line-height: 20px;
     }
@@ -156,13 +156,13 @@ color: var(--edit-modal-text-color);
     font-size: 10px;
     line-height: 15px;
     color: var(--background-color);
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 14px;
     line-height: 21px;
     width:138px;
     height:45px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     font-size: 16px;
     line-height: 24px;
     width:172px;

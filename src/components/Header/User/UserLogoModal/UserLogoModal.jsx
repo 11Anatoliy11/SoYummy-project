@@ -28,7 +28,7 @@ export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
           textColor="var(--background-color)"
           onClick={onLogout}
         >
-          Log out {/* Log out <ArrowForwardIcon /> */}
+          Log out <ArrowForwardIcon />
         </Button>
       </ModalWrapper>
     </Modal>

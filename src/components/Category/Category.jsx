@@ -11,29 +11,25 @@ export const Category = () => {
     recipe => recipe.category.toLowerCase() === categoryName.toLowerCase()
   );
 
-  console.log(categoryRecipes);
-
   const categorySlice = categoryRecipes.slice(0, 8);
-
-  console.log(categorySlice);
 
   return (
     <OneCategoryList>
       {categorySlice.map(({ _id, title, thumb }) => (
         <motion.div
-        initial={{
-          y: -20,
-          opacity: 0,
-        }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        whileInView={{
-          y: 0,
-          opacity: 1,
-        }}
-        key={_id.$oid}
-      >
-        <RecipeCard id={_id.$oid} title={title} thumb={thumb} />
+          initial={{
+            y: -20,
+            opacity: 0,
+          }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+          }}
+          key={_id.$oid}
+        >
+          <RecipeCard id={_id.$oid} title={title} thumb={thumb} />
         </motion.div>
       ))}
     </OneCategoryList>
