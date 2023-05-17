@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTheme } from 'redux/theme/themeSlice';
-import { getMode } from 'redux/theme/themeSelector';
+// import { getMode } from 'redux/theme/themeSelector';
 import { Ball, Checkbox, Label, Switcher } from './ThemeToggler.styled';
 
 export const ThemeToggler = () => {
