@@ -1,13 +1,10 @@
-/* @import-normalize; */
-/* bring in normalize.css styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&family=Poppins:wght@400;500;600;700&display=swap');
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
   --grey-color: #d9d9d9;
@@ -17,8 +14,25 @@
   --search-black-color: #22252a;
   --page-title-color: #001833;
   --background-color: #fafafa;
-  --edit-modal-text-color: #23262A;
-  --choose-breakfast-color: #3E4462;
+  --edit-modal-text-color: #23262a;
+
+  --edit-modal-text-color: #23262a;
+  --white-color: #ffffff;
+  --fiord-color: #3e4462;
+  --persian-red-color: #d32f2f;
+  --frost-color: #ebf3d4;
+  --tuna-color: #37393e;
+  --black-color: #000000;
+  --saffron-color: #f6c23e;
+  --cinnabar-color: #e74a3b;
+  --ocean-green-color: #3cbc81;
+  --charade-color: #2a2c36;
+  --white-lila-color: #f6f7fb;
+  --black-haze-color: #e8eaea;
+  --alto-color: #e0e0e0;
+  /*
+
+ */
 }
 
 body {

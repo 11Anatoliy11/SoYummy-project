@@ -24,7 +24,6 @@ export const Input = styled.input`
 
   @media screen and (min-width: 768px) {
     padding-left: 51px;
-    /* width: 345px; */
     height: 58px;
     font-size: 18px;
 

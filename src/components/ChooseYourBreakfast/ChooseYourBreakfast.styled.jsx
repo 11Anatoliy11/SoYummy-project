@@ -13,7 +13,7 @@ font-weight: 500;
 font-size: 12px;
 line-height: 1.5;
 letter-spacing: -0.24px;
-color: var(--choose-breakfast-color);
+color: var(--fiord-color);
 `;
 
 export const Accent = styled.span`
