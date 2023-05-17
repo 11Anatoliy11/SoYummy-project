@@ -8,17 +8,16 @@ export const SharedLayoutContainer = styled.div`
 
   @media screen and (min-width: 375px) {
     max-width: 343px;
+    padding-left: unset;
+  padding-right: unset;
   }
 
   @media screen and (min-width: 768px) {
-    padding-left: 32px;
-    padding-right: 32px;
     max-width: 704px;
   }
 
   @media screen and (min-width: 1280px) {
     max-width: 1240px;
-    padding-left: 20px;
-    padding-right: 20px;
+
   }
 `;

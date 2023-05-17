@@ -11,7 +11,7 @@ import { scrollToTop } from 'components/utils/scrollToTop';
 import { SearchForm } from 'components/Search/SearchForm/SearchForm';
 import { SearchTypeSelector } from 'components/Search/SearchTypeSelector/SearchTypeSelector';
 import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
-import { SearchPageContainer } from './SearchPage.style';
+import { SearchPageContainer } from './SearchPage.styled';
 import { Paginator } from 'components/Common'
 import { selectSearchedRecipesCount } from 'redux/search/selectors';
 
