@@ -10,6 +10,9 @@ import { refreshUser } from 'redux/auth/auth-operations';
 import { ToastContainer } from 'react-toastify';
 import { Loader } from 'components/Common';
 import { useAuth } from 'hooks/useAuth';
+import { ThemeProvider } from 'styled-components';
+import { getMode } from '../redux/theme/themeSelector';
+import { theme as lightMode, darkTheme as darkMode } from '../utils/themeToggler';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const SigninPage = lazy(() => import('pages/SigninPage/SigninPage'));
@@ -28,6 +31,9 @@ const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
 
 export const App = () => {
+  const { mode } = useSelector(getMode);
+  const themeMode = mode === 'light' ? lightMode : darkMode;
+
   const dispatch = useDispatch();
   const { isLoggedIn } = useAuth();
 
@@ -40,6 +46,7 @@ export const App = () => {
 
   return (
     <Suspense fallback={<Loader />}>
+       <ThemeProvider theme={themeMode}>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Navigate to="/main" />} />
@@ -129,6 +136,7 @@ export const App = () => {
         reverseOrder={false}
         autoClose={2000}
       />
+      </ThemeProvider>
     </Suspense>
   );
 };
