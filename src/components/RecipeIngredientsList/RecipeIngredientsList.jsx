@@ -13,7 +13,7 @@ import {
   Measure,
   ItemWrapper,
   List,
-} from './RecipeIngredientsList.module';
+} from './RecipeIngredientsList.styled';
 
 export default function RecipeIngredientsList({ requiredIngredients }) {
   // eslint-disable-next-line no-unused-vars

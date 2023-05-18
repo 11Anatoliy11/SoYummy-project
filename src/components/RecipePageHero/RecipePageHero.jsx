@@ -7,7 +7,7 @@ import MainPageTitle from 'components/MainPageTitle/MainPageTitle';
 import Button from 'components/Button/Button';
 
 import { ReactComponent as Clock } from '../../images/svg/clock.svg';
-import { Descr, Time, TimeWrap, Wrapper } from './RecipePageHero.module';
+import { Descr, Time, TimeWrap, Wrapper } from './RecipePageHero.styled';
 import {
   addFavoriteRecipes,
   removeFromFavorite,
