@@ -34,7 +34,6 @@ export default function RecipePage() {
         title={title}
         description={description}
         time={time}
-        thumb={thumb}
         _id={_id}
       />
       <RecipeIngredientsList requiredIngredients={ingredients} />

@@ -5,28 +5,31 @@ export const SearchTypeSelectorContainer = styled.div`
   align-items: center;
   gap: 15px;
   padding-top: 24px;
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding-top: 28px;
     gap: 18px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     padding-top: 43px;
   }
 
   .CustomSelect {
     position: relative;
     display: inline-block;
-    background: #d9d9d9;
+    background: var(--grey-color);
     border-radius: 6px;
     padding: 8px 14px;
-    width: 118px;
-    @media (min-width: 768px) {
+    width: 146px;
+    height: 34px;
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       padding: 10px 14px;
-      width: 155px;
+      width: 175px;
+      height: 41px;
     }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
         padding: 14px;
-      width: 170px;
+      width: 198px;
+      height: 49px;
   }
   }
 
@@ -39,11 +42,11 @@ export const SearchTypeSelectorContainer = styled.div`
     font-size: 12px;
     line-height: 18px;
     letter-spacing: -0.02em;
-    color: #000000;
+    color: var(--black-color);
     opacity: 0.5;
     cursor: pointer;
     align-items: center;
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
     line-height: 21px;
   }
@@ -66,7 +69,7 @@ export const SearchTypeSelectorContainer = styled.div`
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
-    background: #d9d9d9;
+    background: var(--grey-color);
     border-radius: 6px;
     z-index: 1;
   }
@@ -79,9 +82,9 @@ export const SearchTypeSelectorContainer = styled.div`
     font-size: 12px;
     line-height: 18px;
     letter-spacing: -0.02em;
-    color: #000000;
+    color: var(--black-color);
     opacity: 0.5;
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
     line-height: 21px;
   }
@@ -100,8 +103,8 @@ export const SearchTypeSelectorContainer = styled.div`
     font-size: 12px;
     line-height: 16px;
     letter-spacing: -0.24px;
-    color: #001833;
-    @media (min-width: 768px) {
+    color: var(--page-title-color);
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
     line-height: 18px;
   }

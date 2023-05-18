@@ -13,7 +13,6 @@ import recipes from 'data/recipes.json';
 
 const CategoriesLayout = () => {
   const categoryList = new Set(recipes.map(recipe => recipe.category).sort());
-  console.log([...categoryList]);
 
   const scrollRef = useHorizontalScroll();
 
@@ -21,17 +20,17 @@ const CategoriesLayout = () => {
     // фунція яка "докручує" категорію, якщо на неї клікнули поки було видно тільки якусь її частину
     const linkElement = event.target;
     const listItemElement = linkElement.parentElement;
-  
+
     const containerElement = scrollRef.current;
-  
+
     const listItemRect = listItemElement.getBoundingClientRect();
     const containerRect = containerElement.getBoundingClientRect();
-  
+
     const listItemLeft = listItemRect.left - containerRect.left;
     const listItemRight = listItemRect.right - containerRect.right;
-  
+
     const scrollLeft = containerElement.scrollLeft;
-  
+
     if (listItemLeft < 0) {
       containerElement.scrollTo({
         left: scrollLeft + listItemLeft,

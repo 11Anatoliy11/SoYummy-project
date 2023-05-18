@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   `
-    export const Input = styled.input`
+export const Input = styled.input`
       width: 244px;
-      background-color: #2A2C36;
+      background-color: var(--charade-color);
       border-radius: 6px;
       padding: 12px 4px 12px 40px;
       font-family: 'Poppins';
@@ -15,12 +16,12 @@ export const Form = styled.form`
       font-weight: 400;
       font-size: 14px;
       letter-spacing: 0.04em;
-      color: #ffff;
-      margin-bottom: ${({touch,err}) => {
-        
-         return touch && err ? '4px' : '24px'
-         }};
-      border: ${(props) => (props.success ? '1px solid #3CBC81':props.err ?'1px solid #E74A3B':'1px solid rgba(146,147,153,0.8)')};
+      color: var(--white-color);
+      margin-bottom: ${({ touch, err }) => {
+
+    return touch && err ? '4px' : '24px'
+  }};
+      border: ${(props) => (props.success ? '1px solid var(--ocean-green-color)' : props.err ? '1px solid var(--cinnabar-color)' : '1px solid rgba(146,147,153,0.8)')};
       &::placeholder {
         font-family: 'Poppins';
         font-style: normal;
@@ -32,11 +33,11 @@ export const Form = styled.form`
         
       }
       &:focus{
-        border: ${(props)=>(props.success ? '1px solid #3CBC81': props.err ? '1px solid #E74A3B':'1.2px solid #ffff')};
+        border: ${(props) => (props.success ? '1px solid var(--ocean-green-color)' : props.err ? '1px solid var(--cinnabar-color)' : '1.2px solid var(--white-color)')};
         outline: none;
 
         &::placeholder{
-          color:#ffff;
+          color:var(--white-color);
         }
       }
 
@@ -50,11 +51,11 @@ export const Form = styled.form`
 export const FormContainer = styled.div`
   /* z-index: 10000; */
   width: 290px;
-  height:350px;
+  height:315px;
   padding: 32px 28px;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
-  background-color: #2A2C36;
+  background-color: var(--charade-color);
   display: inline-block;
 
 
@@ -71,7 +72,7 @@ export const Text = styled.p`
   font-size: 24px;
   letter-spacing: -0.02;
   line-height: calc(30 / 28);
-  color: #FAFAFA;
+  color: var(--background-color);
   margin-bottom: 32px;
   text-align: ${props => (props.google ? 'center' : null)};
 
@@ -93,7 +94,7 @@ export const IconAft = styled.div`
   right:18px;
 `
 export const StyledLink = styled(Link)`
-  background-color: #f6f7fb;
+  background-color: var(--white-lila-color);
   border-radius: 26px;
   padding: 10px 19px;
   text-decoration: none;
@@ -119,8 +120,8 @@ export const Button = styled.button`
   font-weight: 400;
   font-size: 16px;
   line-height: 18px;
-  background-color: #8BAA36;
-  color: #FAFAFA;
+  background-color: var(--green-color);
+  color: var(--background-color);
   margin-top: 25px;
   /* margin-right: ${props => (props.login ? '15px' : 0)}; */
   transition: transform 250ms ease;
@@ -130,7 +131,7 @@ export const Button = styled.button`
 `;
 
 export const Error = styled.div`
-  color: #E74A3B;
+  color: var(--cinnabar-color);
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;

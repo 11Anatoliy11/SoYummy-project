@@ -1,14 +1,14 @@
-import styled from "styled-components";
+import styled from '@emotion/styled';
 
 export const ModalWrapper = styled.div`
-width: 125px;
+width: 161px;
 padding: 18px;
 border: 1px solid var(--green-color);
 border-radius: 8px;
 background-color: var(--background-color);
 
   @media (min-width: 768px) {
-    width: 141px;
+    width: 177px;
     border: none;
   }
 

@@ -3,7 +3,7 @@ const { default: styled } = require('@emotion/styled');
 export const FooterCont = styled.footer`
   background-color: var(--search-black-color);
   padding: 28px 0 18px 0;
-  color: #fafafa;
+  color: var(--background-color);
   text-align: center;
   box-shadow: 0 0 0 100vmax var(--search-black-color);
   clip-path: inset(0 -100vmax);
@@ -165,7 +165,7 @@ export const Form = styled.form`
 
     & .MuiOutlinedInput-root {
       border-radius: 6px;
-      border: 2px solid #37393e;
+      border: 2px solid var(--tuna-color);
     }
 
     &:focus {
@@ -196,7 +196,7 @@ export const Form = styled.form`
     & .Mui-error {
       & .css-1c8d5n4-MuiInputAdornment-root {
         svg {
-          stroke: #d32f2f;
+          stroke: var(--persian-red-color);
         }
       }
     }
@@ -360,7 +360,7 @@ export const Socials = styled.ul`
 
 export const SocialLinks = styled.a`
   .social-icon {
-    fill: #8baa36;
+    fill: var(--green-color);
     display: flex;
     justify-content: center;
     align-items: center;
