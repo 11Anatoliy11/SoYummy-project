@@ -11,12 +11,12 @@ export const Form = styled.div`
     border: 1px solid #F0F0F0;
     background-color: #FFFFFF;
     padding-left: 32px;
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         padding-left: 38px;
         width:362px;
         height:57px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     padding-left: 48px;
         width:510px;
         height:70px;
@@ -30,13 +30,13 @@ export const Form = styled.div`
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 14px;
     line-height: 21px;
     width:190px;
     height:40px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     font-size: 16px;
     line-height: 24px;
     width:330px;
@@ -58,13 +58,13 @@ export const Form = styled.div`
     line-height: 21px;
     color: var(--background-color);
 
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 16px;
     line-height: 24px;
     width:161px;
     height:57px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     width:161px;
     height:70px;
   }
