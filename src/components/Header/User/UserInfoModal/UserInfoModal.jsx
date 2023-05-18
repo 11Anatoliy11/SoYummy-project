@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useAuth } from 'hooks/useAuth';
-import { uploadAvatar, uploadUserInfo } from 'redux/auth/auth-operations';
+import { uploadAvatar} from 'redux/auth/auth-operations';
 
 import { Form } from './UserInfoModal.styled';
 import { EditInfo } from './EditInfo/EditInfo'
@@ -28,8 +28,8 @@ export const UserInfoModal = ({ onClose }) => {
     dispatch(uploadAvatar(formData));
   };
   const changeName = e => {
-    const updatedName = e.target.name.value;
-    dispatch(uploadUserInfo(updatedName));
+    // const updatedName = e.target.name.value;
+    dispatch(uploadAvatar());
   };
 
   const handleSubmit = e => {
