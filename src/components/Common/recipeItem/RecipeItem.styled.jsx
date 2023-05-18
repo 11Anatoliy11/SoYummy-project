@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
 export const RecipeItemContainer = styled.div`
-  background-color: var(--white-color);
+  width: 100%;
+  background-color: ${props => props.theme.colors.recipeBlockBg};
   display: flex;
   padding: 14px 9px;
   max-width: 767.9px;
@@ -45,23 +46,6 @@ export const RecipeItemBox = styled.div`
     }
 `;
 
-export const RecipeItemText = styled.div`
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 8px;
-    line-height: 10px;
-    letter-spacing: -0.02em;
-    color: var(--edit-modal-text-color);
-    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-        font-size: 14px;
-        line-height: 18px;
-        }
-    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-        font-size: 18px;
-        line-height: 24px;
-    }
-`;
 
 export const RecipeItemTitle = styled.div`
     display: flex;
@@ -75,18 +59,15 @@ export const RecipeItemTitle = styled.div`
         margin-bottom:30px;
     }
     >h2{
-        font-family: 'Poppins';
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 1.0;
     letter-spacing: -0.24px;
-    color: var(--edit-modal-text-color);
-
+    color: ${props => props.theme.colors.secondaryDark};
+    
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-weight: 500;
         font-size: 24px;
-        line-height: 24px;
     }
     }
     >Button{
@@ -96,6 +77,7 @@ export const RecipeItemTitle = styled.div`
       width:24px;
       height:24px;
       border-radius:4px;
+      background-color:${props => props.theme.colors.secondaryAccent};
         @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         width:38px;
         height:38px;
@@ -104,11 +86,14 @@ export const RecipeItemTitle = styled.div`
         width:44px;
         height:44px;
     }
+    :hover{
+      background-color:${props => props.theme.colors.footerBg};
+    }
     >svg{
       padding: 5px;
       width:24px;
       height:24px;
-      stroke: var(--search-black-color);
+      stroke: ${props => props.theme.colors.mainBtnText};
       fill: transparent;
       @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         padding: 8px;
@@ -121,9 +106,26 @@ export const RecipeItemTitle = styled.div`
         height:44px;
     }
     :hover{
-      stroke: var(--background-color);
+      stroke: ${props => props.theme.colors.deleteBtnIcon};
+      
     }
     }
+    }
+`;
+
+export const RecipeItemText = styled.div`
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: ${props => props.theme.colors.mainDark};
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+        font-size: 14px;
+        line-height: 1.29;
+        }
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+        font-size: 18px;
+        line-height: 1.33;
     }
 `;
 
@@ -132,16 +134,13 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 >p{
-    font-family: 'Poppins';
-font-style: normal;
 font-weight: 500;
 font-size: 10px;
-line-height: 14px;
-letter-spacing: -0.24px;
-color: var(--edit-modal-text-color);
+line-height: 1.4;
+color: ${props => props.theme.colors.secondaryDark};
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
-        line-height: 20px;
+        line-height: 1.43;
     }
 }
 
@@ -149,23 +148,23 @@ color: var(--edit-modal-text-color);
     width:87px;
     height:27px;
     border-radius:24px 44px;
-    background-color:var(--search-black-color);
-    font-family: 'Poppins';
-    font-style: normal;
+    background-color:${props => props.theme.colors.footerBg};
     font-weight: 400;
     font-size: 10px;
-    line-height: 15px;
+    line-height: 1.5;
     color: var(--background-color);
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 14px;
-    line-height: 21px;
     width:138px;
     height:45px;
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     font-size: 16px;
-    line-height: 24px;
     width:172px;
     height:59px;
-  }}
+  }
+  :hover{
+    background-color:${props => props.theme.colors.deleteBtnBg};
+    }
+  }
 `;

@@ -1,12 +1,12 @@
 const { default: styled } = require('@emotion/styled');
 
 export const HeaderContainer = styled.header`
-  margin-top: 18px;
+  padding-top: 18px;
   display: flex;
   align-items: center;
 
   @media screen and (min-width: 1280px) {
-    margin-top: 28px;
+    padding-top: 28px;
     justify-content: space-between;
   }
 
