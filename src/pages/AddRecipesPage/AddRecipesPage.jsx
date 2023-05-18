@@ -7,4 +7,5 @@ const AddRecipesPage = ({ onClose }) => {
       <AddRecipeForm />
     </>);
 };
-  export default AddRecipesPage;
+
+export default AddRecipesPage;

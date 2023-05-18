@@ -34,8 +34,7 @@ export const User = () => {
     toggleLogoModal();
     setModalName('logout');
   };
-  console.log(user.avatar);
-  console.log(user.name);
+
   return (
     <>
       <UserWrapper onClick={toggleLogoModal}>

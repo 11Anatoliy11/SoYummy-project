@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ReactComponent as EmailIcon } from 'images/svg/email.svg';
+
 import Button from 'components/Button/Button';
 import InputAdornment from '@mui/material/InputAdornment';
 import { useMediaQuery } from '@mui/material';
@@ -33,7 +34,6 @@ export const SubscribeForm = () => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    console.log('Email submitted:', email);
     setEmail('');
   };
 

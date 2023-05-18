@@ -9,7 +9,7 @@ import Modal from 'components/Modal/Modal';
 import { Form } from './UserInfoModal.styled';
 
 
-export const UserInfoModal = ({onClose}) => {
+export const UserInfoModal = ({ onClose }) => {
   const [newAvatar, setNewAvatar] = useState(null);
   const [isNewName, setIsNewName] = useState(false);
 
@@ -35,8 +35,6 @@ export const UserInfoModal = ({onClose}) => {
     if (newAvatar) changeAvatar();
     if (isNewName) changeName(e);
     onClose();
-    console.log(newAvatar);
-    console.log(isNewName);
   };
 
   return (

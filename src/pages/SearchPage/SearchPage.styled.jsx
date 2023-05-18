@@ -6,11 +6,11 @@ export const SearchPageContainer = styled.div`
   flex-direction: column;
   padding-top: 43px;
   padding-bottom: 100px;
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         padding-top: 37px;
         padding-bottom: 200px;
         }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
         padding-top: 93px;
         padding-bottom: 100px;
     }

@@ -17,7 +17,7 @@ import {
   Icon,
   Input,
   IconAft,
-} from './Register.styled.js';
+} from './Register.styled';
 
 
 const initState = {

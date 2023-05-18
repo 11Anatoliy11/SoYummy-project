@@ -15,6 +15,7 @@ import favoriteRecipesReducer from './favoriteRecipes/favoriteRecipesSlice';
 import { searchReducer } from './search/searchSlice';
 import { authReducer } from './auth/auth-slice';
 import { recipeReducer } from './recipes/recipe-slice';
+import { themeReducer } from './theme/themeSlice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -27,7 +28,7 @@ const middleware = [
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ["user","isLoggedIn"],
+  whitelist: ["user", "isLoggedIn"],
 };
 const recipePresistConfig = {
   key: 'recipes',
@@ -40,7 +41,8 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     recipes: persistReducer(recipePresistConfig, recipeReducer),
     favoriteRecipes: favoriteRecipesReducer,
-    search: searchReducer
+    search: searchReducer,
+    theme: themeReducer
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
