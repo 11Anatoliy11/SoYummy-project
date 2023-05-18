@@ -77,7 +77,7 @@ export const UserNameTitle = styled.p`
 `;
 
 export const MenuContainer = styled.div`
-  background-color: #ebf3d4;
+  background-color: var(--frost-color);
   position: fixed;
   top: 0;
   left: 0;
@@ -158,10 +158,10 @@ export const NavigationList = styled.ul`
   }
 
   a.active {
-    color: #8baa36;
+    color: var(--green-color);
 
     .search-icon {
-      stroke: #8baa36;
+      stroke: var(--green-color);
     }
   }
 
@@ -193,10 +193,10 @@ export const DesktopList = styled.ul`
   }
 
   a.active {
-    color: #8baa36;
+    color: var(--green-color);
 
     .search {
-      stroke: #8baa36;
+      stroke: var(--green-color);
     }
   }
 `;

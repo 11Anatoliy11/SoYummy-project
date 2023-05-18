@@ -4,14 +4,10 @@ import {
     recipeByCategory,
     recipeById,
     recipeByIngredient,
-    recipeBySearch,
     recipeMainPage,
     recipeCategoryList,
     ingredientList,
-   
-    getAllFavorite,
     popularRecipe,
-    getAllShopping,
 } from './recipe-operation';
 
 const initialState = {
@@ -54,7 +50,7 @@ const recipeSlice = createSlice({
     .addCase(ingredientList.rejected,(state,{payload})=>{
         state.isLoading = false;
     })
-    // RECIPE FOE MAIN PAGE
+    // RECIPE FOR MAIN PAGE
     .addCase(recipeMainPage.pending,(state,{payload})=>{
         state.isLoading = true;
     })

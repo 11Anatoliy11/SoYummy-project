@@ -5,7 +5,6 @@ import {
   logout,
   register,
   uploadAvatar,
-  uploadUserInfo,
 } from './auth-operations';
 
 const initialState = {
@@ -37,7 +36,6 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(logout.fulfilled, (state, action) => {
-        state.isRefreshing = false;
         return initialState;
       })
    

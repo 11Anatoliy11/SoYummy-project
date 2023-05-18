@@ -46,7 +46,7 @@ export const Item = styled.li`
   min-height: 86px;
   padding: 10px 29px 10px 10px;
 
-  background: #ebf3d4;
+  background: var(--frost-color);
   border-radius: 8px;
 
   &:not(:last-child) {
@@ -66,7 +66,7 @@ export const IngredientTitle = styled.span`
   line-height: 1.17;
   letter-spacing: -0.24px;
 
-  color: #3e4462;
+  color: var(--fiord-color);
 `;
 
 export const ItemWrapper = styled.div`

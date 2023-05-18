@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const AvatarBox = styled.div`
   text-align: center;
   border-radius: 50%;
 `;
 
-export const AvatarWrapper= styled.div`
+export const AvatarWrapper = styled.div`
     width: 88px;
     height: 88px;
     @media screen and (min-width: 768px) {

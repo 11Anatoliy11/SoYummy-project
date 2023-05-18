@@ -12,7 +12,7 @@ export const Title = styled.h2`
   line-height: 1;
   letter-spacing: -0.02em;
 
-  color: #3e4462;
+  color: var(--fiord-color);
 `;
 
 export const List = styled.ul`
@@ -44,7 +44,7 @@ export const Number = styled.div`
   font-size: 12px;
   line-height: 1.5;
 
-  color: #ffffff;
+  color: var(--white-color);
 `;
 
 export const Text = styled.p`

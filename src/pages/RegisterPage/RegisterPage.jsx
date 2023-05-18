@@ -8,7 +8,7 @@ import { FormWrapper, StyledLink, StyledRect, Wrapper } from './RegisterPage.sty
 
 
 const RegisterPage = () => {
-  const {width} = useWindowSize();
+  const { width } = useWindowSize();
 
   return (
   <StyledRect>

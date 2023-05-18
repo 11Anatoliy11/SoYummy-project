@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const RecipeItemContainer = styled.div`
-  background-color: #FFFFFF;
+  background-color: var(--white-color);
   display: flex;
   padding: 14px 9px;
   max-width: 767.9px;
@@ -52,7 +52,7 @@ export const RecipeItemText = styled.div`
     font-size: 8px;
     line-height: 10px;
     letter-spacing: -0.02em;
-    color: #23262A;
+    color: ${props => props.theme.colors.mainDark};
     @media (min-width: 768px) {
         font-size: 14px;
         line-height: 18px;
@@ -81,7 +81,7 @@ export const RecipeItemTitle = styled.div`
     font-size: 14px;
     line-height: 14px;
     letter-spacing: -0.24px;
-    color: #3E4462;
+    color: var(--edit-modal-text-color);
 
     @media (min-width: 768px) {
         font-weight: 500;
@@ -138,7 +138,7 @@ font-weight: 500;
 font-size: 10px;
 line-height: 14px;
 letter-spacing: -0.24px;
-color: #3E4462;
+color: var(--edit-modal-text-color);
     @media (min-width: 768px) {
         font-size: 14px;
         line-height: 20px;
