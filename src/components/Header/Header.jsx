@@ -14,6 +14,8 @@ import {
   DesktopList,
 } from './Header.styled';
 
+import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
+
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const isSmallScreen = useIsSmallScreen();
@@ -73,6 +75,7 @@ export const Header = () => {
             <BurgerMenu />
           </button>
         )}
+        <ThemeToggler/>
       </HeaderContainer>
       {isSmallScreen && (
         <MobileMenu toggleMenu={toggleMenu} menuOpen={menuOpen} />
