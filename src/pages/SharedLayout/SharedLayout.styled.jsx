@@ -1,7 +1,7 @@
 const { default: styled } = require('@emotion/styled');
 
 export const SharedLayoutContainer = styled.div`
-  margin:  auto;
+  margin: auto;
   padding-left: 16px;
   padding-right: 16px;
   position: relative;
@@ -9,7 +9,7 @@ export const SharedLayoutContainer = styled.div`
   @media screen and (min-width: 375px) {
     max-width: 343px;
     padding-left: unset;
-  padding-right: unset;
+    padding-right: unset;
   }
 
   @media screen and (min-width: 768px) {
@@ -18,6 +18,5 @@ export const SharedLayoutContainer = styled.div`
 
   @media screen and (min-width: 1280px) {
     max-width: 1240px;
-
   }
 `;
