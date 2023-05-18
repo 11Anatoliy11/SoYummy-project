@@ -8,8 +8,9 @@ export const Form = styled.div`
     width:285px;
     height:53px;
     border-radius:24px 44px;
-    border: 1px solid #F0F0F0;
-    background-color: #FFFFFF;
+    border: 1px solid ${props => props.theme.colors.searchInputBorder};
+    box-shadow: 0px 4px 4px ${props => props.theme.colors.searchInputShadow};
+    background-color: ${props => props.theme.colors.searchSelectBg};
     padding-left: 32px;
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         padding-left: 38px;
@@ -26,19 +27,17 @@ export const Form = styled.div`
     background-color: transparent;
     width: 160px; 
     height: 21px;
-    font-family: 'Poppins';
     font-weight: 400;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 1.5;
+    color:${props => props.theme.colors.searchInputText};
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 14px;
-    line-height: 21px;
     width:190px;
     height:40px;
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     font-size: 16px;
-    line-height: 24px;
     width:330px;
     height:50px;
   }
@@ -51,16 +50,14 @@ export const Form = styled.div`
     width:113px;
     height:53px;
     border-radius:24px 44px;
-    background-color:var(--green-color);
-    font-family: 'Poppins';
+    background-color:${props => props.theme.colors.searchInputBtnBg};
     font-weight: 400;
     font-size: 14px;
-    line-height: 21px;
-    color: var(--background-color);
+    line-height: 1.5;
+    color: ${props => props.theme.colors.searchInputBtnTx};
 
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 16px;
-    line-height: 24px;
     width:161px;
     height:57px;
   }
@@ -69,7 +66,7 @@ export const Form = styled.div`
     height:70px;
   }
   :hover{
-    background-color:var(--search-black-color);
+    background-color:${props => props.theme.colors.userName};
   }
   }
   }

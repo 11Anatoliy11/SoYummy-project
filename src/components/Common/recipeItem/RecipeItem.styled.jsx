@@ -41,6 +41,8 @@ export const RecipeItemBox = styled.div`
       margin-left: 54px;
     }
 `;
+
+
 export const RecipeItemTitle = styled.div`
     display: flex;
     justify-content: space-between;
@@ -57,6 +59,7 @@ export const RecipeItemTitle = styled.div`
     line-height: 1.0;
     letter-spacing: -0.24px;
     color: ${props => props.theme.colors.secondaryDark};
+    
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-weight: 500;
         font-size: 24px;
@@ -99,10 +102,12 @@ export const RecipeItemTitle = styled.div`
     }
     :hover{
       stroke: ${props => props.theme.colors.deleteBtnIcon};
+      
     }
     }
     }
 `;
+
 export const RecipeItemText = styled.div`
     font-weight: 400;
     font-size: 8px;
@@ -118,6 +123,7 @@ export const RecipeItemText = styled.div`
         line-height: 1.33;
     }
 `;
+
 export const RecipeItemBtn = styled.div`
 display: flex;
 align-items: center;
