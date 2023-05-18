@@ -4,7 +4,7 @@ const commonOptions = {
   breakpoints: {
     mobile: '375px',
     tablet: '768px',
-    desktop: '1280px'
+    desktop: '1280px',
   },
   fonts: {
     main: 'Poppins, sans-serif',
@@ -14,7 +14,7 @@ const commonOptions = {
     subheader: '-0.24px',
     content: '-0.02em',
   },
-}
+};
 
 export const lightTheme = createTheme({
   ...commonOptions,
@@ -59,7 +59,7 @@ export const lightTheme = createTheme({
     tooltipbg: '#EBF3D4',
     ingredientsBgrCol: '#EBF3D4',
     counter: '#3333334c',
-
+    breakfastRecipes: '#FAFAFA',
     mainSerchHoverText: '#ffffff',
     searchFormHoverBtn: '#23262A',
     mainGreyBg: '#D9D9D9',
@@ -70,7 +70,8 @@ export const lightTheme = createTheme({
     iconColor: '#333333',
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
-  }
+    linkHover: '#2196f3',
+  },
 });
 
 export const darkTheme = createTheme({
@@ -113,7 +114,7 @@ export const darkTheme = createTheme({
     tooltipbg: '#8BAA36',
     ingredientsBgrCol: '#2A2C36',
     counter: '#FAFAFA',
-
+    breakfastRecipes: '#2A2C36',
     mainSerchHoverText: '#8BAA36',
     searchFormHoverBtn: '#FFFFFF',
     mainBg: '#ECECEC',
@@ -127,5 +128,6 @@ export const darkTheme = createTheme({
     iconColor: '#FAFAFA',
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
-  }
+    linkHover: '#2196f3',
+  },
 });

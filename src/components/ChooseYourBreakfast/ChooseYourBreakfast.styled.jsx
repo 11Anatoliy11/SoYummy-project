@@ -4,16 +4,19 @@ import styled from '@emotion/styled';
 export const Wrapper = styled.div`
 width: 225px;
 padding: 8px;
+margin-left: 70px;
 border-radius: 8px;
-background-color: var(--background-color);
+background-color: ${props => props.theme.colors.breakfastRecipes};
 
-@media (min-width: 768px) {
+@media (min-width: ${props => props.theme.breakpoints.tablet}) {
+  width: 261px;
   padding: 12px;
-  max-width: 261px;
+
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    width: 298px;
     padding: 16px;
-    max-width: 298px;
+
   }
 `;
 
@@ -23,7 +26,7 @@ font-weight: 500;
 font-size: 12px;
 line-height: 1.5;
 letter-spacing: -0.24px;
-color: var(--fiord-color);
+color: ${props => props.theme.colors.secondaryDark};
 @media (min-width: 768px) {
   margin-bottom: 4px;
   font-size: 14px;
@@ -35,7 +38,7 @@ color: var(--fiord-color);
 `;
 
 export const Accent = styled.span`
-color: var(--green-color);
+color: ${props => props.theme.colors.mainAccent};
 `;
 
 
@@ -47,7 +50,7 @@ gap:4px;
 font-size: 10px;
 line-height: 1.2;
 letter-spacing: 0.2px;
-color: var(--fiord-color);
+color: ${props => props.theme.colors.secondaryDark};
 transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 >svg{
 width: 18px;
@@ -59,7 +62,7 @@ stroke: currentColor;
 }
 }
 &:hover{
-color: #2196f3;
+color: ${props => props.theme.colors.linkHover};
 }
 `;
 
