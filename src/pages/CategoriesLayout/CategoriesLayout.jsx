@@ -13,7 +13,6 @@ import recipes from 'data/recipes.json';
 
 const CategoriesLayout = () => {
   const categoryList = new Set(recipes.map(recipe => recipe.category).sort());
-  console.log([...categoryList]);
 
   const scrollRef = useHorizontalScroll();
 

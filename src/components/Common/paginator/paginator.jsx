@@ -1,7 +1,7 @@
 import ResponsivePagination from 'react-responsive-pagination';
 import { useState, useEffect } from 'react';
 import { PaginatorContainer } from './paginator.styled';
-import { ReactComponent as ArrowLeft } from 'images/svg/arrow-left.svg';
+import {  as ArrowLeft } from 'images/svg/arrow-left.svg';
 import { ReactComponent as ArrowRight } from 'images/svg/arrow-right.svg';
 import Button from 'components/Button/Button';
 

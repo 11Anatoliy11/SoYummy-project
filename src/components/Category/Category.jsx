@@ -11,11 +11,8 @@ export const Category = () => {
     recipe => recipe.category.toLowerCase() === categoryName.toLowerCase()
   );
 
-  console.log(categoryRecipes);
 
   const categorySlice = categoryRecipes.slice(0, 8);
-
-  console.log(categorySlice);
 
   return (
     <OneCategoryList>
