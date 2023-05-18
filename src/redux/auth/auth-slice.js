@@ -5,7 +5,6 @@ import {
   logout,
   register,
   uploadAvatar,
-  uploadUserInfo,
 } from './auth-operations';
 
 const initialState = {
@@ -37,7 +36,6 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(logout.fulfilled, (state, action) => {
-        state.isRefreshing = false;
         return initialState;
       })
    
@@ -63,21 +61,11 @@ const authSlice = createSlice({
       })
       .addCase(uploadAvatar.fulfilled, (state, {payload}) => {
         
-        state.user.avatar = payload;
-        state.isRefreshing = false;
-      })
-      // USER-INFO
-      .addCase(uploadUserInfo.pending, state => {
-        state.isRefreshing = true;
-      })
-      .addCase(uploadUserInfo.rejected, state => {
-        state.isRefreshing = false;
-      })
-      .addCase(uploadUserInfo.fulfilled, (state, {payload}) => {
-        
+        state.user.avatar = payload.avatarURL;
         state.user.name = payload.name;
         state.isRefreshing = false;
       })
+      
 });
 
 export const authReducer = authSlice.reducer;
