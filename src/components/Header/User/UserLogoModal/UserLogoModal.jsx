@@ -4,7 +4,7 @@ import {
   ModalWrapper,
 } from './UserLogoModal.styled';
 import { ReactComponent as Edit } from '../../../../images/svg/edit.svg';
-//import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Button from '../../../Button/Button';
 import Modal from '../../../Modal/Modal';
 
@@ -28,7 +28,7 @@ export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
           textColor="var(--background-color)"
           onClick={onLogout}
         >
-          Log out {/* Log out <ArrowForwardIcon /> */}
+          Log out <ArrowForwardIcon />
         </Button>
       </ModalWrapper>
     </Modal>

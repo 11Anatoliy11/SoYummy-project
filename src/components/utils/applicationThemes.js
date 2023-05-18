@@ -1,9 +1,23 @@
-export const lightTheme = {
+import { createTheme } from '@mui/material/styles';
+
+const commonOptions = {
   breakpoints: {
     mobile: '375px',
     tablet: '768px',
     desktop: '1280px'
   },
+  fonts: {
+    main: 'Poppins, sans-serif',
+  },
+  fontWeights: [400, 500, 600, 700],
+  letterSpacings: {
+    subheader: '-0.24px',
+    content: '-0.02em',
+  },
+}
+
+export const lightTheme = createTheme({
+  ...commonOptions,
   colors: {
     mainDark: '#23262A',
     secondaryDark: '#3E4462',
@@ -56,56 +70,11 @@ export const lightTheme = {
     iconColor: '#333333',
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
-  },
-  fonts: {
-    main: 'Poppins, sans-serif',
-  },
-  fontWeights: [400, 500, 600, 700],
-  lineHeights: {
-    subheader: '1',
-    content: '1.33',
-    extraContent: '1.29',
-    btnText: '1.12',
-    description: '1.25',
-    time: '1.43',
-    headerLinks: '1.6',
-    userLink: '1.7',
-    searchSelect: '1.5',
-  },
-  letterSpacings: {
-    subheader: '-0.24px',
-    content: '-0.02em',
-  },
+  }
+});
 
-  borders: {
-    btnStandart: '2px solid #FAFAFA',
-    btnHover: '2px solid #8BAA36',
-    mainSearchInput: '1px solid #F0F0F0',
-    searchInput: '1px solid #F0F0F0',
-    mainNavBord: '1px solid transparent',
-    rowBorder: '1px solid #e0e0e0',
-  },
-  radii: {
-    btnStandart: '6px',
-    btnIcon: '4px',
-    logo: '12px',
-    image: '8px',
-    switch: '50px',
-    pagination: '26px',
-    modal: '24px',
-    circle: '50%',
-  },
-  transitions: {
-    main: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
-  },
-};
-
-export const darkTheme = {
-  breakpoints: {
-    mobile: '375px',
-    tablet: '768px',
-    desktop: '1280px'
-  },
+export const darkTheme = createTheme({
+  ...commonOptions,
   colors: {
     mainDark: '#FAFAFA',
     secondaryDark: '#FAFAFA',
@@ -158,46 +127,5 @@ export const darkTheme = {
     iconColor: '#FAFAFA',
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
-  },
-  fonts: {
-    main: 'Poppins, sans-serif',
-  },
-  fontWeights: [400, 500, 600, 700],
-  lineHeights: {
-    subheader: '1',
-    content: '1.33',
-    extraContent: '1.29',
-    btnText: '1.12',
-    description: '1.25',
-    time: '1.43',
-    headerLinks: '1.6',
-    userLink: '1.7',
-    searchSelect: '1.5',
-  },
-  letterSpacings: {
-    subheader: '-0.24px',
-    content: '-0.02em',
-  },
-
-  borders: {
-    btnStandart: '2px solid #FAFAFA',
-    btnHover: '2px solid #8BAA36',
-    mainSearchInput: '1px solid rgba(255, 255, 255, 0.2)',
-    searchInput: '1px solid rgba(255, 255, 255, 0.2)',
-    mainNavBord: '1px solid #8BAA36',
-    rowBorder: '1px solid rgba(250, 250, 250, 0.3);',
-  },
-  radii: {
-    btnStandart: '6px',
-    btnIcon: '4px',
-    logo: '12px',
-    image: '8px',
-    switch: '50px',
-    pagination: '26px',
-    modal: '24px',
-    circle: '50%',
-  },
-  transitions: {
-    main: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
-  },
-};
+  }
+});
