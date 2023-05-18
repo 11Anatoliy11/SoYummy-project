@@ -1,7 +1,23 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
-  padding: 0 16px;
+export const Wrapper = styled.div`
+  margin-bottom: 100px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-bottom: 200px;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    display: flex;
+    gap: 50px;
+  }
+`;
+
+export const InnerWrapper = styled.div`
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Title = styled.h2`
@@ -11,8 +27,11 @@ export const Title = styled.h2`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
-
   color: var(--fiord-color);
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const List = styled.ul`
@@ -21,6 +40,12 @@ export const List = styled.ul`
   gap: 14px;
 
   margin-bottom: 40px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    gap: 18px;
+
+    margin-bottom: 50px;
+  }
 `;
 
 export const Item = styled.li`
@@ -35,16 +60,18 @@ export const Number = styled.div`
   align-items: center;
 
   min-width: 21px;
-  max-width: 70px;
   height: 21px;
-  background-color: var(--green-color);
-  border-radius: 50%;
 
   font-weight: 600;
   font-size: 12px;
   line-height: 1.5;
-
   color: var(--white-color);
+  background-color: var(--green-color);
+  border-radius: 50%;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 14px;
+  }
 `;
 
 export const Text = styled.p`
@@ -52,13 +79,23 @@ export const Text = styled.p`
   line-height: 1.17;
   letter-spacing: -0.02em;
   color: rgba(0, 0, 0, 0.8);
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 14px;
+    line-height: 1.29;
+  }
 `;
 
 export const Image = styled.div`
-  margin-bottom: 100px;
+  width: 100%;
+  height: 250px;
   border-radius: 8px;
   background-image: url(${props => props.src});
   background-size: cover;
-  width: 100%;
-  height: 250px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    min-width: 433px;
+    max-width: 433px;
+    height: 332px;
+  }
 `;

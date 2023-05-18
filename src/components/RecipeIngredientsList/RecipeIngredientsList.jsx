@@ -13,7 +13,8 @@ import {
   Measure,
   ItemWrapper,
   List,
-} from './RecipeIngredientsList.module';
+  Image,
+} from './RecipeIngredientsList.styled';
 
 export default function RecipeIngredientsList({ requiredIngredients }) {
   // eslint-disable-next-line no-unused-vars
@@ -50,7 +51,7 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
           return (
             <Item key={id.$oid}>
               <Ingredient>
-                <img src={thb} alt={desc} width="65px" height="65px" />
+                <Image src={thb} alt={desc} />
                 <IngredientTitle>{ttl}</IngredientTitle>
               </Ingredient>
               <ItemWrapper>

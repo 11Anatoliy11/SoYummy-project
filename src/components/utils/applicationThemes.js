@@ -4,7 +4,7 @@ const commonOptions = {
   breakpoints: {
     mobile: '375px',
     tablet: '768px',
-    desktop: '1280px'
+    desktop: '1280px',
   },
   fonts: {
     main: 'Poppins, sans-serif',
@@ -14,7 +14,7 @@ const commonOptions = {
     subheader: '-0.24px',
     content: '-0.02em',
   },
-}
+};
 
 export const lightTheme = createTheme({
   ...commonOptions,
@@ -70,7 +70,7 @@ export const lightTheme = createTheme({
     iconColor: '#333333',
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
-  }
+  },
 });
 
 export const darkTheme = createTheme({
@@ -127,5 +127,5 @@ export const darkTheme = createTheme({
     iconColor: '#FAFAFA',
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
-  }
+  },
 });

@@ -1,10 +1,12 @@
 import {
   Image,
+  InnerWrapper,
   Item,
   List,
   Number,
   Text,
   Title,
+  Wrapper,
 } from './RecipePreparation.module';
 
 export default function RecipePreparation({ instructions, thumb, title }) {
@@ -26,23 +28,25 @@ export default function RecipePreparation({ instructions, thumb, title }) {
   let counter = 0;
 
   return (
-    <>
-      <Title>Recipe Preparation</Title>
-      <List>
-        {instructionsArray.map((el, index) => {
-          if (el.trim() === '') {
-            return null;
-          }
-          counter += 1;
-          return (
-            <Item key={index}>
-              <Number>{counter}</Number>
-              <Text>{el}</Text>
-            </Item>
-          );
-        })}
-      </List>
+    <Wrapper>
+      <InnerWrapper>
+        <Title>Recipe Preparation</Title>
+        <List>
+          {instructionsArray.map((el, index) => {
+            if (el.trim() === '') {
+              return null;
+            }
+            counter += 1;
+            return (
+              <Item key={index}>
+                <Number>{counter}</Number>
+                <Text>{el}</Text>
+              </Item>
+            );
+          })}
+        </List>
+      </InnerWrapper>
       <Image src={thumb} alt={title} />
-    </>
+    </Wrapper>
   );
 }
