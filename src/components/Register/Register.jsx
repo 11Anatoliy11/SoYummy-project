@@ -35,8 +35,8 @@ const colors = {
 
 const nameRegexp = /^[A-Za-z0-9]|[A-Z]|[a-z]$/;
 const emailRegexp = /^[A-Za-z0-9][A-Za-z0-9._%+-]*@[A-Za-z0-9][A-Za-z0-9.-]+\.[A-Za-z]{1,}$/;
-
-const passwordRegexp = /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;
+const passwordRegexp = /^[A-Za-z0-9]|[A-Z]|[a-z]|[1-9]$/;
+// const passwordRegexp = /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;
 
 export const Register = () => {
   const dispatch = useDispatch();

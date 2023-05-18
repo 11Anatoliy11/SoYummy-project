@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-
 export const RecipeItemContainer = styled.div`
   width: 100%;
   background-color: ${props => props.theme.colors.recipeBlockBg};
@@ -7,7 +6,6 @@ export const RecipeItemContainer = styled.div`
   padding: 14px 9px;
   max-width: 767.9px;
   border-radius: 8px;
-
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     max-width: 1280px;
     padding: 28px 24px;
@@ -20,7 +18,6 @@ export const RecipeItemContainer = styled.div`
         width: 124px;
         height: 124px;
         border-radius: 8px;
-
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: 228px;
     height: 232px;
@@ -31,7 +28,6 @@ export const RecipeItemContainer = styled.div`
     }
   }
 `;
-
 export const RecipeItemBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -51,7 +47,6 @@ export const RecipeItemTitle = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom:10px;
-
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         margin-bottom:18px;
     }
@@ -143,7 +138,6 @@ color: ${props => props.theme.colors.secondaryDark};
         line-height: 1.43;
     }
 }
-
   >button{
     width:87px;
     height:27px;

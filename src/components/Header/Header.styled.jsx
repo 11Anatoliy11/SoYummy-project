@@ -23,59 +23,6 @@ export const HeaderContainer = styled.header`
   }
 `;
 
-export const UserWrapper = styled.button`
-  margin-left: auto;
-  margin-right: 24px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-    margin-right: 50px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    margin-left: 0;
-    margin-right: 0;
-  }
-`;
-
-export const UserIconWr = styled.div`
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: var(--grey-color);
-
-  @media screen and (min-width: 768px) {
-    width: 44px;
-    height: 44px;
-  }
-
-  svg {
-    width: 16px;
-    height: 16px;
-
-    @media screen and (min-width: 768px) {
-      width: 18px;
-      height: 18px;
-    }
-  }
-`;
-
-export const UserNameTitle = styled.p`
-  font-weight: 600;
-  font-size: 12px;
-  line-height: calc(20 / 12);
-
-  @media screen and (min-width: 768px) {
-    line-height: calc(24 / 12);
-  }
-`;
-
 export const MenuContainer = styled.div`
   background-color: var(--frost-color);
   position: fixed;
@@ -127,7 +74,7 @@ export const MenuHeader = styled.div`
 export const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
-  padding-bottom: 248px;
+  padding-bottom: calc(100vh / 3.5);
 `;
 
 export const NavigationList = styled.ul`
@@ -176,7 +123,11 @@ export const NavigationList = styled.ul`
   }
 `;
 
-export const DesktopNavigation = styled.nav``;
+export const DesktopNavigation = styled.nav`
+  @media screen and (min-width: 1280px) {
+    margin-left: 187px;
+  }
+`;
 
 export const DesktopList = styled.ul`
   display: flex;

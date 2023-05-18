@@ -30,11 +30,8 @@ export const login = createAsyncThunk(
     try {
       const res = await axios.post('auth/login', credentials);
       const {token} = res.data.user;
-      // console.log(token)
-      // console.log('Before',axios.defaults.headers.common.Authorization)
-
       setAuthHeader(token);
-      // console.log('After',axios.defaults.headers.common.Authorization)
+      
       toast.success('You are logged in !');
       return res.data;
     } catch (error) {
@@ -64,7 +61,6 @@ export const refreshUser = createAsyncThunk(
       const state = thunkAPI.getState();
       const { token } = state.auth.user;
       setAuthHeader(token)
-      // console.log('IN current',axios.defaults.headers.common.Authorization)
       const res = await axios.get('auth/current');
       return res.data;
     } catch (error) {
@@ -75,24 +71,12 @@ export const refreshUser = createAsyncThunk(
 
 export const uploadAvatar = createAsyncThunk(
   'auth/avatars',
-  async (file, thunkAPI) => {
+  async (form, thunkAPI) => {
     try {
-      const res = await axios.patch('auth/avatars', file);
-      return res.data.avatarURL;
+      const res = await axios.patch('auth/avatars', form);
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
-)
-
-export const uploadUserInfo = createAsyncThunk(
-  'auth/user-info',
-  async(name,thunkAPI) => {
-      try{
-          const res = await axios.patch('auth/user-info',name);
-          return res.data;
-      } catch (error) {
-          return thunkAPI.rejectWithValue(error.message);
-      }
   }
 )
