@@ -13,6 +13,19 @@
   background-size: auto;
   height: 100vh;
 }
+.mainBgHero {
+  background-image: url('../../images/hero-plate.png'),
+    url('../../images/kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-5abcc32f2ee473 3.png'),
+    url('../../images/hero-rectangle.png');
+  background-repeat: no-repeat;
+  background-position: top 258px left 27px, top 54px left -125px,
+    top 103px left 54px;
+  background-size: 320px, 519px, 506px;
+  transform: rotate(0deg), rotate(65deg), rotate(32deg);
+}
+/* background: url(kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-5abcc32f2ee473.png);
+filter: blur(2px);
+transform: rotate(65deg); */
 
 @media screen and (min-width: 768px) {
   .mainBgFooter {
@@ -26,6 +39,15 @@
     background-image: url('../../images/t-spinach-menu.png');
     background-position: bottom -1px right -1px;
     background-size: auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .mainBgFooter {
+    background-image: url('../../images/d-spinach-middle.png'),
+      url('../../images/d-spinach-down.png');
+    background-position: bottom 137px left, bottom -6px right -9px;
+    background-size: auto 911px, auto 371px;
   }
 }
 
