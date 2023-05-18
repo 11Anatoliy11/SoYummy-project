@@ -28,7 +28,7 @@ export const UserInfoModal = ({ onClose }) => {
     dispatch(uploadAvatar(formData));
   };
   const changeName = e => {
-    const updatedName = e.target.name.value;
+    // const updatedName = e.target.name.value;
     dispatch(uploadAvatar());
   };
 
