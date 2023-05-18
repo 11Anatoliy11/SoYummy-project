@@ -75,7 +75,7 @@ export const Header = () => {
             <BurgerMenu />
           </button>
         )}
-        <ThemeToggler/>
+        {!isSmallScreen && <ThemeToggler/>}
       </HeaderContainer>
       {isSmallScreen && (
         <MobileMenu toggleMenu={toggleMenu} menuOpen={menuOpen} />
