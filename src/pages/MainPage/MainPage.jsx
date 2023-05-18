@@ -5,7 +5,8 @@ const MainPage = () => {
   return(
   <Background type="Hero">
   <Main />
-  </Background> );
+  </Background>
+  );
 };
 
 export default MainPage;
