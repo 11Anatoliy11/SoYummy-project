@@ -4,10 +4,10 @@ export const TitleContainer = styled.div`
   position: relative;
   max-width: 767.9px;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     max-width: 1280px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     max-width: 1980px;
   }
   .firstRectangleIcon {
@@ -20,8 +20,8 @@ export const TitleContainer = styled.div`
       width: 8px;
       height: 8px;
     }
-    fill: var(--green-color);
-    @media (min-width: 768px) {
+    fill: ${props => props.theme.colors.mainAccent};
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       top: 21px;
       left: 187px;
       width: 22px;
@@ -31,7 +31,7 @@ export const TitleContainer = styled.div`
       height: 14px;
     }
     }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
       top: 56px;
       left: 193px;
     }
@@ -46,8 +46,8 @@ export const TitleContainer = styled.div`
       width: 8px;
       height: 8px;
     }
-    fill: var(--green-color);
-    @media (min-width: 768px) {
+    fill: ${props => props.theme.colors.mainAccent};
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       top: 34px;
       left: 694px;
       width: 22px;
@@ -57,31 +57,28 @@ export const TitleContainer = styled.div`
       height: 14px;
     }
     }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
       top: 69px;
       left: 1150px;
     }
   }
-  .sphereIcon {
-    position: absolute;
-    top: 78px;
-    left: 231px;
-    width: 6px;
-    height: 6px;
 
-    @media (min-width: 768px) {
-      display: none;
-    }
-  }
   .thirdRectangleIcon {
-    display: none;
+    position: absolute;  
+    top: 78px;
+    right: 94px;
+    width: 12px;
+    height: 12px;
+      fill: ${props => props.theme.colors.mainHeaderText};    
+    rect{
+      width: 8px;
+      height: 8px;
+    }
 
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       position: absolute;
       top: 91px;
       left: 420px;
-      display: block;
-      fill: var(--search-black-color);
       width: 22px;
       height: 22px;
       rect{
@@ -89,8 +86,7 @@ export const TitleContainer = styled.div`
       height: 14px;
     }
     }
-    @media (min-width: 1280px) {
-      display: block;
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
       top: 144px;
       left: 734px;
     }
@@ -104,14 +100,15 @@ export const Title = styled.h1`
   font-size: 28px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: var(--page-title-color);
+  color: ${props => props.theme.colors.sectionHeader};
+  
 
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding-top: 72px;
     padding-bottom: 3px;
     font-size: 32px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     padding-top: 100px;
     padding-bottom: 15px;
     font-size: 44px;

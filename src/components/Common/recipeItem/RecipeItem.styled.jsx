@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 export const RecipeItemContainer = styled.div`
   width: 100%;
   background-color: ${props => props.theme.colors.recipeBlockBg};
+  width: 100%;
+  background-color: ${props => props.theme.colors.recipeBlockBg};
   display: flex;
   padding: 14px 9px;
   max-width: 767.9px;
@@ -55,6 +57,7 @@ export const RecipeItemTitle = styled.div`
     font-weight: 500;
     font-size: 14px;
     line-height: 1.0;
+    line-height: 1.0;
     letter-spacing: -0.24px;
     color: ${props => props.theme.colors.secondaryDark};
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
@@ -70,6 +73,7 @@ export const RecipeItemTitle = styled.div`
       height:24px;
       border-radius:4px;
       background-color:${props => props.theme.colors.secondaryAccent};
+      background-color:${props => props.theme.colors.secondaryAccent};
         @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         width:38px;
         height:38px;
@@ -81,10 +85,14 @@ export const RecipeItemTitle = styled.div`
     :hover{
       background-color:${props => props.theme.colors.footerBg};
     }
+    :hover{
+      background-color:${props => props.theme.colors.footerBg};
+    }
     >svg{
       padding: 5px;
       width:24px;
       height:24px;
+      stroke: ${props => props.theme.colors.mainBtnText};
       stroke: ${props => props.theme.colors.mainBtnText};
       fill: transparent;
       @media (min-width: ${props => props.theme.breakpoints.tablet}) {
@@ -127,8 +135,11 @@ font-weight: 500;
 font-size: 10px;
 line-height: 1.4;
 color: ${props => props.theme.colors.secondaryDark};
+line-height: 1.4;
+color: ${props => props.theme.colors.secondaryDark};
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
+        line-height: 1.43;
         line-height: 1.43;
     }
 }
@@ -137,8 +148,10 @@ color: ${props => props.theme.colors.secondaryDark};
     height:27px;
     border-radius:24px 44px;
     background-color:${props => props.theme.colors.footerBg};
+    background-color:${props => props.theme.colors.footerBg};
     font-weight: 400;
     font-size: 10px;
+    line-height: 1.5;
     line-height: 1.5;
     color: var(--background-color);
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
@@ -150,6 +163,9 @@ color: ${props => props.theme.colors.secondaryDark};
     font-size: 16px;
     width:172px;
     height:59px;
+  :hover{
+    background-color:${props => props.theme.colors.deleteBtnBg};
+    }
   }
   :hover{
     background-color:${props => props.theme.colors.deleteBtnBg};
