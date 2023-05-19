@@ -1,7 +1,9 @@
 import Button from '../../Button/Button';
 import React from 'react';
-//import { useDispatch } from 'react-redux';
+
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 //import { getFavoriteRecipes } from 'redux/favoriteRecipes/favoriteRecipesOperations';
 import {
   RecipeItemBtn,
@@ -11,6 +13,7 @@ import {
   RecipeItemText,
 } from './RecipeItem.styled';
 import { ReactComponent as Trash } from 'images/svg/trash.svg';
+import { deleteFavorite } from 'redux/recipes/recipe-operation';
 
 export const RecipeItem = ({
   img,
@@ -18,15 +21,16 @@ export const RecipeItem = ({
   title,
   description,
   time,
-  // remove,
   // paginationPage,
 }) => {
-  //const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const deleteHandler = async () => {
-  //   await dispatch(remove(id));
-  //   await dispatch(getFavoriteRecipes(paginationPage));
-  // };
+
+  const dispatch = useDispatch();
+
+  const deleteRecipe = () => {
+    dispatch(deleteFavorite(id));
+  };
+
   return (
     <>
       <RecipeItemContainer>
@@ -38,7 +42,7 @@ export const RecipeItem = ({
               <Button
                 backgroundColor="var(--green-color)"
                 onClick={() => {
-                  navigate(`/recipe/${id}`);
+                  deleteRecipe();
                 }}
               >
                 <Trash />

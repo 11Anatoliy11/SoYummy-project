@@ -1,11 +1,12 @@
 import { Loader } from 'components/Common';
 import { RecipeItem } from '../Common';
-import { RecipesListContainer } from './RecipesList.styled'
+import { RecipesListContainer } from './RecipesList.styled';
+// import { deleteFavorite } from 'redux/recipes/recipe-operation';
 
 export const RecipesList = ({
   data,
   cssClass,
-  removeRecipe,
+  // removeRecipe,
   isLoading,
   paginationPage,
 }) => {
@@ -20,9 +21,9 @@ export const RecipesList = ({
               return (
                 <RecipeItem
                   paginationPage={paginationPage}
-                  remove={removeRecipe}
-                  key={itemProps._id.$oid}
-                  id={itemProps._id.$oid}
+                  // deleteRecipe={deleteRecipe}
+                  key={itemProps._id}
+                  id={itemProps._id}
                   img={itemProps.thumb}
                   title={itemProps.title}
                   description={itemProps.description}

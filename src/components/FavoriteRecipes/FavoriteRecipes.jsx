@@ -2,32 +2,28 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RecipesList } from 'components/RecipesList/RecipesList';
-import { getFavoriteRecipes } from 'redux/favoriteRecipes/favoriteRecipesOperations';
-import { removeFromFavorite } from 'redux/favoriteRecipes/favoriteRecipesOperations';
-import {
-  selectFavRecipes,
-  selectFavIsLoading,
-  selectFavRecipesCount,
-} from 'redux/favoriteRecipes/favoriteRecipesSelectors';
 import placeholder from '../../images/placeholder.png';
 import { scrollToTop } from '../utils/scrollToTop';
 import 'react-responsive-pagination/themes/minimal.css';
 import { FavoriteRecipesContainer } from './FavoriteRecipes.styled';
 
 import { Paginator } from 'components/Common';
+import { recipeSelector } from 'redux/recipes/recipe-select';
+import { deleteFavorite, getAllFavorite } from 'redux/recipes/recipe-operation';
 
 export const FavoriteRecipes = () => {
+  const dispatch = useDispatch();
   const [paginationPage, setPaginationPage] = useState(1);
   const [per_page] = useState(10);
 
-  const data = useSelector(selectFavRecipes);
-  const total = useSelector(selectFavRecipesCount);
+  const favRecipes = useSelector(recipeSelector.getRecipeById);
+  const total = favRecipes.data.length;
+
   const pagesCount = Math.trunc(total / per_page);
-  const isLoading = useSelector(selectFavIsLoading);
-  const dispatch = useDispatch();
+  const isLoading = useSelector(recipeSelector.getIsLoading);
 
   useEffect(() => {
-    dispatch(getFavoriteRecipes({ page: paginationPage, pageSize: per_page }));
+    dispatch(getAllFavorite({ page: paginationPage, pageSize: per_page }));
   }, [dispatch, paginationPage, per_page]);
 
   const handlePaginationClick = event => {
@@ -37,12 +33,12 @@ export const FavoriteRecipes = () => {
 
   return (
     <FavoriteRecipesContainer id="favoriteRecipesContainer">
-      {data?.length > 0 ? (
+      {favRecipes.data?.length > 0 ? (
         <>
           <RecipesList
             paginationPage={paginationPage}
-            removeRecipe={removeFromFavorite}
-            data={data}
+            // removeRecipe={deleteFavorite}
+            data={favRecipes.data}
             isLoading={isLoading}
           />
           <Paginator
