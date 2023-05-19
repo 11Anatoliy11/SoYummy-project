@@ -7,19 +7,10 @@ import { Footer } from 'components/Footer/Footer';
 import Background from 'components/Background/Background';
 import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 
 const SharedLayout = () => {
   const location = useLocation();
   const { recipeId } = useParams();
-  console.log(location.pathname.includes('main'));
-  console.log(recipeId)
-
-  const location = useLocation();
-  const { recipeId } = useParams();
-  console.log(location.pathname.includes('main'));
-  console.log(recipeId)
 
   return (
     <>
