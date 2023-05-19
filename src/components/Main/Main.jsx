@@ -1,3 +1,9 @@
+// import dishIcon from 'images/m-dish.png';
+
 export const Main = () => {
-    //головна сторінка
-}
+  return (
+    <div style={{ height: '800px' }}>
+
+    </div>
+  );
+};

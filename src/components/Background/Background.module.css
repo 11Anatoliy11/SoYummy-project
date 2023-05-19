@@ -14,12 +14,16 @@
   background-size: 270px auto;
   height: 100vh;
 }
-/* 
+
 .mainBgMain {
-background-image: url("../../images/m-dish.png"), url("../../images/m-spinach-up-left.png"), url("../../images/m-spinach-menu.png"), url("../../images/m-light-green-bg.png");
-background-repeat: no-repeat;
-background-position: right 27px top 322px  ,top 48px left, top right, top right;
-} */
+  background-image: url('../../images//m-dish.png'),
+    url('../../images/m-spinach-up-left.png'),
+    url('../../images/m-spinach-menu.png'),
+    url('../../images/m-light-green-bg.png');
+  background-repeat: no-repeat;
+  background-position: top 322px right 4px, top 48px left, top right,
+    top 150px right -229px;
+}
 
 .mainBgRecipe {
   background-image: url('../../images/m-vegetables.png'),
@@ -39,6 +43,12 @@ background-position: right 27px top 322px  ,top 48px left, top right, top right;
       bottom -7px right -1px;
     background-size: auto, auto, auto 210px;
   }
+
+  /* .mainBgMain {
+    background-image: url('../../images/t-start-page.png');
+    background-repeat: no-repeat;
+    background-position: top;
+  } */
 }
 
 @media screen and (min-width: 768px) {
@@ -62,6 +72,14 @@ background-position: right 27px top 322px  ,top 48px left, top right, top right;
     background-position: top, bottom 137px left, bottom -2px right -1px;
     background-size: auto, auto 812px, auto 300px;
   }
+
+  .mainBgMain {
+    background-image: url('../../images/t-dish.png'),
+      url('../../images/t-spinach-up-left.png'),
+      url('../../images/t-spinach-up.png'),
+      url('../../images/t-light-green-bg.png');
+    background-position: top 159px right, top left, top right, top right;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -78,6 +96,12 @@ background-position: right 27px top 322px  ,top 48px left, top right, top right;
       url('../../images/d-spinach-down.png');
     background-position: top, bottom 137px left, bottom -6px right -9px;
     background-size: auto, auto 911px, auto 371px;
+  }
+
+  .mainBgMain {
+    background-image: url('../../images/d-start-page.png');
+    background-repeat: no-repeat;
+    background-position: top;
   }
 }
 
