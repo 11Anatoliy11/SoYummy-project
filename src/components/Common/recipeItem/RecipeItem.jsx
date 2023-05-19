@@ -40,7 +40,6 @@ export const RecipeItem = ({
             <RecipeItemTitle>
               <h2>{title}</h2>
               <Button
-                backgroundColor="var(--green-color)"
                 onClick={() => {
                   deleteRecipe();
                 }}

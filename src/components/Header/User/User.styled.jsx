@@ -13,10 +13,6 @@ position: relative;
     margin-right: 50px;
   }
 
-  @media screen and (min-width: 1280px) {
-    margin-left: 0;
-    margin-right: 0;
-  }
 `;
 
 export const UserIconWr = styled.div`
