@@ -269,56 +269,6 @@ export const Form = styled.form`
   }
 `;
 
-// export const CustomTextField = styled(TextField)(({ theme }) => ({
-//   '& .MuiOutlinedInput-root': {
-//     '& .MuiOutlinedInput-input::placeholder': {
-//       fontFamily: 'Poppins',
-//       fontStyle: 'normal',
-//       fontWeight: '400',
-//       fontSize: '10px',
-//       lineHeight: 'calc(15 / 10)',
-//       color: '#FAFAFA',
-//       letterSpacing: '-0.02em',
-//     },
-//     '&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus': {
-//       '-webkit-transition-delay': '9999s',
-//       transitionDelay: '9999s',
-//       '-webkit-transition-property': 'background-color, color',
-//       transitionProperty: 'background-color, color',
-//     },
-//   },
-
-//   '& .MuiOutlinedInput-input': {
-//     fontFamily: 'Poppins',
-//     fontStyle: 'normal',
-//     fontWeight: '400',
-//     fontSize: '10px',
-//     lineHeight: 'calc(15 / 10)',
-//     color: '#FAFAFA',
-//     letterSpacing: '-0.02em',
-//   },
-
-//   borderRadius: '6px',
-//   backgroundColor: 'transparent', // change border radius
-//   '& fieldset': {
-//     borderColor: '#FAFAFA',
-//     opacity: "0.16",
-//      // change border color
-//   },
-//   '&:hover fieldset': {
-//     borderColor: '#FAFAFA', // change border color on hover
-//   },
-//   '&.Mui-focused fieldset': {
-//     borderColor: '#FAFAFA', // change border color on focus
-//   },
-//   '&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus': {
-//     '-webkit-transition-delay': '9999s',
-//     transitionDelay: '9999s',
-//     '-webkit-transition-property': 'background-color, color',
-//     transitionProperty: 'background-color, color',
-//   },
-// }));
-
 export const FormCont = styled.div`
   @media screen and (min-width: 1280px) {
     width: 339px;

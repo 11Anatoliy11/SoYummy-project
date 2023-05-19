@@ -38,7 +38,7 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   color: var(--search-black-color);
   position: relative;
 }

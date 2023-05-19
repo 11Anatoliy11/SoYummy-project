@@ -11,6 +11,7 @@ export const Category = () => {
     recipe => recipe.category.toLowerCase() === categoryName.toLowerCase()
   );
 
+
   const categorySlice = categoryRecipes.slice(0, 8);
 
   return (
