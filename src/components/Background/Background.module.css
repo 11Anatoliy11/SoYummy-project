@@ -11,8 +11,7 @@
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 270px auto;
-  background-size: 270px auto;
-  height: 100vh;
+  height: 127vh;
 }
 /* 
 .mainBgMain {
@@ -51,8 +50,9 @@ background-position: right 27px top 322px  ,top 48px left, top right, top right;
 
   .mainBgMobileMenu {
     background-image: url('../../images/t-spinach-menu.png');
-    background-position: bottom -1px right -1px;
+    background-position: bottom -3px right -1px;
     background-size: auto;
+    height: 100vh;
   }
 
   .mainBgRecipe {
