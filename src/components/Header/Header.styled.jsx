@@ -37,6 +37,7 @@ export const MenuContainer = styled.div`
   height: 100vh;
   transform: translateY(-200%);
   transition: transform 250ms ease-in-out;
+  z-index: 5;
   ${props =>
     props.isOpen
       ? ` transform: translateY(0); z-index: 5; `
