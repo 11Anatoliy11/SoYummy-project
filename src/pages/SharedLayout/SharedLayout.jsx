@@ -11,8 +11,6 @@ import { useLocation } from 'react-router-dom';
 const SharedLayout = () => {
   const location = useLocation();
   const { recipeId } = useParams();
-  console.log(location.pathname.includes('main'));
-  console.log(recipeId)
 
   return (
     <>
@@ -27,7 +25,7 @@ const SharedLayout = () => {
           </SharedLayoutContainer>
         </Background>
       )}
-      {/* {location.pathname.includes('main') && (
+      {location.pathname.includes('main') && (
         <Background type="Main">
           <SharedLayoutContainer>
             <Header />
@@ -37,9 +35,8 @@ const SharedLayout = () => {
             <Footer />
           </SharedLayoutContainer>
         </Background>
-      )} */}
-      {/* !location.pathname.includes('main') && */}
-      { !recipeId && (
+      )}
+      { !location.pathname.includes('main') && !recipeId && (
         <Background type="Footer">
           <SharedLayoutContainer>
             <Header />
