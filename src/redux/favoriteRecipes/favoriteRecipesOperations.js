@@ -16,7 +16,7 @@ export const getFavoriteRecipes = createAsyncThunk(
       const favRecipe = recips.slice(start, end);
       return {
         items: favRecipe,
-        totalCount: recips.length
+        totalCount: recips.length,
       };
     } catch (error) {
       toast.error('Something went wrong, please try again later');

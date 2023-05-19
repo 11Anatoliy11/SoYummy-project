@@ -29,13 +29,13 @@ const middleware = [
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ["user", "isLoggedIn"],
+  whitelist: ['user', 'isLoggedIn'],
 };
 const recipePersistConfig = {
-  key: 'recipeCommon',
+  key: 'recipe',
   storage,
   // whitelist: []
-}
+};
 const favoritePersistConfig = {
   key: 'favoriteRecipes',
   storage,
@@ -58,16 +58,18 @@ const searchPersistConfig = {
   // whitelist: []
 };
 
-
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    recipeCommon:persistReducer(recipePersistConfig,recipeReducer),
-    ownRecipes: persistReducer(ownPersistConfig,ownRecipesReducer ),
-    favoriteRecipes: persistReducer(favoritePersistConfig,favoriteRecipesReducer),
-    search: persistReducer(searchPersistConfig,searchReducer),
-    shoppingRecipes: persistReducer(shoppingPersistConfig,shopRecipesReducer),
-    theme: themeReducer
+    recipe: persistReducer(recipePersistConfig, recipeReducer),
+    ownRecipes: persistReducer(ownPersistConfig, ownRecipesReducer),
+    favoriteRecipes: persistReducer(
+      favoritePersistConfig,
+      favoriteRecipesReducer
+    ),
+    search: persistReducer(searchPersistConfig, searchReducer),
+    shoppingRecipes: persistReducer(shoppingPersistConfig, shopRecipesReducer),
+    theme: themeReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
