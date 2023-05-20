@@ -47,7 +47,7 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(recipeCategoryList());
-  }, []);
+  }, [dispatch]);
 
 
 
