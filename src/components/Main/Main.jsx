@@ -1,9 +1,18 @@
-// import dishIcon from 'images/m-dish.png';
+import {ChooseYourBreakfast} from 'components/ChooseYourBreakfast'
+import {HeroPageTitle} from 'components/HeroPageTitle'
+import { SearchForm } from 'components/Search/SearchForm/SearchForm'
+
+
+import { Wrapper} from './Main.styled'
 
 export const Main = () => {
-  return (
-    <div style={{ height: '800px' }}>
-
-    </div>
-  );
-};
+  return(
+    <>
+    <HeroPageTitle/>
+    <Wrapper>
+    <ChooseYourBreakfast/>
+    <SearchForm id="hero-search"/>
+    </Wrapper>
+    </>
+  )
+}
