@@ -1,10 +1,7 @@
 import Button from '../../Button/Button';
-import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
-//import { getFavoriteRecipes } from 'redux/favoriteRecipes/favoriteRecipesOperations';
 import {
   RecipeItemBtn,
   RecipeItemContainer,
@@ -13,7 +10,6 @@ import {
   RecipeItemText,
 } from './RecipeItem.styled';
 import { ReactComponent as Trash } from 'images/svg/trash.svg';
-import { deleteFavorite } from 'redux/recipes/recipe-operation';
 
 export const RecipeItem = ({
   img,
@@ -21,15 +17,10 @@ export const RecipeItem = ({
   title,
   description,
   time,
-  // paginationPage,
+  deleteRecipe,
 }) => {
+  console.log(`🚀 ~ time:`, time);
   const navigate = useNavigate();
-
-  const dispatch = useDispatch();
-
-  const deleteRecipe = () => {
-    dispatch(deleteFavorite(id));
-  };
 
   return (
     <>
@@ -39,11 +30,7 @@ export const RecipeItem = ({
           <RecipeItemText>
             <RecipeItemTitle>
               <h2>{title}</h2>
-              <Button
-                onClick={() => {
-                  deleteRecipe();
-                }}
-              >
+              <Button onClick={() => deleteRecipe(id)}>
                 <Trash />
               </Button>
             </RecipeItemTitle>
@@ -52,15 +39,15 @@ export const RecipeItem = ({
 
           <RecipeItemBtn>
             <p>
-              {time} {time.includes('min') ? '' : 'min'}
+              {time} min
+              {/* {time.includes('min') ? '' : 'min'} */}
             </p>
             <Button
               onClick={() => {
                 navigate(`/recipe/${id}`);
               }}
             >
-              {' '}
-              See recipe{' '}
+              See recipe
             </Button>
           </RecipeItemBtn>
         </RecipeItemBox>

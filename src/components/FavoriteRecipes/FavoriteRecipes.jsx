@@ -17,6 +17,7 @@ export const FavoriteRecipes = () => {
   const [per_page] = useState(10);
 
   const favRecipes = useSelector(recipeSelector.getRecipeById);
+  console.log(`🚀 ~ FavoriteRecipes ~ favRecipes:`, favRecipes);
   const total = favRecipes.data.length;
 
   const pagesCount = Math.trunc(total / per_page);
@@ -31,20 +32,24 @@ export const FavoriteRecipes = () => {
     setPaginationPage(event);
   };
 
+  const handleDelete = id => {
+    dispatch(deleteFavorite(id));
+  };
+
   return (
     <FavoriteRecipesContainer id="favoriteRecipesContainer">
       {favRecipes.data?.length > 0 ? (
         <>
           <RecipesList
             paginationPage={paginationPage}
-            // removeRecipe={deleteFavorite}
             data={favRecipes.data}
             isLoading={isLoading}
+            deleteRecipe={handleDelete}
           />
           <Paginator
-            parendContainerId="favoriteRecipesContainer"
+            parentContainerId="favoriteRecipesContainer"
             currentPage={paginationPage}
-            pagesCout={pagesCount}
+            pagesCount={pagesCount}
             onPaginate={handlePaginationClick}
           ></Paginator>
         </>

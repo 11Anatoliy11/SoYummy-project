@@ -19,6 +19,7 @@ export default function RecipePageHero({ description, title, time, _id }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const favRecipes = useSelector(recipeSelector.getFavoriteRecipes);
+  console.log(`🚀 ~ RecipePageHero ~ favRecipes:`, favRecipes);
 
   const dispatch = useDispatch();
 
@@ -27,9 +28,8 @@ export default function RecipePageHero({ description, title, time, _id }) {
       return;
     }
 
-    const isRecipeFavorite = favRecipes.data.favorites.some(
-      id => id === _id.$oid
-    );
+    const isRecipeFavorite = favRecipes.data.some(id => id === _id.$oid);
+
     setIsFavorite(isRecipeFavorite);
   }, [_id, favRecipes]);
 

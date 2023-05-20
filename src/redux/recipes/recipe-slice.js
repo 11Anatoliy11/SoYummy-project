@@ -134,6 +134,7 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(deleteFavorite.fulfilled, (state, { payload }) => {
+        // state.recipeById = payload;
         state.favoriteRecipes = payload;
         state.isLoading = false;
       })

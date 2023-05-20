@@ -7,23 +7,9 @@ import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
 import recipesData from '../../mocks/recipes.json';
 
 export default function RecipePage() {
-  // const [counter, setCounter] = useState(0);
-
   const { recipeId } = useParams();
 
   const recipe = recipesData.filter(recipe => recipe._id.$oid === recipeId);
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCounter(prevCounter => (prevCounter + 1) % recipesData.length);
-  //   }, 2000);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  // useEffect(() => {
-  //   setRecipe(recipesData[counter]);
-  // }, [counter]);
 
   const { title, description, time, thumb, ingredients, instructions, _id } =
     recipe[0];

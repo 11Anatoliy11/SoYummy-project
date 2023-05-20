@@ -15,6 +15,9 @@ import {
   List,
   Image,
 } from './RecipeIngredientsList.styled';
+// import { useSelector } from 'react-redux';
+// import { recipeSelector } from 'redux/recipes/recipe-select';
+// import { shopRecipesSelector } from 'redux/shoppingRecipes/shopping';
 
 export default function RecipeIngredientsList({ requiredIngredients }) {
   // eslint-disable-next-line no-unused-vars
@@ -33,6 +36,11 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
 
     setShoppingList([...shoppingList, item]);
   };
+
+  // const ingredients = useSelector(recipeSelector.getIngredientList);
+  // console.log(`🚀 ~ RecipeIngredientsList ~ ingredients:`, ingredients);
+  // const shoppingListNew = useSelector(shopRecipesSelector.getShoppingList);
+  // console.log(`🚀 ~ RecipeIngredientsList ~ shoppingList:`, shoppingListNew);
 
   return (
     <>
