@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import recipes from 'data/recipes.json';
 import { RecipeCard } from 'components/Common';
 import { OneCategoryList } from './Category.styled';
 import { motion } from 'framer-motion';
