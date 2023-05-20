@@ -158,3 +158,12 @@
     background-size: auto, auto, auto, auto, auto 911px, auto 371px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .mainBgFooter {
+    background-image: url('../../images/d-spinach-middle.png'),
+      url('../../images/d-spinach-down.png');
+    background-position: bottom 137px left, bottom -6px right -9px;
+    background-size: auto 911px, auto 371px;
+  }
+}
