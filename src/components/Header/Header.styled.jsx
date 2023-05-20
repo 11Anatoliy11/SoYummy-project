@@ -1,12 +1,12 @@
 const { default: styled } = require('@emotion/styled');
 
 export const HeaderContainer = styled.header`
-  margin-top: 18px;
+  padding-top: 18px;
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: 1280px) {
-    margin-top: 28px;
+  @media screen and (min-width: ${props => props.theme.breakpoints.desktop}) {
+    padding-top: 28px;
     justify-content: space-between;
   }
 
@@ -20,64 +20,16 @@ export const HeaderContainer = styled.header`
     height: 34px;
     display: flex;
     align-items: center;
-  }
-`;
-
-export const UserWrapper = styled.button`
-  margin-left: auto;
-  margin-right: 24px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-    margin-right: 50px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    margin-left: 0;
-    margin-right: 0;
-  }
-`;
-
-export const UserIconWr = styled.div`
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: var(--grey-color);
-
-  @media screen and (min-width: 768px) {
-    width: 44px;
-    height: 44px;
-  }
-
-  svg {
-    width: 16px;
-    height: 16px;
-
-    @media screen and (min-width: 768px) {
-      width: 18px;
-      height: 18px;
+    
+    svg {
+      stroke: ${props => props.theme.colors.mainHeaderText};
     }
-  }
-`;
-
-export const UserNameTitle = styled.p`
-  font-weight: 600;
-  font-size: 12px;
-  line-height: calc(20 / 12);
-
-  @media screen and (min-width: 768px) {
-    line-height: calc(24 / 12);
+    
   }
 `;
 
 export const MenuContainer = styled.div`
-  background-color: var(--frost-color);
+  background-color: ${props => props.theme.colors.secondaryAccent};
   position: fixed;
   top: 0;
   left: 0;
@@ -85,6 +37,7 @@ export const MenuContainer = styled.div`
   height: 100vh;
   transform: translateY(-200%);
   transition: transform 250ms ease-in-out;
+  z-index: 5;
   ${props =>
     props.isOpen
       ? ` transform: translateY(0); z-index: 5; `
@@ -97,13 +50,13 @@ export const MenuHeader = styled.div`
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: 375px) {
-    max-width: 375px;
+  @media screen and (min-width: ${props => props.theme.breakpoints.mobile}) {
+    max-width: ${props => props.theme.breakpoints.mobile};
     margin: 0 auto;
   }
 
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
+    max-width: ${props => props.theme.breakpoints.tablet};
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -121,13 +74,17 @@ export const MenuHeader = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    svg {
+      stroke: ${props => props.theme.colors.mainHeaderText};
+    }
   }
 `;
 
 export const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
-  padding-bottom: 248px;
+  padding-bottom: calc(100vh / 3.5);
 `;
 
 export const NavigationList = styled.ul`
@@ -140,8 +97,9 @@ export const NavigationList = styled.ul`
   font-size: 18px;
   line-height: calc(18 / 18);
   letter-spacing: -0.02em;
+  color: ${props => props.theme.colors.mainHeaderText};
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
     gap: 40px;
     font-size: 24px;
   }
@@ -169,14 +127,18 @@ export const NavigationList = styled.ul`
     width: 20px;
     height: 20px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
       width: 24px;
       height: 24px;
     }
   }
 `;
 
-export const DesktopNavigation = styled.nav``;
+export const DesktopNavigation = styled.nav`
+  @media screen and (min-width: ${props => props.theme.breakpoints.desktop}) {
+    margin-left: 187px;
+  }
+`;
 
 export const DesktopList = styled.ul`
   display: flex;
@@ -186,6 +148,7 @@ export const DesktopList = styled.ul`
   font-weight: 500;
   font-size: 14px;
   line-height: calc(22 / 14);
+  color: ${props => props.theme.colors.mainHeaderText};
 
   .desk--search-link {
     display: flex;

@@ -11,7 +11,6 @@ export default function PageTitleSection({ text }) {
         </Title>
         <Rectangle className='firstRectangleIcon' />
         <Rectangle className='secondRectangleIcon' />
-        <Sphere className='sphereIcon' />
         <Rectangle className='thirdRectangleIcon' />
       </TitleContainer>
     </>
