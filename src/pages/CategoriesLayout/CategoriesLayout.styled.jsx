@@ -4,14 +4,14 @@ export const LayoutContainer = styled.div`
   margin-bottom: 32px;
   margin-top: 50px;
   position: relative;
+  // border-bottom: 1px solid ${props => props.theme.colors.categoryLine};
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
     margin-bottom: 50px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.desktop}) {
     margin-top: 100px;
-    border-bottom: 1px solid var(--alto-color);
   }
 `;
 
@@ -20,11 +20,10 @@ display: flex;
 gap: 22px;
 padding: 10px 29px 32px 29px;  
 overflow-x: scroll;
-// border-bottom: 1px solid var(--alto-color);
 -ms-overflow-style: none;  
 scrollbar-width: none; 
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
   gap: 49px;
   padding: 10px 30px 29px 30px;
 }
@@ -35,9 +34,9 @@ scrollbar-width: none;
     height: 1px;
     width: 100%;
     bottom: 0;
-    background-color: var(--alto-color);
+    background-color: ${props => props.theme.colors.categoryLine};
     left: 0;
-    z-index: -1;
+    z-index: 0;
   }
 
 
@@ -73,14 +72,14 @@ export const CategoryItem = styled.li`
     padding: 0 3px 32px 3px;
     font-size: 14px;
     line-height: 14px;  
-    color: var(--alto-color);
+    color: ${props => props.theme.colors.categoriesMainText};
 
     &.active {
       border-bottom: 2px solid var(--green-color);
       color: var(--green-color);
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
       padding: 0 3px 27px 3px;
       font-size: 18px;
       line-height: 18px;
