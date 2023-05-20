@@ -41,15 +41,14 @@ export const App = () => {
 
   useEffect(() => {
     if (!isLoggedIn) return;
-    
+
     dispatch(refreshUser());
-  }, [dispatch,isLoggedIn]);
+  }, [dispatch, isLoggedIn]);
 
   useEffect(() => {
+    if (!isLoggedIn) return;
     dispatch(recipeCategoryList());
-  }, [dispatch]);
-
-
+  }, [dispatch, isLoggedIn]);
 
   return (
     <Suspense fallback={<Loader />}>
@@ -88,19 +87,28 @@ export const App = () => {
               <Route
                 path="my"
                 element={
-                  <PrivateRoute component={MyRecipesPage} redirectTo={'/welcome'} />
+                  <PrivateRoute
+                    component={MyRecipesPage}
+                    redirectTo={'/welcome'}
+                  />
                 }
               />
               <Route
                 path="favorite"
                 element={
-                  <PrivateRoute component={FavoritePage} redirectTo={'/welcome'} />
+                  <PrivateRoute
+                    component={FavoritePage}
+                    redirectTo={'/welcome'}
+                  />
                 }
               />
               <Route
                 path="recipe/:recipeId"
                 element={
-                  <PrivateRoute component={RecipePage} redirectTo={'/welcome'} />
+                  <PrivateRoute
+                    component={RecipePage}
+                    redirectTo={'/welcome'}
+                  />
                 }
               />
               <Route
@@ -115,7 +123,10 @@ export const App = () => {
               <Route
                 path="search"
                 element={
-                  <PrivateRoute component={SearchPage} redirectTo={'/welcome'} />
+                  <PrivateRoute
+                    component={SearchPage}
+                    redirectTo={'/welcome'}
+                  />
                 }
               />
               <Route path="*" element={<NotFound />} />
@@ -135,7 +146,10 @@ export const App = () => {
             <Route
               path="/register"
               element={
-                <RestrictedRoute component={RegisterPage} redirectTo={'/main'} />
+                <RestrictedRoute
+                  component={RegisterPage}
+                  redirectTo={'/main'}
+                />
               }
             />
           </Routes>
