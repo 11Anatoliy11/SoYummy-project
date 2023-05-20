@@ -36,7 +36,7 @@ export const UserNameTitle = styled.p`
   font-weight: 600;
   font-size: 12px;
   line-height: calc(20 / 12);
-  color: ${props => props.theme.colors.userName};
+  color: ${props => props.theme.colors.userNameHeader};
 
   @media screen and (min-width: 768px) {
     line-height: calc(24 / 12);

@@ -79,6 +79,7 @@ export const lightTheme = createTheme({
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
     linkHover: '#2196f3',
+    userNameHeader: '#22252A',
   },
 
   categoryLine: '#E0E0E0',
@@ -150,6 +151,7 @@ export const darkTheme = createTheme({
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
     linkHover: '#2196f3',
+    userNameHeader: '#7E7E7E',
   },
   categoryLine: 'rgba(250, 250, 250, 0.2)',
   categoriesMainText: 'rgba(250, 250, 250, 0.6)',
