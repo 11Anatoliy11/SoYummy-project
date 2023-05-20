@@ -13,19 +13,6 @@
   background-size: auto;
   height: 100vh;
 }
-.mainBgHero {
-  background-image: url('../../images/hero-plate.png'),
-    url('../../images/kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-5abcc32f2ee473 3.png'),
-    url('../../images/hero-rectangle.png');
-  background-repeat: no-repeat;
-  background-position: top 258px left 27px, top 54px left -125px,
-    top 103px left 54px;
-  background-size: 320px, 519px, 506px;
-  transform: rotate(0deg), rotate(65deg), rotate(32deg);
-}
-/* background: url(kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-5abcc32f2ee473.png);
-filter: blur(2px);
-transform: rotate(65deg); */
 
 @media screen and (min-width: 768px) {
   .mainBgFooter {
