@@ -76,6 +76,11 @@ export const lightTheme = createTheme({
     iconColor: '#333333',
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
+    categoryLine: '#E0E0E0',
+    categoriesMainText: '#E0E0E0', 
+    shoppingListImgWrapper: '#EBF3D4',
+    shoppingIngredientBorder: "#E0E0E0",
+
   }
 });
 
@@ -140,5 +145,9 @@ export const darkTheme = createTheme({
     iconColor: '#FAFAFA',
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
+    categoryLine: 'rgba(250, 250, 250, 0.2)',
+    categoriesMainText: 'rgba(250, 250, 250, 0.6)', 
+    shoppingListImgWrapper: '#2A2C36',
+    shoppingIngredientBorder: 'rgba(250, 250, 250, 0.3)',
   }
 });

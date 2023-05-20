@@ -1,7 +1,7 @@
 export const recipeSelector = {
-    getCategoryList:state => state.recipe.categoryList,
+    getCategoryList:state => state.recipeCommon.categoryList,
     getIngredientList:state => state.recipe.ingredientList,
-    getRecipeByCategory:state => state.recipe.recipeByCategory,
+    getRecipeByCategory:state => state.recipeCommon.recipeByCategory,
     getRecipeMainPage:state => state.recipe.recipeMainPage,
     getRecipeBySearch:state => state.recipe.recipeBySearch,
     getRecipeById:state => state.recipe.recipeById,

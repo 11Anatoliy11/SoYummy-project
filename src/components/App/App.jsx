@@ -14,6 +14,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { getMode } from 'redux/theme/themeSelector';
 import { lightTheme, darkTheme } from '../utils/applicationThemes';
 import { AppContainer } from './App.styled';
+import { recipeCategoryList } from 'redux/recipes/recipe-operation';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const SigninPage = lazy(() => import('pages/SigninPage/SigninPage'));
@@ -43,6 +44,12 @@ export const App = () => {
     
     dispatch(refreshUser());
   }, [dispatch,isLoggedIn]);
+
+  useEffect(() => {
+    dispatch(recipeCategoryList());
+  }, []);
+
+
 
   return (
     <Suspense fallback={<Loader />}>

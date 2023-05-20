@@ -9,10 +9,11 @@ import {
   CategoryItem,
 } from './CategoriesLayout.styled';
 import { useHorizontalScroll } from 'hooks/useHorizontalScroll';
-import recipes from 'data/recipes.json';
+import { useSelector } from 'react-redux';
+import { recipeSelector } from 'redux/recipes/recipe-select';
 
 const CategoriesLayout = () => {
-  const categoryList = new Set(recipes.map(recipe => recipe.category).sort());
+  const categoryList = useSelector(recipeSelector.getCategoryList);
 
   const scrollRef = useHorizontalScroll();
 
