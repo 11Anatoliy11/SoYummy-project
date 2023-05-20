@@ -51,7 +51,7 @@ const CategoriesLayout = () => {
       <PageTitleSection text="Categories" />
       <LayoutContainer >
         <ListOfCategories ref={scrollRef}>
-          {[...categoryList]?.map(category => (
+          {categoryList && [...categoryList]?.map(category => (
             <CategoryItem key={category}>
               <NavLink to={`/categories/${category.toLowerCase()}`} onClick={handleClick}>
                 {category}
