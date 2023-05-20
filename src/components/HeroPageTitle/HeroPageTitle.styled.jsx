@@ -7,6 +7,7 @@ export const Title = styled.h1`
   font-size: 60px;
   line-height: 1;
   letter-spacing: -0.005em;
+  color: ${props => props.theme.colors.mainHeaderText};
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding-top: 140px;
     text-align: start;

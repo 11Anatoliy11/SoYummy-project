@@ -10,8 +10,8 @@ export const Main = () => {
     <>
     <HeroPageTitle/>
     <Wrapper>
-    <SearchForm id="hero-search"/>
     <ChooseYourBreakfast/>
+    <SearchForm id="hero-search"/>
     </Wrapper>
     </>
   )
