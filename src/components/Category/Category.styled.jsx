@@ -5,13 +5,13 @@ export const OneCategoryList = styled.div`
   flex-direction: column;
   gap: 28px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
     flex-wrap: wrap;
     gap: 32px;
     flex-direction: row;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.desktop}) {
     display: grid; 
     grid-auto-columns: 1fr; 
     grid-template-columns: 1fr 1fr 1fr 1fr; 

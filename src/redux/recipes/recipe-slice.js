@@ -36,7 +36,9 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(recipeCategoryList.fulfilled, (state, { payload }) => {
-        state.categoryList = payload;
+        if (payload) {
+          state.categoryList = payload.categories;
+        }
         state.isLoading = false;
       })
       .addCase(recipeCategoryList.rejected, (state, { payload }) => {
