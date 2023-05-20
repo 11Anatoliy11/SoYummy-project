@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useAuth } from 'hooks/useAuth';
 import { uploadAvatar} from 'redux/auth/auth-operations';
-
-import { uploadAvatar, uploadUserInfo } from 'redux/auth/auth-operations';
 import {EditInfo} from './EditInfo/EditInfo'
 import { EditAvatar } from './EditAvatar/EditAvatar';
 import Button from 'components/Button/Button';
@@ -38,7 +36,6 @@ export const UserInfoModal = ({ onClose }) => {
     if (isNewName) changeName(e);
     onClose();
   };
-
   return (
     <>
   <Modal className="userInfoModal" onClose={onClose}>

@@ -1,30 +1,14 @@
 import styled from '@emotion/styled';
 
-
-
-
-
-// @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-
-//   }
-//   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-
-//   }
-
-
 export const Wrapper = styled.div`
 display: flex;
 flex-direction: column;
 gap: 115px;
-/* width: 225px;
-padding: 8px;
-margin-left: 70px;
-border-radius: 8px;
-background-color: ${props => props.theme.colors.breakfastRecipes}; */
 
 @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-  /* width: 261px;
-  padding: 12px; */
+  display: flex;
+flex-direction: row;
+gap: 62px;
 
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
@@ -32,10 +16,15 @@ background-color: ${props => props.theme.colors.breakfastRecipes}; */
     padding: 16px; */
 
   }
-  .hero-search{
-    width:100%
+  #hero-search{
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+      /* padding-top: 18px; */
+
     >button{
-      background-color: red;
+      background-color: ${props =>props.theme.colors.btnHoverText};
+
+  }
+
     }
 
   }

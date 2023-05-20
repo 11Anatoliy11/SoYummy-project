@@ -10,10 +10,9 @@ export const Main = () => {
     <>
     <HeroPageTitle/>
     <Wrapper>
+    <SearchForm id="hero-search"/>
     <ChooseYourBreakfast/>
-    <SearchForm className="hero-search"/>
     </Wrapper>
     </>
   )
-    //головна сторінка
 }

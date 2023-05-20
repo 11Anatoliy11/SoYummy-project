@@ -9,8 +9,9 @@ border-radius: 8px;
 background-color: ${props => props.theme.colors.breakfastRecipes};
 
 @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-  width: 261px;
+  width: 260px;
   padding: 12px;
+  margin-left: 0px;
 
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {

@@ -84,12 +84,11 @@ export const lightTheme = createTheme({
     burgerRecipeBtn: '#23262A',
     linkHover: '#2196f3',
   },
-    categoryLine: '#E0E0E0',
-    categoriesMainText: '#E0E0E0',
-    shoppingListImgWrapper: '#EBF3D4',
-    shoppingIngredientBorder: "#E0E0E0",
 
-  }
+  categoryLine: '#E0E0E0',
+  categoriesMainText: '#E0E0E0',
+  shoppingListImgWrapper: '#EBF3D4',
+  shoppingIngredientBorder: '#E0E0E0',
 });
 
 export const darkTheme = createTheme({
@@ -156,9 +155,8 @@ export const darkTheme = createTheme({
     burgerRecipeBtn: '#23262A',
     linkHover: '#2196f3',
   },
-    categoryLine: 'rgba(250, 250, 250, 0.2)',
-    categoriesMainText: 'rgba(250, 250, 250, 0.6)',
-    shoppingListImgWrapper: '#2A2C36',
-    shoppingIngredientBorder: 'rgba(250, 250, 250, 0.3)',
-  }
+  categoryLine: 'rgba(250, 250, 250, 0.2)',
+  categoriesMainText: 'rgba(250, 250, 250, 0.6)',
+  shoppingListImgWrapper: '#2A2C36',
+  shoppingIngredientBorder: 'rgba(250, 250, 250, 0.3)',
 });
