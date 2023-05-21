@@ -32,7 +32,7 @@ const authPersistConfig = {
   whitelist: ['user', 'isLoggedIn'],
 };
 const recipePersistConfig = {
-  key: 'recipeCommon',
+  key: 'recipe',
   storage,
   // whitelist: []
 };
