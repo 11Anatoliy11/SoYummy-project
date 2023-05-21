@@ -5,28 +5,45 @@ export const SearchTypeSelectorContainer = styled.div`
   align-items: center;
   gap: 15px;
   padding-top: 24px;
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding-top: 28px;
     gap: 18px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     padding-top: 43px;
+  }
+
+  .SearchTypeSelectorLabel {
+    display: block;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: -0.24px;
+    color: ${props => props.theme.colors.sectionHeader};
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+      font-size: 14px;
+      line-height: 1.29;
+  }
   }
 
   .CustomSelect {
     position: relative;
     display: inline-block;
-    background: #d9d9d9;
+    background: ${props => props.theme.colors.searchTypeBg};
+    border: 1px solid ${props => props.theme.colors.searchTypeBorder};
     border-radius: 6px;
     padding: 8px 14px;
-    width: 118px;
-    @media (min-width: 768px) {
+    width: 146px;
+    height: 34px;
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       padding: 10px 14px;
-      width: 155px;
+      width: 175px;
+      height: 41px;
     }
-    @media (min-width: 1280px) {
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
         padding: 14px;
-      width: 170px;
+      width: 198px;
+      height: 49px;
   }
   }
 
@@ -34,18 +51,16 @@ export const SearchTypeSelectorContainer = styled.div`
     display: flex;
     justify-content: space-between;
     position: relative;
-    font-family: 'Poppins';
     font-weight: 400;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 1.5;
     letter-spacing: -0.02em;
-    color: #000000;
+    color: ${props => props.theme.colors.searchTypeTx};
     opacity: 0.5;
     cursor: pointer;
     align-items: center;
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
-    line-height: 21px;
   }
   }
 
@@ -66,7 +81,7 @@ export const SearchTypeSelectorContainer = styled.div`
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
-    background: #d9d9d9;
+    background: transparent;
     border-radius: 6px;
     z-index: 1;
   }
@@ -74,14 +89,13 @@ export const SearchTypeSelectorContainer = styled.div`
   .CustomSelectOption {
     padding: 8px 16px;
     cursor: pointer;
-    font-family: 'Poppins';
     font-weight: 400;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 1.5;
     letter-spacing: -0.02em;
-    color: #000000;
+    color: ${props => props.theme.colors.searchTypeTx};
     opacity: 0.5;
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
     line-height: 21px;
   }
@@ -92,19 +106,5 @@ export const SearchTypeSelectorContainer = styled.div`
     margin-bottom: 16px;
   }
 
-  .SearchTypeSelectorLabel {
-    display: block;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: -0.24px;
-    color: #001833;
-    @media (min-width: 768px) {
-        font-size: 14px;
-    line-height: 18px;
-  }
 
-  }
 `;

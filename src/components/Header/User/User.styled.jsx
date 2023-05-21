@@ -13,10 +13,6 @@ position: relative;
     margin-right: 50px;
   }
 
-  @media screen and (min-width: 1280px) {
-    margin-left: 0;
-    margin-right: 0;
-  }
 `;
 
 export const UserIconWr = styled.div`
@@ -40,6 +36,7 @@ export const UserNameTitle = styled.p`
   font-weight: 600;
   font-size: 12px;
   line-height: calc(20 / 12);
+  color: ${props => props.theme.colors.userNameHeader};
 
   @media screen and (min-width: 768px) {
     line-height: calc(24 / 12);

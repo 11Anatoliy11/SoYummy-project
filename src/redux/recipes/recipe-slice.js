@@ -4,34 +4,25 @@ import {
     recipeByCategory,
     recipeById,
     recipeByIngredient,
-    recipeBySearch,
     recipeMainPage,
     recipeCategoryList,
     ingredientList,
-    getAllOwnRecipes,
-    getAllFavorite,
     popularRecipe,
-    getAllShopping,
 } from './recipe-operation';
 
 const initialState = {
-    categoryList:[],
-    ingredientList:[],
-    recipeByCategory:[],
-    recipeMainPage:[],
-    recipeBySearch:[],
+    categoryList: [],
+    ingredientList: [],
+    recipeByCategory: [],
+    recipeMainPage: [],
     recipeById: null,
-    recipeByIngredient:[],
-    ownRecipes:[],
-    favoriteRecipes:[],
-    popularRecipes:[],
-    shoppingList:[],
+    recipeByIngredient: [],
+    popularRecipes: [],
     isLoading: false,
-  };
+};
 
 const recipeSlice = createSlice({
-
-    name:"recipe",
+    name: 'recipe',
     initialState,
     reducers:{},
     extraReducers:builder =>
@@ -41,8 +32,10 @@ const recipeSlice = createSlice({
         state.isLoading = true;
     })
     .addCase(recipeCategoryList.fulfilled,(state,{payload})=>{
-        state.categoryList = payload;
-        state.isLoading = false;
+        if (payload) {
+            state.categoryList = payload.categories;
+          }
+          state.isLoading = false;
     })
     .addCase(recipeCategoryList.rejected,(state,{payload})=>{
         state.isLoading = false;
@@ -58,7 +51,7 @@ const recipeSlice = createSlice({
     .addCase(ingredientList.rejected,(state,{payload})=>{
         state.isLoading = false;
     })
-    // RECIPE FOE MAIN PAGE
+    // RECIPE FOR MAIN PAGE
     .addCase(recipeMainPage.pending,(state,{payload})=>{
         state.isLoading = true;
     })
@@ -74,7 +67,7 @@ const recipeSlice = createSlice({
         state.isLoading = true;
     })
     .addCase(recipeByCategory.fulfilled,(state,{payload})=>{
-        state.recipeByCategory = payload;
+        state.recipeByCategory = payload.data;
         state.isLoading = false;
     })
     .addCase(recipeByCategory.rejected,(state,{payload})=>{
@@ -91,17 +84,17 @@ const recipeSlice = createSlice({
     .addCase(recipeByIngredient.rejected,(state,{payload})=>{
         state.isLoading = false;
     })
-   // RECIPE BY SEARCH
-   .addCase(recipeBySearch.pending,(state,{payload})=>{
-    state.isLoading = true;
-    })
-    .addCase(recipeBySearch.fulfilled,(state,{payload})=>{
-        state.recipeBySearch = payload;
-        state.isLoading = false;
-    })
-    .addCase(recipeBySearch.rejected,(state,{payload})=>{
-        state.isLoading = false;
-    })
+//    // RECIPE BY SEARCH
+//    .addCase(recipeBySearch.pending,(state,{payload})=>{
+//     state.isLoading = true;
+//     })
+//     .addCase(recipeBySearch.fulfilled,(state,{payload})=>{
+//         state.recipeBySearch = payload;
+//         state.isLoading = false;
+//     })
+//     .addCase(recipeBySearch.rejected,(state,{payload})=>{
+//         state.isLoading = false;
+//     })
     //RECIPE BY ID
     .addCase(recipeById.pending,(state,{payload})=>{
         state.isLoading = true;
@@ -113,28 +106,18 @@ const recipeSlice = createSlice({
     .addCase(recipeById.rejected,(state,{payload})=>{
         state.isLoading = false;
     })
-    // OWN RECIPE
-    .addCase(getAllOwnRecipes.pending,(state,{payload})=>{
-        state.isLoading = true;
-    })
-    .addCase(getAllOwnRecipes.fulfilled,(state,{payload})=>{
-        state.ownRecipes = payload;
-        state.isLoading = false;
-    })
-    .addCase(getAllOwnRecipes.rejected,(state,{payload})=>{
-        state.isLoading = false;
-    })
-    // FAVORITE RECIPE
-    .addCase(getAllFavorite.pending,(state,{payload})=>{
-        state.isLoading = true;
-    })
-    .addCase(getAllFavorite.fulfilled,(state,{payload})=>{
-        state.favoriteRecipes = payload;
-        state.isLoading = false;
-    })
-    .addCase(getAllFavorite.rejected,(state,{payload})=> {
-        state.isLoading = false;
-    })
+    
+    // // FAVORITE RECIPE
+    // .addCase(getAllFavorite.pending,(state,{payload})=>{
+    //     state.isLoading = true;
+    // })
+    // .addCase(getAllFavorite.fulfilled,(state,{payload})=>{
+    //     state.favoriteRecipes = payload;
+    //     state.isLoading = false;
+    // })
+    // .addCase(getAllFavorite.rejected,(state,{payload})=> {
+    //     state.isLoading = false;
+    // })
     //POPULAR RECIPE
     .addCase(popularRecipe.pending,(state,{payload})=> {
         state.isLoading = true;
@@ -146,17 +129,17 @@ const recipeSlice = createSlice({
     .addCase(popularRecipe.rejected,(state,{payload})=> {
         state.isLoading = false;
     })
-    // SHOPPING RECIPE
-    .addCase(getAllShopping.pending,(state,{payload})=> {
-        state.isLoading = true;
-    })
-    .addCase(getAllShopping.fulfilled,(state,{payload})=>{ 
-        state.shoppingList = payload;
-        state.isLoading = false;
-    })
-    .addCase(getAllShopping.rejected,(state,{payload})=> {
-        state.isLoading = false;
-    })
-})
+    // // SHOPPING RECIPE
+    // .addCase(getAllShopping.pending,(state,{payload})=> {
+    //     state.isLoading = true;
+    // })
+    // .addCase(getAllShopping.fulfilled,(state,{payload})=>{
+    //     state.shoppingList = payload;
+    //     state.isLoading = false;
+    // })
+    // .addCase(getAllShopping.rejected,(state,{payload})=> {
+    //     state.isLoading = false;
+    // })
+});
 
 export const recipeReducer = recipeSlice.reducer;

@@ -1,7 +1,12 @@
 import { Main } from 'components/Main/Main';
+import Background from 'components/Background/Background';
 
 const MainPage = () => {
-  return <Main />;
+  return(
+  <Background type="Hero">
+  <Main />
+  </Background>
+  );
 };
 
 export default MainPage;

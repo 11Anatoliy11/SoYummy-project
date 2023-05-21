@@ -9,6 +9,7 @@ import {
   NavigationList,
 } from './Header.styled';
 import Background from 'components/Background/Background';
+import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 
 export const MobileMenu = ({ toggleMenu, menuOpen }) => {
   const open = menuOpen;
@@ -67,6 +68,7 @@ export const MobileMenu = ({ toggleMenu, menuOpen }) => {
             </li>
           </NavigationList>
         </NavContainer>
+        <ThemeToggler/>
       </Background>
     </MenuContainer>
   );

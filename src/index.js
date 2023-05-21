@@ -6,8 +6,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { store, persistor } from 'redux/store';
-import { darkTheme } from './ThemeMade';
-import { ThemeProvider } from 'styled-components';
 
 import 'react-responsive-pagination/themes/minimal.css';
 import 'react-toastify/dist/ReactToastify.css';

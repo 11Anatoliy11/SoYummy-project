@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-import background from '../../images/m-vegetables.png';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,10 +9,6 @@ export const Wrapper = styled.div`
 
   padding: 80px 38px 90px;
   margin-bottom: 32px;
-
-  background-image: url(${background});
-  background-size: cover;
-  background-position: center center;
 
   > Button {
     margin-top: 24px;
@@ -46,5 +41,5 @@ export const Time = styled.span`
   font-size: 10px;
   line-height: 1.4;
   letter-spacing: -0.24px;
-  color: #23262a;
+  color: var(--edit-modal-text-color);
 `;

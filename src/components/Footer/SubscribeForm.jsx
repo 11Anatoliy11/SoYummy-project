@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ReactComponent as EmailIcon } from 'images/svg/email.svg';
+
 import Button from 'components/Button/Button';
 import InputAdornment from '@mui/material/InputAdornment';
 import { useMediaQuery } from '@mui/material';
@@ -33,8 +34,8 @@ export const SubscribeForm = () => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    console.log('Email submitted:', email);
     setEmail('');
+    setIsValid(false)
   };
 
   const buttonClassName = 'submit-button';
@@ -53,7 +54,7 @@ export const SubscribeForm = () => {
       )}
       <Form onSubmit={handleSubmit}>
         <TextField
-        className='email-input'
+          className='email-input'
           label=""
           variant="outlined"
           placeholder="Enter your email address"
@@ -64,7 +65,7 @@ export const SubscribeForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start" sx={{ mr: iconMarginRight }}>
-                <EmailIcon style={{fill: 'none'}} className='icon-email' />
+                <EmailIcon style={{ fill: 'none' }} className='icon-email' />
               </InputAdornment>
             ),
           }}
@@ -75,8 +76,8 @@ export const SubscribeForm = () => {
           height="38px"
           disabled={!isValid}
           borderRadius="6px"
-          textColor="#fafafa"
-          backgroundColor="#8BAA36"
+          textColor="var(--background-color)"
+          backgroundColor="var(--green-color)"
           className={buttonClassName + ' ' + disabledButton}
         >
           Subcribe

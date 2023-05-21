@@ -9,8 +9,10 @@ export const Head = styled.div`
   display: flex;
   justify-content: space-between;
 
-  min-width: 343px;
-  min-height: 42px;
+  @media screen and (min-width: 375px) {
+    min-width: 343px;
+    min-height: 42px;
+  }
   padding: 12px 14px;
   margin-bottom: 24px;
 
@@ -42,11 +44,14 @@ export const Item = styled.li`
   justify-content: space-between;
   align-items: center;
 
-  min-width: 343px;
-  min-height: 86px;
+  @media screen and (min-width: 375px) {
+    min-width: 343px;
+    min-height: 86px;
+  }
+
   padding: 10px 29px 10px 10px;
 
-  background: #ebf3d4;
+  background: var(--frost-color);
   border-radius: 8px;
 
   &:not(:last-child) {
@@ -66,7 +71,7 @@ export const IngredientTitle = styled.span`
   line-height: 1.17;
   letter-spacing: -0.24px;
 
-  color: #3e4462;
+  color: var(--fiord-color);
 `;
 
 export const ItemWrapper = styled.div`

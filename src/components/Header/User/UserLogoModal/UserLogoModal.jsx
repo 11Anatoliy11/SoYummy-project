@@ -13,24 +13,24 @@ export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
 
   return (
     <Modal className="userLogoModal" overlayClassName="userLogoOverlayModal" onClose={onClose}>
-    <ModalWrapper>
-      <EditWrapper onClick={onEdit}>
-        <EditText>Edit profile</EditText>
+      <ModalWrapper>
+        <EditWrapper onClick={onEdit}>
+          <EditText>Edit profile</EditText>
           <Edit />
-      </EditWrapper>
-      <Button className="btn"
-        type="button"
-        width="125px"
-        height="43px"
-        backgroundColor="var(--green-color)"
-        border="none"
-        borderRadius="24px 44px"
-        textColor="var(--background-color)"
-        onClick={onLogout}
+        </EditWrapper>
+        <Button className="btn"
+          type="button"
+          width="125px"
+          height="43px"
+          backgroundColor="var(--green-color)"
+          border="none"
+          borderRadius="24px 44px"
+          textColor="var(--background-color)"
+          onClick={onLogout}
         >
-      Log out <ArrowForwardIcon/>
-      </Button>
+          Log out <ArrowForwardIcon />
+        </Button>
       </ModalWrapper>
-      </Modal>
+    </Modal>
   );
 };

@@ -10,7 +10,7 @@ export const PaginatorContainer = styled.div`
     width: max-content;
     gap: 10px;
     background-color: white;
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       padding: 14px 24px;
         }
 
@@ -54,7 +54,7 @@ export const PaginatorContainer = styled.div`
     }
 
     
-    @media (min-width: 330px) {
+    @media (min-width: ${props => props.theme.breakpoints.mobile}) {
       li {
         &:first-of-type {
           margin-right: 24px;
@@ -64,7 +64,7 @@ export const PaginatorContainer = styled.div`
         }
       }
     }
-    @media (min-width: 768px) {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       li {
         &:first-of-type {
           margin-right: 40px;

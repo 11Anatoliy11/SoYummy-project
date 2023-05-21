@@ -3,6 +3,7 @@ import recipes from 'data/recipes.json';
 import schemaAddRecipe from 'components/utils/schemaAddRecipe';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import addPhoto from "images/upload-recipe.png"
+import { FollowUs } from '../Footer/FollowUs'
 
 const preparationTimes = Array.from(
   { length: 25 },
@@ -46,17 +47,17 @@ export const AddRecipeForm = ({ addRecipe, redirectToMyRecipes }) => {
     setFieldValue('ingredients', ingredients);
   };
 
-//   const handleIngredientChange = (
-//     index,
-//     field,
-//     value,
-//     values,
-//     setFieldValue
-//   ) => {
-//     const ingredients = [...values.ingredients];
-//     ingredients[index][field] = value;
-//     setFieldValue('ingredients', ingredients);
-//   };
+  //   const handleIngredientChange = (
+  //     index,
+  //     field,
+  //     value,
+  //     values,
+  //     setFieldValue
+  //   ) => {
+  //     const ingredients = [...values.ingredients];
+  //     ingredients[index][field] = value;
+  //     setFieldValue('ingredients', ingredients);
+  //   };
 
   const handlePreparationChange = (event, values, setFieldValue) => {
     if (event.key === 'Enter') {
@@ -83,7 +84,7 @@ export const AddRecipeForm = ({ addRecipe, redirectToMyRecipes }) => {
               name="photo"
               accept="image/*"
               onChange={event => handleFileChange(event, setFieldValue)}
-              style={{display: "none"}}
+              style={{ display: "none" }}
             />
             <ErrorMessage
               name="photo"
@@ -94,7 +95,7 @@ export const AddRecipeForm = ({ addRecipe, redirectToMyRecipes }) => {
 
           <div>
             <label htmlFor="name"></label>
-            <Field type="text" id="name" name="name" placeholder="Enter item title"/>
+            <Field type="text" id="name" name="name" placeholder="Enter item title" />
             <ErrorMessage
               name="name"
               component="div"
@@ -197,6 +198,12 @@ export const AddRecipeForm = ({ addRecipe, redirectToMyRecipes }) => {
           <button type="submit" disabled={isSubmitting}>
             Add
           </button>
+          <div>
+            <h2>
+              Follow Us
+            </h2>
+            <FollowUs />
+          </div>
         </Form>
       )}
     </Formik>

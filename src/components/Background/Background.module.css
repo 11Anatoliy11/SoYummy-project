@@ -10,8 +10,61 @@
   background-image: url('../../images/m-spinach-menu.png');
   background-repeat: no-repeat;
   background-position: bottom right;
-  background-size: auto;
-  height: 100vh;
+  background-size: 270px auto;
+  height: 127vh;
+}
+
+.mainBgMain {
+  background-image: url('../../images//m-dish.png'),
+    url('../../images/m-spinach-up-left.png'),
+    url('../../images/m-spinach-menu.png'),
+    url('../../images/m-light-green-bg.png'),
+    url('../../images/m-spinach-middle.png'),
+    url('../../images/m-spinach-down.png');
+  background-repeat: no-repeat;
+  background-position: top 322px right 4px, top 48px left, top right,
+    top 150px right -229px, bottom 250px left, bottom -7px right -1px;
+    background-size: auto, auto, auto, auto, auto, auto 210px;
+}
+
+.mainBgRecipe {
+  background-image: url('../../images/m-vegetables.png'),
+    url('../../images/m-spinach-middle.png'),
+    url('../../images/m-spinach-down.png');
+  background-repeat: no-repeat;
+  background-position: top, bottom 250px left, bottom -7px right -1px;
+  background-size: auto, auto, auto 210px;
+}
+
+@media screen and (min-width: 375px) {
+  .mainBgRecipe {
+    background-image: url('../../images/t-vegetables.png'),
+      url('../../images/m-spinach-middle.png'),
+      url('../../images/m-spinach-down.png');
+    background-position: top -40px center, bottom 250px left,
+      bottom -7px right -1px;
+    background-size: auto, auto, auto 210px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .mainBgRecipe {
+    background-image: url('../../images/t-vegetables.png'),
+      url('../../images/m-spinach-middle.png'),
+      url('../../images/m-spinach-down.png');
+    background-position: top -40px center, bottom 250px left,
+      bottom -7px right -1px;
+    background-size: auto, auto, auto 210px;
+  }
+
+  .mainBgMain {
+    background-image: url('../../images/t-start-page.png'),
+    url('../../images/m-spinach-middle.png'),
+    url('../../images/m-spinach-down.png');
+    background-position: top, bottom 250px left,
+    bottom -7px right -1px;
+    background-size: auto, auto, auto 210px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -24,8 +77,36 @@
 
   .mainBgMobileMenu {
     background-image: url('../../images/t-spinach-menu.png');
-    background-position: bottom -1px right -1px;
+    background-position: bottom -3px right -1px;
     background-size: auto;
+    height: 100vh;
+  }
+
+  .mainBgRecipe {
+    background-image: url('../../images/d-vegetables.png'),
+      url('../../images/t-spinach-middle.png'),
+      url('../../images/t-spinach-down.png');
+    background-position: top, bottom 137px left, bottom -2px right -1px;
+    background-size: auto, auto 812px, auto 300px;
+  }
+
+  .mainBgRecipe {
+    background-image: url('../../images/d-vegetables.png'),
+      url('../../images/t-spinach-middle.png'),
+      url('../../images/t-spinach-down.png');
+    background-position: top, bottom 137px left, bottom -2px right -1px;
+    background-size: auto, auto 812px, auto 300px;
+  }
+
+  .mainBgMain {
+    background-image: url('../../images/t-dish.png'),
+      url('../../images/t-spinach-up-left.png'),
+      url('../../images/t-spinach-up.png'),
+      url('../../images/t-light-green-bg.png'),
+      url('../../images/t-spinach-middle.png'),
+      url('../../images/t-spinach-down.png');
+    background-position: top 159px right, top left, top right, top right, bottom 137px left, bottom -2px right -1px;
+    background-size: auto, auto, auto, auto, auto 812px, auto 300px;
   }
 }
 
@@ -35,5 +116,45 @@
       url('../../images/d-spinach-down.png');
     background-position: bottom 137px left, bottom -6px right -9px;
     background-size: auto 911px, auto 371px;
+  }
+
+  .mainBgRecipe {
+    background-image: url('../../images/d-vegetables.png'),
+      url('../../images/d-spinach-middle.png'),
+      url('../../images/d-spinach-down.png');
+    background-position: top, bottom 137px left, bottom -6px right -9px;
+    background-size: auto, auto 911px, auto 371px;
+  }
+
+  .mainBgMain {
+    background-image: url('../../images/d-start-page.png'),
+      url('../../images/d-spinach-middle.png'),
+      url('../../images/d-spinach-down.png');
+    background-position: top, bottom 137px left, bottom -6px right -9px;
+    background-size: auto, auto 911px, auto 371px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainBgRecipe {
+    background-image: url('../../images/d-vegetables-2x.png'),
+      url('../../images/d-spinach-middle.png'),
+      url('../../images/d-spinach-down.png');
+    background-position: center top -493px, bottom 137px left, bottom -6px right -9px;
+    background-size: auto, auto 911px, auto 371px;
+    object-fit: cover;
+    object-position: 20% 30px;
+  }
+
+  .mainBgMain {
+    background-image: url('../../images/d-dish.png'),
+      url('../../images/d-spinach-up.png'),
+      url('../../images/d-spinach-up-left.png'),
+      url('../../images/d-light-green-bg.png'),
+      url('../../images/d-spinach-middle.png'),
+      url('../../images/d-spinach-down.png');
+    background-position: top 126px right 184px, top right, top left, top right,
+      bottom 137px left, bottom -6px right -9px;
+    background-size: auto, auto, auto, auto, auto 911px, auto 371px;
   }
 }
