@@ -1,12 +1,15 @@
 const { default: styled } = require('@emotion/styled');
 
 export const LayoutContainer = styled.div`
+  height:46px;
   margin-bottom: 32px;
   margin-top: 50px;
   position: relative;
-  // border-bottom: 1px solid ${props => props.theme.colors.categoryLine};
+  padding:0;
+  border-bottom: 1px solid ${props => props.theme.colors.categoryLine};
 
   @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-top: 55px;
     margin-bottom: 50px;
   }
 
@@ -14,37 +17,33 @@ export const LayoutContainer = styled.div`
     margin-top: 100px;
   }
 
-.ListOfCategories {
-  display: flex;
-gap: 22px;
-padding: 10px 29px 32px 29px;  
-
-@media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
-  gap: 49px;
-  padding: 10px 30px 29px 30px;
-}
-
-}
-.CategoryItem {
-    box-sizing: border-box;
-    white-space: nowrap;
-    padding: 0 3px 32px 3px;
-
-
+  .categoryItem {
+    display: flex;
+    align-items: center;
+    .MuiTabs-flexContainer {
+      gap: 50px;
+    }
+    .MuiButtonBase-root.MuiTabScrollButton-root.MuiTabs-scrollButtons{
+      padding-bottom: 28px;
+    }
     .tabItem {
+      min-width: unset;
+      min-height: unset;
+      padding:unset;
+      padding-bottom: 28px;
+      text-transform: unset;
+      font-weight: 400;
       font-size: 14px;
-      line-height: 14px;  
-      color: ${props => props.theme.colors.searchInputText};
+      line-height: 1.0;  
+      color: ${props => props.theme.colors.categoriesMainText};
       
       &[aria-selected="true"] {
-      color: var(--green-color);
+      color: ${props => props.theme.colors.mainAccent};
       }
     }
 
     @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
-      padding: 0 3px 27px 3px;
       font-size: 18px;
-      line-height: 18px;
     }
   }
 `;

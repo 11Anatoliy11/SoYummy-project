@@ -38,8 +38,8 @@ const CategoriesLayout = () => {
     <>
       <PageTitleSection text="Categories" />
       <LayoutContainer >
-        <Box sx={{ maxWidth: { xs: 357, sm: 1240 }, bgcolor: 'transparent' }}>
-          <Tabs className='CategoryItem'
+        <Box>
+          <Tabs className='categoryItem'
             value={value}
             onChange={handleChange}
             variant="scrollable"
