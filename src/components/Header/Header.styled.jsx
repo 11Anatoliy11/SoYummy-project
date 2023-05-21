@@ -20,11 +20,11 @@ export const HeaderContainer = styled.header`
     height: 34px;
     display: flex;
     align-items: center;
-
+    
     svg {
       stroke: ${props => props.theme.colors.mainHeaderText};
     }
-
+    
   }
 `;
 
