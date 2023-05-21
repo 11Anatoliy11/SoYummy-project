@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 const setBackgroundColor = props => {
   if (props.backgroundColor === `${props => props.theme.colors.searchBtn}`) {
     return `${props => props.theme.colors.btnHoverText}`;
+  }else if(props.backgroundColor === `${props.theme.colors.btnHoverText}`){
+    return `${props => props.theme.colors.searchBtn}`
   }
   return props.backgroundColor;
 };

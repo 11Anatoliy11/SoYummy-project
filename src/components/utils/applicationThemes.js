@@ -4,7 +4,7 @@ const commonOptions = {
   breakpoints: {
     mobile: '375px',
     tablet: '768px',
-    desktop: '1280px'
+    desktop: '1280px',
   },
   fonts: {
     main: 'Poppins, sans-serif',
@@ -14,7 +14,7 @@ const commonOptions = {
     subheader: '-0.24px',
     content: '-0.02em',
   },
-}
+};
 
 export const lightTheme = createTheme({
   ...commonOptions,
@@ -55,6 +55,11 @@ export const lightTheme = createTheme({
     searchSelectBg: '#FFFFFF',
     searchSelectText: 'rgba(0, 0, 0, 0.5)',
     searchDropDownBg: '#FFFFFF',
+    searchBtn: '#8BAA36',
+    tooltipbg: '#EBF3D4',
+    ingredientsBgrCol: '#EBF3D4',
+    counter: '#3333334c',
+    breakfastRecipes: '#FAFAFA',
     searchInputText: '#3E4462',
     searchInputBtnBg: '#8BAA36',
     searchInputBtnTx: '#FAFAFA',
@@ -63,9 +68,6 @@ export const lightTheme = createTheme({
     searchTypeBg: '#D9D9D9',
     searchTypeBorder: 'transparent',
     searchTypeTx: '#000000',
-    tooltipbg: '#EBF3D4',
-    ingredientsBgrCol: '#EBF3D4',
-    counter: '#3333334c',
     mainSerchHoverText: '#ffffff',
     searchFormHoverBtn: '#23262A',
     mainGreyBg: '#D9D9D9',
@@ -76,7 +78,14 @@ export const lightTheme = createTheme({
     iconColor: '#333333',
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
-  }
+    linkHover: '#2196f3',
+    userNameHeader: '#22252A',
+    categoryLine: '#E0E0E0',
+    categoriesMainText: '#E0E0E0',
+    shoppingListImgWrapper: '#EBF3D4',
+    shoppingIngredientBorder: '#E0E0E0',
+  },
+
 });
 
 export const darkTheme = createTheme({
@@ -118,6 +127,7 @@ export const darkTheme = createTheme({
     searchInputBtnTx: '#FAFAFA',
     searchDropDownBg: '#8BAA36',
     searchInputText: 'rgba(250, 250, 250, 0.5)',
+    searchBtn: '#22252A',
     searchInputBorder: 'rgba(250, 250, 250, 0.5)',
     searchInputShadow: 'rgba(0, 0, 0, 0.25)',
     searchTypeBg: 'transparent',
@@ -126,7 +136,7 @@ export const darkTheme = createTheme({
     tooltipbg: '#8BAA36',
     ingredientsBgrCol: '#2A2C36',
     counter: '#FAFAFA',
-
+    breakfastRecipes: '#2A2C36',
     mainSerchHoverText: '#8BAA36',
     searchFormHoverBtn: '#FFFFFF',
     mainBg: '#ECECEC',
@@ -140,5 +150,12 @@ export const darkTheme = createTheme({
     iconColor: '#FAFAFA',
     switchBg: '#EFEFEF',
     burgerRecipeBtn: '#23262A',
-  }
+    linkHover: '#2196f3',
+    userNameHeader: '#7E7E7E',
+    categoryLine: 'rgba(250, 250, 250, 0.2)',
+    categoriesMainText: 'rgba(250, 250, 250, 0.6)',
+    shoppingListImgWrapper: '#2A2C36',
+    shoppingIngredientBorder: 'rgba(250, 250, 250, 0.3)',
+  },
+
 });

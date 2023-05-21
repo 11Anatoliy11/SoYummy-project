@@ -1,5 +1,5 @@
 import { TitleContainer, Title } from './PageTitleSection.styled';
-import { ReactComponent as Rectangle } from '../../images/svg/rectangle.svg';
+import { ReactComponent as Rectangle } from 'images/svg/rectangle.svg';
 
 export default function PageTitleSection({ text }) {
   return (

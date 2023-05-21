@@ -35,6 +35,7 @@ export const SubscribeForm = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
     setEmail('');
+    setIsValid(false)
   };
 
   const buttonClassName = 'submit-button';

@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useAuth } from 'hooks/useAuth';
 import { uploadAvatar} from 'redux/auth/auth-operations';
-
-import { Form } from './UserInfoModal.styled';
-import { EditInfo } from './EditInfo/EditInfo'
+import {EditInfo} from './EditInfo/EditInfo'
 import { EditAvatar } from './EditAvatar/EditAvatar';
 import Button from 'components/Button/Button';
 import Modal from 'components/Modal/Modal';
+import { Form } from './UserInfoModal.styled';
 
 
 export const UserInfoModal = ({ onClose }) => {
@@ -20,7 +19,6 @@ export const UserInfoModal = ({ onClose }) => {
   }, []);
 
   const dispatch = useDispatch();
-  // const { isLoading } = useAuth();
 
   const changeAvatar = () => {
     const formData = new FormData();
@@ -38,26 +36,24 @@ export const UserInfoModal = ({ onClose }) => {
     if (isNewName) changeName(e);
     onClose();
   };
-
   return (
     <>
-      <Modal className="userInfoModal" onClose={onClose}>
-        <Form onSubmit={handleSubmit}>
-          <EditAvatar updateAvatar={avatar => setNewAvatar(avatar)} />
-          <EditInfo updateName={() => setIsNewName(true)} />
-          <Button
-            className="changeBtn"
-            onSubmit={handleSubmit}
-            type="submit"
-            width="282px"
-            height="49px"
-            backgroundColor="var(--green-color)"
-            border="none"
-            borderRadius="6px"
-            textColor="var(--background-color)"
-          >Save changes</Button>
-        </Form>
-      </Modal>
+  <Modal className="userInfoModal" onClose={onClose}>
+      <Form  onSubmit={handleSubmit}>
+        <EditAvatar updateAvatar={avatar => setNewAvatar(avatar)}/>
+        <EditInfo updateName={() => setIsNewName(true)}/>
+        <Button
+        className="changeBtn"
+        type="submit"
+        width="282px"
+        height="49px"
+        backgroundColor="var(--green-color)"
+        border="none"
+        borderRadius="6px"
+        textColor="var(--background-color)"
+        >Save changes</Button>
+      </Form>
+    </Modal>
     </>
   );
 };

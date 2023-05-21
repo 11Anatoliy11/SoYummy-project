@@ -4,6 +4,7 @@ export const LayoutContainer = styled.div`
   margin-bottom: 32px;
   margin-top: 50px;
   position: relative;
+  // border-bottom: 1px solid ${props => props.theme.colors.categoryLine};
 
   @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
     margin-bottom: 50px;
