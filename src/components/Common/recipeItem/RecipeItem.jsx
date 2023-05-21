@@ -19,7 +19,7 @@ export const RecipeItem = ({
   time,
   deleteRecipe,
 }) => {
-  console.log(`🚀 ~ time:`, time);
+  // console.log(`🚀 ~ time:`, time);
   const navigate = useNavigate();
 
   return (

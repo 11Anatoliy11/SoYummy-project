@@ -11,6 +11,7 @@ import {
   getAllFavorite,
   deleteFavorite,
   addToFavorite,
+  unmarkAsFavorite,
 } from './recipe-operation';
 
 const initialState = {
@@ -104,7 +105,7 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(recipeById.fulfilled, (state, { payload }) => {
-        state.recipeById = payload;
+        state.recipeById = !payload?.data.length ? payload?.data[0] : null;
         state.isLoading = false;
       })
       .addCase(recipeById.rejected, (state, { payload }) => {
@@ -116,7 +117,7 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getAllFavorite.fulfilled, (state, { payload }) => {
-        state.recipeById = payload;
+        state.favoriteRecipes = payload;
         state.isLoading = false;
       })
       .addCase(getAllFavorite.rejected, (state, { payload }) => {
@@ -126,10 +127,22 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addToFavorite.fulfilled, (state, { payload }) => {
-        state.favoriteRecipes = payload;
+        console.log(payload);
+        state.recipeById = {
+          ...state.recipeById,
+          isFavorite: true,
+        };
+        state.favoriteRecipes = [...state.favoriteRecipes, ...payload];
         state.isLoading = false;
       })
       .addCase(addToFavorite.rejected, (state, { payload }) => {
+        state.isLoading = false;
+      })
+      .addCase(unmarkAsFavorite.fulfilled, (state, { payload }) => {
+        state.recipeById = {
+          ...state.recipeById,
+          isFavorite: false,
+        };
         state.isLoading = false;
       })
       .addCase(deleteFavorite.pending, (state, { payload }) => {
@@ -137,7 +150,12 @@ const recipeSlice = createSlice({
       })
       .addCase(deleteFavorite.fulfilled, (state, { payload }) => {
         // state.recipeById = payload;
-        state.favoriteRecipes = payload;
+        // state.favoriteRecipes = payload;
+        const updateRecipes = state.favoriteRecipes?.data?.filter(
+          recipe => recipe._id !== recipe.id
+        );
+        console.log(`🚀 ~ .addCase ~ updateRecipes:`, updateRecipes);
+        state.favoriteRecipes = updateRecipes || [];
         state.isLoading = false;
       })
       .addCase(deleteFavorite.rejected, (state, { payload }) => {

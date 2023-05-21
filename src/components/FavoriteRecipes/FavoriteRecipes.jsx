@@ -16,9 +16,9 @@ export const FavoriteRecipes = () => {
   const [paginationPage, setPaginationPage] = useState(1);
   const [per_page] = useState(10);
 
-  const favRecipes = useSelector(recipeSelector.getRecipeById);
+  const favRecipes = useSelector(recipeSelector.getFavoriteRecipes);
   console.log(`🚀 ~ FavoriteRecipes ~ favRecipes:`, favRecipes);
-  const total = favRecipes.data.length;
+  const total = favRecipes?.data?.length || 0;
 
   const pagesCount = Math.trunc(total / per_page);
   const isLoading = useSelector(recipeSelector.getIsloading);
