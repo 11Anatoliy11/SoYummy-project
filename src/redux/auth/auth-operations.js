@@ -80,3 +80,16 @@ export const uploadAvatar = createAsyncThunk(
     }
   }
 )
+
+//SUBSCRIBE
+export const subscribe = createAsyncThunk(
+  'auth/subscribe',
+  async (email, thunkAPI) => {
+    try {
+      const res = await axios.post(`auth/subscribe?email=${email}`);
+      return res;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -5,13 +5,15 @@ import {
   logout,
   register,
   uploadAvatar,
+  subscribe,
 } from './auth-operations';
 
 const initialState = {
-  user: { email: null, name: null, avatar: null ,token: null},
+  user: { email: null, name: null, avatar: null, token: null },
   isLoggedIn: false,
   isRefreshing: false,
   error: null,
+  subscribeMessage: '',
 };
 
 const authSlice = createSlice({
@@ -20,7 +22,7 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: builder =>
     builder
-    // REGISTER
+      // REGISTER
       .addCase(register.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.isLoggedIn = true;
@@ -38,12 +40,12 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, (state, action) => {
         return initialState;
       })
-   
+
       //REFRESH USER
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (state, {payload}) => {
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {
         // state.user = payload.user;
         state.isRefreshing = false;
         // state.isLoggedIn = true;
@@ -59,13 +61,23 @@ const authSlice = createSlice({
       .addCase(uploadAvatar.rejected, state => {
         state.isRefreshing = false;
       })
-      .addCase(uploadAvatar.fulfilled, (state, {payload}) => {
-        
+      .addCase(uploadAvatar.fulfilled, (state, { payload }) => {
         state.user.avatar = payload.avatarURL;
         state.user.name = payload.name;
         state.isRefreshing = false;
       })
-      
+      .addCase(subscribe.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(subscribe.fulfilled, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.subscribeMessage = payload.data.message;
+      })
+      .addCase(subscribe.rejected, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.subscribeMessage = payload;
+        state.error = 401;
+      }),
 });
 
 export const authReducer = authSlice.reducer;
