@@ -1,58 +1,50 @@
 import styled from '@emotion/styled';
 
 export const ModalWrapper = styled.div`
-  width: 161px;
-  padding: 17px;
-  border: 1px solid ${props => props.theme.colors.mainAccent};
-  border-radius: 8px;
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 18px;
+width: 161px;
+padding: 18px;
+border: 1px solid var(--green-color);
+border-radius: 8px;
+background-color: var(--background-color);
+
+  @media (min-width: 768px) {
     width: 177px;
     border: none;
   }
-  .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    margin-top: 20px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: ${props => props.theme.colors.btnTextLight};
-    background-color: ${props => props.theme.colors.mainAccent};
-    &:hover{
-    background-color: ${props => props.theme.colors.btnHoverRevers};
-    }
-    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-      width: 141px;
-      height: 43px;
-      margin-top: 32px;
-    }
-    > svg {
-      width: 18px;
-      height: 18px;
-    }
-  }
-`;
-export const EditWrapper = styled.button`
+
+.btn{
   display: flex;
   align-items: center;
-  gap: 37px;
-  cursor: pointer;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  > svg {
-    fill: none;
-    stroke: ${props => props.theme.colors.mainDark};
-    width: 14px;
-    height: 14px;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  @media (min-width: 768px) {
+    width: 141px;
+    height: 43px;
+    margin-top: 32px;
   }
-  &:hover{
-    transform: scale(0.9);
+  >svg{
+    width: 18px;
+    height: 18px;
   }
+}
+`;
+
+export const EditWrapper = styled.button`
+display: flex;
+gap: 37px;
+align-items: center;
+cursor: pointer;
+>svg{
+  width: 14px;
+  height: 14px;
+}
 `;
 export const EditText = styled.p`
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.6;
-  color: ${props => props.theme.colors.mainDark};
+font-weight: 500;
+font-size: 14px;
+line-height: 1.57;
+color: var(--edit-modal-text-color);
 `;

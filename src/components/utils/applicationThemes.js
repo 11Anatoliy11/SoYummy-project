@@ -84,9 +84,8 @@ export const lightTheme = createTheme({
     categoriesMainText: '#E0E0E0',
     shoppingListImgWrapper: '#EBF3D4',
     shoppingIngredientBorder: '#E0E0E0',
-    logoModalBg: '#FAFAFA',
-    btnHoverRevers: '#23262A',
   },
+
 });
 
 export const darkTheme = createTheme({
@@ -157,7 +156,6 @@ export const darkTheme = createTheme({
     categoriesMainText: 'rgba(250, 250, 250, 0.6)',
     shoppingListImgWrapper: '#2A2C36',
     shoppingIngredientBorder: 'rgba(250, 250, 250, 0.3)',
-    logoModalBg: '#1E1F28',
-    btnHoverRevers: '#8BAA36',
   },
+
 });

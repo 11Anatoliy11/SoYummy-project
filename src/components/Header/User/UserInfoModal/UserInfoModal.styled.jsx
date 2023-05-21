@@ -1,16 +1,15 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.form`
-  display: block;
-  .changeBtn {
-    color: ${props => props.theme.colors.btnTextLight};
-    background-color: ${props => props.theme.colors.mainAccent};
-    @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
-      width: 400px;
-      height: 59px;
-    }
-    &:hover {
-      color: ${props => props.theme.colors.btnHoverBg};
-    }
+display:block;
+.changeBtn{
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    height: 59px;
   }
+&:hover{
+color: var(--search-black-color);
+background-color: var(--green-color);
+}
+}
 `;
