@@ -32,7 +32,7 @@ const authPersistConfig = {
   whitelist: ["user", "isLoggedIn"],
 };
 const recipePersistConfig = {
-  key: 'recipeCommon',
+  key: 'recipe',
   storage,
   // whitelist: []
 }
@@ -62,11 +62,11 @@ const searchPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    recipeCommon:persistReducer(recipePersistConfig,recipeReducer),
-    ownRecipes: persistReducer(ownPersistConfig,ownRecipesReducer ),
-    favoriteRecipes: persistReducer(favoritePersistConfig,favoriteRecipesReducer),
-    search: persistReducer(searchPersistConfig,searchReducer),
-    shoppingRecipes: persistReducer(shoppingPersistConfig,shopRecipesReducer),
+    recipe: persistReducer(recipePersistConfig, recipeReducer),
+    ownRecipes: persistReducer(ownPersistConfig, ownRecipesReducer),
+    favoriteRecipes: persistReducer(favoritePersistConfig, favoriteRecipesReducer),
+    search: persistReducer(searchPersistConfig, searchReducer),
+    shoppingRecipes: persistReducer(shoppingPersistConfig, shopRecipesReducer),
     theme: themeReducer
   },
   middleware,
