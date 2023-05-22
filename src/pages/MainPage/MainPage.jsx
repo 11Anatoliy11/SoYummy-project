@@ -1,12 +1,11 @@
 import { Main } from 'components/Main/Main';
-import { PreviewCategories } from 'components/PreviewCategories';
+import Background from 'components/Background/Background';
 
 const MainPage = () => {
-  return (
-    <>
-      <Main />
-      <PreviewCategories />
-    </>
+  return(
+  <Background type="Hero">
+  <Main />
+  </Background>
   );
 };
 

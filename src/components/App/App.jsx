@@ -64,7 +64,7 @@ export const App = () => {
                 }
               />
               <Route path="categories" element={<CategoriesLayout />}>
-                <Route path="" element={<Navigate to="/categories/Beef" />} />
+                <Route path="" element={<Navigate to="/categories/beef" />} />
                 <Route
                   path=":categoryName"
                   element={

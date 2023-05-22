@@ -20,9 +20,9 @@ export const isUrl = url => {
 };
 
 export const EditAvatar = ({ updateAvatar }) => {
+  const [avatarPreview, setAvatarPreview] = useState(null);
   const { user } = useAuth();
-  const [avatarPreview, setAvatarPreview] = useState(user.avatar);
-  
+
   const handleAvatarChange = event => {
     const avatar = event.target.files[0];
     setAvatarPreview(URL.createObjectURL(avatar));

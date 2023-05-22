@@ -32,7 +32,6 @@ export const UserInfoModal = ({ onClose }) => {
     dispatch(uploadAvatar(formData));
   };
 
-
   const handleSubmit = e => {
     e.preventDefault();
     if (newAvatar) changeAvatar();
