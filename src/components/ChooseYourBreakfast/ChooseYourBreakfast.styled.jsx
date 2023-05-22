@@ -28,12 +28,12 @@ font-size: 12px;
 line-height: 1.5;
 letter-spacing: -0.24px;
 color: ${props => props.theme.colors.secondaryDark};
-@media (min-width: 768px) {
+@media (min-width: ${props => props.theme.breakpoints.tablet}) {
   margin-bottom: 4px;
   font-size: 14px;
   line-height: 1.29;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     line-height: 1.43;
   }
 `;

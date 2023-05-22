@@ -1,16 +1,33 @@
 import{ useDispatch, useSelector} from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { nanoid } from 'nanoid';
 
 import {RecipeCard} from 'components/Common/recipeCard/RecipeCard';
 import{recipeSelector} from 'redux/recipes/recipe-select'
 import{recipeMainPage} from 'redux/recipes/recipe-operation'
+import { useIsMobileScreen } from 'hooks/useIsMobileScreen';
+import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
+
 
 // import { useLocation, useParams } from "react-router-dom";
 
 
-import {Wrapper, MainList, CategoryWrapper, CategoryList, CategoryTitle, Button } from "./PreviewCategories.styled";
+import {Wrapper, MainList, CategoryWrapper, CategoryList, CategoryTitle, Button, OtherCategoryBtn } from "./PreviewCategories.styled";
+
 
 export const PreviewCategories = () => {
+  const isMobile = useIsMobileScreen();
+  const isTablet = useIsSmallScreen();
+
+  const recipesByMediaHandle = (recipes) => {
+    if (isMobile) {
+        return recipes.slice(0, 1);
+    }
+    if (isTablet) {
+        return recipes.slice(0, 2);
+    }
+    return recipes;
+};
 
   const dispatch = useDispatch();
 
@@ -20,31 +37,16 @@ export const PreviewCategories = () => {
 
 const recipes = useSelector(recipeSelector.getRecipeMainPage);
 
-// const categories = recipes.reduce((acc, item) => {
-//   if (item._id === 'Breakfast') {
-//     acc[0] = item;
-//   } else if (item._id === 'Miscellaneous') {
-//     acc[1] = item;
-//   } else if (item._id === 'Chicken') {
-//     acc[2] = item;
-//   } else if (item._id === 'Desserts') {
-//     acc[3] = item;
-//   }
-//   return acc;
-// }, []);
-
-
-console.log(recipes);
 return (
   <Wrapper>
-    {recipes && (
-      <MainList>
-        {recipes.map(({ _id, documents }) => {
+    {recipes.length>0 && (
+      <MainList key={nanoid()}>
+        {recipes?.map(({ category, documents }) => {
           return (
-            <CategoryWrapper>
-              <CategoryTitle>{_id}</CategoryTitle>
-              <CategoryList key={_id}>
-              {documents.map(({ _id, thumb, title }) => {
+            <CategoryWrapper key={category}>
+              <CategoryTitle>{category}</CategoryTitle>
+              <CategoryList>
+              {recipesByMediaHandle(documents)?.map(({ _id, thumb, title }) => {
                 return (
                   <RecipeCard
                     key={_id}
@@ -55,12 +57,15 @@ return (
                 );
               })}
                 </CategoryList>
-              <Button to={`/categories/${_id}`}>See all</Button>
+              <Button to={`/categories/${category}`}>See all</Button>
               </CategoryWrapper>
           );
         })}
       </MainList>
     )}
+       <OtherCategoryBtn to="/categories/Beef">
+         Other categories
+       </OtherCategoryBtn>
   </Wrapper>
 );
 };

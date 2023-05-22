@@ -10,7 +10,7 @@ const MainPage = () => {
   return(
     <>
     <Main/>
-   <PreviewCategories/>
+    <PreviewCategories/>
     </>
 
   );

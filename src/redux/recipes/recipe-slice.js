@@ -56,17 +56,7 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(recipeMainPage.fulfilled, (state, { payload }) => {
-        const popularCategories = [
-          'Desserts',
-          'Chicken',
-          'Miscellaneous',
-          'Breakfast',
-        ];
-        const filteredPopular = payload.data.filter(({ _id }) =>
-          popularCategories.includes(_id)
-        );
-        console.log(filteredPopular);
-        state.recipeMainPage = filteredPopular;
+        state.recipeMainPage = payload.data;
         state.isLoading = false;
       })
       .addCase(recipeMainPage.rejected, (state, { payload }) => {
