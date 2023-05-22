@@ -36,11 +36,16 @@ const recipePersistConfig = {
   storage,
   // whitelist: []
 };
-const favoritePersistConfig = {
-  key: 'favoriteRecipes',
-  storage,
-  // whitelist: []
-};
+// const favoritePersistConfig = {
+//   key: 'favoriteRecipes',
+//   storage,
+//   // whitelist: []
+// };
+// const favoritePersistConfig = {
+//   key: 'favoriteRecipes',
+//   storage,
+//   // whitelist: []
+// };
 
 const ownPersistConfig = {
   key: 'ownRecipes',
@@ -63,10 +68,10 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     recipeCommon: persistReducer(recipePersistConfig, recipeReducer),
     ownRecipes: persistReducer(ownPersistConfig, ownRecipesReducer),
-    favoriteRecipes: persistReducer(
-      favoritePersistConfig,
-      favoriteRecipesReducer
-    ),
+    // favoriteRecipes: persistReducer(
+    //   favoritePersistConfig,
+    //   favoriteRecipesReducer
+    // ),
     search: persistReducer(searchPersistConfig, searchReducer),
     shoppingRecipes: persistReducer(shoppingPersistConfig, shopRecipesReducer),
     theme: themeReducer,

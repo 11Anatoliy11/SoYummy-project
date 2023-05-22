@@ -1,4 +1,4 @@
-import { Title } from './MainPageTitle.module';
+import { Title } from './MainPageTitle.styled';
 
 export default function MainPageTitle({ title }) {
   return (
