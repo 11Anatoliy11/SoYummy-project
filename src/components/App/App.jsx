@@ -13,6 +13,7 @@ import { useAuth } from 'hooks/useAuth';
 import { ThemeProvider } from '@mui/material/styles';
 import { getMode } from 'redux/theme/themeSelector';
 import { lightTheme, darkTheme } from '../utils/applicationThemes';
+import { ingredientList, popularRecipe, recipeCategoryList } from 'redux/recipes/recipe-operation';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const SigninPage = lazy(() => import('pages/SigninPage/SigninPage'));
@@ -43,6 +44,17 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch,isLoggedIn]);
 
+  useEffect(()=>{
+    dispatch(ingredientList());
+  },[dispatch]);
+
+  useEffect(()=>{
+    dispatch(recipeCategoryList())
+  });
+  useEffect(() => {
+    dispatch(popularRecipe());
+    
+  }, [dispatch]);
   return (
     <Suspense fallback={<Loader />}>
       <ThemeProvider theme={themeMode}>

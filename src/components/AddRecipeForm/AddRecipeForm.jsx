@@ -1,42 +1,98 @@
-// import { RecipeDescriptionFields } from './RecipeDescriptionFields';
+import * as yup from 'yup';
 import recipes from 'data/recipes.json';
 import schemaAddRecipe from 'components/utils/schemaAddRecipe';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import addPhoto from "images/upload-recipe.png"
+import { Formik, Field, Form, ErrorMessage ,useFormik} from 'formik';
+import addPhoto from "images/upload-recipe.png";
+import { useDispatch, useSelector } from 'react-redux';
+import { addOwnRecipes } from 'redux/ownRecipes/own-operation';
+import styled from '@emotion/styled';
+import { ReactComponent as Minus } from '../../images/svg/Minus.svg';
+import { ReactComponent as Plus } from '../../images/svg/Plus.svg';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import ClearIcon from '@mui/icons-material/Clear';
+// MUI
+import {
+  Autocomplete,
+  Avatar,
+  Button,
+  Checkbox,
+  Divider,
+  FormControlLabel,
+  FormGroup,
+  FormHelperText,
+  Grid,
+  IconButton,
+  InputAdornment,
+  Link,
+  MenuItem,
+  Select,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material';
+import { AddBtn, AddRemoveBtn, BtnStyled, BtnStyledAdd, BtnStyledDel, ChevronBtn, CounterValue, Datalist, FieldStyled, FormStyled, IngredientInputWrapper, IngredientStyled, IngredientWrapper, MeasureInputWrapper, RemoveBtn, SelectStyled, StyledTextarea, Title, TitleWrapper, WrapperContainer, ingredientInput } from './AddRecipe.styled';
+import { useState ,useEffect} from 'react';
+import { recipeSelector } from 'redux/recipes/recipe-select';
 
-const preparationTimes = Array.from(
-  { length: 25 },
-  (_, index) => (index + 1) * 5
-);
 
-export const AddRecipeForm = ({ addRecipe, redirectToMyRecipes }) => {
-  const categoryList = new Set(recipes.map(recipe => recipe.category).sort());
+const initialValues = {
+      file: null,
+      title: '',
+      description: '',
+      category: '',
+      time: '',
+      ingredients: [],
+      instructions: '',
+    }
 
-  const initialValues = {
-    photo: '',
-    name: '',
-    description: '',
-    category: '',
-    preparationTime: '',
-    ingredients: [],
-    preparationSteps: [],
+
+const measures = ["gr","kg","ml","pcs","tbs","tsp","liters"];
+
+export const AddRecipeForm = () => {
+
+  const ingredientList = useSelector(recipeSelector.getIngredientList);
+  const categoryList =  useSelector(recipeSelector.getCategoryList);
+
+  const dispatch = useDispatch();
+  
+  const handleFormSubmit = (values,actions) => {
+    
+    const formattedIngredients = values.ingredients.map(item => {
+      let ingredient = ingredientList.find(el => item.name === el.ttl);
+      return {id:ingredient._id,measure:`${item.quantity} ${item.measure}`}
+    });
+    
+    const formData = new FormData();
+    
+    formData.append("title", values.title);
+    formData.append("thumb", values.file);
+    formData.append("description", values.description);
+    formData.append("category", values.category);
+    formData.append("time", values.time);
+    formData.append("formattedIngredients", formattedIngredients);
+    formData.append("instructions", values.instructions);
+   
+
+    const {resetForm} = actions;
+   
+    dispatch(addOwnRecipes(formData));
+    resetForm({
+      values:initialValues,
+    })
   };
 
-  const handleFormSubmit = (values, { setSubmitting }) => {
-    // Simulate API request to create a new recipe
-    setTimeout(() => {
-      addRecipe(values); // Assuming addRecipe is a function to handle the recipe creation
-      setSubmitting(false);
-      redirectToMyRecipes(); // Assuming redirectToMyRecipes is a function to redirect to MyRecipesPage
-    }, 1000);
-  };
-
-  const handleFileChange = (event, setFieldValue) => {
-    setFieldValue('photo', event.currentTarget.files[0]);
-  };
-
+ 
   const handleAddIngredient = (values, setFieldValue) => {
-    const ingredients = [...values.ingredients, { name: '', measure: '' }];
+    const ingredients = [...values.ingredients, { name: '', measure: '' ,quantity:''}];
+    setFieldValue('ingredients', ingredients);
+  };
+
+  const handleRemoveLast = (values, setFieldValue) => {
+    // console.dir(values.ingredients)
+    if(values.ingredients.length === 0) return;
+    const ingredients = [...values.ingredients]
+    ingredients.pop();
     setFieldValue('ingredients', ingredients);
   };
 
@@ -46,158 +102,314 @@ export const AddRecipeForm = ({ addRecipe, redirectToMyRecipes }) => {
     setFieldValue('ingredients', ingredients);
   };
 
-//   const handleIngredientChange = (
-//     index,
-//     field,
-//     value,
-//     values,
-//     setFieldValue
-//   ) => {
-//     const ingredients = [...values.ingredients];
-//     ingredients[index][field] = value;
-//     setFieldValue('ingredients', ingredients);
-//   };
+//  const handleIngredientChange = (e,index,setFieldValue)=> {
+//     e.preventDefault();
+//    console.log(e.target.value)
+//     setFieldValue(`ingredients[${index}].name`,e.target.value)
+//  } 
 
-  const handlePreparationChange = (event, values, setFieldValue) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      const preparationSteps = [...values.preparationSteps, event.target.value];
-      setFieldValue('preparationSteps', preparationSteps);
-      event.target.value = '';
-    }
-  };
+  // const handlePreparationChange = (event, values, setFieldValue) => {
+  //   if (event.key === 'Enter') {
+  //     event.preventDefault();
+  //     const preparationSteps = [...values.preparationSteps, event.target.value];
+  //     setFieldValue('preparationSteps', preparationSteps);
+  //     event.target.value = '';
+  //   }
+  // };
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={schemaAddRecipe}
+      // validationSchema={schemaAddRecipe}
       onSubmit={handleFormSubmit}
     >
-      {({ values, isSubmitting, setFieldValue }) => (
-        <Form>
-          <div>
-            <label htmlFor="photo"><img src={addPhoto} alt="add recipe" /></label>
-            <Field
+      {({ errors,touched,dirty,isValid,values, isSubmitting, setFieldValue ,handleChange}) => (
+        <FormStyled encType="multipart/form-data">
+           <FormGroup sx={{ gap: 2, width: '100%' }}>
+          <div style={{display:"flex",flexDirection:"row",gap:"50px"}}>
+            <label htmlFor="photo"><img src={addPhoto} alt="add recipe pic" style={{cursor:"pointer"}} /></label>
+            <input
               type="file"
               id="photo"
-              name="photo"
+              name="file"
               accept="image/*"
-              onChange={event => handleFileChange(event, setFieldValue)}
+              onChange={(e) =>  setFieldValue('file', e.target.files[0])}
+              
               style={{display: "none"}}
             />
-            <ErrorMessage
-              name="photo"
-              component="div"
-              className="error-message"
+          
+          <Stack
+          spacing={2}
+          direction='column'
+          sx={{width:"300px"}}>
+            
+            <Field 
+              as={FieldStyled}
+              placeholder="Enter item title"
+              variant="standard"
+              type="text"
+              name="title" 
+              value={values.title}
+              onChange={handleChange}
+              error={Boolean(errors.name) && Boolean(touched.name)}
+              helperText={Boolean(touched.name) && errors.name}
+              />
+            
+            <Field 
+              as={FieldStyled} 
+              placeholder="Enter about recipe "
+              variant="standard"
+              type="text" 
+              name="description" 
+              value={values.description}
+              onChange={handleChange}
+              error={Boolean(errors.name) && Boolean(touched.name)}
+              helperText={Boolean(touched.name) && errors.name}
             />
-          </div>
 
-          <div>
-            <label htmlFor="name"></label>
-            <Field type="text" id="name" name="name" placeholder="Enter item title"/>
-            <ErrorMessage
-              name="name"
-              component="div"
-              className="error-message"
-            />
+            < Field
+              as={FieldStyled}
+              variant="standard"
+              placeholder="Category"
+              disabled
+              name="Category title"
+              type="text" 
+              sx={{borderBottom:"none",backgroundColor: '#ffd60a',}}
+              InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <SelectStyled
+                      sx={{ "& .MuiSvgIcon-root": { 
+                        color: "#8BAA36" 
+                      } }}
+                      variant='standard'
+                      IconComponent={ExpandMoreIcon}
+                      // MenuProps={MenuProps}
+                      onChange={handleChange}
+                      name="category"
+                      value={values.category}
+                      MenuProps={{
+                        PaperProps: {
+                          sx: {
+                            bgcolor: '#8BAA36',//White
+                            height: '250px',
+                            width:'150px',
+                            '& .MuiMenuItem-root': {
+                              padding: 0.5,
+                              fontSize:'14px',
+                              fontFamily:'Poppins',
+                              textAlign:"center",
+                            },
+                           
+                          },
+                        },
+                      }}
+                      >
+                      {categoryList.map((value,idx) => (
+                        <MenuItem value={value} key={idx} >
+                          {value}
+                        </MenuItem>
+                      ))}
+                      </SelectStyled>
+                    </InputAdornment>
+                  ),
+                }}/>
+            
+            < Field
+              as={FieldStyled}
+              variant="standard"
+              placeholder="Cooking time"
+              type="text" 
+              name="Cooking time"
+              disabled={true}
+              
+              InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <SelectStyled
+                      sx={{ 
+                        "& .MuiSvgIcon-root": { color: "#8BAA36" } 
+                      }}
+                      variant='standard'
+                      IconComponent={ExpandMoreIcon}
+                      onChange={handleChange}
+                      value = {values.time}
+                      name = 'time'
+                      MenuProps={{
+                        PaperProps: {
+                          sx: {
+                            bgcolor: '#8BAA36',//White
+                            height: '250px',
+                            width:'150px',
+                            '& .MuiMenuItem-root': {
+                              padding: 0.5,
+                              fontSize:'14px',
+                              fontFamily:'Poppins',
+                              textAlign:"center",
+                            },
+                           
+                          },
+                        },
+                      }}
+                      >
+                      {Array.from({ length: Math.ceil((125 - 5) / 5) }, (_, index) => 5 + index * 5).map((value,index) => (
+                        <MenuItem value={value} key={index}>
+                          {value} min
+                        </MenuItem>
+                      ))}
+                      </SelectStyled>
+                    </InputAdornment>
+                  )
+              
+                }}/>
+          </Stack>
           </div>
-
-          <div>
-            <label htmlFor="description"></label>
-            <Field as="textarea" id="description" name="description" placeholder="Enter about recipe" />
-            <ErrorMessage
-              name="description"
-              component="div"
-              className="error-message"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="category">Category</label>
-            <Field as="select" id="category" name="category">
-              <option value="">Select a category</option>
-              {[...categoryList].map(category => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </Field>
-            <ErrorMessage
-              name="category"
-              component="div"
-              className="error-message"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="preparationTime">Cooking time</label>
-            <Field as="select" id="preparationTime" name="preparationTime">
-              <option value="">Select preparation time</option>
-              {preparationTimes.map(time => (
-                <option key={time} value={time}>
-                  {time} min
-                </option>
-              ))}
-            </Field>
-            <ErrorMessage
-              name="preparationTime"
-              component="div"
-              className="error-message"
-            />
-          </div>
-
-          <div>
-            <h3>Ingredients:</h3>
-            <button
+                <WrapperContainer>
+          <TitleWrapper >
+            <Title>Ingredients</Title>
+            <AddRemoveBtn >
+            <BtnStyledDel
+              type="button"
+              onClick={() => handleRemoveLast(values, setFieldValue)}
+            >
+              <Minus/>
+            </BtnStyledDel>
+            <CounterValue>{values.ingredients?.length}</CounterValue>
+            <BtnStyledAdd
               type="button"
               onClick={() => handleAddIngredient(values, setFieldValue)}
             >
-              Add Ingredient
-            </button>
-            {values.ingredients.map((ingredient, index) => (
-              <div key={index}>
-                <Field
-                  type="text"
-                  name={`ingredients[${index}].name`}
-                  placeholder="Ingredient Name"
+              <Plus/>
+            </BtnStyledAdd>
+            </AddRemoveBtn>
+            </TitleWrapper>
+
+            {Array.from(values.ingredients).map((ingredient,index) => (
+              <IngredientWrapper key={index}>
+                <Autocomplete
+                  freeSolo
+                  options={ingredientList.map(item => item.ttl)}
+                  name={`ingredients${[index]}.name`}
+                  onChange={(e,value)=>{
+                    console.log(value)
+                    setFieldValue(`ingredients[${index}].name`,value);
+                  }}
+                  value={values.ingredients[index].name}
+                  renderInput={(params) => (
+                    <IngredientStyled
+                      {...params}
+                      placeholder="Select an ingredient"
+                      // variant="filled"
+                      name={`ingredients${[index]}.name`}
+                      
+                      // InputProps={{
+                      //   ...params.InputProps,
+                      //   style: {
+                          
+                      //     // background: "#D9D9D9",
+                      //     // fontFamily:"poppins",
+                      //   },
+                      // }}
+                    />
+                  
+                )}
+                autoComplete={false}
+                popupIcon={<ExpandMoreIcon sx={{fill:'#8BAA36'}}/>}
+                clearIcon={<DeleteForeverIcon fontSize='small' sx={{fill:'rgb(224, 92, 26)'}}/>}
+                sx={{
+                  width: 300 ,
+                  "& .MuiAutocomplete-option":{
+                    fontFamily:"poppins",
+                    fontSize:"14px",
+                  }
+                }}
                 />
-                <Field as="select" name={`ingredients[${index}].measure`}>
-                  <option value="">Select measure</option>
-                  <option value="grams">tbs</option>
-                  <option value="milliliters">tsp</option>
-                  <option value="pieces">kg</option>
-                  <option value="pieces"></option>
-                </Field>
-                <button
+                <MeasureInputWrapper>
+               
+            < Field
+              as={IngredientStyled}
+              // variant="standard"
+              placeholder="qt"
+              type="text" 
+              name={`ingredients[${index}].quantity`}
+              onChange={handleChange}
+              value={values.ingredients[index].quantity}
+              InputProps={{
+                style:{
+                  width:'99px',
+                },
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <SelectStyled
+                      sx={{ 
+                        "& .MuiSvgIcon-root": { color: "#8BAA36" } 
+                      }}
+                      variant='standard'
+                      IconComponent={ExpandMoreIcon}
+                      onChange={handleChange}
+                      value = {values.ingredients[index].measure}
+                      name = {`ingredients[${index}].measure`}
+                      MenuProps={{
+                        PaperProps: {
+                          sx: {
+                            bgcolor: '#8BAA36',//White
+                            height: '80px',
+                            width:'99px',
+                            '& .MuiMenuItem-root': {
+                              padding: 0.5,
+                              fontSize:'14px',
+                              fontFamily:'Poppins',
+                              textAlign:"center",
+                            },
+                           
+                          },
+                        },
+                      }}
+                      >
+                      {measures.map((value,index) => (
+                        <MenuItem value={value} key={index}>
+                          {value}
+                        </MenuItem>
+                      ))}
+                      </SelectStyled>
+                    </InputAdornment>
+                  )
+              
+                }}/>
+                </MeasureInputWrapper>
+
+                <RemoveBtn
                   type="button"
                   onClick={() =>
                     handleRemoveIngredient(index, values, setFieldValue)
                   }
                 >
-                  Remove Ingredient
-                </button>
-              </div>
+                  <ClearIcon/>
+                 
+                </RemoveBtn>
+              </IngredientWrapper>
             ))}
-          </div>
+         </WrapperContainer>
 
-          <div>
-            <h3>Preparation Steps:</h3>
+          <WrapperContainer>
+            <Title>Recipe Preparation</Title>
             <Field
-              as="textarea"
-              name="preparationSteps"
-              onKeyDown={event =>
-                handlePreparationChange(event, values, setFieldValue)
-              }
+              as={StyledTextarea}
+              name="instructions"
+              placeholder="Enter recipe"
+              onChange={handleChange}
+              value={values.instructions}
+              rowsMin={4}
+              style={{ width: '100%' }}
             />
-            {values.preparationSteps.map((step, index) => (
-              <div key={index}>{step}</div>
-            ))}
-          </div>
+            
+          </WrapperContainer>
 
-          <button type="submit" disabled={isSubmitting}>
+          <AddBtn type="submit" >
             Add
-          </button>
-        </Form>
+          </AddBtn>
+          </FormGroup>
+        </FormStyled>
       )}
     </Formik>
   );
