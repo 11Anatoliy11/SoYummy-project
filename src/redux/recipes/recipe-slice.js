@@ -11,19 +11,18 @@ import {
 } from './recipe-operation';
 
 const initialState = {
-    categoryList:[],
-    ingredientList:[],
-    recipeByCategory:[],
-    recipeMainPage:[],
+    categoryList: [],
+    ingredientList: [],
+    recipeByCategory: [],
+    recipeMainPage: [],
     recipeById: null,
-    recipeByIngredient:[],
-    popularRecipes:[],
+    recipeByIngredient: [],
+    popularRecipes: [],
     isLoading: false,
-  };
+};
 
 const recipeSlice = createSlice({
-
-    name:"recipe",
+    name: 'recipe',
     initialState,
     reducers:{},
     extraReducers:builder =>
@@ -68,7 +67,7 @@ const recipeSlice = createSlice({
         state.isLoading = true;
     })
     .addCase(recipeByCategory.fulfilled,(state,{payload})=>{
-        state.recipeByCategory = payload;
+        state.recipeByCategory = payload.data;
         state.isLoading = false;
     })
     .addCase(recipeByCategory.rejected,(state,{payload})=>{
@@ -134,13 +133,13 @@ const recipeSlice = createSlice({
     // .addCase(getAllShopping.pending,(state,{payload})=> {
     //     state.isLoading = true;
     // })
-    // .addCase(getAllShopping.fulfilled,(state,{payload})=>{ 
+    // .addCase(getAllShopping.fulfilled,(state,{payload})=>{
     //     state.shoppingList = payload;
     //     state.isLoading = false;
     // })
     // .addCase(getAllShopping.rejected,(state,{payload})=> {
     //     state.isLoading = false;
     // })
-})
+});
 
 export const recipeReducer = recipeSlice.reducer;

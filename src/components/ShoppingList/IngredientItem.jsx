@@ -1,4 +1,3 @@
-import ingredients from 'data/ingredients.json';
 import { ReactComponent as DeleteBtn } from 'images/svg/cross.svg';
 import {
   OneItem,
@@ -8,16 +7,11 @@ import {
   Delete,
 } from './ShoppingList.styled';
 
-export const IngredientItem = ({ id, measure, handleDelete }) => {
-  const { _id, ttl, thb } = ingredients.find(el => el._id.$oid === id.$oid);
-  //   console.log(ingredient);
-
-  const deleteIngredient = id => {
-    handleDelete(id);
-  };
+export const IngredientItem = ({ ingredient, handleDelete }) => {
+  const {id, ttl, measure, thb} = ingredient;
 
   return (
-    <OneItem key={_id.$oid}>
+    <OneItem key={id}>
       <ImageWrapper>
         <img src={thb} alt="ttl" />
       </ImageWrapper>
@@ -25,7 +19,7 @@ export const IngredientItem = ({ id, measure, handleDelete }) => {
       <MeasureWrapper>
         <p>{measure}</p>
       </MeasureWrapper>
-      <Delete type="button" onClick={() => deleteIngredient(_id.$oid)}>
+      <Delete type="button" onClick={() => handleDelete(id)}>
         <DeleteBtn />
       </Delete>
     </OneItem>

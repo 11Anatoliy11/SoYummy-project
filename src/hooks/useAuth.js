@@ -6,5 +6,6 @@ export const useAuth = () => {
   const isRefreshing = useSelector(authSelectors.getIsRefreshing);
   const user = useSelector(authSelectors.getUser);
   const isRegistered = useSelector(authSelectors.getIsRegistered);
-  return { isRefreshing, isLoggedIn, user, isRegistered };
+  const subscribeMessage = useSelector(authSelectors.getSubscribeMessage);
+  return { isRefreshing, isLoggedIn, user, isRegistered, subscribeMessage };
 };

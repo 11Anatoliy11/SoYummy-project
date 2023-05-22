@@ -1,65 +1,67 @@
 import { Loader } from 'components/Common';
 import { Suspense } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Outlet } from 'react-router';
-import { NavLink } from 'react-router-dom';
 import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
 import {
   LayoutContainer,
-  ListOfCategories,
-  CategoryItem,
 } from './CategoriesLayout.styled';
-import { useHorizontalScroll } from 'hooks/useHorizontalScroll';
-import { useSelector } from 'react-redux';
-import { recipeSelector } from 'redux/recipes/recipe-select';
+import recipes from 'data/recipes.json';
+
+
+import * as React from 'react';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
+
 
 const CategoriesLayout = () => {
-  const categoryList = useSelector(recipeSelector.getCategoryList);
+  const theme = useTheme();
+  const [value, setValue] = React.useState(0);
+  const navigate = useNavigate();
 
-  const scrollRef = useHorizontalScroll();
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
 
-  const handleClick = (event) => {
-    // фунція яка "докручує" категорію, якщо на неї клікнули поки було видно тільки якусь її частину
-    const linkElement = event.target;
-    const listItemElement = linkElement.parentElement;
-
-    const containerElement = scrollRef.current;
-
-    const listItemRect = listItemElement.getBoundingClientRect();
-    const containerRect = containerElement.getBoundingClientRect();
-
-    const listItemLeft = listItemRect.left - containerRect.left;
-    const listItemRight = listItemRect.right - containerRect.right;
-
-    const scrollLeft = containerElement.scrollLeft;
-
-    if (listItemLeft < 0) {
-      containerElement.scrollTo({
-        left: scrollLeft + listItemLeft,
-        behavior: 'smooth',
-      });
-    } else if (listItemRight > 0) {
-      containerElement.scrollTo({
-        left: scrollLeft + listItemRight,
-        behavior: 'smooth',
-      });
-    }
   };
 
+  const categoryList = new Set(recipes.map(recipe => recipe.category).sort());
+
+  const handleTabClick = (category, index) => {
+    const categoryPath = `/categories/${category}`;
+    navigate(categoryPath);
+    setValue(index);
+  };
 
   return (
     <>
       <PageTitleSection text="Categories" />
       <LayoutContainer >
-        <ListOfCategories ref={scrollRef}>
-          {[...categoryList]?.map(category => (
-            <CategoryItem key={category}>
-              <NavLink to={`/categories/${category.toLowerCase()}`} onClick={handleClick}>
-                {category}
-              </NavLink>
-            </CategoryItem>
-          ))}
-        </ListOfCategories>
-      </LayoutContainer>
+        <Box>
+          <Tabs className='categoryItem'
+            value={value}
+            onChange={handleChange}
+            variant="scrollable"
+            scrollButtons="auto"
+            aria-label="Tabs"
+            TabIndicatorProps={{
+              style: {
+                backgroundColor: theme.colors.mainAccent
+              }
+            }}
+          >
+            {[...categoryList]?.map((category, index) => (
+              <Tab
+                key={category}
+                label={category}
+                className='tabItem'
+                onClick={() => handleTabClick(category, index)}
+              />
+            ))}
+          </Tabs>
+        </Box>
+      </LayoutContainer >
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
