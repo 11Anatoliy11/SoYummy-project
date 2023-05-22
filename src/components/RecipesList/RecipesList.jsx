@@ -9,7 +9,6 @@ export const RecipesList = ({
   isLoading,
   paginationPage,
 }) => {
-  console.log(`🚀 ~ data:`, data);
   return (
     <>
       <RecipesListContainer>

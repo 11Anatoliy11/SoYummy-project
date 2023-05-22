@@ -105,7 +105,8 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(recipeById.fulfilled, (state, { payload }) => {
-        state.recipeById = !payload?.data.length ? payload?.data[0] : null;
+        state.recipeById = payload;
+        // state.recipeById = !payload?.data.length ? payload?.data[0] : null;
         state.isLoading = false;
       })
       .addCase(recipeById.rejected, (state, { payload }) => {
@@ -123,19 +124,21 @@ const recipeSlice = createSlice({
       .addCase(getAllFavorite.rejected, (state, { payload }) => {
         state.isLoading = false;
       })
-      .addCase(addToFavorite.pending, (state, { payload }) => {
+      .addCase(addToFavorite.pending, (state, { meta }) => {
         state.isLoading = true;
       })
-      .addCase(addToFavorite.fulfilled, (state, { payload }) => {
-        console.log(payload);
+      .addCase(addToFavorite.fulfilled, (state, { meta }) => {
         state.recipeById = {
           ...state.recipeById,
           isFavorite: true,
         };
-        state.favoriteRecipes = [...state.favoriteRecipes, ...payload];
+        state.favoriteRecipes.data = [
+          ...state.favoriteRecipes.data,
+          { _id: meta.arg },
+        ];
         state.isLoading = false;
       })
-      .addCase(addToFavorite.rejected, (state, { payload }) => {
+      .addCase(addToFavorite.rejected, (state, { meta }) => {
         state.isLoading = false;
       })
       .addCase(unmarkAsFavorite.fulfilled, (state, { payload }) => {
@@ -149,13 +152,10 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(deleteFavorite.fulfilled, (state, { payload }) => {
-        // state.recipeById = payload;
-        // state.favoriteRecipes = payload;
-        const updateRecipes = state.favoriteRecipes?.data?.filter(
-          recipe => recipe._id !== recipe.id
+        const updateRecipes = state.favoriteRecipes.data.filter(
+          recipe => recipe._id !== payload
         );
-        console.log(`🚀 ~ .addCase ~ updateRecipes:`, updateRecipes);
-        state.favoriteRecipes = updateRecipes || [];
+        state.favoriteRecipes.data = updateRecipes || [];
         state.isLoading = false;
       })
       .addCase(deleteFavorite.rejected, (state, { payload }) => {

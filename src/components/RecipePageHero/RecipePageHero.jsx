@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { recipeSelector } from 'redux/recipes/recipe-select';
-import { addToFavorite, deleteFavorite } from 'redux/recipes/recipe-operation';
+import {
+  addToFavorite,
+  deleteFavorite,
+  getAllFavorite,
+  unmarkAsFavorite,
+} from 'redux/recipes/recipe-operation';
 
 import MainPageTitle from 'components/MainPageTitle/MainPageTitle';
 import Button from 'components/Button/Button';
@@ -14,31 +18,32 @@ import {
   TimeWrap,
   Wrapper,
 } from './RecipePageHero.styled';
+import { useEffect } from 'react';
 
-export default function RecipePageHero({ description, title, time, _id }) {
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  const favRecipes = useSelector(recipeSelector.getFavoriteRecipes);
-  console.log(`🚀 ~ RecipePageHero ~ favRecipes:`, favRecipes);
-
+export default function RecipePageHero({
+  description,
+  title,
+  time,
+  _id,
+  isFavoriteRecipe,
+}) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (favRecipes.length === 0) {
-      return;
+    if (_id) {
+      dispatch(getAllFavorite());
     }
+  }, [dispatch, _id]);
 
-    const isRecipeFavorite = favRecipes?.data?.some(id => id === _id.$oid);
-    console.log(`🚀 ~ useEffect ~ isRecipeFavorite:`, isRecipeFavorite);
-
-    setIsFavorite(isRecipeFavorite);
-  }, [_id, favRecipes]);
+  // eslint-disable-next-line no-unused-vars
+  const favRecipes = useSelector(recipeSelector.getFavoriteRecipes);
 
   const toggleFavorite = () => {
-    if (isFavorite) {
-      return dispatch(deleteFavorite(_id.$oid));
+    if (isFavoriteRecipe) {
+      dispatch(unmarkAsFavorite(_id));
+      return dispatch(deleteFavorite(_id));
     } else {
-      dispatch(addToFavorite(_id.$oid));
+      dispatch(addToFavorite(_id));
     }
   };
 
@@ -47,7 +52,7 @@ export default function RecipePageHero({ description, title, time, _id }) {
       <MainPageTitle title={title} />
       <Descr>{description}</Descr>
       <Button type="button" onClick={toggleFavorite}>
-        {isFavorite
+        {isFavoriteRecipe
           ? 'Remove from favorite recipes'
           : 'Add to favorite recipes'}
       </Button>

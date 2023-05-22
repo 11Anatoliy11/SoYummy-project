@@ -17,7 +17,6 @@ export const FavoriteRecipes = () => {
   const [per_page] = useState(10);
 
   const favRecipes = useSelector(recipeSelector.getFavoriteRecipes);
-  console.log(`🚀 ~ FavoriteRecipes ~ favRecipes:`, favRecipes);
   const total = favRecipes?.data?.length || 0;
 
   const pagesCount = Math.trunc(total / per_page);
