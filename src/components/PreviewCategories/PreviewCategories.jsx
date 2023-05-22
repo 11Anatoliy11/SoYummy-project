@@ -12,32 +12,34 @@ import {Wrapper, MainList, CategoryWrapper, CategoryList, CategoryTitle, Button 
 
 export const PreviewCategories = () => {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(recipeMainPage());
   }, [dispatch]);
 
 const recipes = useSelector(recipeSelector.getRecipeMainPage);
 
-const categories = recipes.reduce((acc, item) => {
-  if (item._id === 'Breakfast') {
-    acc[0] = item;
-  } else if (item._id === 'Miscellaneous') {
-    acc[1] = item;
-  } else if (item._id === 'Chicken') {
-    acc[2] = item;
-  } else if (item._id === 'Desserts') {
-    acc[3] = item;
-  }
-  return acc;
-}, []);
+// const categories = recipes.reduce((acc, item) => {
+//   if (item._id === 'Breakfast') {
+//     acc[0] = item;
+//   } else if (item._id === 'Miscellaneous') {
+//     acc[1] = item;
+//   } else if (item._id === 'Chicken') {
+//     acc[2] = item;
+//   } else if (item._id === 'Desserts') {
+//     acc[3] = item;
+//   }
+//   return acc;
+// }, []);
 
-console.log(categories);
+
+console.log(recipes);
 return (
   <Wrapper>
-    {categories && (
+    {recipes && (
       <MainList>
-        {categories.map(({ _id, documents }) => {
+        {recipes.map(({ _id, documents }) => {
           return (
             <CategoryWrapper>
               <CategoryTitle>{_id}</CategoryTitle>
