@@ -20,7 +20,7 @@ export const FavoriteRecipes = () => {
   const total = favRecipes?.data?.length || 0;
 
   const pagesCount = Math.trunc(total / per_page);
-  const isLoading = useSelector(recipeSelector.getIsloading);
+  const isLoading = useSelector(recipeSelector.getIsLoading);
 
   useEffect(() => {
     dispatch(getAllFavorite({ page: paginationPage, pageSize: per_page }));

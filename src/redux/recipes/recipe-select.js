@@ -8,5 +8,5 @@ export const recipeSelector = {
   getRecipeByIngredient: state => state.recipe.recipeByIngredient,
   getFavoriteRecipes: state => state.recipeCommon.favoriteRecipes,
   getPopularRecipes: state => state.recipeCommon?.popularRecipes,
-  getIsloading: state => state.recipe.isLoading,
+  getIsLoading: state => state.recipeCommon.isLoading,
 };
