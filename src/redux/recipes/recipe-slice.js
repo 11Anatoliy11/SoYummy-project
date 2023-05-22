@@ -72,7 +72,7 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(recipeByCategory.fulfilled, (state, { payload }) => {
-        state.recipeByCategory = payload;
+        state.recipeByCategory = payload.data;
         state.isLoading = false;
       })
       .addCase(recipeByCategory.rejected, (state, { payload }) => {

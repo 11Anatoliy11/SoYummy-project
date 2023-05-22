@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -18,13 +18,13 @@ import { ownRecipesReducer } from './ownRecipes/own-slice';
 import { shopRecipesReducer } from './shoppingRecipes/shopping-slice';
 import { themeReducer } from './theme/themeSlice';
 
-const middleware = [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
-];
+// const middleware = [
+//   ...getDefaultMiddleware({
+//     serializableCheck: {
+//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//     },
+//   }),
+// ];
 
 const authPersistConfig = {
   key: 'auth',
@@ -36,6 +36,11 @@ const recipePersistConfig = {
   storage,
   // whitelist: []
 };
+// const favoritePersistConfig = {
+//   key: 'favoriteRecipes',
+//   storage,
+//   // whitelist: []
+// };
 // const favoritePersistConfig = {
 //   key: 'favoriteRecipes',
 //   storage,
@@ -61,7 +66,7 @@ const searchPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    recipe: persistReducer(recipePersistConfig, recipeReducer),
+    recipeCommon: persistReducer(recipePersistConfig, recipeReducer),
     ownRecipes: persistReducer(ownPersistConfig, ownRecipesReducer),
     // favoriteRecipes: persistReducer(
     //   favoritePersistConfig,
@@ -71,8 +76,13 @@ export const store = configureStore({
     shoppingRecipes: persistReducer(shoppingPersistConfig, shopRecipesReducer),
     theme: themeReducer,
   },
-  middleware,
-  devTools: process.env.NODE_ENV === 'development',
+  middleware: getDefaultMiddelware =>
+    getDefaultMiddelware({
+      serializableCheck: {
+        ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 export const persistor = persistStore(store);

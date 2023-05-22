@@ -1,3 +1,3 @@
 export const shopRecipesSelector = {
-    getShoppingList:state => state.shoppingRecipes.shoppingRecipes,
+    getShoppingList:state => state.shoppingRecipes.shoppingList,
 }

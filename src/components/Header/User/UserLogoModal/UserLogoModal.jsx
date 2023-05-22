@@ -1,31 +1,29 @@
-import {
-  EditWrapper,
-  EditText,
-  ModalWrapper,
-} from './UserLogoModal.styled';
-import { ReactComponent as Edit } from '../../../../images/svg/edit.svg';
+import { ReactComponent as Edit } from 'images/svg/edit.svg';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import Button from '../../../Button/Button';
-import Modal from '../../../Modal/Modal';
+import Button from 'components/Button/Button';
+import Modal from 'components/Modal/Modal';
 
+import { EditWrapper, EditText, ModalWrapper } from './UserLogoModal.styled';
 
 export const UserLogoModal = ({ onClose, onLogout, onEdit }) => {
-
   return (
-    <Modal className="userLogoModal" overlayClassName="userLogoOverlayModal" onClose={onClose}>
+    <Modal
+      className="userLogoModal"
+      overlayClassName="userLogoOverlayModal"
+      onClose={onClose}
+    >
       <ModalWrapper>
         <EditWrapper onClick={onEdit}>
           <EditText>Edit profile</EditText>
           <Edit />
         </EditWrapper>
-        <Button className="btn"
+        <Button
+          className="btn"
           type="button"
           width="125px"
           height="43px"
-          backgroundColor="var(--green-color)"
           border="none"
           borderRadius="24px 44px"
-          textColor="var(--background-color)"
           onClick={onLogout}
         >
           Log out <ArrowForwardIcon />
