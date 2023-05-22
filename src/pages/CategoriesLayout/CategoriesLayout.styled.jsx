@@ -26,6 +26,9 @@ export const LayoutContainer = styled.div`
     .MuiButtonBase-root.MuiTabScrollButton-root.MuiTabs-scrollButtons{
       padding-bottom: 28px;
     }
+    .MuiSvgIcon-root.MuiSvgIcon-fontSizeSmall{
+      color:${props => props.theme.colors.searchSelectText};
+    }
     .tabItem {
       min-width: unset;
       min-height: unset;

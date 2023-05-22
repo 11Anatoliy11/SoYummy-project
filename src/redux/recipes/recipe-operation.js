@@ -123,18 +123,6 @@ export const recipeByCategory = createAsyncThunk(
   //   }
   // );
 
-//SUBSCRIBE
-  export const subscribe = createAsyncThunk(
-    'recipe/subscribe',
-    async (_, thunkAPI) => {
-      try {
-        const res = await axios.post(`subscribe`);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
-    }
-  );
 // POPULAR
   export const popularRecipe = createAsyncThunk(
     'recipe/popularRecipe',
