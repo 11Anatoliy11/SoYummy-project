@@ -1,11 +1,19 @@
+import{useSelector} from 'react-redux';
+
 import { Main } from 'components/Main/Main';
-import Background from 'components/Background/Background';
+import {RecipeCard} from 'components/Common/recipeCard/RecipeCard';
+import{recipeSelector} from 'redux/recipes/recipe-select'
+import{recipeMainPage} from 'redux/recipes/recipe-operation'
 
 const MainPage = () => {
+
+//   const recipes = useSelector(recipeSelector.getRecipeMainPage);
+// console.log(recipes);
   return(
-  <Background type="Hero">
-  <Main />
-  </Background>
+    <><Main/>
+    <RecipeCard title ="Recipe"/>
+    </>
+
   );
 };
 
