@@ -1,6 +1,4 @@
-import { useState } from 'react';
-
-import ingredientsData from '../../mocks/ingredients.json';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   Checkbox,
@@ -15,32 +13,31 @@ import {
   List,
   Image,
 } from './RecipeIngredientsList.styled';
-// import { useSelector } from 'react-redux';
-// import { recipeSelector } from 'redux/recipes/recipe-select';
-// import { shopRecipesSelector } from 'redux/shoppingRecipes/shopping';
+import {
+  addToShopping,
+  deleteFromShopping,
+} from 'redux/shoppingRecipes/shopping-operation';
+import { shopRecipesSelector } from 'redux/shoppingRecipes/shopping';
 
-export default function RecipeIngredientsList({ requiredIngredients }) {
-  // eslint-disable-next-line no-unused-vars
-  const [allIngredient, setAllIngredient] = useState(ingredientsData);
-  const [shoppingList, setShoppingList] = useState([]);
-  // console.log(`🚀 ~ RecipeIngredientsList ~ shoppingList:`, shoppingList);
+export default function RecipeIngredientsList({
+  requiredIngredients,
+  recipeId,
+}) {
+  const ingredients = useSelector(shopRecipesSelector.getShoppingList);
+  console.log(`🚀 ~ RecipeIngredientsList ~ ingredients:`, ingredients);
 
-  const handleCheckboxChange = (id, measure) => {
-    const ingredient = allIngredient.find(({ _id }) => _id.$oid === id.$oid);
-    const { ttl, thb, desc } = ingredient;
-    const item = { id: id.$oid, measure, ttl, thb, desc };
+  const dispatch = useDispatch();
 
-    if (shoppingList.some(item => item.id === id.$oid)) {
-      return setShoppingList(shoppingList.filter(item => item.id !== id.$oid));
+  const handleCheckboxChange = (ingredientId, isChecked) => {
+    const data = { recipeId, ingredientId };
+    console.log(`🚀 ~ handleCheckboxChange ~ data:`, data);
+
+    if (!isChecked) {
+      dispatch(addToShopping(data));
+    } else {
+      dispatch(deleteFromShopping(ingredientId));
     }
-
-    setShoppingList([...shoppingList, item]);
   };
-
-  // const ingredients = useSelector(recipeSelector.getIngredientList);
-  // console.log(`🚀 ~ RecipeIngredientsList ~ ingredients:`, ingredients);
-  // const shoppingListNew = useSelector(shopRecipesSelector.getShoppingList);
-  // console.log(`🚀 ~ RecipeIngredientsList ~ shoppingList:`, shoppingListNew);
 
   return (
     <>
@@ -53,9 +50,7 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
       </Head>
       <List>
         {requiredIngredients.map(({ _id, measure, ttl, desc, thb }) => {
-          // const { ttl, thb, desc } = allIngredient.find(
-          //   ({ _id }) => _id === id
-          // );
+          const isChecked = ingredients.some(item => item.id === _id);
           return (
             <Item key={_id}>
               <Ingredient>
@@ -66,8 +61,8 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
                 <Measure>{measure}</Measure>
                 <Checkbox
                   type="checkbox"
-                  checked={shoppingList.some(item => item.id === _id)}
-                  onChange={() => handleCheckboxChange(_id, measure)}
+                  checked={isChecked}
+                  onChange={() => handleCheckboxChange(_id, isChecked)}
                 />
               </ItemWrapper>
             </Item>

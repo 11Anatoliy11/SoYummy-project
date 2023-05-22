@@ -35,7 +35,10 @@ export default function RecipePage() {
             _id={_id}
             isFavoriteRecipe={isFavoriteRecipe}
           />
-          <RecipeIngredientsList requiredIngredients={ingredients} />
+          <RecipeIngredientsList
+            requiredIngredients={ingredients}
+            recipeId={_id}
+          />
           <RecipePreparation
             thumb={thumb}
             instructions={instructions}
