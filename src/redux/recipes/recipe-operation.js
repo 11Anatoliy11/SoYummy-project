@@ -122,6 +122,7 @@ export const recipeByIngredient = createAsyncThunk(
 //   }
 // );
 
+<<<<<<< HEAD
 //SUBSCRIBE
 export const subscribe = createAsyncThunk(
   'recipe/subscribe',
@@ -134,6 +135,8 @@ export const subscribe = createAsyncThunk(
     }
   }
 );
+=======
+>>>>>>> 9c9c64b69bdf910ab5e9e6790a3e1ab7636763e5
 // POPULAR
 export const popularRecipe = createAsyncThunk(
   'recipe/popularRecipe',
