@@ -6,6 +6,7 @@ export const UserWrapper = styled.button`
   display: flex;
   align-items: center;
   gap: 14px;
+  outline: none;
   cursor: pointer;
 
   @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
