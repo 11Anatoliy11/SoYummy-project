@@ -1,3 +1,3 @@
 export const ownRecipesSelector = {
-    getOwnRecipes:state => state.recipe.ownRecipes,
-}
+  getOwnRecipes: state => state.ownRecipes.ownRecipes,
+};

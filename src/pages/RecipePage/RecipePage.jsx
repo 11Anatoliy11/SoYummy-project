@@ -17,6 +17,7 @@ export default function RecipePage() {
   }, [dispatch, recipeId]);
 
   const recipe = useSelector(recipeSelector.getRecipeById);
+  console.log(`🚀 ~ RecipePage ~ recipe:`, recipe);
 
   if (!recipe) {
     return;

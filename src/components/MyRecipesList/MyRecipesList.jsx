@@ -1,37 +1,51 @@
-// import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { RecipeItem } from 'components/Common';
 
-// import { getAllOwnRecipes } from 'redux/recipes/recipe-operation';
-import recipesData from '../../mocks/recipes.json';
+import { ownRecipesSelector } from 'redux/ownRecipes/own-selectors';
+import { getAllOwnRecipes } from 'redux/ownRecipes/own-operation';
+
 import { MyRecipesContainer } from './MyRecipesList.module';
 
 export default function MyRecipesList() {
-  // eslint-disable-next-line no-unused-vars
-  const [recipes, setRecipes] = useState(recipesData);
-  //   console.log(`🚀 ~ MyRecipesPage ~ recipe:`, recipes);
-  //   const myRecipes = useSelector(getAllOwnRecipes);
+  const dispatch = useDispatch();
 
-  //   const { title, description, time, thumb, ingredients, instructions, _id } =
-  //     recipes;
+  useEffect(() => {
+    dispatch(getAllOwnRecipes());
+  }, [dispatch]);
+
+  const myRecipes = useSelector(ownRecipesSelector.getOwnRecipes);
+  console.log(`🚀 ~ MyRecipesList ~ myRecipes:`, myRecipes.data);
 
   return (
     <>
       <MyRecipesContainer>
-        {recipes.map(itemProps => {
-          return (
-            <RecipeItem
-              //   remove={removeRecipe}
-              key={itemProps._id.$oid}
-              id={itemProps._id.$oid}
-              img={itemProps.thumb}
-              title={itemProps.title}
-              description={itemProps.description}
-              time={itemProps.time}
-            />
-          );
-        })}
+        {myRecipes.data.map(
+          ({
+            _id,
+            title,
+            description,
+            thumb,
+            instructions,
+            ingredients,
+            time,
+          }) => {
+            return (
+              <RecipeItem
+                //   remove={removeRecipe}
+                key={_id}
+                id={_id}
+                img={thumb}
+                title={title}
+                description={description}
+                time={time}
+                instructions={instructions}
+                ingredients={ingredients}
+              />
+            );
+          }
+        )}
       </MyRecipesContainer>
     </>
   );
