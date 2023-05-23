@@ -1,47 +1,48 @@
 import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+// import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
+// import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
+// import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
 
-import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
-import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
-import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
-
-import recipesData from '../../mocks/recipes.json';
+import { recipeSelector } from 'redux/recipes/recipe-select';
+import { recipeById } from 'redux/recipes/recipe-operation';
 
 export default function RecipePage() {
-  // const [counter, setCounter] = useState(0);
-
   const { recipeId } = useParams();
+  const dispatch = useDispatch();
 
-  const recipe = recipesData.filter(recipe => recipe._id.$oid === recipeId);
+  useEffect(() => {
+    dispatch(recipeById(recipeId));
+  }, [dispatch, recipeId]);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCounter(prevCounter => (prevCounter + 1) % recipesData.length);
-  //   }, 2000);
+  const recipe = useSelector(recipeSelector.getRecipeById);
+  // const isFavoriteRecipe = recipe.isFavorite;
 
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  // useEffect(() => {
-  //   setRecipe(recipesData[counter]);
-  // }, [counter]);
-
-  const { title, description, time, thumb, ingredients, instructions, _id } =
-    recipe[0];
+  // const { title, description, time, thumb, ingredients, instructions, _id } =
+  //   recipe.result[0] || {};
 
   return (
     <div>
-      <RecipePageHero
-        title={title}
-        description={description}
-        time={time}
-        _id={_id}
-      />
-      <RecipeIngredientsList requiredIngredients={ingredients} />
-      <RecipePreparation
-        thumb={thumb}
-        instructions={instructions}
-        title={title}
-      />
+      {!recipe ? (
+        <></>
+      ) : (
+        <>
+          {/* <RecipePageHero
+            title={title}
+            description={description}
+            time={time}
+            _id={_id}
+            isFavoriteRecipe={isFavoriteRecipe}
+          />
+          <RecipeIngredientsList requiredIngredients={ingredients} />
+          <RecipePreparation
+            thumb={thumb}
+            instructions={instructions}
+            title={title}
+          /> */}
+        </>
+      )}
     </div>
   );
 }

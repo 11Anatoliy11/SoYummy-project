@@ -34,6 +34,11 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
     setShoppingList([...shoppingList, item]);
   };
 
+  // const ingredients = useSelector(recipeSelector.getIngredientList);
+  // console.log(`🚀 ~ RecipeIngredientsList ~ ingredients:`, ingredients);
+  // const shoppingListNew = useSelector(shopRecipesSelector.getShoppingList);
+  // console.log(`🚀 ~ RecipeIngredientsList ~ shoppingList:`, shoppingListNew);
+
   return (
     <>
       <Head>
@@ -44,12 +49,12 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
         </Wrapper>
       </Head>
       <List>
-        {requiredIngredients.map(({ id, measure }) => {
-          const { ttl, thb, desc } = allIngredient.find(
-            ({ _id }) => _id.$oid === id.$oid
-          );
+        {requiredIngredients.map(({ _id, measure, ttl, desc, thb }) => {
+          // const { ttl, thb, desc } = allIngredient.find(
+          //   ({ _id }) => _id === id
+          // );
           return (
-            <Item key={id.$oid}>
+            <Item key={_id}>
               <Ingredient>
                 <Image src={thb} alt={desc} />
                 <IngredientTitle>{ttl}</IngredientTitle>
@@ -58,8 +63,8 @@ export default function RecipeIngredientsList({ requiredIngredients }) {
                 <Measure>{measure}</Measure>
                 <Checkbox
                   type="checkbox"
-                  checked={shoppingList.some(item => item.id === id.$oid)}
-                  onChange={() => handleCheckboxChange(id, measure)}
+                  checked={shoppingList.some(item => item.id === _id)}
+                  onChange={() => handleCheckboxChange(_id, measure)}
                 />
               </ItemWrapper>
             </Item>

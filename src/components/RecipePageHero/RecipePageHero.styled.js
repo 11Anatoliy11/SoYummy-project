@@ -2,10 +2,6 @@ import styled from '@emotion/styled';
 
 import { ReactComponent as Clock } from '../../images/svg/clock.svg';
 
-import mobBackground from '../../images/m-vegetables.png';
-import tabBackground from '../../images/t-vegetables.png';
-import deskBackground from '../../images/d-vegetables.png';
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,21 +11,12 @@ export const Wrapper = styled.div`
   padding: 80px 38px 90px;
   margin-bottom: 32px;
 
-  background-image: url(${mobBackground});
-  background-size: cover;
-  background-position: center center;
-
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 72px 131px 32px;
     margin-bottom: 50px;
-
-    background-image: url(${tabBackground});
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     padding: 100px 392px 32px;
-    margin-bottom: 82px;
-
-    background-image: url(${deskBackground});
   }
 
   > Button {

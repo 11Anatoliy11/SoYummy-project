@@ -1,7 +1,12 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectFavRecipes } from 'redux/favoriteRecipes/favoriteRecipesSelectors';
+import { recipeSelector } from 'redux/recipes/recipe-select';
+import {
+  addToFavorite,
+  deleteFavorite,
+  getAllFavorite,
+  unmarkAsFavorite,
+} from 'redux/recipes/recipe-operation';
 
 import MainPageTitle from 'components/MainPageTitle/MainPageTitle';
 import Button from 'components/Button/Button';
@@ -14,29 +19,38 @@ import {
   Wrapper,
 } from './RecipePageHero.styled';
 import {
-  addFavoriteRecipes,
-  removeFromFavorite,
-} from 'redux/favoriteRecipes/favoriteRecipesOperations';
+  ClockIcon,
+  Descr,
+  Time,
+  TimeWrap,
+  Wrapper,
+} from './RecipePageHero.styled';
+import { useEffect } from 'react';
 
-export default function RecipePageHero({ description, title, time, _id }) {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const favRecipes = useSelector(selectFavRecipes);
-
+export default function RecipePageHero({
+  description,
+  title,
+  time,
+  _id,
+  isFavoriteRecipe,
+}) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const isRecipeFavorite = favRecipes.some(recipe => recipe.title === title);
-    setIsFavorite(isRecipeFavorite);
-  }, [favRecipes, title]);
+    if (_id) {
+      dispatch(getAllFavorite());
+    }
+  }, [dispatch, _id]);
+
+  // eslint-disable-next-line no-unused-vars
+  const favRecipes = useSelector(recipeSelector.getFavoriteRecipes);
 
   const toggleFavorite = () => {
-    // const recipe = { title, description, time, thumb, _id };
-    // console.log(`🚀 ~ toggleFavorite ~ recipe:`, recipe);
-
-    if (isFavorite) {
-      return dispatch(removeFromFavorite(_id));
+    if (isFavoriteRecipe) {
+      dispatch(unmarkAsFavorite(_id));
+      return dispatch(deleteFavorite(_id));
     } else {
-      dispatch(addFavoriteRecipes(_id));
+      dispatch(addToFavorite(_id));
     }
   };
 

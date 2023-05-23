@@ -7,7 +7,7 @@ import {
   Text,
   Title,
   Wrapper,
-} from './RecipePreparation.module';
+} from './RecipePreparation.styled';
 
 export default function RecipePreparation({ instructions, thumb, title }) {
   let instructionsArray = [];

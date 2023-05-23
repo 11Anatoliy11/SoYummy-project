@@ -36,7 +36,7 @@ const SharedLayout = () => {
           </SharedLayoutContainer>
         </Background>
       )}
-      { !location.pathname.includes('main') && !recipeId && (
+      {!location.pathname.includes('main') && !recipeId && (
         <Background type="Footer">
           <SharedLayoutContainer>
             <Header />
