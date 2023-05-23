@@ -1,11 +1,10 @@
 import * as yup from 'yup';
 import recipes from 'data/recipes.json';
 import schemaAddRecipe from 'components/utils/schemaAddRecipe';
-import { Formik, Field, Form, ErrorMessage ,useFormik} from 'formik';
+import { Formik, Field} from 'formik';
 import addPhoto from "images/upload-recipe.png";
 import { useDispatch, useSelector } from 'react-redux';
 import { addOwnRecipes } from 'redux/ownRecipes/own-operation';
-import styled from '@emotion/styled';
 import { ReactComponent as Minus } from '../../images/svg/Minus.svg';
 import { ReactComponent as Plus } from '../../images/svg/Plus.svg';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -13,27 +12,15 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ClearIcon from '@mui/icons-material/Clear';
 // MUI
 import {
-  Autocomplete,
-  Avatar,
-  Button,
-  Checkbox,
-  Divider,
-  FormControlLabel,
   FormGroup,
-  FormHelperText,
-  Grid,
-  IconButton,
   InputAdornment,
-  Link,
   MenuItem,
-  Select,
   Stack,
-  TextField,
-  Typography,
 } from '@mui/material';
-import { AddBtn, AddRemoveBtn, BtnStyled, BtnStyledAdd, BtnStyledDel, ChevronBtn, CounterValue, Datalist, FieldStyled, FormStyled, IngredientInputWrapper, IngredientStyled, IngredientWrapper, MeasureInputWrapper, RemoveBtn, SelectStyled, StyledTextarea, Title, TitleWrapper, WrapperContainer, ingredientInput } from './AddRecipe.styled';
+import { AddBtn, AddRemoveBtn, AutocompleteStyled, BtnStyledAdd, BtnStyledDel, CounterValue,FieldStyled, FormStyled, ImgWrapper, IngredientStyled, IngredientWrapper, MeasureInputWrapper, MeasureStyled, RemoveBtn, SelectStyled, StyledTextarea, Title, TitleWrapper, WrapperContainer} from './AddRecipe.styled';
 import { useState ,useEffect} from 'react';
 import { recipeSelector } from 'redux/recipes/recipe-select';
+import { useWindowSize } from 'react-use';
 
 
 const initialValues = {
@@ -50,7 +37,7 @@ const initialValues = {
 const measures = ["gr","kg","ml","pcs","tbs","tsp","liters"];
 
 export const AddRecipeForm = () => {
-
+  const {width} = useWindowSize();
   const ingredientList = useSelector(recipeSelector.getIngredientList);
   const categoryList =  useSelector(recipeSelector.getCategoryList);
 
@@ -70,7 +57,7 @@ export const AddRecipeForm = () => {
     formData.append("description", values.description);
     formData.append("category", values.category);
     formData.append("time", values.time);
-    formData.append("formattedIngredients", formattedIngredients);
+    formData.append("formattedIngredients", JSON.stringify(formattedIngredients));
     formData.append("instructions", values.instructions);
    
 
@@ -89,7 +76,7 @@ export const AddRecipeForm = () => {
   };
 
   const handleRemoveLast = (values, setFieldValue) => {
-    // console.dir(values.ingredients)
+    
     if(values.ingredients.length === 0) return;
     const ingredients = [...values.ingredients]
     ingredients.pop();
@@ -102,20 +89,6 @@ export const AddRecipeForm = () => {
     setFieldValue('ingredients', ingredients);
   };
 
-//  const handleIngredientChange = (e,index,setFieldValue)=> {
-//     e.preventDefault();
-//    console.log(e.target.value)
-//     setFieldValue(`ingredients[${index}].name`,e.target.value)
-//  } 
-
-  // const handlePreparationChange = (event, values, setFieldValue) => {
-  //   if (event.key === 'Enter') {
-  //     event.preventDefault();
-  //     const preparationSteps = [...values.preparationSteps, event.target.value];
-  //     setFieldValue('preparationSteps', preparationSteps);
-  //     event.target.value = '';
-  //   }
-  // };
 
   return (
     <Formik
@@ -126,7 +99,7 @@ export const AddRecipeForm = () => {
       {({ errors,touched,dirty,isValid,values, isSubmitting, setFieldValue ,handleChange}) => (
         <FormStyled encType="multipart/form-data">
            <FormGroup sx={{ gap: 2, width: '100%' }}>
-          <div style={{display:"flex",flexDirection:"row",gap:"50px"}}>
+          <ImgWrapper>
             <label htmlFor="photo"><img src={addPhoto} alt="add recipe pic" style={{cursor:"pointer"}} /></label>
             <input
               type="file"
@@ -141,7 +114,7 @@ export const AddRecipeForm = () => {
           <Stack
           spacing={2}
           direction='column'
-          sx={{width:"300px"}}>
+          sx={{width:"100%"}}>
             
             <Field 
               as={FieldStyled}
@@ -263,8 +236,9 @@ export const AddRecipeForm = () => {
               
                 }}/>
           </Stack>
-          </div>
-                <WrapperContainer>
+          </ImgWrapper>
+
+        <WrapperContainer>
           <TitleWrapper >
             <Title>Ingredients</Title>
             <AddRemoveBtn >
@@ -286,8 +260,7 @@ export const AddRecipeForm = () => {
 
             {Array.from(values.ingredients).map((ingredient,index) => (
               <IngredientWrapper key={index}>
-                <Autocomplete
-                  freeSolo
+                <AutocompleteStyled
                   options={ingredientList.map(item => item.ttl)}
                   name={`ingredients${[index]}.name`}
                   onChange={(e,value)=>{
@@ -299,17 +272,21 @@ export const AddRecipeForm = () => {
                     <IngredientStyled
                       {...params}
                       placeholder="Select an ingredient"
-                      // variant="filled"
+                      
                       name={`ingredients${[index]}.name`}
                       
-                      // InputProps={{
-                      //   ...params.InputProps,
-                      //   style: {
+                      InputProps={{
+                        ...params.InputProps,
+                        style: {
                           
-                      //     // background: "#D9D9D9",
-                      //     // fontFamily:"poppins",
-                      //   },
-                      // }}
+                        },
+                      }}
+                      sx={{
+                        '& .MuiAutocomplete-popper': {
+                          fontFamily: 'poppins',
+                          fontSize: 14,
+                        },
+                      }}
                     />
                   
                 )}
@@ -317,18 +294,17 @@ export const AddRecipeForm = () => {
                 popupIcon={<ExpandMoreIcon sx={{fill:'#8BAA36'}}/>}
                 clearIcon={<DeleteForeverIcon fontSize='small' sx={{fill:'rgb(224, 92, 26)'}}/>}
                 sx={{
-                  width: 300 ,
-                  "& .MuiAutocomplete-option":{
+                  width: '300px' ,
+                  "& .MuiAutocomplete-popper.MuiAutocomplete-option":{
                     fontFamily:"poppins",
-                    fontSize:"14px",
+                    fontSize:"18px",
                   }
                 }}
                 />
-                <MeasureInputWrapper>
-               
+
+            <MeasureInputWrapper>
             < Field
-              as={IngredientStyled}
-              // variant="standard"
+              as={MeasureStyled}
               placeholder="qt"
               type="text" 
               name={`ingredients[${index}].quantity`}
@@ -336,7 +312,7 @@ export const AddRecipeForm = () => {
               value={values.ingredients[index].quantity}
               InputProps={{
                 style:{
-                  width:'99px',
+                  // width:'130px',
                 },
                   endAdornment: (
                     <InputAdornment position="end">
@@ -353,11 +329,11 @@ export const AddRecipeForm = () => {
                         PaperProps: {
                           sx: {
                             bgcolor: '#8BAA36',//White
-                            height: '80px',
-                            width:'99px',
+                            height: '90px',
+                            width:'79px',
                             '& .MuiMenuItem-root': {
                               padding: 0.5,
-                              fontSize:'14px',
+                              fontSize:'18px',
                               fontFamily:'Poppins',
                               textAlign:"center",
                             },
@@ -399,8 +375,10 @@ export const AddRecipeForm = () => {
               placeholder="Enter recipe"
               onChange={handleChange}
               value={values.instructions}
-              rowsMin={4}
-              style={{ width: '100%' }}
+              multiline
+              rows={6}
+              rowsMax={20}
+              // style={{ width: '100%' }}
             />
             
           </WrapperContainer>

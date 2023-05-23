@@ -58,7 +58,6 @@ export const SocialLinks = styled.a`
 export const FollowUsWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    margin-bottom: 102px;
 `;
 
 export const CommonWrapper = styled.div`
@@ -83,4 +82,13 @@ export const PopularWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap:11px;
+
+     @media (min-width: 768px) {
+      flex-direction: row;
+    }
+    @media (min-width: 1280px) {
+      flex-direction: column;
+      gap:106px;
+    }
+    
 `;

@@ -13,17 +13,18 @@ import {
 } from './PopularRecipes.styled';
 import { FollowUsPopular } from './FollowUsPopular';
 import { Divider } from '@mui/material';
+import { useWindowSize } from 'react-use';
 
 export const PopularRecipes = () => {
   const popular = useSelector(recipeSelector.getPopularRecipes);
-
+  const {width} = useWindowSize();
   return (
     <CommonWrapper>
-      <FollowUsWrapper>
+      {width >= 1280 && <FollowUsWrapper>
         <Title>Follow us</Title>
         <FollowUsPopular />
-      </FollowUsWrapper>
-      <div>
+      </FollowUsWrapper>}
+      <div style={{marginTop:'100px'}}>
         <Title>Popular recipe</Title>
         <PopularWrapper>
           {popular?.map(({ _id, title, description, thumb }) => (

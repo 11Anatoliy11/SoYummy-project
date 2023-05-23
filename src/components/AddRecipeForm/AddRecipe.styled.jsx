@@ -1,11 +1,16 @@
 import styled from "@emotion/styled";
-import { Select, TextField, TextareaAutosize } from "@mui/material";
+import { Autocomplete, Select, TextField, TextareaAutosize } from "@mui/material";
 import Button from "components/Button/Button";
 import { Form } from "formik";
 
 export const FieldStyled = styled(TextField)`
   background: transparent;
-  width: 393px;
+  width: 100%;
+
+  @media (min-width: 1280px) {
+       width: 405px;
+    }
+  
   & label.Mui-focused {
     color:${props=>props.theme.colors.searchSelectText};
   }
@@ -24,7 +29,18 @@ export const FieldStyled = styled(TextField)`
   & .MuiInputBase-input.Mui-disabled.MuiInput-underline:before{
     border-bottom-color:#E0E0E0;
   }
- 
+
+  & .MuiInputBase-root.MuiInput-root.Mui-disabled:before{
+    border-bottom-style:solid;
+  }
+  & .MuiSelect-select.MuiInputBase-input.MuiInput-input:focus{
+    background-color:transparent;
+  }
+  & .MuiSelect-select.MuiInputBase-input.MuiInput-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   & .MuiInput-underline:after {
     border-bottom-color: #E0E0E0;
   }
@@ -51,34 +67,51 @@ export const IngredientStyled = styled(TextField)`
   background:#D9D9D9;
   border-radius: 6px;
   font-family:"poppins";
-  /* width: 99px; */
+  font-size:18px;
   & label.Mui-focused {
     color:${props=>props.theme.colors.searchSelectText};
   }
   & input::placeholder{
     color:rgb(66, 64, 64);
+    font-family:"poppins";
+    font-size:12px;
+    @media (min-width: 768px) {
+    font-size:18px;
+    }
   }
   & input{
-    padding:4px 0 18px;
+    padding:13px 8px 18px;
+    font-family:"poppins";
+    font-size:12px;
+    @media (min-width: 768px) {
+    font-size:18px;
+    }
+    
   }
   & input.Mui-disabled::placeholder{
     opacity:0.9;
   }
-  & .MuiInputBase-input.Mui-disabled.MuiInput-underline:after{
-    border-bottom-color: #E0E0E0;
+
+  & .MuiSelect-select.MuiInputBase-input.MuiInput-input:focus{
+    background-color:transparent;
   }
-  & .MuiInputBase-input.Mui-disabled.MuiInput-underline:before{
-    border-bottom-color:#E0E0E0;
+
+  & .MuiSelect-select.MuiInputBase-input.MuiInput-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
  
   & .MuiInput-underline:after {
     border-bottom-color: #E0E0E0;
   }
-  & .MuiInput-underline:hover:not(.Mui-disabled):before {
-    border-bottom-color: #E0E0E0; 
-  }
+
   & .MuiInput-underline:before{
-    border-bottom: 2px solid #E0E0E0; 
+    border-bottom: transparent; 
+  }
+  & .MuiInput-underline.Mui-focused:before:focus{
+    border-bottom: transparent; 
   }
   & .MuiOutlinedInput-root {
     & fieldset {
@@ -93,22 +126,125 @@ export const IngredientStyled = styled(TextField)`
   }
 `;
 
-export const StyledTextarea = styled(TextareaAutosize)(
-    ({ theme }) => `
+export const MeasureStyled = styled(TextField)`
+  background:#D9D9D9;
+  border-radius: 6px;
+  font-family:"poppins";
+  width:90px;
 
+  @media (min-width: 768px) {
+    width:130px;
+    font-size:18px;
+    }
+    @media (min-width: 1280px) {
+      
+    }
+& label.Mui-focused {
+  color:${props=>props.theme.colors.searchSelectText};
+}
+& input::placeholder{
+  color:rgb(66, 64, 64);
+  font-family:"poppins";
+  font-size:12px;
+  @media (min-width: 768px) {
+    width:130px;
+    font-size:18px;
+    }
+}
+& input{
+  padding:13px 8px 18px;
+  font-family:"poppins";
+  font-size:12px;
+  @media (min-width: 768px) {
+    width:130px;
+    font-size:18px;
+    }
+  
+}
+& input.Mui-disabled::placeholder{
+  opacity:0.9;
+}
+
+& .MuiSelect-select.MuiInputBase-input.MuiInput-input:focus{
+  background-color:transparent;
+}
+
+& .MuiSelect-select.MuiInputBase-input.MuiInput-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+& .MuiInput-underline:after {
+  border-bottom-color: #E0E0E0;
+}
+
+& .MuiInput-underline:before{
+  border-bottom: transparent; 
+}
+& .MuiInput-underline.Mui-focused:before:focus{
+  border-bottom: transparent; 
+}
+& .MuiOutlinedInput-root {
+  & fieldset {
+    border-color: white;
+  }
+  &:hover fieldset {
+    border-color: white;
+  }
+  &.Mui-focused fieldset {
+    border-color: #E0E0E0;
+  }
+}
+`;
+
+export const AutocompleteStyled = styled(Autocomplete)`
+  & .MuiAutocomplete-popper .MuiAutocomplete-option{
+    font-family: "poppins";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: calc(27/18);
+  }
+`;
+
+export const StyledTextarea = styled(TextField)`
    
-    width: 505px;
+    
+    & .MuiInputBase-root.MuiOutlinedInput-root{
+    width: 343px;
     font-family: "poppins";
     font-size: 18px;
     font-weight: 400;
     line-height: calc(27/18);
     padding: 12px;
     border-radius: 6px;
-    color: ${theme.palette.mode === 'dark' ? 'grey' : 'grey'};
-    background: ${theme.palette.mode === 'dark' ? 'grey' : '#D9D9D9'};
-    border: none;
-    
+    color: 'grey';
+    background:${'#D9D9D9'};
+    border:none;
+
+    @media (min-width: 768px) {
+      width: 505px;
+    }
+    @media (min-width: 1280px) {
+      
+    }
+  };
+
+    & .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-multiline.MuiInputBase-formControl.MuiInputBase-colorPrimary.Mui-focused{
+      outline:none;
+      /* border:2px solid #D9D9D9; */
+      
+    }
+
+
+   .MuiInputBase-input.MuiOutlinedInput-input.MuiInputBase-inputMultiline{
+    border:none;
+   }
   
+   & .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused{
+    border-color: #D9D9D9;
+   }
     &:hover {
       border-color: #D9D9D9;
     }
@@ -122,22 +258,36 @@ export const StyledTextarea = styled(TextareaAutosize)(
     &:focus-visible {
       outline: 0;
     }
-  `,
-  );
+  `;
 
 export const SelectStyled = styled(Select)`
   
-  z-index: 10;
+  /* z-index: 10; */
   padding:4px 0 11px;
   font-family: 'Poppins';
-  font-size: 14px;
+  font-size: 12px;
   line-height: 14px;
- 
-  `
+  @media (min-width: 768px) {
+    font-size:14px;
+    }
+  `;
+
 export const FormStyled = styled(Form)`
 margin-right: 106px;
 `;
  
+export const ImgWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap:50px;
+
+  @media (min-width: 768px) {
+      flex-direction: row;
+    }
+    @media (min-width: 1280px) {
+      
+    }
+`;
 export const Title = styled.h2`
     font-family: 'Poppins';
     font-style: normal;
@@ -194,8 +344,9 @@ export const BtnStyledAdd = styled.button`
 
 export const  TitleWrapper = styled.div`
     display: flex;
+    justify-content: space-between;
     align-items: baseline;
-    gap:362px;
+    width:100%;
 `;
 
 export const CounterValue = styled.p`
@@ -216,24 +367,44 @@ export const IngredientWrapper = styled.div`
     justify-content: flex-start;
     align-items: center;
     gap:20px;
-
-    @media (min-width: 1200px) {
-    width:609px;
-  }
-    
 `;
 export const RemoveBtn = styled.button`
-    width: 16px;
-    height:16px;
+    width: 12px;
+    height:12px;
     cursor:pointer ;
     position: absolute;
-    right:30px;
+    right:-10%;
     display:flex;
     justify-content: center;
     align-items: center;
+
+    & svg{
+      width: 16px;
+      height:16px;
+    }
+
+    @media (min-width: 768px) {
+    font-size:18px;
+    right:30px;
+    width: 16px;
+    height:16px;
+    & svg{
+      width: 24px;
+      height:24px;
+    }
+    
+    }
 
 `;
 
 export const WrapperContainer = styled.div`
     margin-top:100px;
-`
+    width:310px;
+
+    @media (min-width: 768px) {
+      width:100%;
+    }
+    @media (min-width: 1280px) {
+      
+    }
+`;

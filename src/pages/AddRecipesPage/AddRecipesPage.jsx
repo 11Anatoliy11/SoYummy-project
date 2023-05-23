@@ -1,7 +1,7 @@
 import { AddRecipeForm } from 'components/AddRecipeForm/AddRecipeForm';
 import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
 import { PopularRecipes } from 'components/PopularRecipes/PopularRecipes';
-import { WrapperAddRecipes } from './AddRecipes.styled';
+import { WrapperAddRecipes } from './AddRecipesPage.styled';
 
 const AddRecipesPage = () => {
 
