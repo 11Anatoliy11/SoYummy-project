@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
+ position: relative;
   width: 225px;
   padding: 8px;
   margin-left: 70px;
@@ -61,5 +62,12 @@ export const GoToRecipe = styled(NavLink)`
   }
   &:hover {
     color: ${props => props.theme.colors.linkHover};
+  }
+`;
+export const ArrowPointer = styled.img`
+display: none;
+@media (min-width: ${props => props.theme.breakpoints.tablet}) {
+  position: absolute;
+   display: block;
   }
 `;
