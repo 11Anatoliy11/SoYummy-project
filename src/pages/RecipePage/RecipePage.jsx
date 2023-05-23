@@ -17,9 +17,12 @@ export default function RecipePage() {
   }, [dispatch, recipeId]);
 
   const recipe = useSelector(recipeSelector.getRecipeById);
-  console.log(`🚀 ~ RecipePage ~ recipe:`, recipe);
+
+  if (!recipe) {
+    return;
+  }
+
   const isFavoriteRecipe = recipe.isFavorite;
-  console.log(`🚀 ~ RecipePage ~ isFavoriteRecipe:`, isFavoriteRecipe);
 
   const { title, description, time, thumb, ingredients, instructions, _id } =
     recipe.result[0] || {};

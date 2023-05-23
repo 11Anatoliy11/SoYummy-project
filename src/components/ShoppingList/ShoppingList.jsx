@@ -16,12 +16,10 @@ import { useEffect } from 'react';
 export const ShoppingList = () => {
   const dispatch = useDispatch();
   const shoppingList = useSelector(shopRecipesSelector.getShoppingList);
-  console.log(shoppingList)
 
   useEffect(() => {
     dispatch(getAllShopping());
   }, [dispatch]);
-
 
   const handleDelete = id => {
     dispatch(deleteFromShopping(id));
