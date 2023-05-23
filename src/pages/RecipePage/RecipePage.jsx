@@ -1,9 +1,9 @@
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
-// import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
-// import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
+import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
+import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
+import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
 
 import { recipeSelector } from 'redux/recipes/recipe-select';
 import { recipeById } from 'redux/recipes/recipe-operation';
@@ -17,10 +17,12 @@ export default function RecipePage() {
   }, [dispatch, recipeId]);
 
   const recipe = useSelector(recipeSelector.getRecipeById);
-  // const isFavoriteRecipe = recipe.isFavorite;
+  console.log(`🚀 ~ RecipePage ~ recipe:`, recipe);
+  const isFavoriteRecipe = recipe.isFavorite;
+  console.log(`🚀 ~ RecipePage ~ isFavoriteRecipe:`, isFavoriteRecipe);
 
-  // const { title, description, time, thumb, ingredients, instructions, _id } =
-  //   recipe.result[0] || {};
+  const { title, description, time, thumb, ingredients, instructions, _id } =
+    recipe.result[0] || {};
 
   return (
     <div>
@@ -28,19 +30,22 @@ export default function RecipePage() {
         <></>
       ) : (
         <>
-          {/* <RecipePageHero
+          <RecipePageHero
             title={title}
             description={description}
             time={time}
             _id={_id}
             isFavoriteRecipe={isFavoriteRecipe}
           />
-          <RecipeIngredientsList requiredIngredients={ingredients} />
+          <RecipeIngredientsList
+            requiredIngredients={ingredients}
+            recipeId={_id}
+          />
           <RecipePreparation
             thumb={thumb}
             instructions={instructions}
             title={title}
-          /> */}
+          />
         </>
       )}
     </div>
