@@ -1,5 +1,4 @@
 import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
-import recipe from 'data/recipes.json';
 import { IngredientItem } from './IngredientItem';
 import {
   ShoppingListContainer,
@@ -7,17 +6,23 @@ import {
   HeadWrapper,
   IngredientsList,
 } from './ShoppingList.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { shopRecipesSelector } from 'redux/shoppingRecipes/shopping';
+import { deleteFromShopping } from 'redux/shoppingRecipes/shopping-operation';
+import { getAllShopping } from 'redux/shoppingRecipes/shopping-operation';
+import { nanoid } from 'nanoid';
+import { useEffect } from 'react';
 
 export const ShoppingList = () => {
+  const dispatch = useDispatch();
+  const shoppingList = useSelector(shopRecipesSelector.getShoppingList);
 
-  let oneRecipe = recipe[25].ingredients;
+  useEffect(() => {
+    dispatch(getAllShopping());
+  }, [dispatch]);
 
-  const randomNumber = Math.random().toString();
-
-  const handleDelete = _id => {
-
-    // console.log(_id);
-
+  const handleDelete = id => {
+    dispatch(deleteFromShopping(id));
   };
 
   return (
@@ -32,12 +37,11 @@ export const ShoppingList = () => {
           </HeadWrapper>
         </Head>
         <IngredientsList>
-          {oneRecipe.map(({ id, measure }) => (
+          {shoppingList?.map(ingredients => (
             <IngredientItem
-              id={id}
-              measure={measure}
+              ingredient={ingredients}
               handleDelete={handleDelete}
-              key={`${id.$oid}${randomNumber}`}
+              key={nanoid()}
             />
           ))}
         </IngredientsList>

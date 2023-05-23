@@ -13,8 +13,8 @@ import { useAuth } from 'hooks/useAuth';
 import { ThemeProvider } from '@mui/material/styles';
 import { getMode } from 'redux/theme/themeSelector';
 import { lightTheme, darkTheme } from '../utils/applicationThemes';
+import { ingredientList, popularRecipe, recipeCategoryList } from 'redux/recipes/recipe-operation';
 import { AppContainer } from './App.styled';
-import { recipeCategoryList } from 'redux/recipes/recipe-operation';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const SigninPage = lazy(() => import('pages/SigninPage/SigninPage'));
@@ -41,16 +41,26 @@ export const App = () => {
 
   useEffect(() => {
     if (!isLoggedIn) return;
-    
+
     dispatch(refreshUser());
-  }, [dispatch,isLoggedIn]);
+  }, [dispatch, isLoggedIn]);
 
   useEffect(() => {
+    if (!isLoggedIn) return;
     dispatch(recipeCategoryList());
+  }, [dispatch, isLoggedIn]);
+
+  useEffect(()=>{
+    dispatch(ingredientList());
+  },[dispatch]);
+
+  useEffect(()=>{
+    dispatch(recipeCategoryList())
+  });
+  useEffect(() => {
+    dispatch(popularRecipe());
+    
   }, [dispatch]);
-
-
-
   return (
     <Suspense fallback={<Loader />}>
       <ThemeProvider theme={themeMode}>
@@ -65,7 +75,7 @@ export const App = () => {
                 }
               />
               <Route path="categories" element={<CategoriesLayout />}>
-                <Route path="" element={<Navigate to="/categories/beef" />} />
+                <Route path="" element={<Navigate to="/categories/Beef" />} />
                 <Route
                   path=":categoryName"
                   element={
@@ -88,19 +98,28 @@ export const App = () => {
               <Route
                 path="my"
                 element={
-                  <PrivateRoute component={MyRecipesPage} redirectTo={'/welcome'} />
+                  <PrivateRoute
+                    component={MyRecipesPage}
+                    redirectTo={'/welcome'}
+                  />
                 }
               />
               <Route
                 path="favorite"
                 element={
-                  <PrivateRoute component={FavoritePage} redirectTo={'/welcome'} />
+                  <PrivateRoute
+                    component={FavoritePage}
+                    redirectTo={'/welcome'}
+                  />
                 }
               />
               <Route
                 path="recipe/:recipeId"
                 element={
-                  <PrivateRoute component={RecipePage} redirectTo={'/welcome'} />
+                  <PrivateRoute
+                    component={RecipePage}
+                    redirectTo={'/welcome'}
+                  />
                 }
               />
               <Route
@@ -115,7 +134,10 @@ export const App = () => {
               <Route
                 path="search"
                 element={
-                  <PrivateRoute component={SearchPage} redirectTo={'/welcome'} />
+                  <PrivateRoute
+                    component={SearchPage}
+                    redirectTo={'/welcome'}
+                  />
                 }
               />
               <Route path="*" element={<NotFound />} />
@@ -135,7 +157,10 @@ export const App = () => {
             <Route
               path="/register"
               element={
-                <RestrictedRoute component={RegisterPage} redirectTo={'/main'} />
+                <RestrictedRoute
+                  component={RegisterPage}
+                  redirectTo={'/main'}
+                />
               }
             />
           </Routes>

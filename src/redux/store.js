@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -10,7 +10,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import favoriteRecipesReducer from './favoriteRecipes/favoriteRecipesSlice';
 import { searchReducer } from './search/searchSlice';
 import { authReducer } from './auth/auth-slice';
 import { recipeReducer } from './recipes/recipe-slice';
@@ -18,26 +17,21 @@ import { ownRecipesReducer } from './ownRecipes/own-slice';
 import { shopRecipesReducer } from './shoppingRecipes/shopping-slice';
 import { themeReducer } from './theme/themeSlice';
 
-const middleware = [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
-];
+// const middleware = [
+//   ...getDefaultMiddleware({
+//     serializableCheck: {
+//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//     },
+//   }),
+// ];
 
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ["user", "isLoggedIn"],
+  whitelist: ['user', 'isLoggedIn'],
 };
 const recipePersistConfig = {
-  key: 'recipeCommon',
-  storage,
-  // whitelist: []
-}
-const favoritePersistConfig = {
-  key: 'favoriteRecipes',
+  key: 'recipe',
   storage,
   // whitelist: []
 };
@@ -58,19 +52,22 @@ const searchPersistConfig = {
   // whitelist: []
 };
 
-
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    recipeCommon:persistReducer(recipePersistConfig,recipeReducer),
-    ownRecipes: persistReducer(ownPersistConfig,ownRecipesReducer ),
-    favoriteRecipes: persistReducer(favoritePersistConfig,favoriteRecipesReducer),
-    search: persistReducer(searchPersistConfig,searchReducer),
-    shoppingRecipes: persistReducer(shoppingPersistConfig,shopRecipesReducer),
-    theme: themeReducer
+    recipeCommon: persistReducer(recipePersistConfig, recipeReducer),
+    ownRecipes: persistReducer(ownPersistConfig, ownRecipesReducer),
+    search: persistReducer(searchPersistConfig, searchReducer),
+    shoppingRecipes: persistReducer(shoppingPersistConfig, shopRecipesReducer),
+    theme: themeReducer,
   },
-  middleware,
-  devTools: process.env.NODE_ENV === 'development',
+  middleware: getDefaultMiddelware =>
+    getDefaultMiddelware({
+      serializableCheck: {
+        ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 export const persistor = persistStore(store);

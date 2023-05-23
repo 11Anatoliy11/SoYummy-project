@@ -1,6 +1,8 @@
 export const authSelectors = {
-    getLoggedIn :state => state.auth.isLoggedIn,
-    getUser:state => state.auth.user,
-    getIsRefreshing: state => state.auth.isRefreshing,
-    getIsRegistered:state => state.auth.isRegistered,
+  getLoggedIn: state => state.auth.isLoggedIn,
+  getUser: state => state.auth.user,
+  getIsRefreshing: state => state.auth.isRefreshing,
+  getIsRegistered: state => state.auth.isRegistered,
+  getSubscribeMessage: state => state.auth.subscribeMessage,
+  getError: state => state.auth.error,
 };

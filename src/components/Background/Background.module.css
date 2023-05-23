@@ -140,8 +140,8 @@
     background-image: url('../../images/d-vegetables-2x.png'),
       url('../../images/d-spinach-middle.png'),
       url('../../images/d-spinach-down.png');
-    background-position: center top, bottom 137px left, bottom -6px right -9px;
-    background-size: 100% 493px, auto 911px, auto 371px;
+    background-position: center top -493px, bottom 137px left, bottom -6px right -9px;
+    background-size: auto, auto 911px, auto 371px;
     object-fit: cover;
     object-position: 20% 30px;
   }

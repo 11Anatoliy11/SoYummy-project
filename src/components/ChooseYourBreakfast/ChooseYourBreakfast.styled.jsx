@@ -2,38 +2,36 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-width: 225px;
-padding: 8px;
-margin-left: 70px;
-border-radius: 8px;
-background-color: ${props => props.theme.colors.breakfastRecipes};
+  width: 225px;
+  padding: 8px;
+  margin-left: 70px;
+  border-radius: 8px;
+  background-color: ${props => props.theme.colors.breakfastRecipes};
 
-@media (min-width: ${props => props.theme.breakpoints.tablet}) {
-  width: 260px;
-  padding: 12px;
-  margin-left: 0px;
-
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    width: 260px;
+    padding: 12px;
+    margin-left: 0px;
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     width: 298px;
     padding: 16px;
-
   }
 `;
 
 export const TextWrapper = styled.div`
-margin-bottom: 7px;
-font-weight: 500;
-font-size: 12px;
-line-height: 1.5;
-letter-spacing: -0.24px;
-color: ${props => props.theme.colors.secondaryDark};
-@media (min-width: 768px) {
-  margin-bottom: 4px;
-  font-size: 14px;
-  line-height: 1.29;
+  margin-bottom: 7px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.24px;
+  color: ${props => props.theme.colors.secondaryDark};
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 1.29;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     line-height: 1.43;
   }
 `;

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useAuth } from 'hooks/useAuth';
-import { uploadAvatar} from 'redux/auth/auth-operations';
-import {EditInfo} from './EditInfo/EditInfo'
+
+import { uploadAvatar } from 'redux/auth/auth-operations';
+import { EditInfo } from './EditInfo/EditInfo';
 import { EditAvatar } from './EditAvatar/EditAvatar';
 import Button from 'components/Button/Button';
 import Modal from 'components/Modal/Modal';
-import { Form } from './UserInfoModal.styled';
 
+import { Form } from './UserInfoModal.styled';
 
 export const UserInfoModal = ({ onClose }) => {
   const [newAvatar, setNewAvatar] = useState(null);
@@ -26,9 +26,12 @@ export const UserInfoModal = ({ onClose }) => {
     dispatch(uploadAvatar(formData));
   };
   const changeName = e => {
-    // const updatedName = e.target.name.value;
-    dispatch(uploadAvatar());
+    const formData = new FormData();
+    const updatedName = e.target.name.value;
+    formData.append('name', updatedName);
+    dispatch(uploadAvatar(formData));
   };
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -38,22 +41,22 @@ export const UserInfoModal = ({ onClose }) => {
   };
   return (
     <>
-  <Modal className="userInfoModal" onClose={onClose}>
-      <Form  onSubmit={handleSubmit}>
-        <EditAvatar updateAvatar={avatar => setNewAvatar(avatar)}/>
-        <EditInfo updateName={() => setIsNewName(true)}/>
-        <Button
-        className="changeBtn"
-        type="submit"
-        width="282px"
-        height="49px"
-        backgroundColor="var(--green-color)"
-        border="none"
-        borderRadius="6px"
-        textColor="var(--background-color)"
-        >Save changes</Button>
-      </Form>
-    </Modal>
+      <Modal className="userInfoModal" onClose={onClose}>
+        <Form onSubmit={handleSubmit}>
+          <EditAvatar updateAvatar={avatar => setNewAvatar(avatar)} />
+          <EditInfo updateName={() => setIsNewName(true)} />
+          <Button
+            className="changeBtn"
+            type="submit"
+            width="282px"
+            height="49px"
+            border="none"
+            borderRadius="6px"
+          >
+            Save changes
+          </Button>
+        </Form>
+      </Modal>
     </>
   );
 };

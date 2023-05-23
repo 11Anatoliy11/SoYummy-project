@@ -73,10 +73,23 @@ export const uploadAvatar = createAsyncThunk(
   'auth/avatars',
   async (form, thunkAPI) => {
     try {
-      const res = await axios.patch('auth/avatars', form);
+      const res = await axios.patch('auth/avatars',form);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 )
+
+//SUBSCRIBE
+export const subscribe = createAsyncThunk(
+  'auth/subscribe',
+  async (email, thunkAPI) => {
+    try {
+      const res = await axios.post(`auth/subscribe?email=${email}`);
+      return res;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

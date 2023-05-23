@@ -1,13 +1,5 @@
 import styled from '@emotion/styled';
 
-const setBackgroundColor = props => {
-  if (props.backgroundColor === `${props => props.theme.colors.searchBtn}`) {
-    return `${props => props.theme.colors.btnHoverText}`;
-  }else if(props.backgroundColor === `${props.theme.colors.btnHoverText}`){
-    return `${props => props.theme.colors.searchBtn}`
-  }
-  return props.backgroundColor;
-};
 
 export const StyledBtn = styled.button`
   font-size: 16px;
@@ -24,7 +16,6 @@ export const StyledBtn = styled.button`
   cursor: pointer;
 
     &:hover {
-   background-color: ${setBackgroundColor};
    transform: scale(0.95);
   }
  `;
