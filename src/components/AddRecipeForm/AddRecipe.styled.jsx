@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Autocomplete, Select, TextField, TextareaAutosize } from "@mui/material";
+import { Autocomplete, Select, TextField} from "@mui/material";
 import Button from "components/Button/Button";
 import { Form } from "formik";
 

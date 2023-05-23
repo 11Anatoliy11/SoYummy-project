@@ -13,10 +13,24 @@ export const SearchTypeSelectorContainer = styled.div`
     padding-top: 43px;
   }
 
+  .SearchTypeSelectorLabel {
+    display: block;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: -0.24px;
+    color: ${props => props.theme.colors.sectionHeader};
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+      font-size: 14px;
+      line-height: 1.29;
+  }
+  }
+
   .CustomSelect {
     position: relative;
     display: inline-block;
-    background: var(--grey-color);
+    background: ${props => props.theme.colors.searchTypeBg};
+    border: 1px solid ${props => props.theme.colors.searchTypeBorder};
     border-radius: 6px;
     padding: 8px 14px;
     width: 146px;
@@ -37,18 +51,16 @@ export const SearchTypeSelectorContainer = styled.div`
     display: flex;
     justify-content: space-between;
     position: relative;
-    font-family: 'Poppins';
     font-weight: 400;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 1.5;
     letter-spacing: -0.02em;
-    color: var(--black-color);
+    color: ${props => props.theme.colors.searchTypeTx};
     opacity: 0.5;
     cursor: pointer;
     align-items: center;
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
-    line-height: 21px;
   }
   }
 
@@ -69,7 +81,7 @@ export const SearchTypeSelectorContainer = styled.div`
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
-    background: var(--grey-color);
+    background: transparent;
     border-radius: 6px;
     z-index: 1;
   }
@@ -77,12 +89,11 @@ export const SearchTypeSelectorContainer = styled.div`
   .CustomSelectOption {
     padding: 8px 16px;
     cursor: pointer;
-    font-family: 'Poppins';
     font-weight: 400;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 1.5;
     letter-spacing: -0.02em;
-    color: var(--black-color);
+    color: ${props => props.theme.colors.searchTypeTx};
     opacity: 0.5;
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
         font-size: 14px;
@@ -95,19 +106,5 @@ export const SearchTypeSelectorContainer = styled.div`
     margin-bottom: 16px;
   }
 
-  .SearchTypeSelectorLabel {
-    display: block;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: -0.24px;
-    color: var(--page-title-color);
-    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-        font-size: 14px;
-    line-height: 18px;
-  }
 
-  }
 `;

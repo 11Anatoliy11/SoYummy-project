@@ -1,12 +1,12 @@
 import * as yup from 'yup';
-import recipes from 'data/recipes.json';
+// import recipes from 'data/recipes.json';
 import schemaAddRecipe from 'components/utils/schemaAddRecipe';
 import { Formik, Field} from 'formik';
 import addPhoto from "images/upload-recipe.png";
 import { useDispatch, useSelector } from 'react-redux';
 import { addOwnRecipes } from 'redux/ownRecipes/own-operation';
-import { ReactComponent as Minus } from '../../images/svg/Minus.svg';
-import { ReactComponent as Plus } from '../../images/svg/Plus.svg';
+import { ReactComponent as Minus } from '../../images/svg/minus.svg';
+import { ReactComponent as Plus } from '../../images/svg/plus.svg';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -18,9 +18,9 @@ import {
   Stack,
 } from '@mui/material';
 import { AddBtn, AddRemoveBtn, AutocompleteStyled, BtnStyledAdd, BtnStyledDel, CounterValue,FieldStyled, FormStyled, ImgWrapper, IngredientStyled, IngredientWrapper, MeasureInputWrapper, MeasureStyled, RemoveBtn, SelectStyled, StyledTextarea, Title, TitleWrapper, WrapperContainer} from './AddRecipe.styled';
-import { useState ,useEffect} from 'react';
 import { recipeSelector } from 'redux/recipes/recipe-select';
 import { useWindowSize } from 'react-use';
+import { useState } from 'react';
 
 
 const initialValues = {
@@ -38,6 +38,8 @@ const measures = ["gr","kg","ml","pcs","tbs","tsp","liters"];
 
 export const AddRecipeForm = () => {
   const {width} = useWindowSize();
+  const [imgPreview, setImgPreview] = useState('');
+  
   const ingredientList = useSelector(recipeSelector.getIngredientList);
   const categoryList =  useSelector(recipeSelector.getCategoryList);
 
@@ -69,7 +71,12 @@ export const AddRecipeForm = () => {
     })
   };
 
- 
+  const handleImageChange = (e, setFieldValue) =>{
+    const img = e.target.files[0];
+    setFieldValue('file', img);
+    setImgPreview(URL.createObjectURL(img));
+  };
+
   const handleAddIngredient = (values, setFieldValue) => {
     const ingredients = [...values.ingredients, { name: '', measure: '' ,quantity:''}];
     setFieldValue('ingredients', ingredients);
@@ -100,13 +107,13 @@ export const AddRecipeForm = () => {
         <FormStyled encType="multipart/form-data">
            <FormGroup sx={{ gap: 2, width: '100%' }}>
           <ImgWrapper>
-            <label htmlFor="photo"><img src={addPhoto} alt="add recipe pic" style={{cursor:"pointer"}} /></label>
+            <label htmlFor="photo">{imgPreview ? <img src={imgPreview} width="279px" height="268px" alt="add recipe pic" style={{cursor:"pointer",borderRadius:"8px"}}/> : <img src={addPhoto} alt="add recipe pic" style={{cursor:"pointer"}} /> }</label>
             <input
               type="file"
               id="photo"
               name="file"
               accept="image/*"
-              onChange={(e) =>  setFieldValue('file', e.target.files[0])}
+              onChange={(e) =>  handleImageChange(e,setFieldValue)}
               
               style={{display: "none"}}
             />

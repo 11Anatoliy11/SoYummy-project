@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { ReactComponent as Cross } from '../../images/svg/cross.svg';
+
+import { ReactComponent as Cross } from 'images/svg/cross.svg';
+
 import { Overlay, ModalWindow, CloseButton} from "./Modal.styled";
 
 const modalRoot = document.querySelector("#modal-root");

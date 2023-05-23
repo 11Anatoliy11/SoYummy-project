@@ -1,16 +1,25 @@
 import styled from '@emotion/styled';
 
 export const SearchedRecipesListError = styled.div`
-    padding-top: 50px;
-    width:208px;
+  padding-top: 50px;
+  width: 208px;
+
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    width:350px;
+    width: 350px;
   }
-  >img{
-    width:208px;
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    width:350px;
+  > img {
+    width: 208px;
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+      width: 350px;
+    }
   }
+  >p{
+    font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: ${props => props.theme.colors.searchTypeTx};
+  opacity: 0.5;
   }
 `;
 export const SearchedRecipesListContainer = styled.div`
@@ -27,5 +36,4 @@ export const SearchedRecipesListContainer = styled.div`
     padding-top: 90px;
     gap: 100px 13px;
   }
-  
 `;

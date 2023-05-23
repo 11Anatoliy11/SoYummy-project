@@ -7,6 +7,10 @@ import { useMediaQuery } from '@mui/material';
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 import TextField from '@mui/material/TextField';
 import { Form, FormCont, SubsCont } from './Footer.styled';
+import { subscribe } from 'redux/auth/auth-operations';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { useAuth } from 'hooks/useAuth';
 
 export const SubscribeForm = () => {
   const [email, setEmail] = useState('');
@@ -14,6 +18,9 @@ export const SubscribeForm = () => {
   const [iconMarginRight, setIconMarginRight] = useState(1.5);
   const matches = useMediaQuery('(min-width:768px)');
   const isSmallScreen = useIsSmallScreen();
+  const dispatch = useDispatch();
+  const { subscribeMessage } = useAuth();
+  console.log(subscribeMessage);
 
   useEffect(() => {
     if (matches) {
@@ -34,7 +41,11 @@ export const SubscribeForm = () => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
+
+    dispatch(subscribe(email));
+    toast.success('Subscription email sent successfully', {});
     setEmail('');
+    setIsValid(false);
   };
 
   const buttonClassName = 'submit-button';
@@ -53,7 +64,7 @@ export const SubscribeForm = () => {
       )}
       <Form onSubmit={handleSubmit}>
         <TextField
-          className='email-input'
+          className="email-input"
           label=""
           variant="outlined"
           placeholder="Enter your email address"
@@ -64,7 +75,7 @@ export const SubscribeForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start" sx={{ mr: iconMarginRight }}>
-                <EmailIcon style={{ fill: 'none' }} className='icon-email' />
+                <EmailIcon style={{ fill: 'none' }} className="icon-email" />
               </InputAdornment>
             ),
           }}
