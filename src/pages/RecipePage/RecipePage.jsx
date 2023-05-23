@@ -22,6 +22,12 @@ export default function RecipePage() {
     return;
   }
 
+  const prevRecipeId = recipe.result[0]._id;
+
+  if (recipeId !== prevRecipeId) {
+    return;
+  }
+
   const isFavoriteRecipe = recipe.isFavorite;
 
   const { title, description, time, thumb, ingredients, instructions, _id } =
