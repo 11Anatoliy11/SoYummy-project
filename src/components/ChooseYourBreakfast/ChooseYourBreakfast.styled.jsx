@@ -63,7 +63,7 @@ stroke: currentColor;
 }
 }
 &:hover{
-color: ${props => props.theme.colors.linkHover};
+color: ${props => props.theme.colors.mainAccent};
 }
 `;
 
