@@ -118,8 +118,8 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getAllFavorite.fulfilled, (state, { payload }) => {
-        state.favoriteRecipes = payload;
         state.isLoading = false;
+        state.favoriteRecipes = payload;
       })
       .addCase(getAllFavorite.rejected, (state, { payload }) => {
         state.isLoading = false;

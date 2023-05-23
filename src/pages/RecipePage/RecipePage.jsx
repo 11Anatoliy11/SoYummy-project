@@ -1,6 +1,7 @@
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
 import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
 import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
@@ -17,7 +18,6 @@ export default function RecipePage() {
   }, [dispatch, recipeId]);
 
   const recipe = useSelector(recipeSelector.getRecipeById);
-  console.log(`🚀 ~ RecipePage ~ recipe:`, recipe);
 
   if (!recipe) {
     return;

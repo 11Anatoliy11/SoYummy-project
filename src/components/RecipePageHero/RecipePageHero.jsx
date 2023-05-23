@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { recipeSelector } from 'redux/recipes/recipe-select';
@@ -18,7 +19,6 @@ import {
   TimeWrap,
   Wrapper,
 } from './RecipePageHero.styled';
-import { useEffect } from 'react';
 
 export default function RecipePageHero({
   description,

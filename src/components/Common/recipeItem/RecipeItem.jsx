@@ -19,7 +19,6 @@ export const RecipeItem = ({
   time,
   deleteRecipe,
 }) => {
-  // console.log(`🚀 ~ time:`, time);
   const navigate = useNavigate();
 
   return (
@@ -36,12 +35,8 @@ export const RecipeItem = ({
             </RecipeItemTitle>
             <p>{description}</p>
           </RecipeItemText>
-
           <RecipeItemBtn>
-            <p>
-              {time} min
-              {/* {time.includes('min') ? '' : 'min'} */}
-            </p>
+            <p>{time} min</p>
             <Button
               onClick={() => {
                 navigate(`/recipe/${id}`);
