@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const RecipeCardContainer = styled.div`
   position: relative;
   width: 100%;
+  height: 98%;
   border-radius: 8px;
   > img {
     border-radius: 8px;
@@ -28,7 +29,7 @@ p {
   width: calc(100% - 52px);
   padding: 16px 0 16px 16px;
   background-color: ${props => props.theme.colors.recipeBlockBg};
-  bottom: 26px;
+  bottom: 24px;
   border-radius: 8px;
   left: 18px;
   font-weight: 500;
