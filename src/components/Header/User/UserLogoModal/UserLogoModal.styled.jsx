@@ -7,6 +7,7 @@ export const PopoverStyled = styled(Popover)`
     border-radius: 8px;
     margin-top: 8px;
     margin-left: -44px;
+    outline: none;
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       margin-top: 14px;
       margin-left: -80px;
@@ -23,7 +24,13 @@ export const ModalWrapper = styled.div`
   padding: 17px;
   border: 1px solid ${props => props.theme.colors.mainAccent};
   border-radius: 8px;
+  background-color: ${props => props.theme.colors.bodyBg};
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 18px;
+    width: 177px;
+    border: 1px solid ${props => props.theme.colors.borderModal};
+  }
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     padding: 18px;
     width: 177px;
     border: none;
@@ -65,6 +72,7 @@ export const EditWrapper = styled.button`
     height: 14px;
   }
   &:hover {
+    outline: none;
     transform: scale(0.95);
   }
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
