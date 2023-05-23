@@ -61,7 +61,7 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(recipeMainPage.fulfilled, (state, { payload }) => {
-        state.recipeMainPage = payload;
+        state.recipeMainPage = payload.data;
         state.isLoading = false;
       })
       .addCase(recipeMainPage.rejected, (state, { payload }) => {
