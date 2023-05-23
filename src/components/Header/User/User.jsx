@@ -10,8 +10,8 @@ import { isUrl } from './UserInfoModal/EditAvatar/EditAvatar';
 import { UserWrapper, UserIconWr, UserNameTitle } from './User.styled';
 
 export const User = () => {
-  const [modal, setModal] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
+  // const [modal, setModal] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(false);
   const [modalName, setModalName] = useState('');
   const { user } = useAuth();
 
@@ -19,7 +19,7 @@ export const User = () => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorEl(false);
   };
 
   const open = Boolean(anchorEl);
@@ -27,7 +27,7 @@ export const User = () => {
 
 
   const toggleLogoModal = () => {
-    setModal(prevState => !prevState);
+    setAnchorEl(prevState => !prevState);
   };
 
   const handleCloseModal = () => {

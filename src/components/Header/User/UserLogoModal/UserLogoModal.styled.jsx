@@ -1,18 +1,24 @@
 import styled from '@emotion/styled';
 import Popover from '@mui/material/Popover';
 
-
-
-export const PopoverWrapper = styled.div`
-`;
+export const PopoverWrapper = styled.div``;
 export const PopoverStyled = styled(Popover)`
- & .MuiPaper-root{
-border-radius: 8px;
- }
+  & .MuiPaper-root {
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-left: -44px;
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+      margin-top: 14px;
+      margin-left: -80px;
+    }
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+      margin-top: 21px;
+      margin-left: -44px;
+    }
+  }
 `;
 
 export const ModalWrapper = styled.div`
-
   width: 161px;
   padding: 17px;
   border: 1px solid ${props => props.theme.colors.mainAccent};
@@ -32,8 +38,8 @@ export const ModalWrapper = styled.div`
     line-height: 1.5;
     color: ${props => props.theme.colors.btnTextLight};
     background-color: ${props => props.theme.colors.mainAccent};
-    &:hover{
-    background-color: ${props => props.theme.colors.btnHoverRevers};
+    &:hover {
+      background-color: ${props => props.theme.colors.btnHoverRevers};
     }
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       width: 141px;
@@ -58,12 +64,12 @@ export const EditWrapper = styled.button`
     width: 14px;
     height: 14px;
   }
-  &:hover{
+  &:hover {
     transform: scale(0.9);
   }
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-     gap:53px;
-    }
+    gap: 53px;
+  }
 `;
 export const EditText = styled.p`
   font-weight: 500;
