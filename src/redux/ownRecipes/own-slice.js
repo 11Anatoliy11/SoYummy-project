@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllOwnRecipes } from './own-operation';
+import { addOwnRecipes, deleteOwnRecipes, getAllOwnRecipes } from './own-operation';
 
 const initialState = {
   ownRecipes: [],
@@ -12,7 +12,7 @@ const ownRecipesSlice = createSlice({
     reducers:{},
     extraReducers: builder => 
     builder
-    // OWN RECIPE
+    // GET OWN RECIPE
     .addCase(getAllOwnRecipes.pending,(state,{payload})=>{
         state.isLoading = true;
     })
@@ -21,6 +21,28 @@ const ownRecipesSlice = createSlice({
         state.isLoading = false;
     })
     .addCase(getAllOwnRecipes.rejected,(state,{payload})=>{
+        state.isLoading = false;
+    })
+    //DELETE
+    .addCase(deleteOwnRecipes.pending,(state,{payload})=>{
+        state.isLoading = true;
+    })
+    .addCase(deleteOwnRecipes.fulfilled,(state,{payload})=>{
+        state.ownRecipes = payload;
+        state.isLoading = false;
+    })
+    .addCase(deleteOwnRecipes.rejected,(state,{payload})=>{
+        state.isLoading = false;
+    })
+    //PATCH
+    .addCase(addOwnRecipes.pending,(state,{payload})=>{
+        state.isLoading = true;
+    })
+    .addCase(addOwnRecipes.fulfilled,(state,{payload})=>{
+        state.ownRecipes = payload;
+        state.isLoading = false;
+    })
+    .addCase(addOwnRecipes.rejected,(state,{payload})=>{
         state.isLoading = false;
     })
 });

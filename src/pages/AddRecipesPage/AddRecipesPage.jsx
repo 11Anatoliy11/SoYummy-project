@@ -3,25 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { popularRecipe } from 'redux/recipes/recipe-operation';
 import { recipeSelector } from 'redux/recipes/recipe-select';
 import { AddRecipeForm } from 'components/AddRecipeForm/AddRecipeForm';
+import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
 import { PopularRecipes } from 'components/PopularRecipes/PopularRecipes';
-import { scrollToTop } from '../../components/utils/scrollToTop';
+import { WrapperAddRecipes } from './AddRecipesPage.styled';
 
-
-const AddRecipesPage = ({ onClose }) => {
-  const popular = useSelector(recipeSelector.getPopularRecipes);
-  const dispatch = useDispatch();
-
-
-  useEffect(() => {
-    dispatch(popularRecipe());
-    scrollToTop();
-  }, [dispatch]);
+const AddRecipesPage = () => {
 
   return (
-    <>
+    
+     <><PageTitleSection text="Add recipe" />
+     <WrapperAddRecipes>
       <AddRecipeForm />
-      {popular.length > 0 ? <PopularRecipes data={popular} /> : <></>}
-    </>);
+      <PopularRecipes />
+    </WrapperAddRecipes></>);
 };
 
 export default AddRecipesPage;

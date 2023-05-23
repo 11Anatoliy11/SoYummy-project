@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+ import styled from "@emotion/styled";
 import rect from '../../images/RectangleMob.png'
 import { Link } from "react-router-dom";
 
@@ -38,6 +38,7 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 `;
 
 export const Wrapper = styled.div`
@@ -65,7 +66,7 @@ export const Wrapper = styled.div`
   >svg{
     position: absolute;
     top:-220px;
-    z-index: -1;
+    z-index: 0;
 
     @media screen and (min-width: 767.98px){
         top:-345px;
