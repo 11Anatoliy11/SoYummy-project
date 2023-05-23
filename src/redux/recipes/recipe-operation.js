@@ -102,7 +102,6 @@ export const unmarkAsFavorite = createAsyncThunk(
   'recipe/unmarkAsFavorite',
   async (recipeId, thunkAPI) => {
     try {
-      console.log(`🚀 ~ recipeId:`, recipeId);
       await axios.delete(`favorite/delete-favorite/${recipeId}`);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
