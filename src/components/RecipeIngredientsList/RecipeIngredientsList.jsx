@@ -24,13 +24,11 @@ export default function RecipeIngredientsList({
   recipeId,
 }) {
   const ingredients = useSelector(shopRecipesSelector.getShoppingList);
-  console.log(`🚀 ~ RecipeIngredientsList ~ ingredients:`, ingredients);
 
   const dispatch = useDispatch();
 
   const handleCheckboxChange = (ingredientId, isChecked) => {
     const data = { recipeId, ingredientId };
-    console.log(`🚀 ~ handleCheckboxChange ~ data:`, data);
 
     if (!isChecked) {
       dispatch(addToShopping(data));

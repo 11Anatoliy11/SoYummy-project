@@ -81,7 +81,7 @@ export const SearchTypeSelectorContainer = styled.div`
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
-    background: transparent;
+    background: ${props => props.theme.colors.searchTypeOp};
     border-radius: 6px;
     z-index: 1;
   }
