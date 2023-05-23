@@ -39,7 +39,6 @@ export const UserInfoModal = ({ onClose }) => {
     if (isNewName) changeName(e);
     onClose();
   };
-
   return (
     <>
       <Modal className="userInfoModal" onClose={onClose}>
