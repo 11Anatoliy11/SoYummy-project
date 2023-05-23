@@ -1,6 +1,18 @@
 import styled from '@emotion/styled';
+import Popover from '@mui/material/Popover';
+
+
+
+export const PopoverWrapper = styled.div`
+`;
+export const PopoverStyled = styled(Popover)`
+ & .MuiPaper-root{
+border-radius: 8px;
+ }
+`;
 
 export const ModalWrapper = styled.div`
+
   width: 161px;
   padding: 17px;
   border: 1px solid ${props => props.theme.colors.mainAccent};
@@ -49,6 +61,9 @@ export const EditWrapper = styled.button`
   &:hover{
     transform: scale(0.9);
   }
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+     gap:53px;
+    }
 `;
 export const EditText = styled.p`
   font-weight: 500;
