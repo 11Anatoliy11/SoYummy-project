@@ -1,8 +1,7 @@
 import Button from '../../Button/Button';
-import React from 'react';
-//import { useDispatch } from 'react-redux';
+
 import { useNavigate } from 'react-router-dom';
-//import { getFavoriteRecipes } from 'redux/favoriteRecipes/favoriteRecipesOperations';
+
 import {
   RecipeItemBtn,
   RecipeItemContainer,
@@ -18,15 +17,11 @@ export const RecipeItem = ({
   title,
   description,
   time,
-  // remove,
-  // paginationPage,
+  deleteRecipe,
 }) => {
-  //const dispatch = useDispatch();
+  // console.log(`🚀 ~ time:`, time);
   const navigate = useNavigate();
-  // const deleteHandler = async () => {
-  //   await dispatch(remove(id));
-  //   await dispatch(getFavoriteRecipes(paginationPage));
-  // };
+
   return (
     <>
       <RecipeItemContainer>
@@ -35,11 +30,7 @@ export const RecipeItem = ({
           <RecipeItemText>
             <RecipeItemTitle>
               <h2>{title}</h2>
-              <Button
-                onClick={() => {
-                  navigate(`/recipe/${id}`);
-                }}
-              >
+              <Button onClick={() => deleteRecipe(id)}>
                 <Trash />
               </Button>
             </RecipeItemTitle>
@@ -48,15 +39,15 @@ export const RecipeItem = ({
 
           <RecipeItemBtn>
             <p>
-              {time} {time.includes('min') ? '' : 'min'}
+              {time} min
+              {/* {time.includes('min') ? '' : 'min'} */}
             </p>
             <Button
               onClick={() => {
                 navigate(`/recipe/${id}`);
               }}
             >
-              {' '}
-              See recipe{' '}
+              See recipe
             </Button>
           </RecipeItemBtn>
         </RecipeItemBox>

@@ -10,7 +10,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import favoriteRecipesReducer from './favoriteRecipes/favoriteRecipesSlice';
 import { searchReducer } from './search/searchSlice';
 import { authReducer } from './auth/auth-slice';
 import { recipeReducer } from './recipes/recipe-slice';
@@ -36,11 +35,6 @@ const recipePersistConfig = {
   storage,
   // whitelist: []
 };
-const favoritePersistConfig = {
-  key: 'favoriteRecipes',
-  storage,
-  // whitelist: []
-};
 
 const ownPersistConfig = {
   key: 'ownRecipes',
@@ -63,10 +57,6 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     recipeCommon: persistReducer(recipePersistConfig, recipeReducer),
     ownRecipes: persistReducer(ownPersistConfig, ownRecipesReducer),
-    favoriteRecipes: persistReducer(
-      favoritePersistConfig,
-      favoriteRecipesReducer
-    ),
     search: persistReducer(searchPersistConfig, searchReducer),
     shoppingRecipes: persistReducer(shoppingPersistConfig, shopRecipesReducer),
     theme: themeReducer,

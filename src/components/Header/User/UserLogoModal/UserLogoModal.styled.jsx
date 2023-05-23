@@ -65,7 +65,7 @@ export const EditWrapper = styled.button`
     height: 14px;
   }
   &:hover {
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     gap: 53px;
