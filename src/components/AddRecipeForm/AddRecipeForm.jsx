@@ -1,6 +1,5 @@
-import * as yup from 'yup';
-// import recipes from 'data/recipes.json';
-import schemaAddRecipe from 'components/utils/schemaAddRecipe';
+// import * as yup from 'yup';
+// import schemaAddRecipe from 'components/utils/schemaAddRecipe';
 import { Formik, Field} from 'formik';
 import addPhoto from "images/upload-recipe.png";
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,7 +18,7 @@ import {
 } from '@mui/material';
 import { AddBtn, AddRemoveBtn, AutocompleteStyled, BtnStyledAdd, BtnStyledDel, CounterValue,FieldStyled, FormStyled, ImgWrapper, IngredientStyled, IngredientWrapper, MeasureInputWrapper, MeasureStyled, RemoveBtn, SelectStyled, StyledTextarea, Title, TitleWrapper, WrapperContainer} from './AddRecipe.styled';
 import { recipeSelector } from 'redux/recipes/recipe-select';
-import { useWindowSize } from 'react-use';
+// import { useWindowSize } from 'react-use';
 import { useState } from 'react';
 
 
@@ -37,7 +36,7 @@ const initialValues = {
 const measures = ["gr","kg","ml","pcs","tbs","tsp","liters"];
 
 export const AddRecipeForm = () => {
-  const {width} = useWindowSize();
+  // const {width} = useWindowSize();
   const [imgPreview, setImgPreview] = useState('');
   
   const ingredientList = useSelector(recipeSelector.getIngredientList);
