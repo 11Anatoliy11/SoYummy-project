@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
- position: relative;
+  position: relative;
   width: 225px;
   padding: 8px;
   margin-left: 70px;
@@ -17,6 +17,22 @@ export const Wrapper = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     width: 298px;
     padding: 16px;
+  }
+  & .arrow-pointer{
+    display: none;
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    position: absolute;
+    width: 150px;
+    top:50px;
+    left:55px;
+    display: block;
+    fill: none;
+  }
+@media (min-width: ${props => props.theme.breakpoints.desktop}) {
+  top:72px;
+  left:48px;
+  width: 200px;
+  }
   }
 `;
 
@@ -35,6 +51,7 @@ export const TextWrapper = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     line-height: 1.43;
   }
+
 `;
 
 export const Accent = styled.span`
@@ -64,10 +81,4 @@ export const GoToRecipe = styled(NavLink)`
     color: ${props => props.theme.colors.linkHover};
   }
 `;
-export const ArrowPointer = styled.img`
-display: none;
-@media (min-width: ${props => props.theme.breakpoints.tablet}) {
-  position: absolute;
-   display: block;
-  }
-`;
+
