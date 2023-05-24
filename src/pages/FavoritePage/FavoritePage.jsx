@@ -1,8 +1,8 @@
 import { FavoriteRecipes } from 'components/FavoriteRecipes/FavoriteRecipes';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 import { useEffect } from 'react';
 import { scrollToTop } from 'components/utils/scrollToTop';
-import PageTitleSection from 'components/PageTitleSection/PageTitleSection'
+import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
 
 const FavoritePage = () => {
   useEffect(() => {
@@ -10,12 +10,10 @@ const FavoritePage = () => {
   }, []);
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>My favorites</title>
-      </Helmet>
-      <PageTitleSection
-        text={'Favorites'}
-      />
+      </Helmet> */}
+      <PageTitleSection text={'Favorites'} />
       <FavoriteRecipes />
     </>
   );

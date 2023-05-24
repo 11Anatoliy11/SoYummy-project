@@ -8,7 +8,7 @@ export const recipeByCategory = createAsyncThunk(
       const res = await axios.get(`recipes/${category}?page=${page}&limit=${pageSize}`);
       return {
         items: res?.data?.data,
-        totalCount: 20
+        totalCount: res.data?.totalCount
       };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -45,7 +45,6 @@ export const recipeById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const res = await axios.get(`recipes/id/${id}`);
-      // console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -133,7 +132,7 @@ export const getAllFavorite = createAsyncThunk(
       );
       return {
         items: result?.data?.data,
-        totalCount: 20
+        totalCount: result.data?.totalCount
       };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
