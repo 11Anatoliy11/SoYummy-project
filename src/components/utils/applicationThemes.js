@@ -89,6 +89,7 @@ export const lightTheme = createTheme({
     btnHoverRevers: '#23262A',
     otherCategoriesBtn: 'transparent',
     borderModal: '#FAFAFA',
+    addRemoveBtn:"rgba(51, 51, 51, 0.5)",
   },
 });
 
@@ -164,5 +165,7 @@ export const darkTheme = createTheme({
     logoModalBg: '#1E1F28',
     btnHoverRevers: '#8BAA36',
     otherCategoriesBtn: 'transparent',
+    borderModal: '#8BAA36',
+    addRemoveBtn:'#FAFAFA',
   },
 });
