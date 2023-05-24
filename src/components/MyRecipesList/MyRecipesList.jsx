@@ -21,7 +21,7 @@ export const MyRecipesList = () => {
 
   useEffect(() => {
     dispatch(getAllOwnRecipes(paginationPage, per_page));
-  }, [dispatch]);
+  }, [dispatch, paginationPage, per_page]);
 
   const handleDelete = id => {
     dispatch(deleteOwnRecipes(id));
