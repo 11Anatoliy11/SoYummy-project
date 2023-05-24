@@ -16,7 +16,7 @@ export const Text = styled.p`
   }
 `;
 
-export const SuccessImgWrapper = styled.div`
+export const ImgWrapper = styled.div`
   width:280px;
 
   @media (min-width: 768px) {
@@ -24,4 +24,3 @@ export const SuccessImgWrapper = styled.div`
   }
   
 `
-

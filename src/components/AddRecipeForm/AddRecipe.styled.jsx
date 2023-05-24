@@ -250,7 +250,6 @@ export const StyledTextarea = styled(TextField)`
     color: ${props => props.theme.colors.searchSelectText};
 
     @media (min-width: 768px) {
-      width: 130px;
       font-size: 18px;
     }
   }

@@ -22,6 +22,8 @@ import { recipeSelector } from 'redux/recipes/recipe-select';
 import { useState } from 'react';
 import { AddRecipeWarnModal } from './AddRecipeWarnModal/AddRecipeWarnModal';
 import { SuccessModal } from './SuccesModal/SuccesModal';
+import { scrollToTop } from 'components/utils/scrollToTop';
+import { BigFileModal } from './BigFileModal';
 
 const initialValues = {
       file: null,
@@ -41,9 +43,12 @@ export const AddRecipeForm = () => {
   const [imgPreview, setImgPreview] = useState('');
   const [open,setOpen] = useState(false); 
   const [success,setSuccess] = useState(false);
+  const [bigFile,setBigFile] = useState(false);
 
   const handleCloseModal = () => {
     setOpen(false);
+    setSuccess(false);
+    setBigFile(false);
   }
 
   
@@ -79,6 +84,7 @@ export const AddRecipeForm = () => {
     const {resetForm} = actions;
    
     dispatch(addOwnRecipes(formData));
+    scrollToTop();
     setSuccess(true);
     setTimeout(() => {
       setSuccess(false);
@@ -91,6 +97,10 @@ export const AddRecipeForm = () => {
 
   const handleImageChange = (e, setFieldValue) =>{
     const img = e.target.files[0];
+    if(img.size >= 10485760){
+      setBigFile(true);
+      return;
+    }
     setFieldValue('file', img);
     setImgPreview(URL.createObjectURL(img));
   };
@@ -118,6 +128,7 @@ export const AddRecipeForm = () => {
   return (
     <>
     {open && (<AddRecipeWarnModal onClose={handleCloseModal}/>)}
+    {bigFile && (<BigFileModal onClose={handleCloseModal}/>)}
     {success && (<SuccessModal onClose={handleCloseModal}/>)}
     <Formik
       initialValues={initialValues}
@@ -407,7 +418,6 @@ export const AddRecipeForm = () => {
               value={values.instructions}
               multiline
               rows={6}
-              rowsMax={20}
               // style={{ width: '100%' }}
             />
             
