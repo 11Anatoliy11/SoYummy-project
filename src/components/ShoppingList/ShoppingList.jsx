@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { shopRecipesSelector } from 'redux/shoppingRecipes/shopping';
 import { deleteFromShopping } from 'redux/shoppingRecipes/shopping-operation';
 import { getAllShopping } from 'redux/shoppingRecipes/shopping-operation';
+import { scrollToTop } from 'components/utils/scrollToTop';
 import { nanoid } from 'nanoid';
 import { useEffect } from 'react';
 
@@ -20,6 +21,10 @@ export const ShoppingList = () => {
   useEffect(() => {
     dispatch(getAllShopping());
   }, [dispatch]);
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const handleDelete = id => {
     dispatch(deleteFromShopping(id));

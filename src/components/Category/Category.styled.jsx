@@ -19,3 +19,12 @@ export const OneCategoryList = styled.div`
     gap: 100px 14px; 
   }
 `;
+
+export const PaginatorComp = styled.div`
+display: flex;
+justify-content: center;
+
+@media screen and (min-width: ${props => props.theme.breakpoints.desktop}) {
+  margin-bottom: -100px;
+}
+`

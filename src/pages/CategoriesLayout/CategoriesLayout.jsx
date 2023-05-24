@@ -8,6 +8,8 @@ import {
   LayoutContainer,
 } from './CategoriesLayout.styled';
 import recipes from 'data/recipes.json';
+import { scrollToTop } from 'components/utils/scrollToTop';
+import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -20,7 +22,13 @@ const CategoriesLayout = () => {
   const [value, setValue] = useState(0);
   const navigate = useNavigate();
 
+
   useEffect(() => {
+
+    scrollToTop();
+  }, []);
+
+ useEffect(() => {
     if (!params?.categoryName) {
       setValue(0);
       return;
@@ -37,6 +45,7 @@ const CategoriesLayout = () => {
     navigate(categoryPath);
     setValue(index);
   };
+
 
   return (
     <>

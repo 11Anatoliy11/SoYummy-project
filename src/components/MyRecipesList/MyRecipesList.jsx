@@ -1,5 +1,6 @@
 // import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { scrollToTop } from 'components/utils/scrollToTop';
 
 import { RecipeItem } from 'components/Common';
 
@@ -15,6 +16,10 @@ export default function MyRecipesList() {
 
   //   const { title, description, time, thumb, ingredients, instructions, _id } =
   //     recipes;
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   return (
     <>
