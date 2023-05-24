@@ -1,11 +1,11 @@
-import { MyRecipes } from 'components/MyRecipes/MyRecipes';
+import { MyRecipesList } from 'components/MyRecipesList/MyRecipesList';
 import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
 
 const MyRecipesPage = () => {
   return (
     <>
       <PageTitleSection text={'My recipes'} />
-      <MyRecipes />
+      <MyRecipesList />
     </>
   );
 };

@@ -1,39 +1,45 @@
-import { useState } from 'react';
-
-import { RecipeItem } from 'components/Common';
-
-import { Loader } from 'components/Common';
-
-import { ownRecipesSelector } from 'redux/ownRecipes/own-selectors';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RecipeItem, Paginator, Loader } from 'components/Common';
+import { getIsLoading, getOwnRecipes, getOwnRecipesCount } from 'redux/ownRecipes/own-selectors';
 import {
   deleteOwnRecipes,
   getAllOwnRecipes,
 } from 'redux/ownRecipes/own-operation';
-
 import { MyRecipesContainer } from './MyRecipesList.module';
+import { scrollToTop } from '../utils/scrollToTop';
 
-export default function MyRecipesList() {
+export const MyRecipesList = () => {
   const dispatch = useDispatch();
+  const myRecipes = useSelector(getOwnRecipes);
+  const isLoading = useSelector(getIsLoading);
+  const total = useSelector(getOwnRecipesCount);
+  const [paginationPage, setPaginationPage] = useState(1);
+  const [per_page] = useState(10);
 
-  const isLoading = useSelector(ownRecipesSelector.getIsLoading);
+  const pagesCount = Math.trunc(total / per_page);
 
   useEffect(() => {
-    dispatch(getAllOwnRecipes());
+    dispatch(getAllOwnRecipes(paginationPage, per_page));
   }, [dispatch]);
 
-  const myRecipes = useSelector(ownRecipesSelector.getOwnRecipes);
   const handleDelete = id => {
     dispatch(deleteOwnRecipes(id));
   };
 
+  const handlePaginationClick = event => {
+    scrollToTop();
+    setPaginationPage(event);
+  };
+
   return (
     <>
-      <MyRecipesContainer>
+      <MyRecipesContainer id="MyRecipesContainer">
         {isLoading ? (
           <Loader />
         ) : (
           <>
-            {myRecipes.data.map(
+            {myRecipes?.map(
               ({
                 _id,
                 title,
@@ -58,9 +64,13 @@ export default function MyRecipesList() {
                 );
               }
             )}
+            <Paginator parendContainerId="MyRecipesContainer"
+              currentPage={paginationPage}
+              pagesCount={pagesCount}
+              onPaginate={handlePaginationClick} />
           </>
         )}
-      </MyRecipesContainer>
+      </MyRecipesContainer >
     </>
   );
 }

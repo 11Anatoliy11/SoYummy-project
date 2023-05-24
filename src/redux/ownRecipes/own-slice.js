@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   ownRecipes: [],
+  recipesCount: 0,
   isLoading: false,
 };
 
@@ -21,7 +22,9 @@ const ownRecipesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getAllOwnRecipes.fulfilled, (state, { payload }) => {
-        state.ownRecipes = payload;
+        console.log(payload)
+        state.ownRecipes = payload.items;
+        state.recipesCount = payload.totalCount;
         state.isLoading = false;
       })
       .addCase(getAllOwnRecipes.rejected, (state, { payload }) => {

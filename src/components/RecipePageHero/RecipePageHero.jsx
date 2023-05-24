@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 import {
   addToFavorite,
