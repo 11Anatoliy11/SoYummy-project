@@ -3,10 +3,13 @@ import axios from 'axios';
 
 export const recipeByCategory = createAsyncThunk(
   'recipe/recipeByCategory',
-  async (category, thunkAPI) => {
+  async ({ category, page = 1, pageSize = 10 }, thunkAPI) => {
     try {
-      const res = await axios.get(`recipes/${category}`);
-      return res.data;
+      const res = await axios.get(`recipes/${category}?page=${page}&limit=${pageSize}`);
+      return {
+        items: res?.data?.data,
+        totalCount: 20
+      };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -123,10 +126,15 @@ export const deleteFavorite = createAsyncThunk(
 
 export const getAllFavorite = createAsyncThunk(
   'recipe/getAllFavorite',
-  async (_, thunkAPI) => {
+  async ({ page = 1, pageSize = 10 }, thunkAPI) => {
     try {
-      const res = await axios.get(`favorite/get-favorite`);
-      return res.data;
+      const result = await axios.get(
+        `/favorite/get-favorite?page=${page}&limit=${pageSize}`
+      );
+      return {
+        items: result?.data?.data,
+        totalCount: 20
+      };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

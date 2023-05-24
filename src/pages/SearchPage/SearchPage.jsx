@@ -79,7 +79,7 @@ const SearchPage = () => {
         <SearchedRecipesList />
         <Paginator parendContainerId="SearchPageContainer"
           currentPage={paginationPage}
-          pagesCout={pagesCount}
+          pagesCount={pagesCount}
           onPaginate={setPaginationPage} />
       </SearchPageContainer>
     </>

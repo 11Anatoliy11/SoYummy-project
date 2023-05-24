@@ -21,7 +21,12 @@ const CategoriesLayout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setValue([...categoryList]?.findIndex(it => it.toLowerCase() === params?.categoryName?.toLowerCase()))
+    if (!params?.categoryName) {
+      setValue(0);
+      return;
+    }
+
+    setValue([...categoryList]?.findIndex(it => it.toLowerCase() === params.categoryName?.toLowerCase()))
   }, [categoryList, params.categoryName]);
 
   const handleTabClick = (category, index) => {

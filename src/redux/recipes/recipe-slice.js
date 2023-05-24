@@ -18,11 +18,17 @@ import {
 const initialState = {
   categoryList: [],
   ingredientList: [],
-  recipeByCategory: [],
+  recipeByCategory: {
+    items: [],
+    totalCount: 0
+  },
   recipeMainPage: [],
   recipeById: null,
   recipeByIngredient: [],
-  favoriteRecipes: [],
+  favoriteRecipe: {
+    items: [],
+    totalCount: 0
+  },
   popularRecipes: [],
   isLoading: false,
 };
@@ -49,9 +55,8 @@ const recipeSlice = createSlice({
       //INGREDIENT LIST
       .addCase(ingredientList.pending, (state, { payload }) => {
         state.isLoading = true;
-    })
-    .addCase(ingredientList.fulfilled,(state,{payload})=>{
-        
+      })
+      .addCase(ingredientList.fulfilled, (state, { payload }) => {
         state.ingredientList = payload.data;
         state.isLoading = false;
       })
@@ -74,7 +79,10 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(recipeByCategory.fulfilled, (state, { payload }) => {
-        state.recipeByCategory = payload.data;
+        state.recipeByCategory = {
+          items: payload.items,
+          totalCount: payload.totalCount
+        };
         state.isLoading = false;
       })
       .addCase(recipeByCategory.rejected, (state, { payload }) => {
@@ -91,7 +99,6 @@ const recipeSlice = createSlice({
       .addCase(recipeByIngredient.rejected, (state, { payload }) => {
         state.isLoading = false;
       })
-      
       .addCase(recipeById.pending, (state, { payload }) => {
         state.isLoading = true;
       })
@@ -109,7 +116,10 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getAllFavorite.fulfilled, (state, { payload }) => {
-        state.favoriteRecipes = payload;
+        state.favoriteRecipe = {
+          items: payload.items,
+          totalCount: payload.totalCount
+        };
         state.isLoading = false;
       })
       .addCase(getAllFavorite.rejected, (state, { payload }) => {
