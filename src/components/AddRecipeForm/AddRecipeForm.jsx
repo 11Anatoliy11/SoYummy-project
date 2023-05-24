@@ -20,7 +20,8 @@ import { AddBtn, AddRemoveBtn, AutocompleteStyled, BtnStyledAdd, BtnStyledDel, C
 import { recipeSelector } from 'redux/recipes/recipe-select';
 // import { useWindowSize } from 'react-use';
 import { useState } from 'react';
-
+import { AddRecipeWarnModal } from './AddRecipeWarnModal/AddRecipeWarnModal';
+import { SuccessModal } from './SuccesModal/SuccesModal';
 
 const initialValues = {
       file: null,
@@ -38,6 +39,13 @@ const measures = ["gr","kg","ml","pcs","tbs","tsp","liters"];
 export const AddRecipeForm = () => {
   // const {width} = useWindowSize();
   const [imgPreview, setImgPreview] = useState('');
+  const [open,setOpen] = useState(false); 
+  const [success,setSuccess] = useState(false);
+
+  const handleCloseModal = () => {
+    setOpen(false);
+  }
+
   
   const ingredientList = useSelector(recipeSelector.getIngredientList);
   const categoryList =  useSelector(recipeSelector.getCategoryList);
@@ -45,6 +53,12 @@ export const AddRecipeForm = () => {
   const dispatch = useDispatch();
   
   const handleFormSubmit = (values,actions) => {
+
+    if(!values.title || !values.instructions || !values.time || !values.category || !values.file || !values.description || !values.ingredients){
+      setOpen(true);
+      return;
+    };
+
     
     const formattedIngredients = values.ingredients.map(item => {
       let ingredient = ingredientList.find(el => item.name === el.ttl);
@@ -65,6 +79,11 @@ export const AddRecipeForm = () => {
     const {resetForm} = actions;
    
     dispatch(addOwnRecipes(formData));
+    setSuccess(true);
+    setTimeout(() => {
+      setSuccess(false);
+      setImgPreview('');
+    },2500)
     resetForm({
       values:initialValues,
     })
@@ -97,6 +116,9 @@ export const AddRecipeForm = () => {
 
 
   return (
+    <>
+    {open && (<AddRecipeWarnModal onClose={handleCloseModal}/>)}
+    {success && (<SuccessModal onClose={handleCloseModal}/>)}
     <Formik
       initialValues={initialValues}
       // validationSchema={schemaAddRecipe}
@@ -106,7 +128,7 @@ export const AddRecipeForm = () => {
         <FormStyled encType="multipart/form-data">
            <FormGroup sx={{ gap: 2, width: '100%' }}>
           <ImgWrapper>
-            <label htmlFor="photo">{imgPreview ? <img src={imgPreview} width="279px" height="268px" alt="add recipe pic" style={{cursor:"pointer",borderRadius:"8px"}}/> : <img src={addPhoto} alt="add recipe pic" style={{cursor:"pointer"}} /> }</label>
+            <label htmlFor="photo">{imgPreview ? <img src={imgPreview} width="279px" height="268px" alt="add recipe pic" style={{cursor:"pointer",borderRadius:"8px",objectFit:"cover"}}/> : <img src={addPhoto} alt="add recipe pic" style={{cursor:"pointer"}} /> }</label>
             <input
               type="file"
               id="photo"
@@ -163,7 +185,6 @@ export const AddRecipeForm = () => {
                       } }}
                       variant='standard'
                       IconComponent={ExpandMoreIcon}
-                      // MenuProps={MenuProps}
                       onChange={handleChange}
                       name="category"
                       value={values.category}
@@ -173,6 +194,7 @@ export const AddRecipeForm = () => {
                             bgcolor: '#8BAA36',//White
                             height: '250px',
                             width:'150px',
+                            color:"white",
                             '& .MuiMenuItem-root': {
                               padding: 0.5,
                               fontSize:'14px',
@@ -218,6 +240,7 @@ export const AddRecipeForm = () => {
                         PaperProps: {
                           sx: {
                             bgcolor: '#8BAA36',//White
+                            color:"white",
                             height: '250px',
                             width:'150px',
                             '& .MuiMenuItem-root': {
@@ -244,6 +267,9 @@ export const AddRecipeForm = () => {
           </Stack>
           </ImgWrapper>
 
+          
+        {/* BUTTONS ADD/REMOVE  */}
+
         <WrapperContainer>
           <TitleWrapper >
             <Title>Ingredients</Title>
@@ -263,6 +289,8 @@ export const AddRecipeForm = () => {
             </BtnStyledAdd>
             </AddRemoveBtn>
             </TitleWrapper>
+          
+          {/* INGREDIENTS  */}
 
             {Array.from(values.ingredients).map((ingredient,index) => (
               <IngredientWrapper key={index}>
@@ -277,24 +305,17 @@ export const AddRecipeForm = () => {
                   renderInput={(params) => (
                     <IngredientStyled
                       {...params}
-                      placeholder="Select an ingredient"
+                      placeholder="Ingredient"
                       
                       name={`ingredients${[index]}.name`}
                       
-                      InputProps={{
-                        ...params.InputProps,
-                        style: {
-                          
-                        },
-                      }}
                       sx={{
-                        '& .MuiAutocomplete-popper': {
+                        '& .MuiPaper-root': {
                           fontFamily: 'poppins',
                           fontSize: 14,
                         },
                       }}
                     />
-                  
                 )}
                 autoComplete={false}
                 popupIcon={<ExpandMoreIcon sx={{fill:'#8BAA36'}}/>}
@@ -307,6 +328,8 @@ export const AddRecipeForm = () => {
                   }
                 }}
                 />
+
+          {/* MEASURES */}
 
             <MeasureInputWrapper>
             < Field
@@ -335,13 +358,14 @@ export const AddRecipeForm = () => {
                         PaperProps: {
                           sx: {
                             bgcolor: '#8BAA36',//White
-                            height: '90px',
-                            width:'79px',
+                            color:"white",
+                            height: '120px',
+                            width:'89px',
+                            textAlign:"center",
                             '& .MuiMenuItem-root': {
                               padding: 0.5,
-                              fontSize:'18px',
+                              fontSize:'14px',
                               fontFamily:'Poppins',
-                              textAlign:"center",
                             },
                            
                           },
@@ -396,5 +420,6 @@ export const AddRecipeForm = () => {
         </FormStyled>
       )}
     </Formik>
+    </>
   );
-};
+}
