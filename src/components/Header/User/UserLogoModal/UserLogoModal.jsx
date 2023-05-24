@@ -23,8 +23,6 @@ export const UserLogoModal = ({
   return (
     <PopoverWrapper>
       <PopoverStyled
-        anchorReference="anchorPosition"
-        anchorPosition={{ top: 20, left: 30 }}
         id={id}
         open={open}
         anchorEl={anchorEl}
