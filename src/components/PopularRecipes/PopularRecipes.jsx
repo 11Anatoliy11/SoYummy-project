@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { recipeSelector } from 'redux/recipes/recipe-select';
+import { getPopularRecipes } from 'redux/recipes/recipe-select';
 import {
   CommonWrapper,
   FollowUsWrapper,
@@ -16,15 +16,15 @@ import { Divider } from '@mui/material';
 import { useWindowSize } from 'react-use';
 
 export const PopularRecipes = () => {
-  const popular = useSelector(recipeSelector.getPopularRecipes);
-  const {width} = useWindowSize();
+  const popular = useSelector(getPopularRecipes);
+  const { width } = useWindowSize();
   return (
     <CommonWrapper>
       {width >= 1280 && <FollowUsWrapper>
         <Title>Follow us</Title>
         <FollowUsPopular />
       </FollowUsWrapper>}
-      <div style={{marginTop:'100px'}}>
+      <div style={{ marginTop: '100px' }}>
         <Title>Popular recipe</Title>
         <PopularWrapper>
           {popular?.map(({ _id, title, description, thumb }) => (

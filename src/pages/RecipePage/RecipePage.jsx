@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
 import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
 import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
+import { scrollToTop } from 'components/utils/scrollToTop';
 
-import { recipeSelector } from 'redux/recipes/recipe-select';
+import { getRecipeById } from 'redux/recipes/recipe-select';
 import { recipeById } from 'redux/recipes/recipe-operation';
 
 export default function RecipePage() {
@@ -17,7 +18,11 @@ export default function RecipePage() {
     dispatch(recipeById(recipeId));
   }, [dispatch, recipeId]);
 
-  const recipe = useSelector(recipeSelector.getRecipeById);
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
+  const recipe = useSelector(getRecipeById);
 
   if (!recipe) {
     return;

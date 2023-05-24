@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 import { RecipeItem } from 'components/Common';
 
@@ -23,8 +22,6 @@ export default function MyRecipesList() {
   }, [dispatch]);
 
   const myRecipes = useSelector(ownRecipesSelector.getOwnRecipes);
-  console.log(`🚀 ~ MyRecipesList ~ myRecipes:`, myRecipes);
-
   const handleDelete = id => {
     dispatch(deleteOwnRecipes(id));
   };

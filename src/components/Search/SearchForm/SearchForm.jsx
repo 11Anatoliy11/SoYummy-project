@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeQuery } from 'redux/search/searchSlice';
+import { selectQuery } from 'redux/search/selectors'
 import Button from '../../Button/Button';
 import { Form } from './SearchForm.styled'
 
 export const SearchForm = ({id}) => {
-  const [searchQuery, setSearchQuery] = useState('');
+
+  const currentQuery = useSelector(selectQuery);
+  const [searchQuery, setSearchQuery] = useState(currentQuery ||'');
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
