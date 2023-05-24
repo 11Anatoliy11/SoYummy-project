@@ -2,11 +2,14 @@ import { Loader } from 'components/Common';
 import { Suspense } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Outlet } from 'react-router';
+import { useEffect } from 'react';
 import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
 import {
   LayoutContainer,
 } from './CategoriesLayout.styled';
 import recipes from 'data/recipes.json';
+import { scrollToTop } from 'components/utils/scrollToTop';
+
 
 
 import * as React from 'react';
@@ -20,6 +23,10 @@ const CategoriesLayout = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
