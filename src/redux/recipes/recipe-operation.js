@@ -1,4 +1,4 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const recipeByCategory = createAsyncThunk(
@@ -145,3 +145,5 @@ export const popularRecipe = createAsyncThunk(
     }
   }
 );
+
+export const clearRecipeMainPageState = createAction('recipe/clear-recipe-main-page')

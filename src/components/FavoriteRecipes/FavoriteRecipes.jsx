@@ -10,6 +10,7 @@ import { FavoriteRecipesContainer } from './FavoriteRecipes.styled';
 import { Paginator } from 'components/Common';
 import { recipeSelector } from 'redux/recipes/recipe-select';
 import { deleteFavorite, getAllFavorite } from 'redux/recipes/recipe-operation';
+import { SearchedRecipesListError } from '../Search/SearchedRecipesList/SearchedRecipesList.styled'
 
 export const FavoriteRecipes = () => {
   const dispatch = useDispatch();
@@ -53,11 +54,13 @@ export const FavoriteRecipes = () => {
           ></Paginator>
         </>
       ) : (
-        <div>
-          <img src={placeholder} alt="error" />
-          <p>We are sorry,</p>
-          <p>You don't have any added recipes ...</p>
-        </div>
+        <SearchedRecipesListError >
+          <img src={placeholder} loading="lazy" alt="vegetables assortment" />
+          <p>
+            We are sorry,<br />
+            You don't have any added recipes ...
+          </p>
+        </SearchedRecipesListError>
       )}
     </FavoriteRecipesContainer>
   );
