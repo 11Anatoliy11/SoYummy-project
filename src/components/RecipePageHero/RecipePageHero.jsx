@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import {
   addToFavorite,
@@ -17,7 +18,6 @@ import {
   TimeWrap,
   Wrapper,
 } from './RecipePageHero.styled';
-import { useEffect } from 'react';
 
 export default function RecipePageHero({
   description,

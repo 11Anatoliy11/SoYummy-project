@@ -1,4 +1,4 @@
-import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
+import { MyRecipesList } from 'components/MyRecipesList/MyRecipesList';
 import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
 
 const MyRecipesPage = () => {

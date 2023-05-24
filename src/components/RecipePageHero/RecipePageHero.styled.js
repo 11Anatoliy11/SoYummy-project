@@ -5,18 +5,22 @@ import { ReactComponent as Clock } from '../../images/svg/clock.svg';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
 
-  padding: 80px 38px 90px;
+  height: 391px;
+  padding: 0 20px;
   margin-bottom: 32px;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 72px 131px 32px;
+    height: 428px;
+    padding: 0 100px;
     margin-bottom: 50px;
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    padding: 100px 392px 32px;
+    height: 419px;
+    padding: 0 292px;
   }
 
   > Button {
