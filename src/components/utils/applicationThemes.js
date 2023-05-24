@@ -164,6 +164,5 @@ export const darkTheme = createTheme({
     logoModalBg: '#1E1F28',
     btnHoverRevers: '#8BAA36',
     otherCategoriesBtn: 'transparent',
-    borderModal: '#8BAA36',
   },
 });
