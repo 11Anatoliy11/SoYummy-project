@@ -3,10 +3,11 @@ import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
 
 import { RecipeCard } from 'components/Common/recipeCard/RecipeCard';
-import { recipeSelector } from 'redux/recipes/recipe-select';
-import { recipeMainPage } from 'redux/recipes/recipe-operation';
+import { getRecipeMainPage } from 'redux/recipes/recipe-select';
+import { recipeMainPage, clearRecipeMainPageState } from 'redux/recipes/recipe-operation';
 import { useIsMobileScreen } from 'hooks/useIsMobileScreen';
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
+import { scrollToTop } from '../utils/scrollToTop';
 
 import {
   Wrapper,
@@ -21,6 +22,8 @@ import {
 export const PreviewCategories = () => {
   const isMobile = useIsMobileScreen();
   const isTablet = useIsSmallScreen();
+  const recipes = useSelector(getRecipeMainPage);
+  const dispatch = useDispatch();
 
   const recipesByMediaHandle = recipes => {
     if (isMobile) {
@@ -32,13 +35,14 @@ export const PreviewCategories = () => {
     return recipes;
   };
 
-  const dispatch = useDispatch();
+  const onButtonClick = () => {
+    scrollToTop();
+    dispatch(clearRecipeMainPageState());
+  }
 
   useEffect(() => {
     dispatch(recipeMainPage());
   }, [dispatch]);
-
-  const recipes = useSelector(recipeSelector.getRecipeMainPage);
 
   return (
     <Wrapper>
@@ -62,13 +66,16 @@ export const PreviewCategories = () => {
                     }
                   )}
                 </CategoryList>
-                <Button to={`/categories/${category}`}>See all</Button>
+                <Button to={`/categories/${category}`}
+                  onClick={onButtonClick}>
+                  See all
+                </Button>
               </CategoryWrapper>
             );
           })}
         </MainList>
       )}
-      <OtherCategoryBtn to="/categories/Beef">
+      <OtherCategoryBtn to="/categories/Beef" onClick={onButtonClick}>
         Other categories
       </OtherCategoryBtn>
     </Wrapper>

@@ -1,38 +1,51 @@
+import { useEffect, useState, useMemo } from 'react';
 import { Loader } from 'components/Common';
 import { Suspense } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Outlet } from 'react-router';
 import PageTitleSection from 'components/PageTitleSection/PageTitleSection';
 import {
   LayoutContainer,
 } from './CategoriesLayout.styled';
 import recipes from 'data/recipes.json';
-
-
+import { scrollToTop } from 'components/utils/scrollToTop';
 import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 
-
 const CategoriesLayout = () => {
+  const categoryList = useMemo(() => new Set(recipes.map(recipe => recipe.category).sort()), []);
+  const params = useParams();
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
   const navigate = useNavigate();
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
 
-  };
+  useEffect(() => {
 
-  const categoryList = new Set(recipes.map(recipe => recipe.category).sort());
+    scrollToTop();
+  }, []);
+
+ useEffect(() => {
+    if (!params?.categoryName) {
+      setValue(0);
+      return;
+    }
+
+    setValue([...categoryList]?.findIndex(it => it.toLowerCase() === params.categoryName?.toLowerCase()))
+  }, [categoryList, params.categoryName]);
 
   const handleTabClick = (category, index) => {
+    if (index === value) {
+      return;
+    }
     const categoryPath = `/categories/${category}`;
     navigate(categoryPath);
     setValue(index);
   };
+
 
   return (
     <>
@@ -41,7 +54,6 @@ const CategoriesLayout = () => {
         <Box>
           <Tabs className='categoryItem'
             value={value}
-            onChange={handleChange}
             variant="scrollable"
             scrollButtons="auto"
             aria-label="Tabs"
