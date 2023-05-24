@@ -49,9 +49,10 @@ const recipeSlice = createSlice({
       //INGREDIENT LIST
       .addCase(ingredientList.pending, (state, { payload }) => {
         state.isLoading = true;
-      })
-      .addCase(ingredientList.fulfilled, (state, { payload }) => {
-        state.ingredientList = payload;
+    })
+    .addCase(ingredientList.fulfilled,(state,{payload})=>{
+        
+        state.ingredientList = payload.data;
         state.isLoading = false;
       })
       .addCase(ingredientList.rejected, (state, { payload }) => {
@@ -90,18 +91,7 @@ const recipeSlice = createSlice({
       .addCase(recipeByIngredient.rejected, (state, { payload }) => {
         state.isLoading = false;
       })
-      //    // RECIPE BY SEARCH
-      //    .addCase(recipeBySearch.pending,(state,{payload})=>{
-      //     state.isLoading = true;
-      //     })
-      //     .addCase(recipeBySearch.fulfilled,(state,{payload})=>{
-      //         state.recipeBySearch = payload;
-      //         state.isLoading = false;
-      //     })
-      //     .addCase(recipeBySearch.rejected,(state,{payload})=>{
-      //         state.isLoading = false;
-      //     })
-      //RECIPE BY ID
+      
       .addCase(recipeById.pending, (state, { payload }) => {
         state.isLoading = true;
       })
@@ -168,7 +158,7 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(popularRecipe.fulfilled, (state, { payload }) => {
-        state.popularRecipes = payload;
+        state.popularRecipes = payload.data;
         state.isLoading = false;
       })
       .addCase(popularRecipe.rejected, (state, { payload }) => {
@@ -177,17 +167,6 @@ const recipeSlice = createSlice({
       .addCase(clearRecipeMainPageState, (state, { payload }) => {
         state.recipeMainPage = [];
       })
-  // // SHOPPING RECIPE
-  // .addCase(getAllShopping.pending,(state,{payload})=> {
-  //     state.isLoading = true;
-  // })
-  // .addCase(getAllShopping.fulfilled,(state,{payload})=>{
-  //     state.shoppingList = payload;
-  //     state.isLoading = false;
-  // })
-  // .addCase(getAllShopping.rejected,(state,{payload})=> {
-  //     state.isLoading = false;
-  // })
 });
 
 export const recipeReducer = recipeSlice.reducer;
