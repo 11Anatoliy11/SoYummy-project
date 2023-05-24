@@ -17,7 +17,7 @@ import { selectSearchedRecipesCount } from 'redux/search/selectors';
 
 const SearchPage = () => {
 
-
+  
   const query = useSelector(selectQuery);
   const queryType = useSelector(selectQueryType);
   const [paginationPage, setPaginationPage] = useState(1);
