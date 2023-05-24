@@ -37,29 +37,32 @@ export const TextWrapper = styled.div`
 `;
 
 export const Accent = styled.span`
-  color: ${props => props.theme.colors.mainAccent};
+color: ${props => props.theme.colors.mainAccent};
 `;
 
+
 export const GoToRecipe = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 4px;
-  font-size: 10px;
-  line-height: 1.2;
-  letter-spacing: 0.2px;
-  color: ${props => props.theme.colors.secondaryDark};
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  > svg {
-    width: 18px;
-    height: 18px;
-    stroke: currentColor;
-    transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover {
-      stroke: currentColor;
-    }
-  }
-  &:hover {
-    color: ${props => props.theme.colors.linkHover};
-  }
+display: flex;
+align-items: center;
+justify-content: end;
+gap:4px;
+font-size: 10px;
+line-height: 1.2;
+letter-spacing: 0.2px;
+color: ${props => props.theme.colors.secondaryDark};
+transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+>svg{
+width: 18px;
+height: 18px;
+stroke: currentColor;
+transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+&:hover{
+stroke: currentColor;
+}
+}
+&:hover{
+color: ${props => props.theme.colors.mainAccent};
+}
 `;
+
+
