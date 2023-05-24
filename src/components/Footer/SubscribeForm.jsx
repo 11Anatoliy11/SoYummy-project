@@ -19,8 +19,8 @@ export const SubscribeForm = () => {
   const matches = useMediaQuery('(min-width:768px)');
   const isSmallScreen = useIsSmallScreen();
   const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
   const { subscribeMessage } = useAuth();
-  console.log(subscribeMessage);
 
   useEffect(() => {
     if (matches) {
