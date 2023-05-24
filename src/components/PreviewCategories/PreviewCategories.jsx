@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
 
 import { RecipeCard } from 'components/Common/recipeCard/RecipeCard';
-import { recipeSelector } from 'redux/recipes/recipe-select';
+import { getRecipeMainPage } from 'redux/recipes/recipe-select';
 import { recipeMainPage, clearRecipeMainPageState } from 'redux/recipes/recipe-operation';
 import { useIsMobileScreen } from 'hooks/useIsMobileScreen';
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
@@ -22,7 +22,7 @@ import {
 export const PreviewCategories = () => {
   const isMobile = useIsMobileScreen();
   const isTablet = useIsSmallScreen();
-  const recipes = useSelector(recipeSelector.getRecipeMainPage);
+  const recipes = useSelector(getRecipeMainPage);
   const dispatch = useDispatch();
 
   const recipesByMediaHandle = recipes => {
