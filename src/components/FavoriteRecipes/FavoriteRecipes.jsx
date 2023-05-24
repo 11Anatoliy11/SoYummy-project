@@ -34,6 +34,7 @@ export const FavoriteRecipes = () => {
 
   const handleDelete = id => {
     dispatch(deleteFavorite(id));
+    dispatch(getAllFavorite({ page: paginationPage, pageSize: per_page }));
   };
 
   return (

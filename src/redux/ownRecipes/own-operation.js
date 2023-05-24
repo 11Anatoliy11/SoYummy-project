@@ -3,23 +3,23 @@ import axios from 'axios';
 
 // OWN RECIPEs
 export const addOwnRecipes = createAsyncThunk(
-    'recipe/addOwnRecipes',
-    async (recipe, thunkAPI) => {
-      try {
-        const res = await axios.patch(`ownRecipes/add-recipe`,recipe);
-        return res.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
+  'recipe/addOwnRecipes',
+  async (recipe, thunkAPI) => {
+    try {
+      const res = await axios.patch(`ownRecipes/add-recipe`, recipe);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
-  );
+  }
+);
 
 export const deleteOwnRecipes = createAsyncThunk(
   'recipe/deleteOwnRecipes',
   async (id, thunkAPI) => {
     try {
       const res = await axios.delete(`ownRecipes/remove-recipe/${id}`);
-      return res.data;
+      return res.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

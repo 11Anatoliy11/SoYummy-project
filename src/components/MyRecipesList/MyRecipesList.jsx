@@ -25,6 +25,7 @@ export const MyRecipesList = () => {
 
   const handleDelete = id => {
     dispatch(deleteOwnRecipes(id));
+    dispatch(getAllOwnRecipes(paginationPage, per_page));
   };
 
   const handlePaginationClick = event => {
