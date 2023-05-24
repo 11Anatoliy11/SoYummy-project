@@ -40,7 +40,7 @@ const searchSlice = createSlice({
           getRecipesByIngredient.rejected
         ),
         (state, action) => {
-          state.error = action.payload;
+          state.error = action.payload?.message;
           state.isLoading = false;
           toast.error('Something went wrong, please try again later', {
             autoClose: 3000,

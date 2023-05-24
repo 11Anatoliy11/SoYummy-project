@@ -33,7 +33,6 @@ export const ModalWrapper = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     padding: 18px;
     width: 177px;
-    border: none;
   }
   .btn {
     display: flex;

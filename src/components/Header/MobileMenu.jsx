@@ -68,7 +68,7 @@ export const MobileMenu = ({ toggleMenu, menuOpen }) => {
             </li>
           </NavigationList>
         </NavContainer>
-        <ThemeToggler/>
+        <ThemeToggler />
       </Background>
     </MenuContainer>
   );

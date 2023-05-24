@@ -7,7 +7,7 @@ import Button from 'components/Button/Button';
 
 export const Paginator = ({
   currentPage,
-  pagesCout,
+  pagesCount,
   parendContainerId,
   onPaginate,
   decreasePixels = 100,
@@ -36,7 +36,7 @@ export const Paginator = ({
     <PaginatorContainer>
       <ResponsivePagination
         current={currentPage}
-        total={pagesCout}
+        total={pagesCount}
         extraClassName={extraClassName}
         previousLabel={
           <Button

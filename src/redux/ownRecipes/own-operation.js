@@ -7,7 +7,6 @@ export const addOwnRecipes = createAsyncThunk(
     async (recipe, thunkAPI) => {
       try {
         const res = await axios.patch(`ownRecipes/add-recipe`,recipe);
-        console.log(res.data)
         return res.data;
       } catch (error) {
         return thunkAPI.rejectWithValue(error.message);

@@ -16,6 +16,7 @@ export const UserWrapper = styled.button`
 
 export const UserIconWr = styled.div`
   > img {
+    object-fit: cover;
     width: 34px;
     height: 34px;
     display: flex;

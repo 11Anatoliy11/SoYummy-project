@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { recipeSelector } from 'redux/recipes/recipe-select';
 import {
   addToFavorite,
   deleteFavorite,
@@ -34,9 +33,6 @@ export default function RecipePageHero({
       dispatch(getAllFavorite());
     }
   }, [dispatch, _id]);
-
-  // eslint-disable-next-line no-unused-vars
-  const favRecipes = useSelector(recipeSelector.getFavoriteRecipes);
 
   const toggleFavorite = () => {
     if (isFavoriteRecipe) {

@@ -17,13 +17,13 @@ import {
   Stack,
 } from '@mui/material';
 import { AddBtn, AddRemoveBtn, AutocompleteStyled, BtnStyledAdd, BtnStyledDel, CounterValue,FieldStyled, FormStyled, ImgWrapper, IngredientStyled, IngredientWrapper, MeasureInputWrapper, MeasureStyled, RemoveBtn, SelectStyled, StyledTextarea, Title, TitleWrapper, WrapperContainer} from './AddRecipe.styled';
-import { recipeSelector } from 'redux/recipes/recipe-select';
 // import { useWindowSize } from 'react-use';
 import { useState } from 'react';
 import { AddRecipeWarnModal } from './AddRecipeWarnModal/AddRecipeWarnModal';
 import { SuccessModal } from './SuccesModal/SuccesModal';
 import { scrollToTop } from 'components/utils/scrollToTop';
 import { BigFileModal } from './BigFileModal';
+import { getCategoryList, getIngredientList } from 'redux/recipes/recipe-select';
 
 const initialValues = {
       file: null,
@@ -52,8 +52,8 @@ export const AddRecipeForm = () => {
   }
 
   
-  const ingredientList = useSelector(recipeSelector.getIngredientList);
-  const categoryList =  useSelector(recipeSelector.getCategoryList);
+  const ingredientList = useSelector(getIngredientList);
+  const categoryList =  useSelector(getCategoryList);
 
   const dispatch = useDispatch();
   
@@ -309,7 +309,6 @@ export const AddRecipeForm = () => {
                   options={ingredientList.map(item => item.ttl)}
                   name={`ingredients${[index]}.name`}
                   onChange={(e,value)=>{
-                    console.log(value)
                     setFieldValue(`ingredients[${index}].name`,value);
                   }}
                   value={values.ingredients[index].name}
