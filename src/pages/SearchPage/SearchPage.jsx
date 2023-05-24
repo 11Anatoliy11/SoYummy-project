@@ -16,8 +16,6 @@ import { Paginator } from 'components/Common'
 import { selectSearchedRecipesCount } from 'redux/search/selectors';
 
 const SearchPage = () => {
-
-
   const query = useSelector(selectQuery);
   const queryType = useSelector(selectQueryType);
   const [paginationPage, setPaginationPage] = useState(1);
@@ -31,12 +29,13 @@ const SearchPage = () => {
     if (!query) {
       return;
     }
-    const payload = { query: query, page: paginationPage, pageSize: per_page }
-    switch (queryType) {
-      case 'title':
+    const payload = { query: query, page: paginationPage, pageSize: per_page };
+
+    switch (queryType.toLowerCase()) {
+      case 'title'.toLowerCase():
         dispatch(getRecipesByQuery(payload));
         break;
-      case 'Ingredients':
+      case 'ingredients'.toLowerCase():
         dispatch(getRecipesByIngredient(payload));
         break;
       default:

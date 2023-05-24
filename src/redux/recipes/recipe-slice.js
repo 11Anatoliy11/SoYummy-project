@@ -12,6 +12,7 @@ import {
   deleteFavorite,
   addToFavorite,
   unmarkAsFavorite,
+  clearRecipeMainPageState,
 } from './recipe-operation';
 
 const initialState = {
@@ -162,7 +163,10 @@ const recipeSlice = createSlice({
       })
       .addCase(popularRecipe.rejected, (state, { payload }) => {
         state.isLoading = false;
-      }),
+      })
+      .addCase(clearRecipeMainPageState, (state, { payload }) => {
+        state.recipeMainPage = [];
+      })
 });
 
 export const recipeReducer = recipeSlice.reducer;
