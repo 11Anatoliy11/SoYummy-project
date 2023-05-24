@@ -6,7 +6,10 @@ import { RecipeItem } from 'components/Common';
 import { Loader } from 'components/Common';
 
 import { ownRecipesSelector } from 'redux/ownRecipes/own-selectors';
-import { getAllOwnRecipes } from 'redux/ownRecipes/own-operation';
+import {
+  deleteOwnRecipes,
+  getAllOwnRecipes,
+} from 'redux/ownRecipes/own-operation';
 
 import { MyRecipesContainer } from './MyRecipesList.module';
 
@@ -20,6 +23,11 @@ export default function MyRecipesList() {
   }, [dispatch]);
 
   const myRecipes = useSelector(ownRecipesSelector.getOwnRecipes);
+  console.log(`🚀 ~ MyRecipesList ~ myRecipes:`, myRecipes);
+
+  const handleDelete = id => {
+    dispatch(deleteOwnRecipes(id));
+  };
 
   return (
     <>
@@ -48,6 +56,7 @@ export default function MyRecipesList() {
                     time={time}
                     instructions={instructions}
                     ingredients={ingredients}
+                    deleteRecipe={handleDelete}
                   />
                 );
               }

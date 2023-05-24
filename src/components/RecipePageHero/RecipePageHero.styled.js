@@ -9,20 +9,17 @@ export const Wrapper = styled.div`
   align-items: center;
   text-align: center;
 
-  max-height: 391px;
-  min-height: 391px;
+  height: 391px;
   padding: 0 20px;
   margin-bottom: 32px;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    max-height: 428px;
-    min-height: 428px;
+    height: 428px;
     padding: 0 100px;
     margin-bottom: 50px;
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    max-height: 419px;
-    min-height: 419px;
+    height: 419px;
     padding: 0 292px;
   }
 
