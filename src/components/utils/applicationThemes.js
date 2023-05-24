@@ -66,7 +66,7 @@ export const lightTheme = createTheme({
     searchInputBorder: 'rgba(250, 250, 250, 0.5)',
     searchInputShadow: 'rgba(34, 37, 42, 0.03)',
     searchTypeBg: '#D9D9D9',
-    searchTypeOp: 'transparent',
+    searchTypeOp: '#FAFAFA',
     searchTypeBorder: 'transparent',
     searchTypeTx: '#000000',
     mainSerchHoverText: '#ffffff',
@@ -88,6 +88,7 @@ export const lightTheme = createTheme({
     logoModalBg: '#FAFAFA',
     btnHoverRevers: '#23262A',
     otherCategoriesBtn: 'transparent',
+    borderModal: '#FAFAFA',
   },
 });
 
@@ -163,5 +164,6 @@ export const darkTheme = createTheme({
     logoModalBg: '#1E1F28',
     btnHoverRevers: '#8BAA36',
     otherCategoriesBtn: 'transparent',
+    borderModal: '#8BAA36',
   },
 });

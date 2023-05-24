@@ -6,7 +6,7 @@ import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
 import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
 import { scrollToTop } from 'components/utils/scrollToTop';
 
-import { recipeSelector } from 'redux/recipes/recipe-select';
+import { getRecipeById } from 'redux/recipes/recipe-select';
 import { recipeById } from 'redux/recipes/recipe-operation';
 
 export default function RecipePage() {
@@ -21,7 +21,7 @@ export default function RecipePage() {
     scrollToTop();
   }, []);
 
-  const recipe = useSelector(recipeSelector.getRecipeById);
+  const recipe = useSelector(getRecipeById);
 
   if (!recipe) {
     return;
