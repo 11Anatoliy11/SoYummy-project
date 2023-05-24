@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
+  position: relative;
   width: 225px;
   padding: 8px;
   margin-left: 70px;
@@ -16,6 +17,22 @@ export const Wrapper = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     width: 298px;
     padding: 16px;
+  }
+  & .arrow-pointer{
+    display: none;
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    position: absolute;
+    width: 150px;
+    top:50px;
+    left:55px;
+    display: block;
+    fill: none;
+  }
+@media (min-width: ${props => props.theme.breakpoints.desktop}) {
+  top:72px;
+  left:48px;
+  width: 200px;
+  }
   }
 `;
 
@@ -34,6 +51,7 @@ export const TextWrapper = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     line-height: 1.43;
   }
+
 `;
 
 export const Accent = styled.span`
@@ -65,4 +83,7 @@ color: ${props => props.theme.colors.mainAccent};
 }
 `;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> d126e85ae3d6e8947e645b4d6956184f3359c8d3
