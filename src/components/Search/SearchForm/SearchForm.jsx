@@ -7,10 +7,11 @@ import { selectQuery } from 'redux/search/selectors'
 import Button from '../../Button/Button';
 import { Form } from './SearchForm.styled'
 
-export const SearchForm = ({id}) => {
+export const SearchForm = ({ id }) => {
 
   const currentQuery = useSelector(selectQuery);
-  const [searchQuery, setSearchQuery] = useState(currentQuery ||'');
+  const queryValue = window.location.href.endsWith('main') ? '' : currentQuery;
+  const [searchQuery, setSearchQuery] = useState(queryValue);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -35,7 +36,7 @@ export const SearchForm = ({id}) => {
 
   return (
     <Form>
-      <form id = {id} className="search-form" onSubmit={handleSubmit}>
+      <form id={id} className="search-form" onSubmit={handleSubmit}>
         <input
           type="text"
           value={searchQuery}
