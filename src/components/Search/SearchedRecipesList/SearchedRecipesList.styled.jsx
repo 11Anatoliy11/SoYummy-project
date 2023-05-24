@@ -7,12 +7,6 @@ export const SearchedRecipesListError = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: 350px;
   }
-  > img {
-    width: 208px;
-    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-      width: 350px;
-    }
-  }
   >p{
     font-weight: 500;
   font-size: 24px;

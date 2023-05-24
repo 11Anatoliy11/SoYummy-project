@@ -82,8 +82,3 @@ stroke: currentColor;
 color: ${props => props.theme.colors.mainAccent};
 }
 `;
-
-<<<<<<< HEAD
-=======
-
->>>>>>> d126e85ae3d6e8947e645b4d6956184f3359c8d3
