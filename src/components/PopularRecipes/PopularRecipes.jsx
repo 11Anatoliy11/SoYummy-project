@@ -29,7 +29,7 @@ export const PopularRecipes = () => {
         <PopularWrapper>
           {popular?.map(({ _id, title, description, thumb }) => (
             <div key={_id}>
-              <Link to={`/recipes/${_id}`}>
+              <Link to={`/recipe/${_id}`}>
                 <ImageWrapperPop>
                   <ImagePop src={thumb} alt={title} />
                   <div>
