@@ -21,7 +21,7 @@ const SearchPage = () => {
   const [paginationPage, setPaginationPage] = useState(1);
   const [per_page] = useState(12);
   const total = useSelector(selectSearchedRecipesCount);
-  const pagesCount = Math.trunc(total / per_page);
+  const pagesCount = Math.ceil(total / per_page);
 
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ const SearchPage = () => {
     if (!query) {
       return;
     }
-    const payload = { query: query, page: paginationPage, pageSize: per_page };
+    const payload = { query: query, page: paginationPage - 1, pageSize: per_page };
 
     switch (queryType.toLowerCase()) {
       case 'title'.toLowerCase():

@@ -28,12 +28,14 @@ export const deleteOwnRecipes = createAsyncThunk(
 
 export const getAllOwnRecipes = createAsyncThunk(
   'recipe/getAllOwnRecipes',
-  async ({ page = 1, pageSize = 10 }, thunkAPI) => {
+  async ({ page = 0, pageSize = 10 }, thunkAPI) => {
     try {
-      const res = await axios.get(`ownRecipes/own-recipes?page=${page}&limit=${pageSize}`);
+      const result = await axios.get(
+        `ownRecipes/own-recipes?page=${page}&limit=${pageSize}`
+      );
       return {
-        items: res.data?.data,
-        totalCount: res.data?.totalCount
+        items: result?.data?.data,
+        totalCount: result?.data?.totalCount
       };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -20,11 +20,11 @@ export const FavoriteRecipes = () => {
   const favRecipes = useSelector(getFavoriteRecipes);
   const total = useSelector(getFavoriteRecipesCount);
 
-  const pagesCount = Math.trunc(total / per_page);
+  const pagesCount = Math.ceil(total / per_page);
   const isLoading = useSelector(getIsLoading);
 
   useEffect(() => {
-    dispatch(getAllFavorite({ page: paginationPage, pageSize: per_page }));
+    dispatch(getAllFavorite({ page: paginationPage - 1, pageSize: per_page }));
   }, [dispatch, paginationPage, per_page]);
 
   const handlePaginationClick = event => {
@@ -34,7 +34,7 @@ export const FavoriteRecipes = () => {
 
   const handleDelete = id => {
     dispatch(deleteFavorite(id));
-    dispatch(getAllFavorite({ page: paginationPage, pageSize: per_page }));
+    dispatch(getAllFavorite({ page: paginationPage - 1, pageSize: per_page }));
   };
 
   return (
