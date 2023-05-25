@@ -49,7 +49,7 @@ export default function RecipePageHero({
       <Descr>{description}</Descr>
       <Button type="button" onClick={toggleFavorite}>
         {isFavoriteRecipe
-          ? 'Remove from favorite recipes'
+          ? 'Remove from favorite'
           : 'Add to favorite recipes'}
       </Button>
       <TimeWrap>
