@@ -27,8 +27,7 @@ export const Title = styled.h2`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: var(--fiord-color);
-
+  color: ${props => props.theme.colors.secondaryDark};
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     margin-bottom: 32px;
   }
@@ -78,7 +77,7 @@ export const Text = styled.p`
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.02em;
-  color: rgba(0, 0, 0, 0.8);
+  color: ${props => props.theme.colors.mainBlack};
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 14px;
