@@ -1,7 +1,7 @@
 const { default: styled } = require('@emotion/styled');
 
 export const NotFoundContainer = styled.div`
-
+  color: ${props => props.theme.colors.mainBlack};
 `;
 
 export const NotFoundWrapper = styled.div`
@@ -10,12 +10,8 @@ export const NotFoundWrapper = styled.div`
   flex-direction: column;
 
   .icon {
-    padding-bottom: 14px;
-
     @media screen and (min-width: 768px) {
-      padding-bottom: 32px;
       width: 498px;
-      height: 327px;
     }
   }
 `;
@@ -26,10 +22,11 @@ export const SorryTitle = styled.h3`
   line-height: calc(20 / 18);
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: var(--black-color);
   padding-bottom: 8px;
+  margin-top: -54px;
 
   @media screen and (min-width: 768px) {
+    margin-top: -100px;
     line-height: calc(24 / 24);
     font-size: 24px;
     padding-bottom: 14px;
@@ -42,7 +39,6 @@ export const ExplanText = styled.p`
   line-height: calc(18 / 14);
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: var(--black-color);
   opacity: 0.5;
   text-align: center;
 
