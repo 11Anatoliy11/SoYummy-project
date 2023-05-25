@@ -28,7 +28,7 @@ const SharedLayout = () => {
       {location.pathname.includes('main') && (
         <Background type="Main">
           <SharedLayoutContainer>
-            <Header />
+            <Header/>
             <Suspense fallback={<Loader />}>
               <Outlet />
             </Suspense>

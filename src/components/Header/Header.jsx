@@ -1,11 +1,11 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation,useParams  } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ReactComponent as LogoIcon } from 'images/svg/logo.svg';
 import { ReactComponent as BurgerMenu } from 'images/svg/burger.svg';
 import { ReactComponent as SearchIcon } from 'images/svg/search.svg';
 import { MobileMenu } from './MobileMenu';
 
-import {User} from './User/User'
+import { User } from './User/User';
 
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 import {
@@ -16,10 +16,12 @@ import {
 
 import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 
-export const Header = () => {
+export const Header = ({ isRecipe }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const isSmallScreen = useIsSmallScreen();
   const body = document.querySelector('body');
+  const location = useLocation();
+  const { recipeId } = useParams();
 
   useEffect(() => {
     if (!isSmallScreen) {
@@ -35,13 +37,13 @@ export const Header = () => {
 
   return (
     <>
-      <HeaderContainer>
+      <HeaderContainer >
         <Link to="/main" className="logo">
           <LogoIcon style={{ fill: 'none' }} />
         </Link>
         {!isSmallScreen && (
           <DesktopNavigation>
-            <DesktopList>
+            <DesktopList isRecipePage={location.pathname.includes(`${recipeId}`)}>
               <li>
                 <NavLink to="/categories">Categories</NavLink>
               </li>
@@ -65,17 +67,17 @@ export const Header = () => {
             </DesktopList>
           </DesktopNavigation>
         )}
-         <User/>
+        <User />
         {isSmallScreen && (
           <button
             type="button"
             onClick={() => toggleMenu()}
             className="burger-menu"
           >
-            <BurgerMenu />
+            <BurgerMenu className="menu" />
           </button>
         )}
-        {!isSmallScreen && <ThemeToggler/>}
+        {!isSmallScreen && <ThemeToggler />}
       </HeaderContainer>
       {isSmallScreen && (
         <MobileMenu toggleMenu={toggleMenu} menuOpen={menuOpen} />
