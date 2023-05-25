@@ -6,7 +6,7 @@ import {
   deleteOwnRecipes,
   getAllOwnRecipes,
 } from 'redux/ownRecipes/own-operation';
-import { MyRecipesContainer } from './MyRecipesList.module';
+import { MyRecipesContainer } from './MyRecipesList.styled';
 import { scrollToTop } from '../utils/scrollToTop';
 
 export const MyRecipesList = () => {
