@@ -12,7 +12,7 @@ export const NotFoundWrapper = styled.div`
   .icon {
     padding-bottom: 14px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
       padding-bottom: 32px;
       width: 498px;
       height: 327px;
@@ -26,10 +26,10 @@ export const SorryTitle = styled.h3`
   line-height: calc(20 / 18);
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: var(--black-color);
+  color: ${props => props.theme.colors.searchTypeTx};
   padding-bottom: 8px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
     line-height: calc(24 / 24);
     font-size: 24px;
     padding-bottom: 14px;
@@ -42,11 +42,11 @@ export const ExplanText = styled.p`
   line-height: calc(18 / 14);
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: var(--black-color);
+  color: ${props => props.theme.colors.mainHeaderText};
   opacity: 0.5;
   text-align: center;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: unset;
     font-size: 18px;
     line-height: calc(24 / 18);
