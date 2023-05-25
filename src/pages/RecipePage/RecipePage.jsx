@@ -36,8 +36,7 @@ export default function RecipePage() {
 
   const isFavoriteRecipe = recipe.isFavorite;
 
-  const { title, description, time, thumb, ingredients, instructions, _id } =
-    recipe.result[0] || {};
+  const { title, description, time, thumb, ingredients, instructions, _id } = recipe.result[0] || {};
 
   return (
     <div>
