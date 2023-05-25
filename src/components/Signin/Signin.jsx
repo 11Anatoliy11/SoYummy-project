@@ -32,9 +32,9 @@ const colors = {
 }
 
 
-const emailRegexp = /^[A-Za-z0-9][A-Za-z0-9._%+-]*@[A-Za-z0-9][A-Za-z0-9.-]+\.[A-Za-z]{1,}$/;
+const emailRegexp = /^[A-Za-z0-9][A-Za-z0-9._%+-]*@[A-Za-z0-9]{1,5}\.[A-Za-z]{1,}$/;
 
-const passwordRegexp = /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;
+const passwordRegexp = /^[A-Za-z0-9]|[A-Z]|[a-z]$/;;
 
 export const Signin = () => {
   const dispatch = useDispatch();

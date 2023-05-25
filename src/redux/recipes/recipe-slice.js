@@ -133,10 +133,6 @@ const recipeSlice = createSlice({
           ...state.recipeById,
           isFavorite: true,
         };
-        state.favoriteRecipes.data = [
-          ...state.favoriteRecipes.data,
-          { _id: meta.arg },
-        ];
         state.isLoading = false;
       })
       .addCase(addToFavorite.rejected, (state, { meta }) => {
@@ -153,10 +149,15 @@ const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(deleteFavorite.fulfilled, (state, { payload }) => {
-        const updateRecipes = state.favoriteRecipes.data.filter(
+        const updateRecipes = state.favoriteRecipe.items.filter(
           recipe => recipe._id !== payload
         );
-        state.favoriteRecipes.data = updateRecipes || [];
+        let totalCount = state.favoriteRecipe.totalCount - 1;
+        totalCount = totalCount <= 0 ? 0 : totalCount;
+        state.favoriteRecipe = {
+          items: updateRecipes || [],
+          totalCount: totalCount
+        };
         state.isLoading = false;
       })
       .addCase(deleteFavorite.rejected, (state, { payload }) => {

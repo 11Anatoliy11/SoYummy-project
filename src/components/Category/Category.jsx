@@ -20,11 +20,11 @@ export const Category = () => {
 
   const { categoryName } = useParams();
   const [paginationPage, setPaginationPage] = useState(1);
-  const [per_page] = useState(10);
+  const [per_page] = useState(8);
 
   const isLoading = useSelector(getIsLoading);
   const total = useSelector(getRecipeByCategoryCount);
-  const pagesCount = Math.trunc(total / per_page);
+  const pagesCount = Math.ceil(total / per_page);
   const recipes = useSelector(getRecipeByCategory);
 
   const capitalizeFirstLetter = string => {
@@ -38,8 +38,8 @@ export const Category = () => {
 
   useEffect(() => {
     const capitaliseName = capitalizeFirstLetter(categoryName);
-    dispatch(recipeByCategory({ category: capitaliseName }));
-  }, [categoryName, dispatch]);
+    dispatch(recipeByCategory({ category: capitaliseName, page: paginationPage - 1, pageSize: per_page }));
+  }, [dispatch, categoryName, paginationPage, per_page]);
 
   return (
     <div id="oneCategoryListContainer">

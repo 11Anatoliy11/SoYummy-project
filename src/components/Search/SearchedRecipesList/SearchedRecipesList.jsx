@@ -38,10 +38,10 @@ export const SearchedRecipesList = () => {
                   y: 0,
                   opacity: 1,
                 }}
-                key={_id.$oid}
+                key={_id}
               >
                 <RecipeCard
-                  id={_id.$oid}
+                  id={_id}
                   title={title}
                   thumb={thumb}
                 />
