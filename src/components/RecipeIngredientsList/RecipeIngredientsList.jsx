@@ -50,7 +50,7 @@ export default function RecipeIngredientsList({
         </Wrapper>
       </Head>
       <List>
-        {requiredIngredients.map(({ _id, measure, ttl, desc, thb }) => {
+        {requiredIngredients.filter(it => !!it._id).map(({ _id, measure, ttl, desc, thb }) => {
           const isChecked = ingredients.some(item => item.id === _id);
           return (
             <Item key={_id}>

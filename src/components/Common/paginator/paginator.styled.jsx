@@ -2,14 +2,14 @@ import styled from '@emotion/styled';
 
 export const PaginatorContainer = styled.div`
   .paginator {
-    box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
+    box-shadow: ${props => props.theme.colors.paginationShadow};
     border-radius: 26px;
     margin-top: 40px;
     padding: 12px 28px;
     justify-content: center;
     width: max-content;
     gap: 10px;
-    background-color: white;
+    background-color: ${props => props.theme.colors.recipeBlockBg};
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       padding: 14px 24px;
         }
@@ -24,25 +24,26 @@ export const PaginatorContainer = styled.div`
       line-height: 18px;
       display: flex;
       justify-content: center;
+      color: ${props => props.theme.colors.paginationText};
 
       align-items: center;
       &.active {
-        background-color: var(--green-color);
-        color: var(--search-black-color);
+        background-color: ${props => props.theme.colors.paginationBg};
+        color: ${props => props.theme.colors.paginationText};
       }
       &:hover,
       &:focus {
-        background-color: var(--green-color);
-        color: var(--search-black-color);
+        background-color: ${props => props.theme.colors.paginationBg};
+        color: ${props => props.theme.colors.paginationText};
         .paginator-link .button svg {
-          fill: var(--search-black-color);
+          fill: ${props => props.theme.colors.paginationText};
         }
       }
       .paginator-link {
         .button {
           display: flex;
           svg {
-            fill: var(--search-black-color);
+            fill: ${props => props.theme.colors.paginationText};
           }
         }
       }
