@@ -11,21 +11,22 @@ import { scrollToTop } from '../utils/scrollToTop';
 
 export const MyRecipesList = () => {
   const dispatch = useDispatch();
-  const myRecipes = useSelector(getOwnRecipes);
-  const isLoading = useSelector(getIsLoading);
-  const total = useSelector(getOwnRecipesCount);
   const [paginationPage, setPaginationPage] = useState(1);
   const [per_page] = useState(10);
 
-  const pagesCount = Math.trunc(total / per_page);
+  const myRecipes = useSelector(getOwnRecipes);
+  const isLoading = useSelector(getIsLoading);
+  const total = useSelector(getOwnRecipesCount);
+
+  const pagesCount = Math.ceil(total / per_page);
 
   useEffect(() => {
-    dispatch(getAllOwnRecipes(paginationPage, per_page));
+    dispatch(getAllOwnRecipes({ page: paginationPage - 1, pageSize: per_page }));
   }, [dispatch, paginationPage, per_page]);
 
   const handleDelete = id => {
     dispatch(deleteOwnRecipes(id));
-    dispatch(getAllOwnRecipes(paginationPage, per_page));
+    dispatch(getAllOwnRecipes({ page: paginationPage - 1, pageSize: per_page }));
   };
 
   const handlePaginationClick = event => {
