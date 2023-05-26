@@ -51,16 +51,17 @@ export const App = () => {
   }, [dispatch, isLoggedIn]);
 
   useEffect(()=>{
+    if (!isLoggedIn) return;
     dispatch(ingredientList());
-  },[dispatch]);
+  },[dispatch,isLoggedIn]);
 
-  useEffect(()=>{
-    dispatch(recipeCategoryList())
-  });
+  
   useEffect(() => {
+    if (!isLoggedIn) return;
     dispatch(popularRecipe());
     
-  }, [dispatch]);
+  }, [dispatch,isLoggedIn]);
+  
   return (
     <Suspense fallback={<Loader />}>
       <ThemeProvider theme={themeMode}>

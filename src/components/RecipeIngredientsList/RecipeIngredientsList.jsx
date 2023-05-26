@@ -1,5 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import Food from '../../images/svg/food.svg';
+
+import {
+  addToShopping,
+  deleteFromShopping,
+} from 'redux/shoppingRecipes/shopping-operation';
+import { shopRecipesSelector } from 'redux/shoppingRecipes/shopping';
+
 import {
   Checkbox,
   Head,
@@ -13,11 +21,6 @@ import {
   List,
   Image,
 } from './RecipeIngredientsList.styled';
-import {
-  addToShopping,
-  deleteFromShopping,
-} from 'redux/shoppingRecipes/shopping-operation';
-import { shopRecipesSelector } from 'redux/shoppingRecipes/shopping';
 
 export default function RecipeIngredientsList({
   requiredIngredients,
@@ -47,12 +50,13 @@ export default function RecipeIngredientsList({
         </Wrapper>
       </Head>
       <List>
-        {requiredIngredients.map(({ _id, measure, ttl, desc, thb }) => {
+        {requiredIngredients.filter(it => !!it._id).map(({ _id, measure, ttl, desc, thb }) => {
           const isChecked = ingredients.some(item => item.id === _id);
           return (
             <Item key={_id}>
               <Ingredient>
-                <Image src={thb} alt={desc} />
+                {/* {thb ? <div></div> : } */}
+                <Image src={thb || Food} alt={desc} />
                 <IngredientTitle>{ttl}</IngredientTitle>
               </Ingredient>
               <ItemWrapper>

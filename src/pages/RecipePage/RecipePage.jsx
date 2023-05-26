@@ -1,6 +1,7 @@
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
 import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
 import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
@@ -27,10 +28,15 @@ export default function RecipePage() {
     return;
   }
 
+  const prevRecipeId = recipe.result[0]._id;
+
+  if (recipeId !== prevRecipeId) {
+    return;
+  }
+
   const isFavoriteRecipe = recipe.isFavorite;
 
-  const { title, description, time, thumb, ingredients, instructions, _id } =
-    recipe.result[0] || {};
+  const { title, description, time, thumb, ingredients, instructions, _id } = recipe.result[0] || {};
 
   return (
     <div>

@@ -6,7 +6,7 @@ import {
   TextCont,
   TextStyled,
   TitleStyled,
-} from './Welcome.styled.js';
+} from './Welcome.styled.jsx';
 import { Link } from 'react-router-dom';
 import { useWindowSize } from 'react-use';
 import { ReactComponent as LogoDesk } from '../../images/svg/logoDesk.svg';
@@ -18,8 +18,8 @@ const WelcomePage = () => {
 
   return (
     <BackgroundStyled>
-      
-      {width<=768 ? <LogoMob/>:<LogoDesk/>}
+
+      {width <= 768 ? <LogoMob /> : <LogoDesk />}
       <TitleStyled>Welcome to app!</TitleStyled>
       <TextCont>
         <TextStyled>

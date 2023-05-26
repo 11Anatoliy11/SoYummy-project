@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import {
   addToFavorite,
@@ -17,7 +18,6 @@ import {
   TimeWrap,
   Wrapper,
 } from './RecipePageHero.styled';
-import { useEffect } from 'react';
 
 export default function RecipePageHero({
   description,
@@ -49,7 +49,7 @@ export default function RecipePageHero({
       <Descr>{description}</Descr>
       <Button type="button" onClick={toggleFavorite}>
         {isFavoriteRecipe
-          ? 'Remove from favorite recipes'
+          ? 'Remove from favorite'
           : 'Add to favorite recipes'}
       </Button>
       <TimeWrap>

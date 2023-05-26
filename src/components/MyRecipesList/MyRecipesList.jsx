@@ -1,43 +1,78 @@
-// import { useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-import { scrollToTop } from 'components/utils/scrollToTop';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RecipeItem, Paginator, Loader } from 'components/Common';
+import { getIsLoading, getOwnRecipes, getOwnRecipesCount } from 'redux/ownRecipes/own-selectors';
+import {
+  deleteOwnRecipes,
+  getAllOwnRecipes,
+} from 'redux/ownRecipes/own-operation';
+import { MyRecipesContainer } from './MyRecipesList.styled';
+import { scrollToTop } from '../utils/scrollToTop';
 
-import { RecipeItem } from 'components/Common';
+export const MyRecipesList = () => {
+  const dispatch = useDispatch();
+  const [paginationPage, setPaginationPage] = useState(1);
+  const [per_page] = useState(10);
 
-// import { getAllOwnRecipes } from 'redux/recipes/recipe-operation';
-import recipesData from '../../mocks/recipes.json';
-import { MyRecipesContainer } from './MyRecipesList.module';
+  const myRecipes = useSelector(getOwnRecipes);
+  const isLoading = useSelector(getIsLoading);
+  const total = useSelector(getOwnRecipesCount);
 
-export default function MyRecipesList() {
-  // eslint-disable-next-line no-unused-vars
-  const [recipes, setRecipes] = useState(recipesData);
-  //   console.log(`🚀 ~ MyRecipesPage ~ recipe:`, recipes);
-  //   const myRecipes = useSelector(getAllOwnRecipes);
-
-  //   const { title, description, time, thumb, ingredients, instructions, _id } =
-  //     recipes;
+  const pagesCount = Math.ceil(total / per_page);
 
   useEffect(() => {
+    dispatch(getAllOwnRecipes({ page: paginationPage - 1, pageSize: per_page }));
+  }, [dispatch, paginationPage, per_page]);
+
+  const handleDelete = id => {
+    dispatch(deleteOwnRecipes(id));
+    dispatch(getAllOwnRecipes({ page: paginationPage - 1, pageSize: per_page }));
+  };
+
+  const handlePaginationClick = event => {
     scrollToTop();
-  }, []);
+    setPaginationPage(event);
+  };
 
   return (
     <>
-      <MyRecipesContainer>
-        {recipes.map(itemProps => {
-          return (
-            <RecipeItem
-              //   remove={removeRecipe}
-              key={itemProps._id.$oid}
-              id={itemProps._id.$oid}
-              img={itemProps.thumb}
-              title={itemProps.title}
-              description={itemProps.description}
-              time={itemProps.time}
-            />
-          );
-        })}
-      </MyRecipesContainer>
+      <MyRecipesContainer id="MyRecipesContainer">
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            {myRecipes?.map(
+              ({
+                _id,
+                title,
+                description,
+                thumb,
+                instructions,
+                ingredients,
+                time,
+              }) => {
+                return (
+                  <RecipeItem
+                    key={_id}
+                    id={_id}
+                    img={thumb}
+                    title={title}
+                    description={description}
+                    time={time}
+                    instructions={instructions}
+                    ingredients={ingredients}
+                    deleteRecipe={handleDelete}
+                  />
+                );
+              }
+            )}
+            <Paginator parendContainerId="MyRecipesContainer"
+              currentPage={paginationPage}
+              pagesCount={pagesCount}
+              onPaginate={handlePaginationClick} />
+          </>
+        )}
+      </MyRecipesContainer >
     </>
   );
 }
