@@ -24,19 +24,7 @@ export const ModalWindow = styled.div`
   border-radius: 30px;
 
   &.userLogoModal {
-    position: absolute;
-    top: 72px;
-    right: 50px;
     background-color: ${props => props.theme.colors.logoModalBg};
-
-    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-      top: 78px;
-      right: 128px;
-    }
-    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-      top: 96px;
-      right: 180px;
-    }
     .closeBtn {
       display: none;
     }

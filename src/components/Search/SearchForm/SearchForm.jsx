@@ -8,7 +8,6 @@ import Button from '../../Button/Button';
 import { Form } from './SearchForm.styled'
 
 export const SearchForm = ({id}) => {
-
   const currentQuery = useSelector(selectQuery);
   const [searchQuery, setSearchQuery] = useState(currentQuery ||'');
   const navigate = useNavigate();
