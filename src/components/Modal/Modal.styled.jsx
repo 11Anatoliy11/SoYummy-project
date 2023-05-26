@@ -20,8 +20,15 @@ export const Overlay = styled.div`
 
 export const ModalWindow = styled.div`
   position: relative;
+  width: 330px;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+      width: 480px;
+    }
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+      width: 500px;
+    }
 
   &.userLogoModal {
     background-color: ${props => props.theme.colors.logoModalBg};
