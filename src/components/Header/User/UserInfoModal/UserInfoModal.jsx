@@ -48,7 +48,7 @@ export const UserInfoModal = ({ onClose }) => {
           <Button
             className="changeBtn"
             type="submit"
-            width="282px"
+            width="100%"
             height="49px"
             border="none"
             borderRadius="6px"

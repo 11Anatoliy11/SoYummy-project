@@ -91,15 +91,15 @@ svg {
   fill: currentColor;
 }
 
- .MuiAutocomplete-popper{
+.MuiAutocomplete-popper {
   & .MuiAutocomplete-paper {
-  font-family: 'poppins';
-  font-size: 14px;
-  font-weight: 400;
-  line-height: calc(27 / 18);
-  background-color: '#8BAA36';
+    font-family: 'poppins';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: calc(27 / 18);
+    background-color: '#8BAA36';
+  }
 }
-}
-.MuiAutocomplete-listbox{
+.MuiAutocomplete-listbox {
   background-color: '#8BAA36';
 }
